@@ -1,2 +1,8 @@
 # ppeGSB-LAB
-Ceci est le fichier de projet PPE GSB de Léo Marliére, Alexis Dubus et Benoit Cavrois.
+Projet de PPE "GSB" de Léo Marliére, Alexis Dubus et Benoit Cavrois.
+
+Objetif: création d'un site internet répondant au besoin de l'entreprise GSB(gestion de frais).
+
+design: BootStrap
+
+version de php: 5.4
