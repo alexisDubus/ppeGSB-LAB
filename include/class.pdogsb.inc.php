@@ -16,11 +16,12 @@
  * @link       http://www.php.net/manual/fr/book.pdo.php
  */
 
-class PdoGsb{   		
+class PdoGsb{
+
       	private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=gsbapplifrais';   		
+      	private static $bdd='dbname=gsb_frais';
       	private static $user='root' ;    		
-      	private static $mdp='' ;	
+      	//private static $mdp = 'pass';
 		private static $monPdo;
 		private static $monPdoGsb=null;
 		
@@ -29,8 +30,11 @@ class PdoGsb{
  * pour toutes les méthodes de la classe
  */				
 	private function __construct(){
-    	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, PdoGsb::$mdp); 
+		$fichier = fopen(__DIR__ .'/mdp.txt', 'r');
+		$leMdp = fgets($fichier, 9);
+    	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, $leMdp);
 		PdoGsb::$monPdo->query("SET CHARACTER SET utf8");
+
 	}
 	public function _destruct(){
 		PdoGsb::$monPdo = null;
@@ -60,6 +64,7 @@ class PdoGsb{
 		where visiteur.login='$login' and visiteur.mdp='$mdp'";
 		$rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
+		var_dump($ligne);
 		return $ligne;
 	}
 	
