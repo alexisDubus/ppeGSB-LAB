@@ -36,7 +36,6 @@ function dateFrancaisVersAnglais($maDate){
 }
 /**
  * Transforme une date au format format anglais aaaa-mm-jj vers le format français jj/mm/aaaa 
- 
  * @param $madate au format  aaaa-mm-jj
  * @return la date au format format français jj/mm/aaaa
 */
