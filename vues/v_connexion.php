@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <title>Menu d'administration du laboratoire GSB</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

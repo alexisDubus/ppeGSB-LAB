@@ -1,7 +1,7 @@
 ﻿<?php
  /**
  * Teste si un quelconque visiteur est connecté
- * @return vrai ou faux 
+ * @return boolean
  */
 function estConnecte(){
   return isset($_SESSION['idVisiteur']);
@@ -59,7 +59,8 @@ function getMois($date){
 		return $annee.$mois;
 }
 
-/* gestion des erreurs*/
+/* gestion des erreurs ============*/
+
 /**
  * Indique si une valeur est un entier positif ou nul
  

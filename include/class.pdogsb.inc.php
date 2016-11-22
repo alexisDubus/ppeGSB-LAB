@@ -19,17 +19,14 @@
 class PdoGsb{
 
       	private static $serveur='mysql:host=localhost';
-<<<<<<< HEAD
       	private static $bdd='dbname=gsb_frais';
       	private static $user='root' ;    		
       	//private static $mdp = 'pass';
-=======
-      	private static $bdd='dbname=gsb_frais';   		
-      	private static $user='root';    		
-      	private static $mdp='AzertY!59';	
->>>>>>> b0dd48fbfdfee37599b5708e360d5c65d033836a
-		private static $monPdo;
-		private static $monPdoGsb=null;
+      	//private static $bdd='dbname=gsb_frais';   		
+      	//private static $user='root';    		
+      	//private static $mdp='AzertY!59';	
+	private static $monPdo;
+	private static $monPdoGsb=null;
 		
 /**
  * Constructeur privé, crée l'instance de PDO qui sera sollicitée
@@ -70,7 +67,7 @@ class PdoGsb{
 		where visiteur.login='$login' and visiteur.mdp='$mdp'";
 		$rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
-		var_dump($ligne);
+		//var_dump($ligne);
 		return $ligne;
 	}
 	
