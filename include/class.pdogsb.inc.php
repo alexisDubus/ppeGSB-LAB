@@ -34,7 +34,7 @@ class PdoGsb{
  */				
 	private function __construct(){
 		$fichier = fopen(__DIR__ .'/mdp.txt', 'r');
-		$leMdp = fgets($fichier, 9);
+		$leMdp = fgets($fichier, 10);
     	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, $leMdp);
 		PdoGsb::$monPdo->query("SET CHARACTER SET utf8");
 
