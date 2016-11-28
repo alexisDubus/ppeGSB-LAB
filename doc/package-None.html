@@ -68,21 +68,33 @@
 
 			<h3>Functions</h3>
 			<ul>
-				<li><a href="function-ajouterErreur.html" class="invalid">ajouterErreur</a></li>
-				<li><a href="function-connecter.html" class="invalid">connecter</a></li>
-				<li><a href="function-dateAnglaisVersFrancais.html" class="invalid">dateAnglaisVersFrancais</a></li>
-				<li><a href="function-dateFrancaisVersAnglais.html" class="invalid">dateFrancaisVersAnglais</a></li>
-				<li><a href="function-deconnecter.html" class="invalid">deconnecter</a></li>
-				<li><a href="function-estConnecte.html" class="invalid">estConnecte</a></li>
-				<li><a href="function-estDateDepassee.html" class="invalid">estDateDepassee</a></li>
-				<li><a href="function-estDateValide.html" class="invalid">estDateValide</a></li>
-				<li><a href="function-estEntierPositif.html" class="invalid">estEntierPositif</a></li>
-				<li><a href="function-estTableauEntiers.html" class="invalid">estTableauEntiers</a></li>
+				<li><a href="function-ajouterErreur.html">ajouterErreur</a></li>
+				<li><a href="function-connecter.html">connecter</a></li>
+				<li><a href="function-creationFichesFrais.html">creationFichesFrais</a></li>
+				<li><a href="function-creationFraisForfait.html">creationFraisForfait</a></li>
+				<li><a href="function-creationFraisHorsForfait.html">creationFraisHorsForfait</a></li>
+				<li><a href="function-dateAnglaisVersFrancais.html">dateAnglaisVersFrancais</a></li>
+				<li><a href="function-dateFrancaisVersAnglais.html">dateFrancaisVersAnglais</a></li>
+				<li><a href="function-deconnecter.html">deconnecter</a></li>
+				<li><a href="function-estConnecte.html">estConnecte</a></li>
+				<li><a href="function-estDateDepassee.html">estDateDepassee</a></li>
+				<li><a href="function-estDateValide.html">estDateValide</a></li>
+				<li><a href="function-estEntierPositif.html">estEntierPositif</a></li>
+				<li><a href="function-estTableauEntiers.html">estTableauEntiers</a></li>
 				<li><a href="function-fnReadDir.html">fnReadDir</a></li>
+				<li><a href="function-getDernierMois.html">getDernierMois</a></li>
+				<li><a href="function-getDesFraisHorsForfait.html">getDesFraisHorsForfait</a></li>
+				<li><a href="function-getLesFichesFrais.html">getLesFichesFrais</a></li>
+				<li><a href="function-getLesIdFraisForfait.html">getLesIdFraisForfait</a></li>
+				<li><a href="function-getLesVisiteurs.html">getLesVisiteurs</a></li>
 				<li><a href="function-getMois.html" class="invalid">getMois</a></li>
-				<li><a href="function-lesQteFraisValides.html" class="invalid">lesQteFraisValides</a></li>
-				<li><a href="function-nbErreurs.html" class="invalid">nbErreurs</a></li>
-				<li><a href="function-valideInfosFrais.html" class="invalid">valideInfosFrais</a></li>
+				<li><a href="function-getMoisPrecedent.html">getMoisPrecedent</a></li>
+				<li><a href="function-getMoisSuivant.html">getMoisSuivant</a></li>
+				<li><a href="function-lesQteFraisValides.html">lesQteFraisValides</a></li>
+				<li><a href="function-majFicheFrais.html">majFicheFrais</a></li>
+				<li><a href="function-nbErreurs.html">nbErreurs</a></li>
+				<li><a href="function-updateMdpVisiteur.html">updateMdpVisiteur</a></li>
+				<li><a href="function-valideInfosFrais.html">valideInfosFrais</a></li>
 			</ul>
 		</div>
 	</div>
@@ -150,64 +162,118 @@
 <table class="summary" id="functions">
 <caption>Functions summary</caption>
 <tr>
-	<td class="name"><a href="function-ajouterErreur.html" class="invalid">ajouterErreur</a></td>
-	<td></td>
+	<td class="name"><a href="function-ajouterErreur.html">ajouterErreur</a></td>
+	<td>Ajoute le libellÃ© d'une erreur au tableau des erreurs</td>
 </tr>
 <tr>
-	<td class="name"><a href="function-connecter.html" class="invalid">connecter</a></td>
-	<td></td>
+	<td class="name"><a href="function-connecter.html">connecter</a></td>
+	<td>Enregistre dans une variable session les infos d'un visiteur</td>
 </tr>
 <tr>
-	<td class="name"><a href="function-dateAnglaisVersFrancais.html" class="invalid">dateAnglaisVersFrancais</a></td>
-	<td></td>
+	<td class="name"><a href="function-creationFichesFrais.html">creationFichesFrais</a></td>
+	<td><p>Créé des fiches de frais sur les utilisateurs ayant déja des fiches de frais
+le mois, le nombre de Justificatifs, le montant validé, la date de modification et l'id etat sont créé de facon aléatoire</p></td>
 </tr>
 <tr>
-	<td class="name"><a href="function-dateFrancaisVersAnglais.html" class="invalid">dateFrancaisVersAnglais</a></td>
-	<td></td>
+	<td class="name"><a href="function-creationFraisForfait.html">creationFraisForfait</a></td>
+	<td><p>Créé des lignes de frais forfait
+Le mois, l'id de frais forfait et la quantité sont générés aléatoirement</p></td>
 </tr>
 <tr>
-	<td class="name"><a href="function-deconnecter.html" class="invalid">deconnecter</a></td>
-	<td></td>
+	<td class="name"><a href="function-creationFraisHorsForfait.html">creationFraisHorsForfait</a></td>
+	<td><p>Créé des lignes de frais hors forfait
+Le mois, le libelle, la date et le montant sot générés aléatoirement</p></td>
 </tr>
 <tr>
-	<td class="name"><a href="function-estConnecte.html" class="invalid">estConnecte</a></td>
-	<td></td>
+	<td class="name"><a href="function-dateAnglaisVersFrancais.html">dateAnglaisVersFrancais</a></td>
+	<td>Transforme une date au format format anglais aaaa-mm-jj vers le format franÃ§ais jj/mm/aaaa</td>
 </tr>
 <tr>
-	<td class="name"><a href="function-estDateDepassee.html" class="invalid">estDateDepassee</a></td>
-	<td></td>
+	<td class="name"><a href="function-dateFrancaisVersAnglais.html">dateFrancaisVersAnglais</a></td>
+	<td>Transforme une date au format franÃ§ais jj/mm/aaaa vers le format anglais aaaa-mm-jj</td>
 </tr>
 <tr>
-	<td class="name"><a href="function-estDateValide.html" class="invalid">estDateValide</a></td>
-	<td></td>
+	<td class="name"><a href="function-deconnecter.html">deconnecter</a></td>
+	<td>DÃ©truit la session active</td>
 </tr>
 <tr>
-	<td class="name"><a href="function-estEntierPositif.html" class="invalid">estEntierPositif</a></td>
-	<td></td>
+	<td class="name"><a href="function-estConnecte.html">estConnecte</a></td>
+	<td>Teste si un quelconque visiteur est connectÃ©</td>
 </tr>
 <tr>
-	<td class="name"><a href="function-estTableauEntiers.html" class="invalid">estTableauEntiers</a></td>
-	<td></td>
+	<td class="name"><a href="function-estDateDepassee.html">estDateDepassee</a></td>
+	<td>VÃ©rifie si une date est infÃ©rieure d'un an Ã  la date actuelle</td>
+</tr>
+<tr>
+	<td class="name"><a href="function-estDateValide.html">estDateValide</a></td>
+	<td>VÃ©rifie la validitÃ© du format d'une date franÃ§aise jj/mm/aaaa</td>
+</tr>
+<tr>
+	<td class="name"><a href="function-estEntierPositif.html">estEntierPositif</a></td>
+	<td>Indique si une valeur est un entier positif ou nul</td>
+</tr>
+<tr>
+	<td class="name"><a href="function-estTableauEntiers.html">estTableauEntiers</a></td>
+	<td>Indique si un tableau de valeurs est constituÃ© d'entiers positifs ou nuls</td>
 </tr>
 <tr>
 	<td class="name"><a href="function-fnReadDir.html">fnReadDir</a></td>
 	<td></td>
 </tr>
 <tr>
+	<td class="name"><a href="function-getDernierMois.html">getDernierMois</a></td>
+	<td>Retourne le dernier mois du visiteur donné en paramétre</td>
+</tr>
+<tr>
+	<td class="name"><a href="function-getDesFraisHorsForfait.html">getDesFraisHorsForfait</a></td>
+	<td><p>Retourne un tableau avec des données utilisé par les autres fonction pour
+créer des fiches de frais</p></td>
+</tr>
+<tr>
+	<td class="name"><a href="function-getLesFichesFrais.html">getLesFichesFrais</a></td>
+	<td>Retourne toutes les fiches de frais</td>
+</tr>
+<tr>
+	<td class="name"><a href="function-getLesIdFraisForfait.html">getLesIdFraisForfait</a></td>
+	<td>Retourne les Id de frais forfait, ordonné par ordre alphabétique</td>
+</tr>
+<tr>
+	<td class="name"><a href="function-getLesVisiteurs.html">getLesVisiteurs</a></td>
+	<td>Retourne tout les visiteurs</td>
+</tr>
+<tr>
 	<td class="name"><a href="function-getMois.html" class="invalid">getMois</a></td>
 	<td></td>
 </tr>
 <tr>
-	<td class="name"><a href="function-lesQteFraisValides.html" class="invalid">lesQteFraisValides</a></td>
-	<td></td>
+	<td class="name"><a href="function-getMoisPrecedent.html">getMoisPrecedent</a></td>
+	<td>Retourne l'année actuelle et le mois précédent le tout concaténée en un seul bloc</td>
 </tr>
 <tr>
-	<td class="name"><a href="function-nbErreurs.html" class="invalid">nbErreurs</a></td>
-	<td></td>
+	<td class="name"><a href="function-getMoisSuivant.html">getMoisSuivant</a></td>
+	<td>Retourne l'année actuelle et le mois suivant le tout concaténée en un seul bloc</td>
 </tr>
 <tr>
-	<td class="name"><a href="function-valideInfosFrais.html" class="invalid">valideInfosFrais</a></td>
-	<td></td>
+	<td class="name"><a href="function-lesQteFraisValides.html">lesQteFraisValides</a></td>
+	<td>VÃ©rifie que le tableau de frais ne contient que des valeurs numÃ©riques</td>
+</tr>
+<tr>
+	<td class="name"><a href="function-majFicheFrais.html">majFicheFrais</a></td>
+	<td><p>Effectue une mise a jour des frais pour chaque utilisateur(s)
+ayant au moins une fiche de frais forfait</p></td>
+</tr>
+<tr>
+	<td class="name"><a href="function-nbErreurs.html">nbErreurs</a></td>
+	<td>Retoune le nombre de lignes du tableau des erreurs</td>
+</tr>
+<tr>
+	<td class="name"><a href="function-updateMdpVisiteur.html">updateMdpVisiteur</a></td>
+	<td><p>Permet de modifier le mot de passe d'un utilisateur
+Le nouveau mot de passe est créer automatiqument.</p></td>
+</tr>
+<tr>
+	<td class="name"><a href="function-valideInfosFrais.html">valideInfosFrais</a></td>
+	<td>VÃ©rifie la validitÃ© des trois arguments : la date, le libellÃ© du frais et le montant</td>
 </tr>
 </table>
 </div>
@@ -218,6 +284,6 @@
 </div>
 </div>
 <script src="resources/combined.js?cd021bc814832c24a7cec5319ea03335bfba1caf"></script>
-<script src="elementlist.js?86fda12d53b93489f1050a6fa6874c3714cf3a19"></script>
+<script src="elementlist.js?364fb370aee78d67df06e4cb04b21088d64700a9"></script>
 </body>
 </html>
