@@ -19,7 +19,7 @@
 class PdoGsb{
 
     private static $serveur='mysql:host=localhost';
-    private static $bdd='dbname=gsb_frais';
+    private static $bdd='dbname=gsb_fr';
     private static $user='LAB' ;    		
 
       	//private static $bdd='dbname=gsb_frais';   		
