@@ -18,10 +18,10 @@
 
 class PdoGsb{
 
-      	private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=gsb_frais';
-      	private static $user='root' ;    		
-      	//private static $mdp = 'pass';
+    private static $serveur='mysql:host=localhost';
+    private static $bdd='dbname=gsb_frais';
+    private static $user='LAB' ;    		
+
       	//private static $bdd='dbname=gsb_frais';   		
       	//private static $user='root';    		
       	//private static $mdp='AzertY!59';	
@@ -34,7 +34,8 @@ class PdoGsb{
  */				
 	private function __construct(){
 		$fichier = fopen(__DIR__ .'/mdp.txt', 'r');
-		$leMdp = fgets($fichier, 9);
+		//$leMdp = fgets($fichier, 9);
+		$leMdp = "root";
     	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, $leMdp);
 		PdoGsb::$monPdo->query("SET CHARACTER SET utf8");
 
