@@ -1,6 +1,5 @@
 ﻿<?php
 
-
 if(!isset($_REQUEST['action'])){
 	$_REQUEST['action'] = 'demandeConnexion';
 }
@@ -9,6 +8,7 @@ switch($action){
 	case 'demandeConnexion':{
 		include("vues/v_connexion.php");
 		break;
+	
 	}
 	case 'valideConnexion':{
 		$login = $_REQUEST['login'];
