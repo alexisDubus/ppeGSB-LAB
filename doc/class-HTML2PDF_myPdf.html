@@ -1,0 +1,3051 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class HTML2PDF_myPdf</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Packages</h3>
+			<ul>
+				<li>
+					<a href="package-com.html">
+						com<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="package-com.tecnick.html">
+						tecnick<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="package-com.tecnick.tcpdf.html">
+						tcpdf					</a>
+
+						</li>
+							</ul></li></ul></li>
+				<li>
+					<a href="package-default.html">
+						default					</a>
+
+						</li>
+				<li>
+					<a href="package-None.html">
+						None					</a>
+
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-HTML2PDF_myPdf.html">HTML2PDF_myPdf</a></li>
+				<li><a href="class-QRcode.html">QRcode</a></li>
+				<li><a href="class-TCPDF.html">TCPDF</a></li>
+				<li><a href="class-TCPDF2DBarcode.html">TCPDF2DBarcode</a></li>
+				<li><a href="class-TCPDFBarcode.html">TCPDFBarcode</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-CheckTTF.html">CheckTTF</a></li>
+				<li><a href="function-MakeFont.html">MakeFont</a></li>
+				<li><a href="function-MakeFontDescriptor.html">MakeFontDescriptor</a></li>
+				<li><a href="function-MakeFontEncoding.html">MakeFontEncoding</a></li>
+				<li><a href="function-MakeWidthArray.html">MakeWidthArray</a></li>
+				<li><a href="function-ReadAFM.html">ReadAFM</a></li>
+				<li><a href="function-ReadLong.html">ReadLong</a></li>
+				<li><a href="function-ReadMap.html">ReadMap</a></li>
+				<li><a href="function-ReadShort.html">ReadShort</a></li>
+				<li><a href="function-ReadUFM.html">ReadUFM</a></li>
+				<li><a href="function-SaveToFile.html">SaveToFile</a></li>
+				<li><a href="function-str_split.html">str_split</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+<span>Package</span>			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class HTML2PDF_myPdf</h1>
+
+
+	<div class="description">
+	<p>This is a PHP class for generating PDF documents without requiring external extensions.<br>
+TCPDF project (http://www.tcpdf.org) has been originally derived in 2002 from the Public Domain FPDF class by Olivier Plathey (http://www.fpdf.org), but now is almost entirely rewritten.<br></p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-TCPDF.html"><span>TCPDF</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>HTML2PDF_myPdf</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Package:</b> <a href="package-com.html">com</a>\<a href="package-com.tecnick.html">tecnick</a>\<a href="package-com.tecnick.tcpdf.html">tcpdf</a><br>
+
+				<b>License:</b>
+				<a href="http://www.gnu.org/copyleft/lesser.html">LGPL</a><br>
+				<b>Author:</b>
+				Nicola Asuni - info@tecnick.com<br>
+				<b>Version:</b>
+				5.0.002<br>
+				<b>Link:</b>
+				<a href="http://www.tcpdf.org">http://www.tcpdf.org</a><br>
+			<b>Located at</b> <a href="source-class-HTML2PDF_myPdf.html#15-1415" title="Go to source code">vues/html2pdf/_class/myPdf.class.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#28-61" title="Go to source code">__construct</a>( <span>string <var>$orientation</var> = <span class="php-quote">'P'</span></span>, <span>string <var>$unit</var> = <span class="php-quote">'mm'</span></span>, <span>mixed <var>$format</var> = <span class="php-quote">'A4'</span></span>, <span>boolean <var>$unicode</var> = <span class="php-keyword1">true</span></span>, <span>String <var>$encoding</var> = <span class="php-quote">'UTF-8'</span></span>, <span>boolean <var>$diskcache</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>class constructor</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>class constructor</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$orientation</var></dt>
+					<dd>page orientation, same as TCPDF</dd>
+					<dt><var>$unit</var></dt>
+					<dd>User measure unit, same as TCPDF</dd>
+					<dt><var>$format</var></dt>
+					<dd>The format used for pages, same as TCPDF</dd>
+					<dt><var>$unicode</var></dt>
+					<dd>TRUE means that the input text is unicode (default = true)</dd>
+					<dt><var>$encoding</var></dt>
+					<dd>charset encoding; default is UTF-8</dd>
+					<dt><var>$diskcache</var></dt>
+					<dd>if TRUE reduce the RAM memory usage by caching temporary data on filesystem (slower).</dd>
+				</dl></div>
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-TCPDF.html#___construct">TCPDF::__construct()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="SetMyFooter" id="_SetMyFooter">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_SetMyFooter">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#63-80" title="Go to source code">SetMyFooter</a>( <span>boolean <var>$page</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$date</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$hour</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$form</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>Set the parameters for the automatic footer</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the parameters for the automatic footer</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$page</var></dt>
+					<dd>display the page number</dd>
+					<dt><var>$date</var></dt>
+					<dd>display the date</dd>
+					<dt><var>$hour</var></dt>
+					<dd>display the hour</dd>
+					<dt><var>$form</var></dt>
+					<dd>display a warning abour forms</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="Footer" id="_Footer">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_Footer">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#82-127" title="Go to source code">Footer</a>( )</code>
+
+		<div class="description short">
+			<p>This function is call automatically by TCPDF at the end of a page
+It takes no parameters</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>This function is call automatically by TCPDF at the end of a page
+It takes no parameters</p>
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-TCPDF.html#_Footer">TCPDF::Footer()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="cloneFontFrom" id="_cloneFontFrom">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_cloneFontFrom">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#129-146" title="Go to source code">cloneFontFrom</a>( <span>&amp;HTML2PDF_myPdf <var>&amp; $pdf</var></span> )</code>
+
+		<div class="description short">
+			<p>after cloning a object, we does not want to clone all the front informations
+because it take a lot a time and a lot of memory => we use reference</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>after cloning a object, we does not want to clone all the front informations
+because it take a lot a time and a lot of memory => we use reference</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$pdf</var></dt>
+					<dd>object</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getFonts" id="_getFonts">
+
+		<td class="attributes"><code>
+			 public 
+
+			&amp;array
+			&amp;
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getFonts">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#148-158" title="Go to source code">getFonts</a>( )</code>
+
+		<div class="description short">
+			<p>multiple public accessor for some private attributs
+used only by cloneFontFrom</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>multiple public accessor for some private attributs
+used only by cloneFontFrom</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					&amp;array
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getFontFiles" id="_getFontFiles">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			&amp;
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getFontFiles">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#159-162" title="Go to source code">getFontFiles</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDiffs" id="_getDiffs">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			&amp;
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDiffs">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#163-166" title="Go to source code">getDiffs</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getFontList" id="_getFontList">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			&amp;
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getFontList">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#167-170" title="Go to source code">getFontList</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getNumFonts" id="_getNumFonts">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			&amp;
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getNumFonts">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#171-174" title="Go to source code">getNumFonts</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getFontKeys" id="_getFontKeys">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			&amp;
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getFontKeys">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#175-178" title="Go to source code">getFontKeys</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getFontObjIds" id="_getFontObjIds">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			&amp;
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getFontObjIds">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#179-182" title="Go to source code">getFontObjIds</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAnnotFonts" id="_getAnnotFonts">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			&amp;
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAnnotFonts">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#183-186" title="Go to source code">getAnnotFonts</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isLoadedFont" id="_isLoadedFont">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isLoadedFont">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#188-206" title="Go to source code">isLoadedFont</a>( <span>string <var>$fontKey</var></span> )</code>
+
+		<div class="description short">
+			<p>Verify that a Font is already loaded</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Verify that a Font is already loaded</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$fontKey</var></dt>
+					<dd>Key</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getWordSpacing" id="_getWordSpacing">
+
+		<td class="attributes"><code>
+			 public 
+
+			float
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getWordSpacing">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#208-217" title="Go to source code">getWordSpacing</a>( )</code>
+
+		<div class="description short">
+			<p>Get the Word Spacing</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the Word Spacing</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					float<br>word spacing
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setWordSpacing" id="_setWordSpacing">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setWordSpacing">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#219-229" title="Go to source code">setWordSpacing</a>( <span>float <var>$ws</var> = <span class="php-num">0</span>.</span> )</code>
+
+		<div class="description short">
+			<p>set the Word Spacing</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>set the Word Spacing</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ws</var></dt>
+					<dd>spacing</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="clippingPathStart" id="_clippingPathStart">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_clippingPathStart">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#231-361" title="Go to source code">clippingPathStart</a>( <span>float <var>$x</var> = <span class="php-keyword1">null</span></span>, <span>float <var>$y</var> = <span class="php-keyword1">null</span></span>, <span>float <var>$w</var> = <span class="php-keyword1">null</span></span>, <span>float <var>$h</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$cornerTL</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$cornerTR</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$cornerBL</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$cornerBR</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>start to use a rectangular Cliping Path with radius corners</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>start to use a rectangular Cliping Path with radius corners</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$x</var></dt>
+					<dd>(top left corner)</dd>
+					<dt><var>$y</var></dt>
+					<dd>(top left corner)</dd>
+					<dt><var>$w</var></dt>
+					<dd>(x+w  = botom rigth corner)</dd>
+					<dt><var>$h</var></dt>
+					<dd>(y+h = botom rigth corner)</dd>
+					<dt><var>$cornerTL</var></dt>
+					<dd>radius of the Top Left corner</dd>
+					<dt><var>$cornerTR</var></dt>
+					<dd>radius of the Top Right corner</dd>
+					<dt><var>$cornerBL</var></dt>
+					<dd>radius of the Bottom Left corner</dd>
+					<dt><var>$cornerBR</var></dt>
+					<dd>radius of the Bottom Right corner</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="clippingPathStop" id="_clippingPathStop">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_clippingPathStop">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#363-371" title="Go to source code">clippingPathStop</a>( )</code>
+
+		<div class="description short">
+			<p>stop to use the Cliping Path</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>stop to use the Cliping Path</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="drawCurve" id="_drawCurve">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_drawCurve">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#373-444" title="Go to source code">drawCurve</a>( <span>float <var>$ext1X</var></span>, <span>float <var>$ext1Y</var></span>, <span>float <var>$ext2X</var></span>, <span>float <var>$ext2Y</var></span>, <span>float <var>$int1X</var></span>, <span>float <var>$int1Y</var></span>, <span>float <var>$int2X</var></span>, <span>float <var>$int2Y</var></span>, <span>float <var>$cenX</var></span>, <span>float <var>$cenY</var></span> )</code>
+
+		<div class="description short">
+			<p>draw a filled corner of a border with a external and a internal radius
+        /--------+ ext2
+       /         |
+      /  /-------+ int2
+     /  /
+     | /
+     | |
+     | |
+ext1 +-+ int1        + cen</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>draw a filled corner of a border with a external and a internal radius /--------+ ext2 /         | /  /-------+ int2 /  / | / | | | |
+ext1 +-+ int1        + cen</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ext1X</var></dt>
+					<dd></dd>
+					<dt><var>$ext1Y</var></dt>
+					<dd></dd>
+					<dt><var>$ext2X</var></dt>
+					<dd></dd>
+					<dt><var>$ext2Y</var></dt>
+					<dd></dd>
+					<dt><var>$int1X</var></dt>
+					<dd></dd>
+					<dt><var>$int1Y</var></dt>
+					<dd></dd>
+					<dt><var>$int2X</var></dt>
+					<dd></dd>
+					<dt><var>$int2Y</var></dt>
+					<dd></dd>
+					<dt><var>$cenX</var></dt>
+					<dd></dd>
+					<dt><var>$cenY</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="drawCorner" id="_drawCorner">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_drawCorner">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#446-501" title="Go to source code">drawCorner</a>( <span>float <var>$ext1X</var></span>, <span>float <var>$ext1Y</var></span>, <span>float <var>$ext2X</var></span>, <span>float <var>$ext2Y</var></span>, <span>float <var>$intX</var></span>, <span>float <var>$intY</var></span>, <span>float <var>$cenX</var></span>, <span>float <var>$cenY</var></span> )</code>
+
+		<div class="description short">
+			<p>draw a filled corner of a border with only a external radius
+        /--+ ext2
+       /   |
+      /    |
+     /     |
+     |     |
+     |     |
+     |     |
+ext1 +-----+ int      + cen</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>draw a filled corner of a border with only a external radius /--+ ext2 /   | /    | /     | |     | |     | |     |
+ext1 +-----+ int      + cen</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ext1X</var></dt>
+					<dd></dd>
+					<dt><var>$ext1Y</var></dt>
+					<dd></dd>
+					<dt><var>$ext2X</var></dt>
+					<dd></dd>
+					<dt><var>$ext2Y</var></dt>
+					<dd></dd>
+					<dt><var>$intX</var></dt>
+					<dd></dd>
+					<dt><var>$intY</var></dt>
+					<dd></dd>
+					<dt><var>$cenX</var></dt>
+					<dd></dd>
+					<dt><var>$cenY</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="startTransform" id="_startTransform">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_startTransform">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#503-511" title="Go to source code">startTransform</a>( )</code>
+
+		<div class="description short">
+			<p>Start a transformation</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Start a transformation</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="stopTransform" id="_stopTransform">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_stopTransform">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#513-521" title="Go to source code">stopTransform</a>( )</code>
+
+		<div class="description short">
+			<p>Stop a transformation</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Stop a transformation</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setTranslate" id="_setTranslate">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setTranslate">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#523-542" title="Go to source code">setTranslate</a>( <span>float <var>$xT</var></span>, <span>float <var>$yT</var></span> )</code>
+
+		<div class="description short">
+			<p>add a Translate transformation</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>add a Translate transformation</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$xT</var></dt>
+					<dd>$Tx</dd>
+					<dt><var>$yT</var></dt>
+					<dd>$Ty</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setRotation" id="_setRotation">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setRotation">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#544-572" title="Go to source code">setRotation</a>( <span>float <var>$angle</var></span>, <span>float <var>$xC</var> = <span class="php-keyword1">null</span></span>, <span>float <var>$yC</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>add a Rotate transformation</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>add a Rotate transformation</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$angle</var></dt>
+					<dd></dd>
+					<dt><var>$xC</var></dt>
+					<dd>$Cx</dd>
+					<dt><var>$yC</var></dt>
+					<dd>$Cy</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="SetX" id="_SetX">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_SetX">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#574-585" title="Go to source code">SetX</a>( <span>float <var>$x</var></span>, <span>boolean <var>$rtloff</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>we redifine the original SetX method, because we don't want the automatic treatment.
+It is HTML2PDF that make the treatment</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>we redifine the original SetX method, because we don't want the automatic treatment.
+It is HTML2PDF that make the treatment</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$x</var></dt>
+					<dd></dd>
+					<dt><var>$rtloff</var></dt>
+					<dd>NOT USED</dd>
+				</dl></div>
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-TCPDF.html#_SetX">TCPDF::SetX()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="SetY" id="_SetY">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_SetY">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#587-602" title="Go to source code">SetY</a>( <span>float <var>$y</var></span>, <span>boolean <var>$resetx</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$rtloff</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>we redifine the original SetY method, because we don't want the automatic treatment.
+It is HTML2PDF that make the treatment</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>we redifine the original SetY method, because we don't want the automatic treatment.
+It is HTML2PDF that make the treatment</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$y</var></dt>
+					<dd></dd>
+					<dt><var>$resetx</var></dt>
+					<dd>Reset the X position</dd>
+					<dt><var>$rtloff</var></dt>
+					<dd>NOT USED</dd>
+				</dl></div>
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-TCPDF.html#_SetY">TCPDF::SetY()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="SetXY" id="_SetXY">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_SetXY">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#604-617" title="Go to source code">SetXY</a>( <span>integer <var>$x</var></span>, <span>integer <var>$y</var></span>, <span>boolean <var>$rtloff</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>we redifine the original SetXY method, because we don't want the automatic treatment.
+It is HTML2PDF that make the treatment</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>we redifine the original SetXY method, because we don't want the automatic treatment.
+It is HTML2PDF that make the treatment</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$x</var></dt>
+					<dd></dd>
+					<dt><var>$y</var></dt>
+					<dd></dd>
+					<dt><var>$rtloff</var></dt>
+					<dd>NOT USED</dd>
+				</dl></div>
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-TCPDF.html#_SetXY">TCPDF::SetXY()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getK" id="_getK">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getK">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#619-629" title="Go to source code">getK</a>( )</code>
+
+		<div class="description short">
+			<p>multiple public accessor because HTML2PDF need to use TCPDF without being a extend of it</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>multiple public accessor because HTML2PDF need to use TCPDF without being a extend of it</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getW" id="_getW">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getW">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#630-633" title="Go to source code">getW</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getH" id="_getH">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getH">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#634-637" title="Go to source code">getH</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getlMargin" id="_getlMargin">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getlMargin">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#638-641" title="Go to source code">getlMargin</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getrMargin" id="_getrMargin">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getrMargin">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#642-645" title="Go to source code">getrMargin</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="gettMargin" id="_gettMargin">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_gettMargin">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#646-649" title="Go to source code">gettMargin</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getbMargin" id="_getbMargin">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getbMargin">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#650-653" title="Go to source code">getbMargin</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setbMargin" id="_setbMargin">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setbMargin">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#654-657" title="Go to source code">setbMargin</a>( <span> <var>$v</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="svgSetStyle" id="_svgSetStyle">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_svgSetStyle">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#659-690" title="Go to source code">svgSetStyle</a>( <span>array <var>$styles</var></span> )</code>
+
+		<div class="description short">
+			<p>SVG - Convert a SVG Style in PDF Style</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>SVG - Convert a SVG Style in PDF Style</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$styles</var></dt>
+					<dd>SVG Style</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>PDF style
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="svgRect" id="_svgRect">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_svgRect">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#692-727" title="Go to source code">svgRect</a>( <span>float <var>$x</var></span>, <span>float <var>$y</var></span>, <span>float <var>$w</var></span>, <span>float <var>$h</var></span>, <span>string <var>$style</var></span> )</code>
+
+		<div class="description short">
+			<p>SVG - make a Rectangle</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>SVG - make a Rectangle</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$x</var></dt>
+					<dd></dd>
+					<dt><var>$y</var></dt>
+					<dd></dd>
+					<dt><var>$w</var></dt>
+					<dd></dd>
+					<dt><var>$h</var></dt>
+					<dd></dd>
+					<dt><var>$style</var></dt>
+					<dd>PDF Style</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="svgLine" id="_svgLine">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_svgLine">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#729-747" title="Go to source code">svgLine</a>( <span>float <var>$x1</var></span>, <span>float <var>$y1</var></span>, <span>float <var>$x2</var></span>, <span>float <var>$y2</var></span> )</code>
+
+		<div class="description short">
+			<p>SVG - make a Line</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>SVG - make a Line</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$x1</var></dt>
+					<dd></dd>
+					<dt><var>$y1</var></dt>
+					<dd></dd>
+					<dt><var>$x2</var></dt>
+					<dd></dd>
+					<dt><var>$y2</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="svgEllipse" id="_svgEllipse">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_svgEllipse">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#749-769" title="Go to source code">svgEllipse</a>( <span>float <var>$x0</var></span>, <span>float <var>$y0</var></span>, <span>float <var>$rx</var></span>, <span>float <var>$ry</var></span>, <span>string <var>$style</var></span> )</code>
+
+		<div class="description short">
+			<p>SVG - make a Ellipse</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>SVG - make a Ellipse</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$x0</var></dt>
+					<dd>x Center</dd>
+					<dt><var>$y0</var></dt>
+					<dd>y Center</dd>
+					<dt><var>$rx</var></dt>
+					<dd>x radius</dd>
+					<dt><var>$ry</var></dt>
+					<dd>y radius</dd>
+					<dt><var>$style</var></dt>
+					<dd>PDF Style</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="svgPolygone" id="_svgPolygone">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_svgPolygone">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#771-910" title="Go to source code">svgPolygone</a>( <span>array <var>$actions</var></span>, <span>string <var>$style</var></span> )</code>
+
+		<div class="description short">
+			<p>SVG - make a Advanced Polygone</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>SVG - make a Advanced Polygone</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$actions</var></dt>
+					<dd>list of actions</dd>
+					<dt><var>$style</var></dt>
+					<dd>PDF Style</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_Point" id="__Point">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__Point">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#912-925" title="Go to source code">_Point</a>( <span>float <var>$x</var></span>, <span>float <var>$y</var></span>, <span>boolean <var>$trans</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>SVG - go to a point</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>SVG - go to a point</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$x</var></dt>
+					<dd></dd>
+					<dt><var>$y</var></dt>
+					<dd></dd>
+					<dt><var>$trans</var></dt>
+					<dd>apply transformation</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_Line" id="__Line">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__Line">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#927-940" title="Go to source code">_Line</a>( <span>float <var>$x</var></span>, <span>float <var>$y</var></span>, <span>boolean <var>$trans</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>SVG - make a line from the last point to (x,y)</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>SVG - make a line from the last point to (x,y)</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$x</var></dt>
+					<dd></dd>
+					<dt><var>$y</var></dt>
+					<dd></dd>
+					<dt><var>$trans</var></dt>
+					<dd>apply transformation</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_Curve" id="__Curve">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__Curve">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#942-962" title="Go to source code">_Curve</a>( <span>float <var>$x1</var></span>, <span>float <var>$y1</var></span>, <span>float <var>$x2</var></span>, <span>float <var>$y2</var></span>, <span>float <var>$xf</var></span>, <span>float <var>$yf</var></span>, <span>boolean <var>$trans</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>SVG - make a bezier curve from the last point to (xf,yf), with the 2 direction points (x1,y1) and (x2,y2)</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>SVG - make a bezier curve from the last point to (xf,yf), with the 2 direction points (x1,y1) and (x2,y2)</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$x1</var></dt>
+					<dd></dd>
+					<dt><var>$y1</var></dt>
+					<dd></dd>
+					<dt><var>$x2</var></dt>
+					<dd></dd>
+					<dt><var>$y2</var></dt>
+					<dd></dd>
+					<dt><var>$xf</var></dt>
+					<dd></dd>
+					<dt><var>$yf</var></dt>
+					<dd></dd>
+					<dt><var>$trans</var></dt>
+					<dd>apply transformation</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_Arc" id="__Arc">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__Arc">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#964-1032" title="Go to source code">_Arc</a>( <span>float <var>$xc</var></span>, <span>float <var>$yc</var></span>, <span>float <var>$rx</var></span>, <span>float <var>$ry</var></span>, <span>float <var>$angleBegin</var></span>, <span>float <var>$angleEnd</var></span>, <span>boolean <var>$direction</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$drawFirst</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$trans</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>SVG - make a arc with Center, Radius, from angleBegin to angleEnd</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>SVG - make a arc with Center, Radius, from angleBegin to angleEnd</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$xc</var></dt>
+					<dd></dd>
+					<dt><var>$yc</var></dt>
+					<dd></dd>
+					<dt><var>$rx</var></dt>
+					<dd></dd>
+					<dt><var>$ry</var></dt>
+					<dd></dd>
+					<dt><var>$angleBegin</var></dt>
+					<dd>in radians</dd>
+					<dt><var>$angleEnd</var></dt>
+					<dd>$angleEng in radians</dd>
+					<dt><var>$direction</var></dt>
+					<dd></dd>
+					<dt><var>$drawFirst</var></dt>
+					<dd>$drawFirst, true => add the first point</dd>
+					<dt><var>$trans</var></dt>
+					<dd>apply transformation</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_Arc2" id="__Arc2">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__Arc2">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#1034-1137" title="Go to source code">_Arc2</a>( <span>float <var>$x1</var></span>, <span>float <var>$y1</var></span>, <span>float <var>$x2</var></span>, <span>float <var>$y2</var></span>, <span>float <var>$rx</var></span>, <span>float <var>$ry</var></span>, <span>float <var>$angle</var> = <span class="php-num">0</span>.</span>, <span>boolean <var>$l</var> = <span class="php-num">0</span></span>, <span>boolean <var>$s</var> = <span class="php-num">0</span></span>, <span>boolean <var>$trans</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>SVG - make a arc from Pt1 to Pt2, with Radius</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>SVG - make a arc from Pt1 to Pt2, with Radius</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$x1</var></dt>
+					<dd></dd>
+					<dt><var>$y1</var></dt>
+					<dd></dd>
+					<dt><var>$x2</var></dt>
+					<dd></dd>
+					<dt><var>$y2</var></dt>
+					<dd></dd>
+					<dt><var>$rx</var></dt>
+					<dd></dd>
+					<dt><var>$ry</var></dt>
+					<dd></dd>
+					<dt><var>$angle</var></dt>
+					<dd>deviation angle of the axis X</dd>
+					<dt><var>$l</var></dt>
+					<dd>large-arc-flag</dd>
+					<dt><var>$s</var></dt>
+					<dd>sweep-flag</dd>
+					<dt><var>$trans</var></dt>
+					<dd>apply transformation</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ptTransform" id="_ptTransform">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ptTransform">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#1139-1165" title="Go to source code">ptTransform</a>( <span>float <var>&amp; $x</var></span>, <span>float <var>&amp; $y</var></span>, <span>boolean <var>$trans</var> = <span class="php-keyword1">true</span></span> )</code>
+
+		<div class="description short">
+			<p>SVG - transform the point (reference)</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>SVG - transform the point (reference)</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$x</var></dt>
+					<dd>$x</dd>
+					<dt><var>$y</var></dt>
+					<dd>$y</dd>
+					<dt><var>$trans</var></dt>
+					<dd>true => convert into PDF unit</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="doTransform" id="_doTransform">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_doTransform">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#1167-1192" title="Go to source code">doTransform</a>( <span>array <var>$n</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>SVG - add a transformation Matric</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>SVG - add a transformation Matric</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$n</var></dt>
+					<dd>matrix</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="undoTransform" id="_undoTransform">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_undoTransform">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#1194-1202" title="Go to source code">undoTransform</a>( )</code>
+
+		<div class="description short">
+			<p>SVG - remove a transformation Matric</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>SVG - remove a transformation Matric</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="myBarcode" id="_myBarcode">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_myBarcode">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#1204-1235" title="Go to source code">myBarcode</a>( <span>string <var>$code</var></span>, <span>string <var>$type</var></span>, <span>integer <var>$x</var></span>, <span>integer <var>$y</var></span>, <span>integer <var>$w</var></span>, <span>integer <var>$h</var></span>, <span>integer <var>$labelFontsize</var></span>, <span>array <var>$color</var></span> )</code>
+
+		<div class="description short">
+			<p>Convert a HTML2PDF barcode in a TCPDF barcode</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Convert a HTML2PDF barcode in a TCPDF barcode</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$code</var></dt>
+					<dd>code to print</dd>
+					<dt><var>$type</var></dt>
+					<dd>type of barcode (see tcpdf/barcodes.php for supported formats)</dd>
+					<dt><var>$x</var></dt>
+					<dd>x position in user units</dd>
+					<dt><var>$y</var></dt>
+					<dd>y position in user units</dd>
+					<dt><var>$w</var></dt>
+					<dd>width in user units</dd>
+					<dt><var>$h</var></dt>
+					<dd>height in user units</dd>
+					<dt><var>$labelFontsize</var></dt>
+					<dd>of the Test Label. If false : no Label</dd>
+					<dt><var>$color</var></dt>
+					<dd>color of the foreground</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createIndex" id="_createIndex">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createIndex">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#1237-1316" title="Go to source code">createIndex</a>( <span>html2pdf <var>&amp; $obj</var></span>, <span>string <var>$titre</var> = <span class="php-quote">'Index'</span></span>, <span>integer <var>$sizeTitle</var> = <span class="php-num">20</span></span>, <span>integer <var>$sizeBookmark</var> = <span class="php-num">15</span></span>, <span>boolean <var>$bookmarkTitle</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$displayPage</var> = <span class="php-keyword1">true</span></span>, <span>integer <var>$page</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$fontName</var> = <span class="php-quote">'helvetica'</span></span> )</code>
+
+		<div class="description short">
+			<p>create a automatic Index on a page</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>create a automatic Index on a page</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$obj</var></dt>
+					<dd>parent object</dd>
+					<dt><var>$titre</var></dt>
+					<dd>Title of the Index Page</dd>
+					<dt><var>$sizeTitle</var></dt>
+					<dd>Font size for hthe Title</dd>
+					<dt><var>$sizeBookmark</var></dt>
+					<dd>Font size for the bookmarks</dd>
+					<dt><var>$bookmarkTitle</var></dt>
+					<dd>Bookmark the Title</dd>
+					<dt><var>$displayPage</var></dt>
+					<dd>Display the page number for each bookmark</dd>
+					<dt><var>$page</var></dt>
+					<dd>draw the automatic Index on a specific Page. if null => add a page at the end</dd>
+					<dt><var>$fontName</var></dt>
+					<dd>FontName to use</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMyAliasNbPages" id="_getMyAliasNbPages">
+
+		<td class="attributes"><code>
+			 public 
+
+			string;
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMyAliasNbPages">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#1318-1337" title="Go to source code">getMyAliasNbPages</a>( )</code>
+
+		<div class="description short">
+			<p>Returns the string alias used for the total number of pages.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the string alias used for the total number of pages.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string;
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						<code><a href="class-TCPDF.html#_getAliasNbPages">TCPDF::getAliasNbPages()</a></code>, <code><a href="class-TCPDF.html#_getPageGroupAlias">TCPDF::getPageGroupAlias()</a></code><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMyNumPage" id="_getMyNumPage">
+
+		<td class="attributes"><code>
+			 public 
+
+			integer;
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMyNumPage">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#1339-1357" title="Go to source code">getMyNumPage</a>( <span>integer <var>$page</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Returns the current page number.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the current page number.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$page</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer;
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="myStartPageGroup" id="_myStartPageGroup">
+
+		<td class="attributes"><code>
+			 public 
+
+			integer;
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_myStartPageGroup">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#1359-1370" title="Go to source code">myStartPageGroup</a>( )</code>
+
+		<div class="description short">
+			<p>Start a new group of pages</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Start a new group of pages</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer;
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						tcpdf::startPageGroup<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMyLastPageGroup" id="_getMyLastPageGroup">
+
+		<td class="attributes"><code>
+			 public 
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMyLastPageGroup">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#1372-1381" title="Go to source code">getMyLastPageGroup</a>( )</code>
+
+		<div class="description short">
+			<p>get $_myLastPageGroup;</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>get $_myLastPageGroup;</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer<br>$_myLastPageGroup;
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMyLastPageGroup" id="_setMyLastPageGroup">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMyLastPageGroup">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#1383-1392" title="Go to source code">setMyLastPageGroup</a>( <span>integer <var>$myLastPageGroup</var></span> )</code>
+
+		<div class="description short">
+			<p>set $_myLastPageGroup;</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>set $_myLastPageGroup;</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$myLastPageGroup</var></dt>
+					<dd>$myLastPageGroup;</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMyLastPageGroupNb" id="_getMyLastPageGroupNb">
+
+		<td class="attributes"><code>
+			 public 
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMyLastPageGroupNb">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#1394-1403" title="Go to source code">getMyLastPageGroupNb</a>( )</code>
+
+		<div class="description short">
+			<p>get $_myLastPageGroupNb;</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>get $_myLastPageGroupNb;</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer<br>$_myLastPageGroupNb;
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMyLastPageGroupNb" id="_setMyLastPageGroupNb">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMyLastPageGroupNb">#</a>
+		<code><a href="source-class-HTML2PDF_myPdf.html#1405-1414" title="Go to source code">setMyLastPageGroupNb</a>( <span>integer <var>$myLastPageGroupNb</var></span> )</code>
+
+		<div class="description short">
+			<p>set $_myLastPageGroupNb;</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>set $_myLastPageGroupNb;</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$myLastPageGroupNb</var></dt>
+					<dd>$myLastPageGroupNb;</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-TCPDF.html#methods">TCPDF</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-TCPDF.html#_AcceptPageBreak">AcceptPageBreak()</a>, 
+			<a href="class-TCPDF.html#_AddFont">AddFont()</a>, 
+			<a href="class-TCPDF.html#_AddLink">AddLink()</a>, 
+			<a href="class-TCPDF.html#_AddPage">AddPage()</a>, 
+			<a href="class-TCPDF.html#_AddSpotColor">AddSpotColor()</a>, 
+			<a href="class-TCPDF.html#_AliasNbPages">AliasNbPages()</a>, 
+			<a href="class-TCPDF.html#_AliasNumPage">AliasNumPage()</a>, 
+			<a href="class-TCPDF.html#_Annotation">Annotation()</a>, 
+			<a href="class-TCPDF.html#_Arrow">Arrow()</a>, 
+			<a href="class-TCPDF.html#_Bookmark">Bookmark()</a>, 
+			<a href="class-TCPDF.html#_Button">Button()</a>, 
+			<a href="class-TCPDF.html#_Cell">Cell()</a>, 
+			<a href="class-TCPDF.html#_CheckBox">CheckBox()</a>, 
+			<a href="class-TCPDF.html#_Circle">Circle()</a>, 
+			<a href="class-TCPDF.html#_Clip">Clip()</a>, 
+			<a href="class-TCPDF.html#_Close">Close()</a>, 
+			<a href="class-TCPDF.html#_ComboBox">ComboBox()</a>, 
+			<a href="class-TCPDF.html#_CoonsPatchMesh">CoonsPatchMesh()</a>, 
+			<a href="class-TCPDF.html#_Curve">Curve()</a>, 
+			<a href="class-TCPDF.html#_Ellipse">Ellipse()</a>, 
+			<a href="class-TCPDF.html#_Error">Error()</a>, 
+			<a href="class-TCPDF.html#_GetAbsX">GetAbsX()</a>, 
+			<a href="class-TCPDF.html#_GetArrStringWidth">GetArrStringWidth()</a>, 
+			<a href="class-TCPDF.html#_GetCharWidth">GetCharWidth()</a>, 
+			<a href="class-TCPDF.html#_GetLineWidth">GetLineWidth()</a>, 
+			<a href="class-TCPDF.html#_GetNumChars">GetNumChars()</a>, 
+			<a href="class-TCPDF.html#_GetStringWidth">GetStringWidth()</a>, 
+			<a href="class-TCPDF.html#_GetX">GetX()</a>, 
+			<a href="class-TCPDF.html#_GetY">GetY()</a>, 
+			<a href="class-TCPDF.html#_Gradient">Gradient()</a>, 
+			<a href="class-TCPDF.html#_Header">Header()</a>, 
+			<a href="class-TCPDF.html#_Image">Image()</a>, 
+			<a href="class-TCPDF.html#_ImageEps">ImageEps()</a>, 
+			<a href="class-TCPDF.html#_ImagePngAlpha">ImagePngAlpha()</a>, 
+			<a href="class-TCPDF.html#_ImageSVG">ImageSVG()</a>, 
+			<a href="class-TCPDF.html#_IncludeJS">IncludeJS()</a>, 
+			<a href="class-TCPDF.html#_Line">Line()</a>, 
+			<a href="class-TCPDF.html#_LinearGradient">LinearGradient()</a>, 
+			<a href="class-TCPDF.html#_Link">Link()</a>, 
+			<a href="class-TCPDF.html#_ListBox">ListBox()</a>, 
+			<a href="class-TCPDF.html#_Ln">Ln()</a>, 
+			<a href="class-TCPDF.html#_MirrorH">MirrorH()</a>, 
+			<a href="class-TCPDF.html#_MirrorL">MirrorL()</a>, 
+			<a href="class-TCPDF.html#_MirrorP">MirrorP()</a>, 
+			<a href="class-TCPDF.html#_MirrorV">MirrorV()</a>, 
+			<a href="class-TCPDF.html#_MultiCell">MultiCell()</a>, 
+			<a href="class-TCPDF.html#_Open">Open()</a>, 
+			<a href="class-TCPDF.html#_Output">Output()</a>, 
+			<a href="class-TCPDF.html#_PageNo">PageNo()</a>, 
+			<a href="class-TCPDF.html#_PageNoFormatted">PageNoFormatted()</a>, 
+			<a href="class-TCPDF.html#_PieSector">PieSector()</a>, 
+			<a href="class-TCPDF.html#_PieSectorXY">PieSectorXY()</a>, 
+			<a href="class-TCPDF.html#_PolyLine">PolyLine()</a>, 
+			<a href="class-TCPDF.html#_Polycurve">Polycurve()</a>, 
+			<a href="class-TCPDF.html#_Polygon">Polygon()</a>, 
+			<a href="class-TCPDF.html#_RadialGradient">RadialGradient()</a>, 
+			<a href="class-TCPDF.html#_RadioButton">RadioButton()</a>, 
+			<a href="class-TCPDF.html#_Rect">Rect()</a>, 
+			<a href="class-TCPDF.html#_RegularPolygon">RegularPolygon()</a>, 
+			<a href="class-TCPDF.html#_Rotate">Rotate()</a>, 
+			<a href="class-TCPDF.html#_RoundedRect">RoundedRect()</a>, 
+			<a href="class-TCPDF.html#_RoundedRectXY">RoundedRectXY()</a>, 
+			<a href="class-TCPDF.html#_SVGPath">SVGPath()</a>, 
+			<a href="class-TCPDF.html#_SVGTransform">SVGTransform()</a>, 
+			<a href="class-TCPDF.html#_Scale">Scale()</a>, 
+			<a href="class-TCPDF.html#_ScaleX">ScaleX()</a>, 
+			<a href="class-TCPDF.html#_ScaleXY">ScaleXY()</a>, 
+			<a href="class-TCPDF.html#_ScaleY">ScaleY()</a>, 
+			<a href="class-TCPDF.html#_SetAuthor">SetAuthor()</a>, 
+			<a href="class-TCPDF.html#_SetAutoPageBreak">SetAutoPageBreak()</a>, 
+			<a href="class-TCPDF.html#_SetBooklet">SetBooklet()</a>, 
+			<a href="class-TCPDF.html#_SetCellPadding">SetCellPadding()</a>, 
+			<a href="class-TCPDF.html#_SetCompression">SetCompression()</a>, 
+			<a href="class-TCPDF.html#_SetCreator">SetCreator()</a>, 
+			<a href="class-TCPDF.html#_SetDefaultMonospacedFont">SetDefaultMonospacedFont()</a>, 
+			<a href="class-TCPDF.html#_SetDisplayMode">SetDisplayMode()</a>, 
+			<a href="class-TCPDF.html#_SetDrawColor">SetDrawColor()</a>, 
+			<a href="class-TCPDF.html#_SetDrawColorArray">SetDrawColorArray()</a>, 
+			<a href="class-TCPDF.html#_SetDrawSpotColor">SetDrawSpotColor()</a>, 
+			<a href="class-TCPDF.html#_SetFillColor">SetFillColor()</a>, 
+			<a href="class-TCPDF.html#_SetFillColorArray">SetFillColorArray()</a>, 
+			<a href="class-TCPDF.html#_SetFillSpotColor">SetFillSpotColor()</a>, 
+			<a href="class-TCPDF.html#_SetFont">SetFont()</a>, 
+			<a href="class-TCPDF.html#_SetFontSize">SetFontSize()</a>, 
+			<a href="class-TCPDF.html#_SetKeywords">SetKeywords()</a>, 
+			<a href="class-TCPDF.html#_SetLeftMargin">SetLeftMargin()</a>, 
+			<a href="class-TCPDF.html#_SetLineStyle">SetLineStyle()</a>, 
+			<a href="class-TCPDF.html#_SetLineWidth">SetLineWidth()</a>, 
+			<a href="class-TCPDF.html#_SetLink">SetLink()</a>, 
+			<a href="class-TCPDF.html#_SetMargins">SetMargins()</a>, 
+			<a href="class-TCPDF.html#_SetProtection">SetProtection()</a>, 
+			<a href="class-TCPDF.html#_SetRightMargin">SetRightMargin()</a>, 
+			<a href="class-TCPDF.html#_SetSubject">SetSubject()</a>, 
+			<a href="class-TCPDF.html#_SetTextColor">SetTextColor()</a>, 
+			<a href="class-TCPDF.html#_SetTextColorArray">SetTextColorArray()</a>, 
+			<a href="class-TCPDF.html#_SetTextSpotColor">SetTextSpotColor()</a>, 
+			<a href="class-TCPDF.html#_SetTitle">SetTitle()</a>, 
+			<a href="class-TCPDF.html#_SetTopMargin">SetTopMargin()</a>, 
+			<a href="class-TCPDF.html#_Skew">Skew()</a>, 
+			<a href="class-TCPDF.html#_SkewX">SkewX()</a>, 
+			<a href="class-TCPDF.html#_SkewY">SkewY()</a>, 
+			<a href="class-TCPDF.html#_StarPolygon">StarPolygon()</a>, 
+			<a href="class-TCPDF.html#_StartTransform">StartTransform()</a>, 
+			<a href="class-TCPDF.html#_StopTransform">StopTransform()</a>, 
+			<a href="class-TCPDF.html#_Text">Text()</a>, 
+			<a href="class-TCPDF.html#_TextField">TextField()</a>, 
+			<a href="class-TCPDF.html#_Transform">Transform()</a>, 
+			<a href="class-TCPDF.html#_Translate">Translate()</a>, 
+			<a href="class-TCPDF.html#_TranslateX">TranslateX()</a>, 
+			<a href="class-TCPDF.html#_TranslateY">TranslateY()</a>, 
+			<a href="class-TCPDF.html#_UTF8ArrSubString">UTF8ArrSubString()</a>, 
+			<a href="class-TCPDF.html#_UTF8ArrToLatin1">UTF8ArrToLatin1()</a>, 
+			<a href="class-TCPDF.html#_UTF8ArrayToUniArray">UTF8ArrayToUniArray()</a>, 
+			<a href="class-TCPDF.html#_UTF8StringToArray">UTF8StringToArray()</a>, 
+			<a href="class-TCPDF.html#_UTF8ToLatin1">UTF8ToLatin1()</a>, 
+			<a href="class-TCPDF.html#_UTF8ToUTF16BE">UTF8ToUTF16BE()</a>, 
+			<a href="class-TCPDF.html#_UniArrSubString">UniArrSubString()</a>, 
+			<a href="class-TCPDF.html#_Write">Write()</a>, 
+			<a href="class-TCPDF.html#__JScolor">_JScolor()</a>, 
+			<a href="class-TCPDF.html#__Ovalue">_Ovalue()</a>, 
+			<a href="class-TCPDF.html#__RC4">_RC4()</a>, 
+			<a href="class-TCPDF.html#__Uvalue">_Uvalue()</a>, 
+			<a href="class-TCPDF.html#___destruct">__destruct()</a>, 
+			<a href="class-TCPDF.html#__addfield">_addfield()</a>, 
+			<a href="class-TCPDF.html#__beginpage">_beginpage()</a>, 
+			<a href="class-TCPDF.html#__dataannobjstring">_dataannobjstring()</a>, 
+			<a href="class-TCPDF.html#__datastring">_datastring()</a>, 
+			<a href="class-TCPDF.html#__datestring">_datestring()</a>, 
+			<a href="class-TCPDF.html#__destroy">_destroy()</a>, 
+			<a href="class-TCPDF.html#__dochecks">_dochecks()</a>, 
+			<a href="class-TCPDF.html#__dolinethrough">_dolinethrough()</a>, 
+			<a href="class-TCPDF.html#__dolinethroughw">_dolinethroughw()</a>, 
+			<a href="class-TCPDF.html#__dooverline">_dooverline()</a>, 
+			<a href="class-TCPDF.html#__dooverlinew">_dooverlinew()</a>, 
+			<a href="class-TCPDF.html#__dounderline">_dounderline()</a>, 
+			<a href="class-TCPDF.html#__dounderlinew">_dounderlinew()</a>, 
+			<a href="class-TCPDF.html#__enddoc">_enddoc()</a>, 
+			<a href="class-TCPDF.html#__endpage">_endpage()</a>, 
+			<a href="class-TCPDF.html#__escape">_escape()</a>, 
+			<a href="class-TCPDF.html#__escapetext">_escapetext()</a>, 
+			<a href="class-TCPDF.html#__freadint">_freadint()</a>, 
+			<a href="class-TCPDF.html#__generateencryptionkey">_generateencryptionkey()</a>, 
+			<a href="class-TCPDF.html#__getfontpath">_getfontpath()</a>, 
+			<a href="class-TCPDF.html#__getstream">_getstream()</a>, 
+			<a href="class-TCPDF.html#__md5_16">_md5_16()</a>, 
+			<a href="class-TCPDF.html#__newobj">_newobj()</a>, 
+			<a href="class-TCPDF.html#__objectkey">_objectkey()</a>, 
+			<a href="class-TCPDF.html#__out">_out()</a>, 
+			<a href="class-TCPDF.html#__outCurve">_outCurve()</a>, 
+			<a href="class-TCPDF.html#__outCurveV">_outCurveV()</a>, 
+			<a href="class-TCPDF.html#__outCurveY">_outCurveY()</a>, 
+			<a href="class-TCPDF.html#__outLine">_outLine()</a>, 
+			<a href="class-TCPDF.html#__outPoint">_outPoint()</a>, 
+			<a href="class-TCPDF.html#__outRect">_outRect()</a>, 
+			<a href="class-TCPDF.html#__outellipticalarc">_outellipticalarc()</a>, 
+			<a href="class-TCPDF.html#__parsejpeg">_parsejpeg()</a>, 
+			<a href="class-TCPDF.html#__parsepng">_parsepng()</a>, 
+			<a href="class-TCPDF.html#__putAPXObject">_putAPXObject()</a>, 
+			<a href="class-TCPDF.html#__putEmbeddedFiles">_putEmbeddedFiles()</a>, 
+			<a href="class-TCPDF.html#__putannotsobjs">_putannotsobjs()</a>, 
+			<a href="class-TCPDF.html#__putannotsrefs">_putannotsrefs()</a>, 
+			<a href="class-TCPDF.html#__putbookmarks">_putbookmarks()</a>, 
+			<a href="class-TCPDF.html#__putcatalog">_putcatalog()</a>, 
+			<a href="class-TCPDF.html#__putcidfont0">_putcidfont0()</a>, 
+			<a href="class-TCPDF.html#__putencryption">_putencryption()</a>, 
+			<a href="class-TCPDF.html#__putextgstates">_putextgstates()</a>, 
+			<a href="class-TCPDF.html#__putfonts">_putfonts()</a>, 
+			<a href="class-TCPDF.html#__putfontwidths">_putfontwidths()</a>, 
+			<a href="class-TCPDF.html#__putheader">_putheader()</a>, 
+			<a href="class-TCPDF.html#__putimages">_putimages()</a>, 
+			<a href="class-TCPDF.html#__putinfo">_putinfo()</a>, 
+			<a href="class-TCPDF.html#__putjavascript">_putjavascript()</a>, 
+			<a href="class-TCPDF.html#__putocg">_putocg()</a>, 
+			<a href="class-TCPDF.html#__putpages">_putpages()</a>, 
+			<a href="class-TCPDF.html#__putresourcedict">_putresourcedict()</a>, 
+			<a href="class-TCPDF.html#__putresources">_putresources()</a>, 
+			<a href="class-TCPDF.html#__putshaders">_putshaders()</a>, 
+			<a href="class-TCPDF.html#__putsignature">_putsignature()</a>, 
+			<a href="class-TCPDF.html#__putspotcolors">_putspotcolors()</a>, 
+			<a href="class-TCPDF.html#__putstream">_putstream()</a>, 
+			<a href="class-TCPDF.html#__puttrailer">_puttrailer()</a>, 
+			<a href="class-TCPDF.html#__puttruetypeunicode">_puttruetypeunicode()</a>, 
+			<a href="class-TCPDF.html#__putviewerpreferences">_putviewerpreferences()</a>, 
+			<a href="class-TCPDF.html#__setGDImageTransparency">_setGDImageTransparency()</a>, 
+			<a href="class-TCPDF.html#__textannobjstring">_textannobjstring()</a>, 
+			<a href="class-TCPDF.html#__textstring">_textstring()</a>, 
+			<a href="class-TCPDF.html#__toJPEG">_toJPEG()</a>, 
+			<a href="class-TCPDF.html#__toPNG">_toPNG()</a>, 
+			<a href="class-TCPDF.html#_addExtGState">addExtGState()</a>, 
+			<a href="class-TCPDF.html#_addHTMLTOC">addHTMLTOC()</a>, 
+			<a href="class-TCPDF.html#_addHTMLVertSpace">addHTMLVertSpace()</a>, 
+			<a href="class-TCPDF.html#_addHtmlLink">addHtmlLink()</a>, 
+			<a href="class-TCPDF.html#_addJavascriptObject">addJavascriptObject()</a>, 
+			<a href="class-TCPDF.html#_addTOC">addTOC()</a>, 
+			<a href="class-TCPDF.html#_addTOCPage">addTOCPage()</a>, 
+			<a href="class-TCPDF.html#_arrUTF8ToUTF16BE">arrUTF8ToUTF16BE()</a>, 
+			<a href="class-TCPDF.html#_checkPageBreak">checkPageBreak()</a>, 
+			<a href="class-TCPDF.html#_closeHTMLTagHandler">closeHTMLTagHandler()</a>, 
+			<a href="class-TCPDF.html#_colorRegistrationBar">colorRegistrationBar()</a>, 
+			<a href="class-TCPDF.html#_commitTransaction">commitTransaction()</a>, 
+			<a href="class-TCPDF.html#_convertHTMLColorToDec">convertHTMLColorToDec()</a>, 
+			<a href="class-TCPDF.html#_convertSVGtMatrix">convertSVGtMatrix()</a>, 
+			<a href="class-TCPDF.html#_copyPage">copyPage()</a>, 
+			<a href="class-TCPDF.html#_cropMark">cropMark()</a>, 
+			<a href="class-TCPDF.html#_deletePage">deletePage()</a>, 
+			<a href="class-TCPDF.html#_empty_string">empty_string()</a>, 
+			<a href="class-TCPDF.html#_endPage">endPage()</a>, 
+			<a href="class-TCPDF.html#_endSVGElementHandler">endSVGElementHandler()</a>, 
+			<a href="class-TCPDF.html#_endTOCPage">endTOCPage()</a>, 
+			<a href="class-TCPDF.html#_formatPageNumber">formatPageNumber()</a>, 
+			<a href="class-TCPDF.html#_formatTOCPageNumber">formatTOCPageNumber()</a>, 
+			<a href="class-TCPDF.html#_getAliasNbPages">getAliasNbPages()</a>, 
+			<a href="class-TCPDF.html#_getAliasNumPage">getAliasNumPage()</a>, 
+			<a href="class-TCPDF.html#_getAnnotOptFromJSProp">getAnnotOptFromJSProp()</a>, 
+			<a href="class-TCPDF.html#_getBarcode">getBarcode()</a>, 
+			<a href="class-TCPDF.html#_getBorderMode">getBorderMode()</a>, 
+			<a href="class-TCPDF.html#_getBreakMargin">getBreakMargin()</a>, 
+			<a href="class-TCPDF.html#_getBuffer">getBuffer()</a>, 
+			<a href="class-TCPDF.html#_getCellCode">getCellCode()</a>, 
+			<a href="class-TCPDF.html#_getCellHeightRatio">getCellHeightRatio()</a>, 
+			<a href="class-TCPDF.html#_getFontAscent">getFontAscent()</a>, 
+			<a href="class-TCPDF.html#_getFontBuffer">getFontBuffer()</a>, 
+			<a href="class-TCPDF.html#_getFontDescent">getFontDescent()</a>, 
+			<a href="class-TCPDF.html#_getFontFamily">getFontFamily()</a>, 
+			<a href="class-TCPDF.html#_getFontSize">getFontSize()</a>, 
+			<a href="class-TCPDF.html#_getFontSizePt">getFontSizePt()</a>, 
+			<a href="class-TCPDF.html#_getFontStyle">getFontStyle()</a>, 
+			<a href="class-TCPDF.html#_getFontsList">getFontsList()</a>, 
+			<a href="class-TCPDF.html#_getFooterFont">getFooterFont()</a>, 
+			<a href="class-TCPDF.html#_getFooterMargin">getFooterMargin()</a>, 
+			<a href="class-TCPDF.html#_getFormDefaultProp">getFormDefaultProp()</a>, 
+			<a href="class-TCPDF.html#_getGDgamma">getGDgamma()</a>, 
+			<a href="class-TCPDF.html#_getGraphicVars">getGraphicVars()</a>, 
+			<a href="class-TCPDF.html#_getGroupPageNo">getGroupPageNo()</a>, 
+			<a href="class-TCPDF.html#_getGroupPageNoFormatted">getGroupPageNoFormatted()</a>, 
+			<a href="class-TCPDF.html#_getHTMLUnitToUnits">getHTMLUnitToUnits()</a>, 
+			<a href="class-TCPDF.html#_getHeaderData">getHeaderData()</a>, 
+			<a href="class-TCPDF.html#_getHeaderFont">getHeaderFont()</a>, 
+			<a href="class-TCPDF.html#_getHeaderMargin">getHeaderMargin()</a>, 
+			<a href="class-TCPDF.html#_getHtmlDomArray">getHtmlDomArray()</a>, 
+			<a href="class-TCPDF.html#_getHyphenPatternsFromTEX">getHyphenPatternsFromTEX()</a>, 
+			<a href="class-TCPDF.html#_getImageBuffer">getImageBuffer()</a>, 
+			<a href="class-TCPDF.html#_getImageFileType">getImageFileType()</a>, 
+			<a href="class-TCPDF.html#_getImageRBX">getImageRBX()</a>, 
+			<a href="class-TCPDF.html#_getImageRBY">getImageRBY()</a>, 
+			<a href="class-TCPDF.html#_getImageScale">getImageScale()</a>, 
+			<a href="class-TCPDF.html#_getLastH">getLastH()</a>, 
+			<a href="class-TCPDF.html#_getMargins">getMargins()</a>, 
+			<a href="class-TCPDF.html#_getNumLines">getNumLines()</a>, 
+			<a href="class-TCPDF.html#_getNumPages">getNumPages()</a>, 
+			<a href="class-TCPDF.html#_getObjFilename">getObjFilename()</a>, 
+			<a href="class-TCPDF.html#_getOriginalMargins">getOriginalMargins()</a>, 
+			<a href="class-TCPDF.html#_getPDFData">getPDFData()</a>, 
+			<a href="class-TCPDF.html#_getPage">getPage()</a>, 
+			<a href="class-TCPDF.html#_getPageBuffer">getPageBuffer()</a>, 
+			<a href="class-TCPDF.html#_getPageDimensions">getPageDimensions()</a>, 
+			<a href="class-TCPDF.html#_getPageGroupAlias">getPageGroupAlias()</a>, 
+			<a href="class-TCPDF.html#_getPageHeight">getPageHeight()</a>, 
+			<a href="class-TCPDF.html#_getPageNumGroupAlias">getPageNumGroupAlias()</a>, 
+			<a href="class-TCPDF.html#_getPageWidth">getPageWidth()</a>, 
+			<a href="class-TCPDF.html#_getPathPaintOperator">getPathPaintOperator()</a>, 
+			<a href="class-TCPDF.html#_getRTL">getRTL()</a>, 
+			<a href="class-TCPDF.html#_getRemainingWidth">getRemainingWidth()</a>, 
+			<a href="class-TCPDF.html#_getSVGTransformMatrix">getSVGTransformMatrix()</a>, 
+			<a href="class-TCPDF.html#_getScaleFactor">getScaleFactor()</a>, 
+			<a href="class-TCPDF.html#_getSpaceString">getSpaceString()</a>, 
+			<a href="class-TCPDF.html#_getTransformationMatrixProduct">getTransformationMatrixProduct()</a>, 
+			<a href="class-TCPDF.html#_getVectorsAngle">getVectorsAngle()</a>, 
+			<a href="class-TCPDF.html#_get_mqr">get_mqr()</a>, 
+			<a href="class-TCPDF.html#_hyphenateText">hyphenateText()</a>, 
+			<a href="class-TCPDF.html#_hyphenateWord">hyphenateWord()</a>, 
+			<a href="class-TCPDF.html#_intToRoman">intToRoman()</a>, 
+			<a href="class-TCPDF.html#_isRTLTextDir">isRTLTextDir()</a>, 
+			<a href="class-TCPDF.html#_lastPage">lastPage()</a>, 
+			<a href="class-TCPDF.html#_movePage">movePage()</a>, 
+			<a href="class-TCPDF.html#_objclone">objclone()</a>, 
+			<a href="class-TCPDF.html#_openHTMLTagHandler">openHTMLTagHandler()</a>, 
+			<a href="class-TCPDF.html#_pixelsToUnits">pixelsToUnits()</a>, 
+			<a href="class-TCPDF.html#_putHtmlListBullet">putHtmlListBullet()</a>, 
+			<a href="class-TCPDF.html#_readDiskCache">readDiskCache()</a>, 
+			<a href="class-TCPDF.html#_registrationMark">registrationMark()</a>, 
+			<a href="class-TCPDF.html#_removeSHY">removeSHY()</a>, 
+			<a href="class-TCPDF.html#_revstrpos">revstrpos()</a>, 
+			<a href="class-TCPDF.html#_rfread">rfread()</a>, 
+			<a href="class-TCPDF.html#_rollbackTransaction">rollbackTransaction()</a>, 
+			<a href="class-TCPDF.html#_segSVGContentHandler">segSVGContentHandler()</a>, 
+			<a href="class-TCPDF.html#_selectColumn">selectColumn()</a>, 
+			<a href="class-TCPDF.html#_serializeTCPDFtagParameters">serializeTCPDFtagParameters()</a>, 
+			<a href="class-TCPDF.html#_setAlpha">setAlpha()</a>, 
+			<a href="class-TCPDF.html#_setBarcode">setBarcode()</a>, 
+			<a href="class-TCPDF.html#_setBuffer">setBuffer()</a>, 
+			<a href="class-TCPDF.html#_setCellHeightRatio">setCellHeightRatio()</a>, 
+			<a href="class-TCPDF.html#_setColumnsArray">setColumnsArray()</a>, 
+			<a href="class-TCPDF.html#_setContentMark">setContentMark()</a>, 
+			<a href="class-TCPDF.html#_setDefaultTableColumns">setDefaultTableColumns()</a>, 
+			<a href="class-TCPDF.html#_setEqualColumns">setEqualColumns()</a>, 
+			<a href="class-TCPDF.html#_setExtGState">setExtGState()</a>, 
+			<a href="class-TCPDF.html#_setFontBuffer">setFontBuffer()</a>, 
+			<a href="class-TCPDF.html#_setFontSubBuffer">setFontSubBuffer()</a>, 
+			<a href="class-TCPDF.html#_setFooter">setFooter()</a>, 
+			<a href="class-TCPDF.html#_setFooterFont">setFooterFont()</a>, 
+			<a href="class-TCPDF.html#_setFooterMargin">setFooterMargin()</a>, 
+			<a href="class-TCPDF.html#_setFormDefaultProp">setFormDefaultProp()</a>, 
+			<a href="class-TCPDF.html#_setGraphicVars">setGraphicVars()</a>, 
+			<a href="class-TCPDF.html#_setHeader">setHeader()</a>, 
+			<a href="class-TCPDF.html#_setHeaderData">setHeaderData()</a>, 
+			<a href="class-TCPDF.html#_setHeaderFont">setHeaderFont()</a>, 
+			<a href="class-TCPDF.html#_setHeaderMargin">setHeaderMargin()</a>, 
+			<a href="class-TCPDF.html#_setHtmlLinksStyle">setHtmlLinksStyle()</a>, 
+			<a href="class-TCPDF.html#_setHtmlVSpace">setHtmlVSpace()</a>, 
+			<a href="class-TCPDF.html#_setImageBuffer">setImageBuffer()</a>, 
+			<a href="class-TCPDF.html#_setImageScale">setImageScale()</a>, 
+			<a href="class-TCPDF.html#_setImageSubBuffer">setImageSubBuffer()</a>, 
+			<a href="class-TCPDF.html#_setJPEGQuality">setJPEGQuality()</a>, 
+			<a href="class-TCPDF.html#_setLIsymbol">setLIsymbol()</a>, 
+			<a href="class-TCPDF.html#_setLanguageArray">setLanguageArray()</a>, 
+			<a href="class-TCPDF.html#_setLastH">setLastH()</a>, 
+			<a href="class-TCPDF.html#_setListIndentWidth">setListIndentWidth()</a>, 
+			<a href="class-TCPDF.html#_setOpenCell">setOpenCell()</a>, 
+			<a href="class-TCPDF.html#_setPDFVersion">setPDFVersion()</a>, 
+			<a href="class-TCPDF.html#_setPage">setPage()</a>, 
+			<a href="class-TCPDF.html#_setPageBuffer">setPageBuffer()</a>, 
+			<a href="class-TCPDF.html#_setPageFormat">setPageFormat()</a>, 
+			<a href="class-TCPDF.html#_setPageMark">setPageMark()</a>, 
+			<a href="class-TCPDF.html#_setPageOrientation">setPageOrientation()</a>, 
+			<a href="class-TCPDF.html#_setPageUnit">setPageUnit()</a>, 
+			<a href="class-TCPDF.html#_setPrintFooter">setPrintFooter()</a>, 
+			<a href="class-TCPDF.html#_setPrintHeader">setPrintHeader()</a>, 
+			<a href="class-TCPDF.html#_setRTL">setRTL()</a>, 
+			<a href="class-TCPDF.html#_setRasterizeVectorImages">setRasterizeVectorImages()</a>, 
+			<a href="class-TCPDF.html#_setSVGStyles">setSVGStyles()</a>, 
+			<a href="class-TCPDF.html#_setSignature">setSignature()</a>, 
+			<a href="class-TCPDF.html#_setSpacesRE">setSpacesRE()</a>, 
+			<a href="class-TCPDF.html#_setTableHeader">setTableHeader()</a>, 
+			<a href="class-TCPDF.html#_setTempRTL">setTempRTL()</a>, 
+			<a href="class-TCPDF.html#_setTextRenderingMode">setTextRenderingMode()</a>, 
+			<a href="class-TCPDF.html#_setUserRights">setUserRights()</a>, 
+			<a href="class-TCPDF.html#_setViewerPreferences">setViewerPreferences()</a>, 
+			<a href="class-TCPDF.html#_setVisibility">setVisibility()</a>, 
+			<a href="class-TCPDF.html#_set_mqr">set_mqr()</a>, 
+			<a href="class-TCPDF.html#_startPage">startPage()</a>, 
+			<a href="class-TCPDF.html#_startPageGroup">startPageGroup()</a>, 
+			<a href="class-TCPDF.html#_startSVGElementHandler">startSVGElementHandler()</a>, 
+			<a href="class-TCPDF.html#_startTransaction">startTransaction()</a>, 
+			<a href="class-TCPDF.html#_swapMargins">swapMargins()</a>, 
+			<a href="class-TCPDF.html#_unhtmlentities">unhtmlentities()</a>, 
+			<a href="class-TCPDF.html#_unichr">unichr()</a>, 
+			<a href="class-TCPDF.html#_utf8Bidi">utf8Bidi()</a>, 
+			<a href="class-TCPDF.html#_utf8StrArrRev">utf8StrArrRev()</a>, 
+			<a href="class-TCPDF.html#_utf8StrRev">utf8StrRev()</a>, 
+			<a href="class-TCPDF.html#_write1DBarcode">write1DBarcode()</a>, 
+			<a href="class-TCPDF.html#_write2DBarcode">write2DBarcode()</a>, 
+			<a href="class-TCPDF.html#_writeBarcode"><span class="deprecated">writeBarcode()</span></a>, 
+			<a href="class-TCPDF.html#_writeDiskCache">writeDiskCache()</a>, 
+			<a href="class-TCPDF.html#_writeHTML">writeHTML()</a>, 
+			<a href="class-TCPDF.html#_writeHTMLCell">writeHTMLCell()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="MY_ARC" id="MY_ARC">
+
+		<td class="attributes"><code>float</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-HTML2PDF_myPdf.html#23" title="Go to source code"><b>MY_ARC</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#MY_ARC" class="anchor">#</a>
+				<code><span class="php-num">0.5522847498</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="ARC_NB_SEGMENT" id="ARC_NB_SEGMENT">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-HTML2PDF_myPdf.html#26" title="Go to source code"><b>ARC_NB_SEGMENT</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#ARC_NB_SEGMENT" class="anchor">#</a>
+				<code><span class="php-num">8</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="_footerParam" id="$_footerParam">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-HTML2PDF_myPdf.html#17" title="Go to source code"><var>$_footerParam</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_footerParam" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="_transf" id="$_transf">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-HTML2PDF_myPdf.html#18" title="Go to source code"><var>$_transf</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_transf" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="_myLastPageGroup" id="$_myLastPageGroup">
+		<td class="attributes"><code>
+			protected  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-HTML2PDF_myPdf.html#19" title="Go to source code"><var>$_myLastPageGroup</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_myLastPageGroup" class="anchor">#</a>
+				<code><span class="php-keyword1">null</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="_myLastPageGroupNb" id="$_myLastPageGroupNb">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-HTML2PDF_myPdf.html#20" title="Go to source code"><var>$_myLastPageGroupNb</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_myLastPageGroupNb" class="anchor">#</a>
+				<code><span class="php-num">0</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-TCPDF.html#properties">TCPDF</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-TCPDF.html#$AliasNbPages"><var>$AliasNbPages</var></a>, 
+			<a href="class-TCPDF.html#$AliasNumPage"><var>$AliasNumPage</var></a>, 
+			<a href="class-TCPDF.html#$AutoPageBreak"><var>$AutoPageBreak</var></a>, 
+			<a href="class-TCPDF.html#$ColorFlag"><var>$ColorFlag</var></a>, 
+			<a href="class-TCPDF.html#$CoreFonts"><var>$CoreFonts</var></a>, 
+			<a href="class-TCPDF.html#$CurOrientation"><var>$CurOrientation</var></a>, 
+			<a href="class-TCPDF.html#$CurrentFont"><var>$CurrentFont</var></a>, 
+			<a href="class-TCPDF.html#$DrawColor"><var>$DrawColor</var></a>, 
+			<a href="class-TCPDF.html#$FillColor"><var>$FillColor</var></a>, 
+			<a href="class-TCPDF.html#$FontAscent"><var>$FontAscent</var></a>, 
+			<a href="class-TCPDF.html#$FontDescent"><var>$FontDescent</var></a>, 
+			<a href="class-TCPDF.html#$FontFamily"><var>$FontFamily</var></a>, 
+			<a href="class-TCPDF.html#$FontFiles"><var>$FontFiles</var></a>, 
+			<a href="class-TCPDF.html#$FontSize"><var>$FontSize</var></a>, 
+			<a href="class-TCPDF.html#$FontSizePt"><var>$FontSizePt</var></a>, 
+			<a href="class-TCPDF.html#$FontStyle"><var>$FontStyle</var></a>, 
+			<a href="class-TCPDF.html#$HREF"><var>$HREF</var></a>, 
+			<a href="class-TCPDF.html#$InFooter"><var>$InFooter</var></a>, 
+			<a href="class-TCPDF.html#$LayoutMode"><var>$LayoutMode</var></a>, 
+			<a href="class-TCPDF.html#$LineWidth"><var>$LineWidth</var></a>, 
+			<a href="class-TCPDF.html#$OutlineRoot"><var>$OutlineRoot</var></a>, 
+			<a href="class-TCPDF.html#$Ovalue"><var>$Ovalue</var></a>, 
+			<a href="class-TCPDF.html#$PDFVersion"><var>$PDFVersion</var></a>, 
+			<a href="class-TCPDF.html#$PageAnnots"><var>$PageAnnots</var></a>, 
+			<a href="class-TCPDF.html#$PageBreakTrigger"><var>$PageBreakTrigger</var></a>, 
+			<a href="class-TCPDF.html#$PageMode"><var>$PageMode</var></a>, 
+			<a href="class-TCPDF.html#$Pvalue"><var>$Pvalue</var></a>, 
+			<a href="class-TCPDF.html#$TextColor"><var>$TextColor</var></a>, 
+			<a href="class-TCPDF.html#$Uvalue"><var>$Uvalue</var></a>, 
+			<a href="class-TCPDF.html#$ZoomMode"><var>$ZoomMode</var></a>, 
+			<a href="class-TCPDF.html#$annot_obj_id"><var>$annot_obj_id</var></a>, 
+			<a href="class-TCPDF.html#$annotation_fonts"><var>$annotation_fonts</var></a>, 
+			<a href="class-TCPDF.html#$annots_start_obj_id"><var>$annots_start_obj_id</var></a>, 
+			<a href="class-TCPDF.html#$apxo_obj_id"><var>$apxo_obj_id</var></a>, 
+			<a href="class-TCPDF.html#$apxo_start_obj_id"><var>$apxo_start_obj_id</var></a>, 
+			<a href="class-TCPDF.html#$author"><var>$author</var></a>, 
+			<a href="class-TCPDF.html#$bMargin"><var>$bMargin</var></a>, 
+			<a href="class-TCPDF.html#$barcode"><var>$barcode</var></a>, 
+			<a href="class-TCPDF.html#$bgcolor"><var>$bgcolor</var></a>, 
+			<a href="class-TCPDF.html#$booklet"><var>$booklet</var></a>, 
+			<a href="class-TCPDF.html#$buffer"><var>$buffer</var></a>, 
+			<a href="class-TCPDF.html#$bufferlen"><var>$bufferlen</var></a>, 
+			<a href="class-TCPDF.html#$byterange_string"><var>$byterange_string</var></a>, 
+			<a href="class-TCPDF.html#$cMargin"><var>$cMargin</var></a>, 
+			<a href="class-TCPDF.html#$cache_UTF8StringToArray"><var>$cache_UTF8StringToArray</var></a>, 
+			<a href="class-TCPDF.html#$cache_file_length"><var>$cache_file_length</var></a>, 
+			<a href="class-TCPDF.html#$cache_maxsize_UTF8StringToArray"><var>$cache_maxsize_UTF8StringToArray</var></a>, 
+			<a href="class-TCPDF.html#$cache_size_UTF8StringToArray"><var>$cache_size_UTF8StringToArray</var></a>, 
+			<a href="class-TCPDF.html#$cell_height_ratio"><var>$cell_height_ratio</var></a>, 
+			<a href="class-TCPDF.html#$cntmrk"><var>$cntmrk</var></a>, 
+			<a href="class-TCPDF.html#$column_start_page"><var>$column_start_page</var></a>, 
+			<a href="class-TCPDF.html#$columns"><var>$columns</var></a>, 
+			<a href="class-TCPDF.html#$compress"><var>$compress</var></a>, 
+			<a href="class-TCPDF.html#$creator"><var>$creator</var></a>, 
+			<a href="class-TCPDF.html#$curr_annot_obj_id"><var>$curr_annot_obj_id</var></a>, 
+			<a href="class-TCPDF.html#$current_column"><var>$current_column</var></a>, 
+			<a href="class-TCPDF.html#$currpagegroup"><var>$currpagegroup</var></a>, 
+			<a href="class-TCPDF.html#$customlistindent"><var>$customlistindent</var></a>, 
+			<a href="class-TCPDF.html#$default_form_prop"><var>$default_form_prop</var></a>, 
+			<a href="class-TCPDF.html#$default_monospaced_font"><var>$default_monospaced_font</var></a>, 
+			<a href="class-TCPDF.html#$default_table_columns"><var>$default_table_columns</var></a>, 
+			<a href="class-TCPDF.html#$diffs"><var>$diffs</var></a>, 
+			<a href="class-TCPDF.html#$diskcache"><var>$diskcache</var></a>, 
+			<a href="class-TCPDF.html#$dpi"><var>$dpi</var></a>, 
+			<a href="class-TCPDF.html#$embedded_start_obj_id"><var>$embedded_start_obj_id</var></a>, 
+			<a href="class-TCPDF.html#$embeddedfiles"><var>$embeddedfiles</var></a>, 
+			<a href="class-TCPDF.html#$enc_obj_id"><var>$enc_obj_id</var></a>, 
+			<a href="class-TCPDF.html#$encoding"><var>$encoding</var></a>, 
+			<a href="class-TCPDF.html#$encrypted"><var>$encrypted</var></a>, 
+			<a href="class-TCPDF.html#$encryption_key"><var>$encryption_key</var></a>, 
+			<a href="class-TCPDF.html#$endlinex"><var>$endlinex</var></a>, 
+			<a href="class-TCPDF.html#$epsmarker"><var>$epsmarker</var></a>, 
+			<a href="class-TCPDF.html#$extgstates"><var>$extgstates</var></a>, 
+			<a href="class-TCPDF.html#$feps"><var>$feps</var></a>, 
+			<a href="class-TCPDF.html#$fgcolor"><var>$fgcolor</var></a>, 
+			<a href="class-TCPDF.html#$fhPt"><var>$fhPt</var></a>, 
+			<a href="class-TCPDF.html#$font_obj_ids"><var>$font_obj_ids</var></a>, 
+			<a href="class-TCPDF.html#$fontkeys"><var>$fontkeys</var></a>, 
+			<a href="class-TCPDF.html#$fontlist"><var>$fontlist</var></a>, 
+			<a href="class-TCPDF.html#$fonts"><var>$fonts</var></a>, 
+			<a href="class-TCPDF.html#$footer_font"><var>$footer_font</var></a>, 
+			<a href="class-TCPDF.html#$footer_margin"><var>$footer_margin</var></a>, 
+			<a href="class-TCPDF.html#$footerlen"><var>$footerlen</var></a>, 
+			<a href="class-TCPDF.html#$footerpos"><var>$footerpos</var></a>, 
+			<a href="class-TCPDF.html#$form_action"><var>$form_action</var></a>, 
+			<a href="class-TCPDF.html#$form_enctype"><var>$form_enctype</var></a>, 
+			<a href="class-TCPDF.html#$form_mode"><var>$form_mode</var></a>, 
+			<a href="class-TCPDF.html#$form_obj_id"><var>$form_obj_id</var></a>, 
+			<a href="class-TCPDF.html#$fwPt"><var>$fwPt</var></a>, 
+			<a href="class-TCPDF.html#$gradients"><var>$gradients</var></a>, 
+			<a href="class-TCPDF.html#$h"><var>$h</var></a>, 
+			<a href="class-TCPDF.html#$hPt"><var>$hPt</var></a>, 
+			<a href="class-TCPDF.html#$header_font"><var>$header_font</var></a>, 
+			<a href="class-TCPDF.html#$header_logo"><var>$header_logo</var></a>, 
+			<a href="class-TCPDF.html#$header_logo_width"><var>$header_logo_width</var></a>, 
+			<a href="class-TCPDF.html#$header_margin"><var>$header_margin</var></a>, 
+			<a href="class-TCPDF.html#$header_string"><var>$header_string</var></a>, 
+			<a href="class-TCPDF.html#$header_title"><var>$header_title</var></a>, 
+			<a href="class-TCPDF.html#$htmlLinkColorArray"><var>$htmlLinkColorArray</var></a>, 
+			<a href="class-TCPDF.html#$htmlLinkFontStyle"><var>$htmlLinkFontStyle</var></a>, 
+			<a href="class-TCPDF.html#$htmlvspace"><var>$htmlvspace</var></a>, 
+			<a href="class-TCPDF.html#$imagekeys"><var>$imagekeys</var></a>, 
+			<a href="class-TCPDF.html#$images"><var>$images</var></a>, 
+			<a href="class-TCPDF.html#$img_rb_x"><var>$img_rb_x</var></a>, 
+			<a href="class-TCPDF.html#$img_rb_y"><var>$img_rb_y</var></a>, 
+			<a href="class-TCPDF.html#$imgscale"><var>$imgscale</var></a>, 
+			<a href="class-TCPDF.html#$internal_encoding"><var>$internal_encoding</var></a>, 
+			<a href="class-TCPDF.html#$inthead"><var>$inthead</var></a>, 
+			<a href="class-TCPDF.html#$intmrk"><var>$intmrk</var></a>, 
+			<a href="class-TCPDF.html#$isunicode"><var>$isunicode</var></a>, 
+			<a href="class-TCPDF.html#$javascript"><var>$javascript</var></a>, 
+			<a href="class-TCPDF.html#$jpeg_quality"><var>$jpeg_quality</var></a>, 
+			<a href="class-TCPDF.html#$js_obj_id"><var>$js_obj_id</var></a>, 
+			<a href="class-TCPDF.html#$js_objects"><var>$js_objects</var></a>, 
+			<a href="class-TCPDF.html#$js_start_obj_id"><var>$js_start_obj_id</var></a>, 
+			<a href="class-TCPDF.html#$k"><var>$k</var></a>, 
+			<a href="class-TCPDF.html#$keywords"><var>$keywords</var></a>, 
+			<a href="class-TCPDF.html#$l"><var>$l</var></a>, 
+			<a href="class-TCPDF.html#$lMargin"><var>$lMargin</var></a>, 
+			<a href="class-TCPDF.html#$last_rc4_key"><var>$last_rc4_key</var></a>, 
+			<a href="class-TCPDF.html#$last_rc4_key_c"><var>$last_rc4_key_c</var></a>, 
+			<a href="class-TCPDF.html#$lasth"><var>$lasth</var></a>, 
+			<a href="class-TCPDF.html#$linestyleCap"><var>$linestyleCap</var></a>, 
+			<a href="class-TCPDF.html#$linestyleDash"><var>$linestyleDash</var></a>, 
+			<a href="class-TCPDF.html#$linestyleJoin"><var>$linestyleJoin</var></a>, 
+			<a href="class-TCPDF.html#$linestyleWidth"><var>$linestyleWidth</var></a>, 
+			<a href="class-TCPDF.html#$linethrough"><var>$linethrough</var></a>, 
+			<a href="class-TCPDF.html#$links"><var>$links</var></a>, 
+			<a href="class-TCPDF.html#$lispacer"><var>$lispacer</var></a>, 
+			<a href="class-TCPDF.html#$listcount"><var>$listcount</var></a>, 
+			<a href="class-TCPDF.html#$listindent"><var>$listindent</var></a>, 
+			<a href="class-TCPDF.html#$listindentlevel"><var>$listindentlevel</var></a>, 
+			<a href="class-TCPDF.html#$listnum"><var>$listnum</var></a>, 
+			<a href="class-TCPDF.html#$listordered"><var>$listordered</var></a>, 
+			<a href="class-TCPDF.html#$lisymbol"><var>$lisymbol</var></a>, 
+			<a href="class-TCPDF.html#$n"><var>$n</var></a>, 
+			<a href="class-TCPDF.html#$n_js"><var>$n_js</var></a>, 
+			<a href="class-TCPDF.html#$n_ocg_print"><var>$n_ocg_print</var></a>, 
+			<a href="class-TCPDF.html#$n_ocg_view"><var>$n_ocg_view</var></a>, 
+			<a href="class-TCPDF.html#$newline"><var>$newline</var></a>, 
+			<a href="class-TCPDF.html#$newpagegroup"><var>$newpagegroup</var></a>, 
+			<a href="class-TCPDF.html#$num_columns"><var>$num_columns</var></a>, 
+			<a href="class-TCPDF.html#$numfonts"><var>$numfonts</var></a>, 
+			<a href="class-TCPDF.html#$numimages"><var>$numimages</var></a>, 
+			<a href="class-TCPDF.html#$numpages"><var>$numpages</var></a>, 
+			<a href="class-TCPDF.html#$objcopy"><var>$objcopy</var></a>, 
+			<a href="class-TCPDF.html#$offsets"><var>$offsets</var></a>, 
+			<a href="class-TCPDF.html#$oldcMargin"><var>$oldcMargin</var></a>, 
+			<a href="class-TCPDF.html#$openMarkedContent"><var>$openMarkedContent</var></a>, 
+			<a href="class-TCPDF.html#$opencell"><var>$opencell</var></a>, 
+			<a href="class-TCPDF.html#$original_lMargin"><var>$original_lMargin</var></a>, 
+			<a href="class-TCPDF.html#$original_rMargin"><var>$original_rMargin</var></a>, 
+			<a href="class-TCPDF.html#$outlines"><var>$outlines</var></a>, 
+			<a href="class-TCPDF.html#$overline"><var>$overline</var></a>, 
+			<a href="class-TCPDF.html#$padding"><var>$padding</var></a>, 
+			<a href="class-TCPDF.html#$page"><var>$page</var></a>, 
+			<a href="class-TCPDF.html#$page_obj_id"><var>$page_obj_id</var></a>, 
+			<a href="class-TCPDF.html#$pagedim"><var>$pagedim</var></a>, 
+			<a href="class-TCPDF.html#$pagegroups"><var>$pagegroups</var></a>, 
+			<a href="class-TCPDF.html#$pagelen"><var>$pagelen</var></a>, 
+			<a href="class-TCPDF.html#$pageopen"><var>$pageopen</var></a>, 
+			<a href="class-TCPDF.html#$pages"><var>$pages</var></a>, 
+			<a href="class-TCPDF.html#$pdfunit"><var>$pdfunit</var></a>, 
+			<a href="class-TCPDF.html#$premode"><var>$premode</var></a>, 
+			<a href="class-TCPDF.html#$print_footer"><var>$print_footer</var></a>, 
+			<a href="class-TCPDF.html#$print_header"><var>$print_header</var></a>, 
+			<a href="class-TCPDF.html#$rMargin"><var>$rMargin</var></a>, 
+			<a href="class-TCPDF.html#$radio_groups"><var>$radio_groups</var></a>, 
+			<a href="class-TCPDF.html#$radiobutton_groups"><var>$radiobutton_groups</var></a>, 
+			<a href="class-TCPDF.html#$rasterize_vector_images"><var>$rasterize_vector_images</var></a>, 
+			<a href="class-TCPDF.html#$re_spaces"><var>$re_spaces</var></a>, 
+			<a href="class-TCPDF.html#$rtl"><var>$rtl</var></a>, 
+			<a href="class-TCPDF.html#$sig_annot_ref"><var>$sig_annot_ref</var></a>, 
+			<a href="class-TCPDF.html#$sig_obj_id"><var>$sig_obj_id</var></a>, 
+			<a href="class-TCPDF.html#$sign"><var>$sign</var></a>, 
+			<a href="class-TCPDF.html#$signature_data"><var>$signature_data</var></a>, 
+			<a href="class-TCPDF.html#$signature_max_length"><var>$signature_max_length</var></a>, 
+			<a href="class-TCPDF.html#$spot_colors"><var>$spot_colors</var></a>, 
+			<a href="class-TCPDF.html#$start_transaction_page"><var>$start_transaction_page</var></a>, 
+			<a href="class-TCPDF.html#$start_transaction_y"><var>$start_transaction_y</var></a>, 
+			<a href="class-TCPDF.html#$state"><var>$state</var></a>, 
+			<a href="class-TCPDF.html#$strokecolor"><var>$strokecolor</var></a>, 
+			<a href="class-TCPDF.html#$subject"><var>$subject</var></a>, 
+			<a href="class-TCPDF.html#$svgclipid"><var>$svgclipid</var></a>, 
+			<a href="class-TCPDF.html#$svgclipmode"><var>$svgclipmode</var></a>, 
+			<a href="class-TCPDF.html#$svgclippaths"><var>$svgclippaths</var></a>, 
+			<a href="class-TCPDF.html#$svgdefs"><var>$svgdefs</var></a>, 
+			<a href="class-TCPDF.html#$svgdefsmode"><var>$svgdefsmode</var></a>, 
+			<a href="class-TCPDF.html#$svgdir"><var>$svgdir</var></a>, 
+			<a href="class-TCPDF.html#$svggradientid"><var>$svggradientid</var></a>, 
+			<a href="class-TCPDF.html#$svggradients"><var>$svggradients</var></a>, 
+			<a href="class-TCPDF.html#$svginheritprop"><var>$svginheritprop</var></a>, 
+			<a href="class-TCPDF.html#$svgstyles"><var>$svgstyles</var></a>, 
+			<a href="class-TCPDF.html#$svgtext"><var>$svgtext</var></a>, 
+			<a href="class-TCPDF.html#$svgunit"><var>$svgunit</var></a>, 
+			<a href="class-TCPDF.html#$tMargin"><var>$tMargin</var></a>, 
+			<a href="class-TCPDF.html#$tagvspaces"><var>$tagvspaces</var></a>, 
+			<a href="class-TCPDF.html#$tempfontsize"><var>$tempfontsize</var></a>, 
+			<a href="class-TCPDF.html#$textindent"><var>$textindent</var></a>, 
+			<a href="class-TCPDF.html#$textrendermode"><var>$textrendermode</var></a>, 
+			<a href="class-TCPDF.html#$textstrokewidth"><var>$textstrokewidth</var></a>, 
+			<a href="class-TCPDF.html#$thead"><var>$thead</var></a>, 
+			<a href="class-TCPDF.html#$theadMargins"><var>$theadMargins</var></a>, 
+			<a href="class-TCPDF.html#$title"><var>$title</var></a>, 
+			<a href="class-TCPDF.html#$tmprtl"><var>$tmprtl</var></a>, 
+			<a href="class-TCPDF.html#$tocpage"><var>$tocpage</var></a>, 
+			<a href="class-TCPDF.html#$transfmatrix"><var>$transfmatrix</var></a>, 
+			<a href="class-TCPDF.html#$transfmatrix_key"><var>$transfmatrix_key</var></a>, 
+			<a href="class-TCPDF.html#$transfmrk"><var>$transfmrk</var></a>, 
+			<a href="class-TCPDF.html#$underline"><var>$underline</var></a>, 
+			<a href="class-TCPDF.html#$ur"><var>$ur</var></a>, 
+			<a href="class-TCPDF.html#$ur_annots"><var>$ur_annots</var></a>, 
+			<a href="class-TCPDF.html#$ur_document"><var>$ur_document</var></a>, 
+			<a href="class-TCPDF.html#$ur_form"><var>$ur_form</var></a>, 
+			<a href="class-TCPDF.html#$ur_signature"><var>$ur_signature</var></a>, 
+			<a href="class-TCPDF.html#$viewer_preferences"><var>$viewer_preferences</var></a>, 
+			<a href="class-TCPDF.html#$visibility"><var>$visibility</var></a>, 
+			<a href="class-TCPDF.html#$w"><var>$w</var></a>, 
+			<a href="class-TCPDF.html#$wPt"><var>$wPt</var></a>, 
+			<a href="class-TCPDF.html#$x"><var>$x</var></a>, 
+			<a href="class-TCPDF.html#$y"><var>$y</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
