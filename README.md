@@ -2,14 +2,14 @@
 
 Projet de PPE "GSB" de Léo Marliére, Alexis Dubus et Benoit Cavrois.
 
-Objetif: création d'un site internet répondant au besoin de l'entreprise GSB(gestion de frais).
+Objectif: création d'un site internet répondant au besoin de l'entreprise GSB(gestion de frais).
 
-design: BootStrap
+Design: Bootstrap
 
-version de php: 5.4
+Version de php: 5.4
 
-Note d'installation:
+Note d'installation :
 
-    le fichier de mot de passe de la base de données est dans racine/include/mdp.txt
-    le login par défaut est "root", modifiable dans le fichier /racine/include/class.pfoGsb.inc.php
-    la base de données doit impérativement étre créer et complétée avant l'accés à l'application.
+Le mot de la base de donnée est dans le fichier class.pdoGsb.inc.php
+Le Login par défaut est "lamp", modifiable dans le fichier /racine/include/class.pdoGsb.inc.php
+La Base de données doit impérativement être créée et complétée avant l'accès à l'application.
