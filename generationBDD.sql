@@ -195,7 +195,16 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp
 --
 -- Contraintes pour les tables exportées
 --
+CREATE TABLE IF NOT EXISTS `role` (
+  `id` char(2) NOT NULL,
+  `profession` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `role` (`id`,`profession`) VALUES
+('0','admin'),
+('1','comptable'),
+('2','visiteur');
 --
 -- Contraintes pour la table `fichefrais`
 --
@@ -215,6 +224,9 @@ ALTER TABLE `lignefraisforfait`
 --
 ALTER TABLE `lignefraishorsforfait`
   ADD CONSTRAINT `lignefraishorsforfait_ibfk_1` FOREIGN KEY (`idutilisateur`, `mois`) REFERENCES `fichefrais` (`idutilisateur`, `mois`);
+
+ALTER TABLE `utilisateur`
+  ADD CONSTRAINT `role_ibfk_1` FOREIGN KEY (`id`) REFERENCES `role` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
