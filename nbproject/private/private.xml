@@ -3,22 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/vues/v_listeMois.php</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/vues/v_ajoutFrais.php</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/vues/html2pdf/html2pdf.class.php</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/vues/html2pdf.class.php</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/vues/v_sommaire.php</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/controleurs/c_gererFrais.php</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/nbproject/private/private.properties</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/include/class.pdogsb.inc.php</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/vues/v_listeFraisHorsForfait.php</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/vues/v_listeFraisForfait.php</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/controleurs/c_etatFrais.php</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/vues/v_etatFrais.php</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/vues/v_erreurs.php</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/vues/v_connexion.php</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/include/mdp.txt</file>
-            <file>file:/C:/wamp/www/ppeGSB-LAB-master/controleurs/c_connexion.php</file>
+            <file>file:/C:/wamp/www/ppeGSB2.3Dev/controleurs/c_etatFrais.php</file>
+            <file>file:/C:/wamp/www/ppeGSB2.3Dev/index.php</file>
+            <file>file:/C:/wamp/www/ppeGSB2.3Dev/include/class.pdogsb.inc.php</file>
         </group>
     </open-files>
 </project-private>
