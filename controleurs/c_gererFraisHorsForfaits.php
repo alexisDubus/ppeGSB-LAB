@@ -7,24 +7,6 @@ $numAnnee =substr( $mois,0,4);
 $numMois =substr( $mois,4,2);
 $action = $_REQUEST['action'];
 switch($action){
-        /*case 'saisirFraisForfaits':{
-		if($pdo->estPremierFraisMois($idUtilisateur,$mois)){
-			$pdo->creeNouvellesLignesFrais($idUtilisateur,$mois);
-		}
-		break;
-	}
-	case 'validerMajFraisForfait':{
-                
-		$lesFrais = $_REQUEST['lesFrais'];
-		if(lesQteFraisValides($lesFrais)){
-	  	 	$pdo->majFraisForfait($idUtilisateur,$mois,$lesFrais);
-		}
-		else{
-			ajouterErreur("Les valeurs des frais doivent �tre num�riques");
-			include("vues/v_erreurs.php");
-		}
-	  break;
-	}*/
 	case 'validerCreationFrais':{
 		$dateFrais = $_REQUEST['dateFrais'];
 		$libelle = $_REQUEST['libelle'];
@@ -45,7 +27,6 @@ switch($action){
 	}
 }
 $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idUtilisateur,$mois);
-//$lesFraisForfait= $pdo->getLesFraisForfait($idUtilisateur,$mois);
 $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idUtilisateur,$mois);
 include("vues/v_listeFraisHorsForfait.php");
 

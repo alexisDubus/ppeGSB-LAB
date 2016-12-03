@@ -25,26 +25,7 @@ switch($action){
 		}
 	  break;
 	}
-	/*case 'validerCreationFrais':{
-		$dateFrais = $_REQUEST['dateFrais'];
-		$libelle = $_REQUEST['libelle'];
-		$montant = $_REQUEST['montant'];
-		valideInfosFrais($dateFrais,$libelle,$montant);
-		if (nbErreurs() != 0 ){
-			include("vues/v_erreurs.php");
-		}
-		else{
-			$pdo->creeNouveauFraisHorsForfait($idUtilisateur,$mois,$libelle,$dateFrais,$montant);
-		}
-		break;
-	}
-	case 'supprimerFrais':{
-		$idFrais = $_REQUEST['idFrais'];
-	    $pdo->supprimerFraisHorsForfait($idFrais);
-		break;
-	}*/
 }
-//$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idUtilisateur,$mois);
 $lesFraisForfait= $pdo->getLesFraisForfait($idUtilisateur,$mois);
 $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idUtilisateur,$mois);
 include("vues/v_listeFraisForfait.php");
