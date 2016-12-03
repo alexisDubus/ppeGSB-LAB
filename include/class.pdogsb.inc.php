@@ -19,7 +19,7 @@
 class PdoGsb{
 
         private static $serveur='mysql:host=localhost';
-        private static $bdd='dbname=gsb_fr';
+        private static $bdd='dbname=gsb_test';
         private static $user='root' ;    		
       	//private static $bdd='dbname=gsb_frais';   		
       	//private static $user='root';    		
@@ -56,8 +56,7 @@ class PdoGsb{
 		return PdoGsb::$monPdoGsb;  
 	}
 /**
- * Retourne les informations d'un utilisateur et initialise la valeur $_SESSION['role'] de l'utilisateur
- * $_SESSION['role'] sera affichée au nivreau de la barre de navigation
+ * Retourne les informations d'un utilisateur
  
  * @param $login 
  * @param $mdp
@@ -70,33 +69,30 @@ class PdoGsb{
 		where utilisateur.login='$login' and utilisateur.mdpSHA='$mdpSHA'";
 		$rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
-                $leRole = $ligne["idRole"]; //SUCK
-                
-                if($leRole == 0)
-                {
-                    $_SESSION['role']= "Administrateur";
-                } 
-                else {
-
-                    if($leRole == 1)
-                    {
-                        $_SESSION['role']= "Comptable";
-                    } 
-                    else {
-
-                        if($leRole == 2)
-                        {
-                            $_SESSION['role']= "Visiteur";
-                        }
-                    }
-                }
 		return $ligne;
 	}
         
+  /**
+  *  Initialise la valeur $_SESSION['role'] de l'utilisateur qui est fonction de sa profession(Administrateur, comptable ou visiteur médical)
+  *  la variable superglobale $_SESSION['role'] sera affichée au nivreau de la barre de navigation
+  * 
+  * @param type $utilisateur
+  */
+        public function getRoleUtilisateur($idutilisateur)
+        {
+                //$requete = "select role.profession as role from role where role.id = 0;";
+                $requete = "select role.profession as role from role, utilisateur where utilisateur.id='$idutilisateur' and utilisateur.idRole = role.id;";
+		$retour = PdoGsb::$monPdo->query($requete);
+		$ligneRetour = $retour->fetch();
+                
+                $_SESSION['role']= $ligneRetour["role"];
+                if($ligneRetour["role"] == null )
+                {
+                    var_dump($ligneRetour);
+                }
+        }
 
-
-	
-/**
+        /**
  * Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
  * concernées par les deux arguments
  
