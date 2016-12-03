@@ -18,10 +18,9 @@
 
 class PdoGsb{
 
-    private static $serveur='mysql:host=localhost';
-    private static $bdd='dbname=gsb_fr';
-    private static $user='root' ;    		
-
+        private static $serveur='mysql:host=localhost';
+        private static $bdd='dbname=gsb_fr';
+        private static $user='root' ;    		
       	//private static $bdd='dbname=gsb_frais';   		
       	//private static $user='root';    		
       	//private static $mdp='AzertY!59';	
@@ -57,7 +56,8 @@ class PdoGsb{
 		return PdoGsb::$monPdoGsb;  
 	}
 /**
- * Retourne les informations d'un utilisateur
+ * Retourne les informations d'un utilisateur et initialise la valeur $_SESSION['role'] de l'utilisateur
+ * $_SESSION['role'] sera affichée au nivreau de la barre de navigation
  
  * @param $login 
  * @param $mdp
@@ -66,14 +66,33 @@ class PdoGsb{
 	public function getInfosUtilisateur($login, $mdp){
                 $mdpSHA = sha1($mdp);
             
-		$req = "select utilisateur.id as id, utilisateur.nom as nom, utilisateur.prenom as prenom from utilisateur 
+		$req = "select utilisateur.id as id, utilisateur.nom as nom, utilisateur.prenom as prenom, utilisateur.idRole as idRole from utilisateur 
 		where utilisateur.login='$login' and utilisateur.mdpSHA='$mdpSHA'";
 		$rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
-		//var_dump($ligne);
+                $leRole = $ligne["idRole"]; //SUCK
+                
+                if($leRole == 0)
+                {
+                    $_SESSION['role']= "Administrateur";
+                } 
+                else {
+
+                    if($leRole == 1)
+                    {
+                        $_SESSION['role']= "Comptable";
+                    } 
+                    else {
+
+                        if($leRole == 2)
+                        {
+                            $_SESSION['role']= "Visiteur";
+                        }
+                    }
+                }
 		return $ligne;
 	}
-	
+        
 
 
 	
