@@ -25,7 +25,7 @@ switch($action){
 		}
 	  break;
 	}
-	case 'validerCreationFrais':{
+	/*case 'validerCreationFrais':{
 		$dateFrais = $_REQUEST['dateFrais'];
 		$libelle = $_REQUEST['libelle'];
 		$montant = $_REQUEST['montant'];
@@ -42,9 +42,9 @@ switch($action){
 		$idFrais = $_REQUEST['idFrais'];
 	    $pdo->supprimerFraisHorsForfait($idFrais);
 		break;
-	}
+	}*/
 }
-$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idUtilisateur,$mois);
+//$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idUtilisateur,$mois);
 $lesFraisForfait= $pdo->getLesFraisForfait($idUtilisateur,$mois);
 $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idUtilisateur,$mois);
 include("vues/v_listeFraisForfait.php");
