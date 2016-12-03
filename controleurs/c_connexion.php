@@ -23,7 +23,9 @@ switch($action){
 			$id = $utilisateur['id'];
 			$nom =  $utilisateur['nom'];
 			$prenom = $utilisateur['prenom'];
-			connecter($id,$nom,$prenom);
+			// Ajout de l'attribut rôle
+			$role = $utilisateur['idRole'];
+			connecter($id,$nom,$prenom,$role);
 			include("vues/v_sommaire.php");
 			}
 
