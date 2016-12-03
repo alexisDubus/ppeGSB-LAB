@@ -1,7 +1,46 @@
-﻿<div class="col-md-6">
+<div class="col-md-6">
 	<div class="content-box-large">
 		<div class="panel-heading">
-			<div class="panel-title"><h2>Fiche de frais du mois <?php echo $numMois."-".$numAnnee?> :</h2></div>
+			<div class="panel-title"><h2>Fiche de frais du mois <?php 
+				switch ($numMois) {
+			case 1:
+				echo "de janvier ";
+				break;
+			case 2:
+				echo "de février ";
+				break;
+			case 3:
+				echo "de mars ";
+				break;
+			case 4:
+				echo "d'avril ";
+				break;
+			case 5:
+				echo "de mai ";
+				break;
+			case 6:
+				echo "de juin ";
+				break;
+			case 7:
+				echo "de juillet ";
+				break;
+			case 8:
+				echo "d'août ";
+				break;
+			case 9:
+				echo "de septembre ";
+				break;
+			case 10:
+				echo "d'octobre ";
+				break;
+			case 11:
+				echo "de novembre ";
+				break;
+			case 12:
+				echo "de décembre ";
+				break;		
+			}
+			echo $numAnnee?> :</h2></div>
 		</div>
 		<div class="panel-body">
 				</br></br>
@@ -80,15 +119,3 @@
 	
   </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
