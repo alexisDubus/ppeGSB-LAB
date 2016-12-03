@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Sam 03 Décembre 2016 à 10:57
+-- Généré le: Sam 03 Décembre 2016 à 13:50
 -- Version du serveur: 5.5.24-log
 -- Version de PHP: 5.4.3
 
@@ -65,7 +65,8 @@ CREATE TABLE IF NOT EXISTS `fichefrais` (
 
 INSERT INTO `fichefrais` (`idutilisateur`, `mois`, `nbJustificatifs`, `montantValide`, `dateModif`, `idEtat`) VALUES
 ('a131', '201611', 0, '0.00', '2016-12-03', 'CL'),
-('a131', '201612', 0, '0.00', '2016-12-03', 'CR');
+('a131', '201612', 0, '0.00', '2016-12-03', 'CR'),
+('f39', '201612', 0, '0.00', '2016-12-03', 'CR');
 
 -- --------------------------------------------------------
 
@@ -117,7 +118,11 @@ INSERT INTO `lignefraisforfait` (`idutilisateur`, `mois`, `idFraisForfait`, `qua
 ('a131', '201612', 'ETP', 0),
 ('a131', '201612', 'KM', 0),
 ('a131', '201612', 'NUI', 0),
-('a131', '201612', 'REP', 0);
+('a131', '201612', 'REP', 0),
+('f39', '201612', 'ETP', 0),
+('f39', '201612', 'KM', 0),
+('f39', '201612', 'NUI', 0),
+('f39', '201612', 'REP', 0);
 
 -- --------------------------------------------------------
 
@@ -161,9 +166,9 @@ CREATE TABLE IF NOT EXISTS `role` (
 --
 
 INSERT INTO `role` (`id`, `profession`) VALUES
-('0', 'admin'),
-('1', 'comptable'),
-('2', 'visiteur');
+('0', 'Administrateur'),
+('1', 'Comptable'),
+('2', 'Visiteur médical');
 
 -- --------------------------------------------------------
 
