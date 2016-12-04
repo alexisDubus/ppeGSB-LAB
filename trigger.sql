@@ -26,7 +26,7 @@ BEGIN
 	UPDATE fichefrais	
 	SET montantValide = montantValide + ( 	SELECT lignefraisforfait.quantite*fraisforfait.montant
 											FROM lignefraisforfait , fraisforfait
-											WHERE lignefraisforfait.idFraisForfait = fraisforfait.id;) 
+											WHERE lignefraisforfait.idFraisForfait = fraisforfait.id) 
 	WHERE 	fichefrais.idutilisateur = lignefraisforfait.idutilisateur AND
 			fichefrais.mois = lignefraisforfait.mois;
 END 		|
@@ -46,7 +46,7 @@ BEGIN
 	UPDATE fichefrais	
 	SET montantValide =  montantValide + ( 	SELECT (NEW.lignefraisforfait.quantite - OLD.lignefraisforfait.quantite)*fraisforfait.montantValide
 											FROM lignefraisforfait , fraisforfait
-											WHERE lignefraisforfait.idFraisForfait = fraisforfait.id ;)
+											WHERE lignefraisforfait.idFraisForfait = fraisforfait.id)
 	WHERE 	fichefrais.idutilisateur = lignefraisforfait.idutilisateur AND
 			fichefrais.mois = lignefraisforfait.mois;
 END 		|
