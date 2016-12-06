@@ -1,55 +1,313 @@
-﻿<?php
- /**
- * Teste si un quelconque visiteur est connecté
- * @return boolean
+<?php
+
+/**
+ * Fichier de mise à jour des données
  */
-function estConnecte(){
-  return isset($_SESSION['idVisiteur']);
-}
+
 /**
- * Enregistre dans une variable session les infos d'un visiteur
- 
- * @param $id 
- * @param $nom
- * @param $prenom
+ * Retourne tout les visiteurs
+ * 
+ * @param type $pdo
+ * @return type
  */
-function connecter($id,$nom,$prenom){
-	$_SESSION['idVisiteur']= $id; 
-	$_SESSION['nom']= $nom;
-	$_SESSION['prenom']= $prenom;
+function getLesVisiteurs($pdo)
+{
+		$req = "select * from visiteur";
+		$res = $pdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
 }
 /**
- * Détruit la session active
+ * Retourne toutes les fiches de frais
+ * 
+ * @param type $pdo
+ * @return type
  */
-function deconnecter(){
-	session_destroy();
+function getLesFichesFrais($pdo)
+{
+		$req = "select * from ficheFrais";
+		$res = $pdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
 }
 /**
- * Transforme une date au format français jj/mm/aaaa vers le format anglais aaaa-mm-jj
- 
- * @param $madate au format  jj/mm/aaaa
- * @return la date au format anglais aaaa-mm-jj
-*/
-function dateFrancaisVersAnglais($maDate){
-	@list($jour,$mois,$annee) = explode('/',$maDate);
-	return date('Y-m-d',mktime(0,0,0,$mois,$jour,$annee));
+ * Retourne les Id de frais forfait, ordonné par ordre alphabétique
+ * 
+ * @param type $pdo
+ * @return type
+ */
+function getLesIdFraisForfait($pdo)
+{
+		$req = "select fraisforfait.id as id from fraisforfait order by fraisforfait.id";
+		$res = $pdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
 }
 /**
- * Transforme une date au format format anglais aaaa-mm-jj vers le format français jj/mm/aaaa 
- * @param $madate au format  aaaa-mm-jj
- * @return la date au format format français jj/mm/aaaa
-*/
-function dateAnglaisVersFrancais($maDate){
-   @list($annee,$mois,$jour)=explode('-',$maDate);
-   $date="$jour"."/".$mois."/".$annee;
-   return $date;
+ * Retourne le dernier mois du visiteur donné en paramétre
+ * 
+ * @param type $pdo
+ * @param type $idVisiteur
+ * @return type dateTime
+ */
+function getDernierMois($pdo, $idVisiteur)
+{
+		$req = "select max(mois) as dernierMois from fichefrais where idVisiteur = '$idVisiteur'";
+		$res = $pdo->query($req);
+		$laLigne = $res->fetch();
+		return $laLigne['dernierMois'];
+
 }
 /**
- * retourne le mois au format aaaamm selon le jour dans le mois
- 
- * @param $date au format  jj/mm/aaaa
- * @return le mois au format aaaamm
-*/
+ * Retourne l'année actuelle et le mois suivant le tout concaténée en un seul bloc
+ * 
+ * @param type $mois
+ * @return type
+ */
+function getMoisSuivant($mois){
+		$numAnnee =substr( $mois,0,4);
+		$numMois =substr( $mois,4,2);
+		if($numMois=="12"){
+			$numMois = "01"; 
+			$numAnnee++;
+		}
+		else{
+			$numMois++;
+
+		}
+		if(strlen($numMois)==1)
+			$numMois="0".$numMois;
+		return $numAnnee.$numMois;
+}
+/**
+ * Retourne l'année actuelle et le mois précédent le tout concaténée en un seul bloc
+ * 
+ * @param type $mois
+ * @return type
+ */
+function getMoisPrecedent($mois){
+		$numAnnee =substr( $mois,0,4);
+		$numMois =substr( $mois,4,2);
+		if($numMois=="01"){
+			$numMois = "12"; 
+			$numAnnee--;
+		}
+		else{
+			$numMois--;
+		}
+		if(strlen($numMois)==1)
+			$numMois="0".$numMois;
+		return $numAnnee.$numMois;
+}
+/**
+ * Créé des fiches de frais sur les utilisateurs ayant déja des fiches de frais
+ * le mois, le nombre de Justificatifs, le montant validé, la date de modification et l'id etat sont créé de facon aléatoire 
+ * 
+ * @param type $pdo
+ */
+function creationFichesFrais($pdo)
+{
+	$lesVisiteurs = getLesVisiteurs($pdo);
+	$moisActuel = getMois(date("d/m/Y"));
+	$moisDebut = "201001";
+	$moisFin = getMoisPrecedent($moisActuel);
+	foreach($lesVisiteurs as $unVisiteur)
+	{
+		$moisCourant = $moisFin;
+		$idVisiteur = $unVisiteur['id'];
+		$n = 1;
+		while($moisCourant >= $moisDebut)
+		{
+			if($n == 1)
+			{
+				$etat = "CR";
+				$moisModif = $moisCourant;
+			}
+			else
+			{
+				if($n == 2)
+				{
+					$etat = "VA";
+					$moisModif = getMoisSuivant($moisCourant);
+				}
+				else
+				{
+					$etat = "RB";
+					$moisModif = getMoisSuivant(getMoisSuivant($moisCourant));
+				}
+			}
+			$numAnnee =substr( $moisModif,0,4);
+			$numMois =substr( $moisModif,4,2);
+			$dateModif = $numAnnee."-".$numMois."-".rand(1,8);
+			$nbJustificatifs = rand(0,12);
+			$req = "insert into fichefrais(idvisiteur,mois,nbJustificatifs,montantValide,dateModif,idEtat) 
+			values ('$idVisiteur','$moisCourant',$nbJustificatifs,0,'$dateModif','$etat');";
+			$pdo->exec($req);
+			$moisCourant = getMoisPrecedent($moisCourant);
+			$n++;
+		}
+	}
+}
+/**
+ * Créé des lignes de frais forfait 
+ * Le mois, l'id de frais forfait et la quantité sont générés aléatoirement 
+ * 
+ * @param type $pdo
+ */
+function creationFraisForfait($pdo)
+{
+	$lesFichesFrais= getLesFichesFrais($pdo);
+	$lesIdFraisForfait = getLesIdFraisForfait($pdo);
+	foreach($lesFichesFrais as $uneFicheFrais)
+	{
+		$idVisiteur = $uneFicheFrais['idVisiteur'];
+		$mois =  $uneFicheFrais['mois'];
+		foreach($lesIdFraisForfait as $unIdFraisForfait)
+		{
+			$idFraisForfait = $unIdFraisForfait['id'];
+			if(substr($idFraisForfait,0,1)=="K")
+			{
+				$quantite =rand(300,1000);
+			}
+			else
+			{
+				$quantite =rand(2,20);
+			}
+			$req = "insert into lignefraisforfait(idvisiteur,mois,idfraisforfait,quantite)
+			values('$idVisiteur','$mois','$idFraisForfait',$quantite);";
+			$pdo->exec($req);	
+		}
+	}
+
+}
+/**
+ * Retourne un tableau avec des données utilisé par les autres fonction pour 
+ * créer des fiches de frais
+ * 
+ * @return array
+ */
+function getDesFraisHorsForfait()
+{
+	$tab = array(
+				1 => array(
+				      "lib" => "repas avec praticien",
+					  "min" => 30,
+					  "max" => 50 ),
+				2 => array(
+				      "lib" => "achat de matÃ©riel de papÃ¨terie",
+					  "min" => 10,
+					  "max" => 50 ),
+				3	=> array(
+				      "lib" => "taxi",
+					  "min" => 20,
+					  "max" => 80 ),
+				4 => array(
+				      "lib" => "achat d'espace publicitaire",
+					  "min" => 20,
+					  "max" => 150 ),
+				5 => array(
+				      "lib" => "location salle confÃ©rence",
+					  "min" => 120,
+					  "max" => 650 ),
+				6 => array(
+				      "lib" => "Voyage SNCF",
+					  "min" => 30,
+					  "max" => 150 ),
+				7 => array(
+					  "lib" => "traiteur, alimentation, boisson",
+					  "min" => 25,
+					  "max" => 450 ),
+				8 => array(
+					  "lib" => "rÃ©munÃ©ration intervenant/spÃ©cialiste",
+					  "min" => 250,
+					  "max" => 1200 ),
+				9 => array(
+					  "lib" => "location Ã©quipement vidÃ©o/sonore",
+					  "min" => 100,
+					  "max" => 850 ),
+				10 => array(
+					  "lib" => "location vÃ©hicule",
+					  "min" => 25,
+					  "max" => 450 ),
+				11 => array(
+					  "lib" => "frais vestimentaire/reprÃ©sentation",
+					  "min" => 25,
+					  "max" => 450 ) 
+		);
+	return $tab;
+}
+/**
+ * Permet de modifier le mot de passe d'un utilisateur
+ * Le nouveau mot de passe est créer automatiqument. 
+ * 
+ * @param type $pdo
+ */
+function updateMdpVisiteur($pdo)
+{
+	$req = "select * from visiteur";
+		$res = $pdo->query($req);
+		$lesLignes = $res->fetchAll();
+		$lettres ="azertyuiopqsdfghjkmwxcvbn123456789";
+		foreach($lesLignes as $unVisiteur)
+		{
+			$mdp = "";
+			$id = $unVisiteur['id'];
+			for($i =1;$i<=5;$i++)
+			{
+				$uneLettrehasard = substr( $lettres,rand(33,1),1);
+				$mdp = $mdp.$uneLettrehasard;
+			}
+			
+			$req = "update visiteur set mdp ='$mdp' where visiteur.id ='$id' ";
+			$pdo->exec($req);
+		}
+
+
+}
+/**
+ * Créé des lignes de frais hors forfait 
+ * Le mois, le libelle, la date et le montant sot générés aléatoirement
+ * 
+ * @param type $pdo
+ */
+function creationFraisHorsForfait($pdo)
+{
+	$desFrais = getDesFraisHorsForfait();
+	$lesFichesFrais= getLesFichesFrais($pdo);
+	
+	foreach($lesFichesFrais as $uneFicheFrais)
+	{
+		$idVisiteur = $uneFicheFrais['idVisiteur'];
+		$mois =  $uneFicheFrais['mois'];
+		$nbFrais = rand(0,5);
+		for($i=0;$i<=$nbFrais;$i++)
+		{
+			$hasardNumfrais = rand(1,count($desFrais)); 
+			$frais = $desFrais[$hasardNumfrais];
+			$lib = $frais['lib'];
+			$min= $frais['min'];
+			$max = $frais['max'];
+			$hasardMontant = rand($min,$max);
+			$numAnnee =substr( $mois,0,4);
+			$numMois =substr( $mois,4,2);
+			$hasardJour = rand(1,28);
+			if(strlen($hasardJour)==1)
+			{
+				$hasardJour="0".$hasardJour;
+			}
+			$hasardMois = $numAnnee."-".$numMois."-".$hasardJour;
+			$req = "insert into lignefraishorsforfait(idVisiteur,mois,libelle,date,montant)
+			values('$idVisiteur','$mois','$lib','$hasardMois',$hasardMontant);";
+			$pdo->exec($req);
+		}
+	}
+}
+/**
+ * retourne la date donnée en paramétre au format année.mois
+ * 
+ * @param type $date
+ * @return type
+ */
 function getMois($date){
 		@list($jour,$mois,$annee) = explode('/',$date);
 		if(strlen($mois) == 1){
@@ -57,141 +315,46 @@ function getMois($date){
 		}
 		return $annee.$mois;
 }
-
-/* gestion des erreurs ============*/
-
 /**
- * Indique si une valeur est un entier positif ou nul
- 
- * @param $valeur
- * @return vrai ou faux
-*/
-function estEntierPositif($valeur) {
-	return preg_match("/[^0-9]/", $valeur) == 0;
+ * Effectue une mise a jour des frais pour chaque utilisateur(s)
+ * ayant au moins une fiche de frais forfait
+ * 
+ * @param type $pdo
+ */
+function majFicheFrais($pdo)
+{
 	
-}
-
-/**
- * Indique si un tableau de valeurs est constitué d'entiers positifs ou nuls
- 
- * @param $tabEntiers : le tableau
- * @return vrai ou faux
-*/
-function estTableauEntiers($tabEntiers) {
-	$ok = true;
-	if (isset($unEntier) ){
-		foreach($tabEntiers as $unEntier){
-			if(!estEntierPositif($unEntier)){
-		 		$ok=false; 
-			}
-		}	
-	}
-	return $ok;
-}
-/**
- * Vérifie si une date est inférieure d'un an à la date actuelle
- 
- * @param $dateTestee 
- * @return vrai ou faux
-*/
-function estDateDepassee($dateTestee){
-	$dateActuelle=date("d/m/Y");
-	@list($jour,$mois,$annee) = explode('/',$dateActuelle);
-	$annee--;
-	$AnPasse = $annee.$mois.$jour;
-	@list($jourTeste,$moisTeste,$anneeTeste) = explode('/',$dateTestee);
-	return ($anneeTeste.$moisTeste.$jourTeste < $AnPasse); 
-}
-/**
- * Vérifie la validité du format d'une date française jj/mm/aaaa 
- 
- * @param $date 
- * @return vrai ou faux
-*/
-function estDateValide($date){
-	$tabDate = explode('/',$date);
-	$dateOK = true;
-	if (count($tabDate) != 3) {
-	    $dateOK = false;
-    }
-    else {
-		if (!estTableauEntiers($tabDate)) {
-			$dateOK = false;
-		}
-		else {
-			if (!checkdate($tabDate[1], $tabDate[0], $tabDate[2])) {
-				$dateOK = false;
-			}
-		}
-    }
-	return $dateOK;
-}
-
-/**
- * Vérifie que le tableau de frais ne contient que des valeurs numériques 
- 
- * @param $lesFrais 
- * @return vrai ou faux
-*/
-function lesQteFraisValides($lesFrais){
-	return estTableauEntiers($lesFrais);
-}
-/**
- * Vérifie la validité des trois arguments : la date, le libellé du frais et le montant 
- 
- * des message d'erreurs sont ajoutés au tableau des erreurs
- 
- * @param $dateFrais 
- * @param $libelle 
- * @param $montant
- */
-function valideInfosFrais($dateFrais,$libelle,$montant){
-	if($dateFrais==""){
-		ajouterErreur("Le champ date ne doit pas être vide");
-	}
-	else{
-		if(!estDatevalide($dateFrais)){
-			ajouterErreur("Date invalide");
-		}	
-		else{
-			if(estDateDepassee($dateFrais)){
-				ajouterErreur("date d'enregistrement du frais dépassé, plus de 1 an");
-			}			
-		}
-	}
-	if($libelle == ""){
-		ajouterErreur("Le champ description ne peut pas être vide");
-	}
-	if($montant == ""){
-		ajouterErreur("Le champ montant ne peut pas être vide");
-	}
-	else
-		if( !is_numeric($montant) ){
-			ajouterErreur("Le champ montant doit être numérique");
-		}
-}
-/**
- * Ajoute le libellé d'une erreur au tableau des erreurs 
- 
- * @param $msg : le libellé de l'erreur 
- */
-function ajouterErreur($msg){
-   if (! isset($_REQUEST['erreurs'])){
-      $_REQUEST['erreurs']=array();
-	} 
-   $_REQUEST['erreurs'][]=$msg;
-}
-/**
- * Retoune le nombre de lignes du tableau des erreurs 
- 
- * @return le nombre d'erreurs
- */
-function nbErreurs(){
-   if (!isset($_REQUEST['erreurs'])){
-	   return 0;
-	}
-	else{
-	   return count($_REQUEST['erreurs']);
+	$lesFichesFrais= getLesFichesFrais($pdo);
+	foreach($lesFichesFrais as $uneFicheFrais)
+	{
+		$idVisiteur = $uneFicheFrais['idVisiteur'];
+		$mois =  $uneFicheFrais['mois'];
+		$dernierMois = getDernierMois($pdo, $idVisiteur);
+		$req = "select sum(montant) as cumul from ligneFraisHorsForfait where ligneFraisHorsForfait.idVisiteur = '$idVisiteur' 
+				and ligneFraisHorsForfait.mois = '$mois' ";
+		$res = $pdo->query($req);
+		$ligne = $res->fetch();
+		$cumulMontantHorsForfait = $ligne['cumul'];
+		$req = "select sum(ligneFraisForfait.quantite * fraisForfait.montant) as cumul from ligneFraisForfait, FraisForfait where
+		ligneFraisForfait.idFraisForfait = fraisForfait.id   and   ligneFraisForfait.idVisiteur = '$idVisiteur' 
+				and ligneFraisForfait.mois = '$mois' ";
+		$res = $pdo->query($req);
+		$ligne = $res->fetch();
+		$cumulMontantForfait = $ligne['cumul'];
+		$montantEngage = $cumulMontantHorsForfait + $cumulMontantForfait;
+		$etat = $uneFicheFrais['idEtat'];
+		if($etat == "CR" )
+			$montantValide = 0;
+		else
+			$montantValide = $montantEngage*rand(80,100)/100;
+		$req = "update fichefrais set montantValide =$montantValide where
+		idVisiteur = '$idVisiteur' and mois='$mois'";
+		$pdo->exec($req);
+		
 	}
 }
 ?>
+
+
+
+
