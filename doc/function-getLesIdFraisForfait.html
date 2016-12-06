@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Function nbErreurs</title>
+	<title>Function getLesIdFraisForfait</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -85,14 +85,14 @@
 				<li><a href="function-getDernierMois.html">getDernierMois</a></li>
 				<li><a href="function-getDesFraisHorsForfait.html">getDesFraisHorsForfait</a></li>
 				<li><a href="function-getLesFichesFrais.html">getLesFichesFrais</a></li>
-				<li><a href="function-getLesIdFraisForfait.html">getLesIdFraisForfait</a></li>
+				<li class="active"><a href="function-getLesIdFraisForfait.html">getLesIdFraisForfait</a></li>
 				<li><a href="function-getLesVisiteurs.html">getLesVisiteurs</a></li>
 				<li><a href="function-getMois.html" class="invalid">getMois</a></li>
 				<li><a href="function-getMoisPrecedent.html">getMoisPrecedent</a></li>
 				<li><a href="function-getMoisSuivant.html">getMoisSuivant</a></li>
 				<li><a href="function-lesQteFraisValides.html">lesQteFraisValides</a></li>
 				<li><a href="function-majFicheFrais.html">majFicheFrais</a></li>
-				<li class="active"><a href="function-nbErreurs.html">nbErreurs</a></li>
+				<li><a href="function-nbErreurs.html">nbErreurs</a></li>
 				<li><a href="function-updateMdpVisiteur.html">updateMdpVisiteur</a></li>
 				<li><a href="function-valideInfosFrais.html">valideInfosFrais</a></li>
 			</ul>
@@ -127,32 +127,40 @@
 	</div>
 
 <div id="content" class="function">
-	<h1>Function nbErreurs</h1>
+	<h1>Function getLesIdFraisForfait</h1>
 
 
 	<div class="description">
-	<p>Retoune le nombre de lignes du tableau des erreurs</p>
+	<p>Retourne les Id de frais forfait, ordonné par ordre alphabétique</p>
 	</div>
 
 	<div class="info">
 		
 		
 		<b>Located at</b>
-		<a href="source-function-nbErreurs.html#184-196" title="Go to source code">
-			include/fct.inc.php
+		<a href="source-function-getLesIdFraisForfait.html#33-45" title="Go to source code">
+			GSB-GenerationDonneesV3.5/include/ftc.inc.php
 		</a><br>
 	</div>
 
 
+	<table class="summary" id="parameters">
+	<caption>Parameters summary</caption>
+	<tr id="$pdo">
+		<td class="name"><code>type</code></td>
+		<td class="value"><code><var>$pdo</var></code></td>
+		<td></td>
+	</tr>
+	</table>
 
 	<table class="summary" id="returns">
 	<caption>Return value summary</caption>
 	<tr>
 		<td class="name"><code>
-			le
+			type
 		</code></td>
 		<td>
-			nombre d'erreurs
+			type
 		</td>
 	</tr>
 	</table>

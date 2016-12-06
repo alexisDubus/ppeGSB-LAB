@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="robots" content="noindex">
 
-	<title>File GSB-GenerationDonneesV3.5/include/ftc.inc.php</title>
+	<title>File include/fct.inc.php</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -75,25 +75,36 @@
 
 			<h3>Functions</h3>
 			<ul>
-				<li><a href="function-ajouterErreur.html" class="invalid">ajouterErreur</a></li>
+				<li><a href="function-ajouterErreur.html">ajouterErreur</a></li>
 				<li><a href="function-CheckTTF.html">CheckTTF</a></li>
-				<li><a href="function-connecter.html" class="invalid">connecter</a></li>
-				<li><a href="function-dateAnglaisVersFrancais.html" class="invalid">dateAnglaisVersFrancais</a></li>
-				<li><a href="function-dateFrancaisVersAnglais.html" class="invalid">dateFrancaisVersAnglais</a></li>
-				<li><a href="function-deconnecter.html" class="invalid">deconnecter</a></li>
-				<li><a href="function-estConnecte.html" class="invalid">estConnecte</a></li>
-				<li><a href="function-estDateDepassee.html" class="invalid">estDateDepassee</a></li>
-				<li><a href="function-estDateValide.html" class="invalid">estDateValide</a></li>
-				<li><a href="function-estEntierPositif.html" class="invalid">estEntierPositif</a></li>
-				<li><a href="function-estTableauEntiers.html" class="invalid">estTableauEntiers</a></li>
+				<li><a href="function-connecter.html">connecter</a></li>
+				<li><a href="function-creationFichesFrais.html">creationFichesFrais</a></li>
+				<li><a href="function-creationFraisForfait.html">creationFraisForfait</a></li>
+				<li><a href="function-creationFraisHorsForfait.html">creationFraisHorsForfait</a></li>
+				<li><a href="function-dateAnglaisVersFrancais.html">dateAnglaisVersFrancais</a></li>
+				<li><a href="function-dateFrancaisVersAnglais.html">dateFrancaisVersAnglais</a></li>
+				<li><a href="function-deconnecter.html">deconnecter</a></li>
+				<li><a href="function-estConnecte.html">estConnecte</a></li>
+				<li><a href="function-estDateDepassee.html">estDateDepassee</a></li>
+				<li><a href="function-estDateValide.html">estDateValide</a></li>
+				<li><a href="function-estEntierPositif.html">estEntierPositif</a></li>
+				<li><a href="function-estTableauEntiers.html">estTableauEntiers</a></li>
 				<li><a href="function-fnReadDir.html">fnReadDir</a></li>
+				<li><a href="function-getDernierMois.html">getDernierMois</a></li>
+				<li><a href="function-getDesFraisHorsForfait.html">getDesFraisHorsForfait</a></li>
+				<li><a href="function-getLesFichesFrais.html">getLesFichesFrais</a></li>
+				<li><a href="function-getLesIdFraisForfait.html">getLesIdFraisForfait</a></li>
+				<li><a href="function-getLesVisiteurs.html">getLesVisiteurs</a></li>
 				<li><a href="function-getMois.html" class="invalid">getMois</a></li>
-				<li><a href="function-lesQteFraisValides.html" class="invalid">lesQteFraisValides</a></li>
+				<li><a href="function-getMoisPrecedent.html">getMoisPrecedent</a></li>
+				<li><a href="function-getMoisSuivant.html">getMoisSuivant</a></li>
+				<li><a href="function-lesQteFraisValides.html">lesQteFraisValides</a></li>
+				<li><a href="function-majFicheFrais.html">majFicheFrais</a></li>
 				<li><a href="function-MakeFont.html">MakeFont</a></li>
 				<li><a href="function-MakeFontDescriptor.html">MakeFontDescriptor</a></li>
 				<li><a href="function-MakeFontEncoding.html">MakeFontEncoding</a></li>
 				<li><a href="function-MakeWidthArray.html">MakeWidthArray</a></li>
-				<li><a href="function-nbErreurs.html" class="invalid">nbErreurs</a></li>
+				<li><a href="function-nbErreurs.html">nbErreurs</a></li>
 				<li><a href="function-ReadAFM.html">ReadAFM</a></li>
 				<li><a href="function-ReadLong.html">ReadLong</a></li>
 				<li><a href="function-ReadMap.html">ReadMap</a></li>
@@ -101,7 +112,8 @@
 				<li><a href="function-ReadUFM.html">ReadUFM</a></li>
 				<li><a href="function-SaveToFile.html">SaveToFile</a></li>
 				<li><a href="function-str_split.html">str_split</a></li>
-				<li><a href="function-valideInfosFrais.html" class="invalid">valideInfosFrais</a></li>
+				<li><a href="function-updateMdpVisiteur.html">updateMdpVisiteur</a></li>
+				<li><a href="function-valideInfosFrais.html">valideInfosFrais</a></li>
 			</ul>
 		</div>
 	</div>
@@ -135,21 +147,21 @@
 
 <pre><code><span id="1" class="l"><a href="#1">  1: </a>﻿<span class="xlang">&lt;?php</span>
 </span><span id="2" class="l"><a href="#2">  2: </a> <span class="php-comment">/**
-</span></span><span id="3" class="l"><a href="#3">  3: </a><span class="php-comment"> * Teste si un quelconque visiteur est connecté
+</span></span><span id="3" class="l"><a href="#3">  3: </a><span class="php-comment"> * Teste si un quelconque utilisateur est connecté
 </span></span><span id="4" class="l"><a href="#4">  4: </a><span class="php-comment"> * @return boolean
 </span></span><span id="5" class="l"><a href="#5">  5: </a><span class="php-comment"> */</span>
 </span><span id="6" class="l"><a href="#6">  6: </a><span class="php-keyword1">function</span> estConnecte(){
-</span><span id="7" class="l"><a href="#7">  7: </a>  <span class="php-keyword1">return</span> <span class="php-keyword1">isset</span>(<span class="php-var">$_SESSION</span>[<span class="php-quote">'idVisiteur'</span>]);
+</span><span id="7" class="l"><a href="#7">  7: </a>  <span class="php-keyword1">return</span> <span class="php-keyword1">isset</span>(<span class="php-var">$_SESSION</span>[<span class="php-quote">'idUtilisateur'</span>]);
 </span><span id="8" class="l"><a href="#8">  8: </a>}
 </span><span id="9" class="l"><a href="#9">  9: </a><span class="php-comment">/**
-</span></span><span id="10" class="l"><a href="#10"> 10: </a><span class="php-comment"> * Enregistre dans une variable session les infos d'un visiteur
+</span></span><span id="10" class="l"><a href="#10"> 10: </a><span class="php-comment"> * Enregistre dans une variable session les infos d'un utilisateur
 </span></span><span id="11" class="l"><a href="#11"> 11: </a><span class="php-comment"> 
 </span></span><span id="12" class="l"><a href="#12"> 12: </a><span class="php-comment"> * @param $id 
 </span></span><span id="13" class="l"><a href="#13"> 13: </a><span class="php-comment"> * @param $nom
 </span></span><span id="14" class="l"><a href="#14"> 14: </a><span class="php-comment"> * @param $prenom
 </span></span><span id="15" class="l"><a href="#15"> 15: </a><span class="php-comment"> */</span>
 </span><span id="16" class="l"><a href="#16"> 16: </a><span class="php-keyword1">function</span> connecter(<span class="php-var">$id</span>,<span class="php-var">$nom</span>,<span class="php-var">$prenom</span>){
-</span><span id="17" class="l"><a href="#17"> 17: </a>    <span class="php-var">$_SESSION</span>[<span class="php-quote">'idVisiteur'</span>]= <span class="php-var">$id</span>; 
+</span><span id="17" class="l"><a href="#17"> 17: </a>    <span class="php-var">$_SESSION</span>[<span class="php-quote">'idUtilisateur'</span>]= <span class="php-var">$id</span>; 
 </span><span id="18" class="l"><a href="#18"> 18: </a>    <span class="php-var">$_SESSION</span>[<span class="php-quote">'nom'</span>]= <span class="php-var">$nom</span>;
 </span><span id="19" class="l"><a href="#19"> 19: </a>    <span class="php-var">$_SESSION</span>[<span class="php-quote">'prenom'</span>]= <span class="php-var">$prenom</span>;
 </span><span id="20" class="l"><a href="#20"> 20: </a>}
@@ -337,6 +349,6 @@
 </div>
 </div>
 <script src="resources/combined.js?cd021bc814832c24a7cec5319ea03335bfba1caf"></script>
-<script src="elementlist.js?86fda12d53b93489f1050a6fa6874c3714cf3a19"></script>
+<script src="elementlist.js?364fb370aee78d67df06e4cb04b21088d64700a9"></script>
 </body>
 </html>

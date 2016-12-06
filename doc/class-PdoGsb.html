@@ -127,7 +127,7 @@ $monPdoGsb qui contiendra l'unique instance de la classe</p>
 				1.0<br>
 				<b>Link:</b>
 				<a href="http://www.php.net/manual/fr/book.pdo.php">http://www.php.net/manual/fr/book.pdo.php</a><br>
-			<b>Located at</b> <a href="source-class-PdoGsb.html#4-325" title="Go to source code">include/class.pdogsb.inc.php</a>
+			<b>Located at</b> <a href="source-class-PdoGsb.html#4-342" title="Go to source code">include/class.pdogsb.inc.php</a>
 		<br>
 	</div>
 
@@ -147,7 +147,7 @@ $monPdoGsb qui contiendra l'unique instance de la classe</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#__destruct">#</a>
-		<code><a href="source-class-PdoGsb.html#43-45" title="Go to source code">_destruct</a>( )</code>
+		<code><a href="source-class-PdoGsb.html#42-44" title="Go to source code">_destruct</a>( )</code>
 
 		<div class="description short">
 			
@@ -177,7 +177,7 @@ $monPdoGsb qui contiendra l'unique instance de la classe</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getPdoGsb">#</a>
-		<code><a href="source-class-PdoGsb.html#46-58" title="Go to source code">getPdoGsb</a>( )</code>
+		<code><a href="source-class-PdoGsb.html#45-57" title="Go to source code">getPdoGsb</a>( )</code>
 
 		<div class="description short">
 			<p>Fonction statique qui crée l'unique instance de la classe</p>
@@ -201,7 +201,7 @@ $monPdoGsb qui contiendra l'unique instance de la classe</p>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getInfosVisiteur" id="_getInfosVisiteur">
+	<tr data-order="getInfosUtilisateur" id="_getInfosUtilisateur">
 
 		<td class="attributes"><code>
 			 public 
@@ -212,15 +212,15 @@ $monPdoGsb qui contiendra l'unique instance de la classe</p>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getInfosVisiteur">#</a>
-		<code><a href="source-class-PdoGsb.html#59-73" title="Go to source code">getInfosVisiteur</a>( <span> <var>$login</var></span>, <span> <var>$mdp</var></span> )</code>
+		<a class="anchor" href="#_getInfosUtilisateur">#</a>
+		<code><a href="source-class-PdoGsb.html#58-73" title="Go to source code">getInfosUtilisateur</a>( <span> <var>$login</var></span>, <span> <var>$mdp</var></span> )</code>
 
 		<div class="description short">
-			<p>Retourne les informations d'un visiteur</p>
+			<p>Retourne les informations d'un utilisateur</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Retourne les informations d'un visiteur</p>
+			<p>Retourne les informations d'un utilisateur</p>
 
 
 				<h4>Parameters</h4>
@@ -242,6 +242,42 @@ $monPdoGsb qui contiendra l'unique instance de la classe</p>
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="getRoleUtilisateur" id="_getRoleUtilisateur">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRoleUtilisateur">#</a>
+		<code><a href="source-class-PdoGsb.html#75-93" title="Go to source code">getRoleUtilisateur</a>( <span>type <var>$idutilisateur</var></span> )</code>
+
+		<div class="description short">
+			<p>Initialise la valeur $_SESSION['role'] de l'utilisateur qui est fonction de sa profession(Administrateur, comptable ou visiteur médical)
+ la variable superglobale $_SESSION['role'] sera affichée au nivreau de la barre de navigation</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Initialise la valeur $_SESSION['role'] de l'utilisateur qui est fonction de sa profession(Administrateur, comptable ou visiteur médical) la variable superglobale $_SESSION['role'] sera affichée au nivreau de la barre de navigation</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$idutilisateur</var></dt>
+					<dd>$utilisateur</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="getLesFraisHorsForfait" id="_getLesFraisHorsForfait">
 
 		<td class="attributes"><code>
@@ -254,7 +290,7 @@ $monPdoGsb qui contiendra l'unique instance de la classe</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getLesFraisHorsForfait">#</a>
-		<code><a href="source-class-PdoGsb.html#78-100" title="Go to source code">getLesFraisHorsForfait</a>( <span> <var>$idVisiteur</var></span>, <span> <var>$mois</var></span> )</code>
+		<code><a href="source-class-PdoGsb.html#95-117" title="Go to source code">getLesFraisHorsForfait</a>( <span> <var>$idUtilisateur</var></span>, <span> <var>$mois</var></span> )</code>
 
 		<div class="description short">
 			<p>Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
@@ -271,7 +307,7 @@ concernées par les deux arguments</p>
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$idVisiteur</var></dt>
+					<dt><var>$idUtilisateur</var></dt>
 					<dd></dd>
 					<dt><var>$mois</var></dt>
 					<dd>la forme aaaamm</dd>
@@ -300,19 +336,19 @@ concernées par les deux arguments</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getNbjustificatifs">#</a>
-		<code><a href="source-class-PdoGsb.html#101-113" title="Go to source code">getNbjustificatifs</a>( <span> <var>$idVisiteur</var></span>, <span> <var>$mois</var></span> )</code>
+		<code><a href="source-class-PdoGsb.html#118-130" title="Go to source code">getNbjustificatifs</a>( <span> <var>$idUtilisateur</var></span>, <span> <var>$mois</var></span> )</code>
 
 		<div class="description short">
-			<p>Retourne le nombre de justificatif d'un visiteur pour un mois donné</p>
+			<p>Retourne le nombre de justificatif d'un utilisateur pour un mois donné</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Retourne le nombre de justificatif d'un visiteur pour un mois donné</p>
+			<p>Retourne le nombre de justificatif d'un utilisateur pour un mois donné</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$idVisiteur</var></dt>
+					<dt><var>$idUtilisateur</var></dt>
 					<dd></dd>
 					<dt><var>$mois</var></dt>
 					<dd>la forme aaaamm</dd>
@@ -341,7 +377,7 @@ concernées par les deux arguments</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getLesFraisForfait">#</a>
-		<code><a href="source-class-PdoGsb.html#114-131" title="Go to source code">getLesFraisForfait</a>( <span> <var>$idVisiteur</var></span>, <span> <var>$mois</var></span> )</code>
+		<code><a href="source-class-PdoGsb.html#131-148" title="Go to source code">getLesFraisForfait</a>( <span> <var>$idUtilisateur</var></span>, <span> <var>$mois</var></span> )</code>
 
 		<div class="description short">
 			<p>Retourne sous forme d'un tableau associatif toutes les lignes de frais au forfait
@@ -355,7 +391,7 @@ concernées par les deux arguments</p>
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$idVisiteur</var></dt>
+					<dt><var>$idUtilisateur</var></dt>
 					<dd></dd>
 					<dt><var>$mois</var></dt>
 					<dd>la forme aaaamm</dd>
@@ -384,7 +420,7 @@ concernées par les deux arguments</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getLesIdFrais">#</a>
-		<code><a href="source-class-PdoGsb.html#132-142" title="Go to source code">getLesIdFrais</a>( )</code>
+		<code><a href="source-class-PdoGsb.html#149-159" title="Go to source code">getLesIdFrais</a>( )</code>
 
 		<div class="description short">
 			<p>Retourne tous les id de la table FraisForfait</p>
@@ -418,7 +454,7 @@ concernées par les deux arguments</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_majFraisForfait">#</a>
-		<code><a href="source-class-PdoGsb.html#143-164" title="Go to source code">majFraisForfait</a>( <span> <var>$idVisiteur</var></span>, <span> <var>$mois</var></span>, <span> <var>$lesFrais</var></span> )</code>
+		<code><a href="source-class-PdoGsb.html#160-181" title="Go to source code">majFraisForfait</a>( <span> <var>$idUtilisateur</var></span>, <span> <var>$mois</var></span>, <span> <var>$lesFrais</var></span> )</code>
 
 		<div class="description short">
 			<p>Met à jour la table lignefraisforfait</p>
@@ -427,13 +463,13 @@ concernées par les deux arguments</p>
 		<div class="description detailed hidden">
 			<p>Met à jour la table lignefraisforfait</p>
 
-<p>Met à jour la table lignefraisforfait pour un visiteur et
+<p>Met à jour la table lignefraisforfait pour un utilisateur et
 un mois donné en enregistrant les nouveaux montants</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$idVisiteur</var></dt>
+					<dt><var>$idUtilisateur</var></dt>
 					<dd></dd>
 					<dt><var>$mois</var></dt>
 					<dd>la forme aaaamm</dd>
@@ -464,21 +500,21 @@ un mois donné en enregistrant les nouveaux montants</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_majNbJustificatifs">#</a>
-		<code><a href="source-class-PdoGsb.html#165-177" title="Go to source code">majNbJustificatifs</a>( <span> <var>$idVisiteur</var></span>, <span> <var>$mois</var></span>, <span> <var>$nbJustificatifs</var></span> )</code>
+		<code><a href="source-class-PdoGsb.html#182-194" title="Go to source code">majNbJustificatifs</a>( <span> <var>$idUtilisateur</var></span>, <span> <var>$mois</var></span>, <span> <var>$nbJustificatifs</var></span> )</code>
 
 		<div class="description short">
 			<p>met à jour le nombre de justificatifs de la table fichefrais
-pour le mois et le visiteur concerné</p>
+pour le mois et le utilisateur concerné</p>
 		</div>
 
 		<div class="description detailed hidden">
 			<p>met à jour le nombre de justificatifs de la table fichefrais
-pour le mois et le visiteur concerné</p>
+pour le mois et le utilisateur concerné</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$idVisiteur</var></dt>
+					<dt><var>$idUtilisateur</var></dt>
 					<dd></dd>
 					<dt><var>$mois</var></dt>
 					<dd>la forme aaaamm</dd>
@@ -505,19 +541,19 @@ pour le mois et le visiteur concerné</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_estPremierFraisMois">#</a>
-		<code><a href="source-class-PdoGsb.html#178-196" title="Go to source code">estPremierFraisMois</a>( <span> <var>$idVisiteur</var></span>, <span> <var>$mois</var></span> )</code>
+		<code><a href="source-class-PdoGsb.html#195-213" title="Go to source code">estPremierFraisMois</a>( <span> <var>$idUtilisateur</var></span>, <span> <var>$mois</var></span> )</code>
 
 		<div class="description short">
-			<p>Teste si un visiteur possède une fiche de frais pour le mois passé en argument</p>
+			<p>Teste si un utilisateur possède une fiche de frais pour le mois passé en argument</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Teste si un visiteur possède une fiche de frais pour le mois passé en argument</p>
+			<p>Teste si un utilisateur possède une fiche de frais pour le mois passé en argument</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$idVisiteur</var></dt>
+					<dt><var>$idUtilisateur</var></dt>
 					<dd></dd>
 					<dt><var>$mois</var></dt>
 					<dd>la forme aaaamm</dd>
@@ -546,19 +582,19 @@ pour le mois et le visiteur concerné</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_dernierMoisSaisi">#</a>
-		<code><a href="source-class-PdoGsb.html#197-209" title="Go to source code">dernierMoisSaisi</a>( <span> <var>$idVisiteur</var></span> )</code>
+		<code><a href="source-class-PdoGsb.html#214-226" title="Go to source code">dernierMoisSaisi</a>( <span> <var>$idUtilisateur</var></span> )</code>
 
 		<div class="description short">
-			<p>Retourne le dernier mois en cours d'un visiteur</p>
+			<p>Retourne le dernier mois en cours d'un utilisateur</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Retourne le dernier mois en cours d'un visiteur</p>
+			<p>Retourne le dernier mois en cours d'un utilisateur</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$idVisiteur</var></dt>
+					<dt><var>$idUtilisateur</var></dt>
 					<dd></dd>
 				</dl></div>
 
@@ -585,14 +621,14 @@ pour le mois et le visiteur concerné</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_creeNouvellesLignesFrais">#</a>
-		<code><a href="source-class-PdoGsb.html#211-237" title="Go to source code">creeNouvellesLignesFrais</a>( <span> <var>$idVisiteur</var></span>, <span> <var>$mois</var></span> )</code>
+		<code><a href="source-class-PdoGsb.html#228-254" title="Go to source code">creeNouvellesLignesFrais</a>( <span> <var>$idUtilisateur</var></span>, <span> <var>$mois</var></span> )</code>
 
 		<div class="description short">
-			<p>Crée une nouvelle fiche de frais et les lignes de frais au forfait pour un visiteur et un mois donnés</p>
+			<p>Crée une nouvelle fiche de frais et les lignes de frais au forfait pour un utilisateur et un mois donnés</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Crée une nouvelle fiche de frais et les lignes de frais au forfait pour un visiteur et un mois donnés</p>
+			<p>Crée une nouvelle fiche de frais et les lignes de frais au forfait pour un utilisateur et un mois donnés</p>
 
 <p>récupère le dernier mois en cours de traitement, met à 'CL' son champs idEtat, crée une nouvelle fiche de frais
 avec un idEtat à 'CR' et crée les lignes de frais forfait de quantités nulles</p>
@@ -600,7 +636,7 @@ avec un idEtat à 'CR' et crée les lignes de frais forfait de quantités nulles
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$idVisiteur</var></dt>
+					<dt><var>$idUtilisateur</var></dt>
 					<dd></dd>
 					<dt><var>$mois</var></dt>
 					<dd>la forme aaaamm</dd>
@@ -625,21 +661,21 @@ avec un idEtat à 'CR' et crée les lignes de frais forfait de quantités nulles
 
 		<td class="name"><div>
 		<a class="anchor" href="#_creeNouveauFraisHorsForfait">#</a>
-		<code><a href="source-class-PdoGsb.html#241-256" title="Go to source code">creeNouveauFraisHorsForfait</a>( <span> <var>$idVisiteur</var></span>, <span> <var>$mois</var></span>, <span> <var>$libelle</var></span>, <span> <var>$date</var></span>, <span> <var>$montant</var></span> )</code>
+		<code><a href="source-class-PdoGsb.html#258-273" title="Go to source code">creeNouveauFraisHorsForfait</a>( <span> <var>$idUtilisateur</var></span>, <span> <var>$mois</var></span>, <span> <var>$libelle</var></span>, <span> <var>$date</var></span>, <span> <var>$montant</var></span> )</code>
 
 		<div class="description short">
-			<p>Crée un nouveau frais hors forfait pour un visiteur et un mois donné
+			<p>Crée un nouveau frais hors forfait pour un utilisateur et un mois donné
 à partir des informations fournies en paramètre</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Crée un nouveau frais hors forfait pour un visiteur et un mois donné
+			<p>Crée un nouveau frais hors forfait pour un utilisateur et un mois donné
 à partir des informations fournies en paramètre</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$idVisiteur</var></dt>
+					<dt><var>$idUtilisateur</var></dt>
 					<dd></dd>
 					<dt><var>$mois</var></dt>
 					<dd>la forme aaaamm</dd>
@@ -670,7 +706,7 @@ avec un idEtat à 'CR' et crée les lignes de frais forfait de quantités nulles
 
 		<td class="name"><div>
 		<a class="anchor" href="#_supprimerFraisHorsForfait">#</a>
-		<code><a href="source-class-PdoGsb.html#259-267" title="Go to source code">supprimerFraisHorsForfait</a>( <span> <var>$idFrais</var></span> )</code>
+		<code><a href="source-class-PdoGsb.html#276-284" title="Go to source code">supprimerFraisHorsForfait</a>( <span> <var>$idFrais</var></span> )</code>
 
 		<div class="description short">
 			<p>Supprime le frais hors forfait dont l'id est passé en argument</p>
@@ -705,19 +741,19 @@ avec un idEtat à 'CR' et crée les lignes de frais forfait de quantités nulles
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getLesMoisDisponibles">#</a>
-		<code><a href="source-class-PdoGsb.html#268-292" title="Go to source code">getLesMoisDisponibles</a>( <span> <var>$idVisiteur</var></span> )</code>
+		<code><a href="source-class-PdoGsb.html#285-309" title="Go to source code">getLesMoisDisponibles</a>( <span> <var>$idUtilisateur</var></span> )</code>
 
 		<div class="description short">
-			<p>Retourne les mois pour lesquels un visiteur a une fiche de frais</p>
+			<p>Retourne les mois pour lesquels un utilisateur a une fiche de frais</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Retourne les mois pour lesquels un visiteur a une fiche de frais</p>
+			<p>Retourne les mois pour lesquels un utilisateur a une fiche de frais</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$idVisiteur</var></dt>
+					<dt><var>$idUtilisateur</var></dt>
 					<dd></dd>
 				</dl></div>
 
@@ -744,19 +780,19 @@ avec un idEtat à 'CR' et crée les lignes de frais forfait de quantités nulles
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getLesInfosFicheFrais">#</a>
-		<code><a href="source-class-PdoGsb.html#295-309" title="Go to source code">getLesInfosFicheFrais</a>( <span> <var>$idVisiteur</var></span>, <span> <var>$mois</var></span> )</code>
+		<code><a href="source-class-PdoGsb.html#312-326" title="Go to source code">getLesInfosFicheFrais</a>( <span> <var>$idUtilisateur</var></span>, <span> <var>$mois</var></span> )</code>
 
 		<div class="description short">
-			<p>Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné</p>
+			<p>Retourne les informations d'une fiche de frais d'un utilisateur pour un mois donné</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné</p>
+			<p>Retourne les informations d'une fiche de frais d'un utilisateur pour un mois donné</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$idVisiteur</var></dt>
+					<dt><var>$idUtilisateur</var></dt>
 					<dd></dd>
 					<dt><var>$mois</var></dt>
 					<dd>la forme aaaamm</dd>
@@ -785,7 +821,7 @@ avec un idEtat à 'CR' et crée les lignes de frais forfait de quantités nulles
 
 		<td class="name"><div>
 		<a class="anchor" href="#_majEtatFicheFrais">#</a>
-		<code><a href="source-class-PdoGsb.html#311-322" title="Go to source code">majEtatFicheFrais</a>( <span> <var>$idVisiteur</var></span>, <span> <var>$mois</var></span>, <span> <var>$etat</var></span> )</code>
+		<code><a href="source-class-PdoGsb.html#328-339" title="Go to source code">majEtatFicheFrais</a>( <span> <var>$idUtilisateur</var></span>, <span> <var>$mois</var></span>, <span> <var>$etat</var></span> )</code>
 
 		<div class="description short">
 			<p>Modifie l'état et la date de modification d'une fiche de frais</p>
@@ -799,7 +835,7 @@ avec un idEtat à 'CR' et crée les lignes de frais forfait de quantités nulles
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$idVisiteur</var></dt>
+					<dt><var>$idUtilisateur</var></dt>
 					<dd></dd>
 					<dt><var>$mois</var></dt>
 					<dd>la forme aaaamm</dd>
