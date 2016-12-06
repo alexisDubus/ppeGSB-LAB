@@ -122,25 +122,25 @@ INSERT INTO `lignefraisforfait` (`idutilisateur`, `mois`, `idFraisForfait`, `qua
 -- Déclencheurs `lignefraisforfait`
 --
 DELIMITER $$
-CREATE TRIGGER `after_insert_lignefraisforfait` AFTER INSERT ON `lignefraisforfait` FOR EACH ROW BEGIN
+CREATE TRIGGER `after_insert_lignefraisforfait` AFTER INSERT ON `lignefraisforfait` FOR EACH ROW 
 	UPDATE fichefrais	
 	SET montantValide = montantValide + ( 	SELECT lignefraisforfait.quantite*fraisforfait.montant
-											FROM lignefraisforfait , fraisforfait
-											WHERE lignefraisforfait.idFraisForfait = fraisforfait.id) 
-	WHERE 	fichefrais.idutilisateur = lignefraisforfait.idutilisateur AND
-			fichefrais.mois = lignefraisforfait.mois;
-END
+											FROM lignefraisforfait INNER JOIN fraisforfait
+											ON lignefraisforfait.idFraisForfait = fraisforfait.id) 
+	WHERE fichefrais.idutilisateur = lignefraisforfait.idutilisateur AND
+			  fichefrais.mois = lignefraisforfait.mois;
+
 $$
 DELIMITER ;
+
 DELIMITER $$
-CREATE TRIGGER `after_update_lignefraisforfait` AFTER UPDATE ON `lignefraisforfait` FOR EACH ROW BEGIN
+CREATE TRIGGER `after_update_lignefraisforfait` AFTER UPDATE ON `lignefraisforfait` FOR EACH ROW 
 	UPDATE fichefrais	
-	SET montantValide =  montantValide + ( 	SELECT (NEW.lignefraisforfait.quantite - OLD.lignefraisforfait.quantite)*fraisforfait.montantValide
-											FROM lignefraisforfait , fraisforfait
-											WHERE lignefraisforfait.idFraisForfait = fraisforfait.id )
-	WHERE 	fichefrais.idutilisateur = lignefraisforfait.idutilisateur AND
-			fichefrais.mois = lignefraisforfait.mois;
-END
+	SET    montantValide =  montantValide + (  SELECT (NEW.lignefraisforfait.quantite - OLD.lignefraisforfait.quantite)*fraisforfait.montant
+											                       FROM lignefraisforfait INNER JOIN fraisforfait
+											                       ON lignefraisforfait.idFraisForfait = fraisforfait.id )
+	WHERE fichefrais.idutilisateur = lignefraisforfait.idutilisateur AND
+			  fichefrais.mois = lignefraisforfait.mois;
 $$
 DELIMITER ;
 
