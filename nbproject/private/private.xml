@@ -5,7 +5,11 @@
         <group>
             <file>file:/C:/wamp/www/gsb2.5/index.php</file>
             <file>file:/C:/wamp/www/gsb2.5/include/class.pdogsb.inc.php</file>
+            <file>file:/C:/wamp/www/gsb2.5/controleurs/c_etatFrais.php</file>
+            <file>file:/C:/wamp/www/gsb2.5/vues/v_ajoutFrais.php</file>
             <file>file:/C:/wamp/www/gsb2.5/controleurs/c_connexion.php</file>
+            <file>file:/C:/wamp/www/gsb2.5/vues/v_sommaire.php</file>
+            <file>file:/C:/wamp/www/gsb2.5/vues/v_fraisforfait.php</file>
         </group>
     </open-files>
 </project-private>
