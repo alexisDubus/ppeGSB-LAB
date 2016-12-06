@@ -123,24 +123,16 @@ INSERT INTO `lignefraisforfait` (`idutilisateur`, `mois`, `idFraisForfait`, `qua
 --
 DELIMITER $$
 CREATE TRIGGER `after_insert_lignefraisforfait` AFTER INSERT ON `lignefraisforfait` FOR EACH ROW 
-	UPDATE fichefrais	
-	SET montantValide = montantValide + ( 	SELECT lignefraisforfait.quantite*fraisforfait.montant
-											FROM lignefraisforfait INNER JOIN fraisforfait
-											ON lignefraisforfait.idFraisForfait = fraisforfait.id) 
-	WHERE fichefrais.idutilisateur = lignefraisforfait.idutilisateur AND
-			  fichefrais.mois = lignefraisforfait.mois;
+UPDATE lignefraisforfait 
+SET montant = ( SELECT quantite* fraisforfait.montant 
+                FROM lignefraisforfait INNER JOIN fraisforfait 
+                WHERE lignefraisforfait.idFraisForfait = fraisforfait.id ) 
 
-$$
-DELIMITER ;
-
-DELIMITER $$
 CREATE TRIGGER `after_update_lignefraisforfait` AFTER UPDATE ON `lignefraisforfait` FOR EACH ROW 
-	UPDATE fichefrais	
-	SET    montantValide =  montantValide + (  SELECT (NEW.lignefraisforfait.quantite - OLD.lignefraisforfait.quantite)*fraisforfait.montant
-											                       FROM lignefraisforfait INNER JOIN fraisforfait
-											                       ON lignefraisforfait.idFraisForfait = fraisforfait.id )
-	WHERE fichefrais.idutilisateur = lignefraisforfait.idutilisateur AND
-			  fichefrais.mois = lignefraisforfait.mois;
+UPDATE lignefraisforfait 
+SET montant = montant + ( SELECT (NEW.quantite - OLD.quantite)* fraisforfait.montant 
+                          FROM lignefraisforfait INNER JOIN fraisforfait 
+                          WHERE lignefraisforfait.idFraisForfait = fraisforfait.id )
 $$
 DELIMITER ;
 
