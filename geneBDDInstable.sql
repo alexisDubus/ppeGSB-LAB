@@ -122,19 +122,14 @@ INSERT INTO `lignefraisforfait` (`idutilisateur`, `mois`, `idFraisForfait`, `qua
 -- Déclencheurs `lignefraisforfait`
 --
 DELIMITER $$
-CREATE TRIGGER `after_insert_lignefraisforfait` AFTER INSERT ON `lignefraisforfait` FOR EACH ROW 
-UPDATE lignefraisforfait 
-SET montant = ( SELECT quantite* fraisforfait.montant 
-                FROM lignefraisforfait INNER JOIN fraisforfait 
-                WHERE lignefraisforfait.idFraisForfait = fraisforfait.id ) 
 
-CREATE TRIGGER `after_update_lignefraisforfait` AFTER UPDATE ON `lignefraisforfait` FOR EACH ROW 
-UPDATE lignefraisforfait 
-SET montant = montant + ( SELECT (NEW.quantite - OLD.quantite)* fraisforfait.montant 
-                          FROM lignefraisforfait INNER JOIN fraisforfait 
-                          WHERE lignefraisforfait.idFraisForfait = fraisforfait.id )
-$$
-DELIMITER ;
+CREATE TRIGGER `before_update_lignefraisforfait` BEFORE UPDATE 
+ON `lignefraisforfait` FOR EACH ROW 
+SET NEW.montant = ( SELECT NEW.quantite * fraisforfait.montant 
+                    FROM fraisforfait 
+                    WHERE NEW.idFraisForfait = fraisforfait.id )
+
+$$ ;
 
 -- --------------------------------------------------------
 
