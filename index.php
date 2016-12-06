@@ -25,6 +25,11 @@ switch($uc){
 	
 	
 	}
+if($_SESSION['role'] == 'Administrateur')
+{
+    //include("vues/v_ajouteFrais.php");
+    //Redirige vers vues/v_ajouteFrais.php
+}
 	
 	
 

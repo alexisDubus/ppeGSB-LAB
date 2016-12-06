@@ -3,13 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/gsb2.4/include/mdp.txt</file>
-            <file>file:/C:/wamp/www/gsb2.4/controleurs/c_etatFrais.php</file>
-            <file>file:/C:/wamp/www/gsb2.4/include/class.pdogsb.inc.php</file>
-            <file>file:/C:/wamp/www/gsb2.4/controleurs/c_connexion.php</file>
-            <file>file:/C:/wamp/www/gsb2.4/index.php</file>
-            <file>file:/C:/wamp/www/gsb2.4/include/fct.inc.php</file>
-            <file>file:/C:/wamp/www/gsb2.4/controleurs/c_gererFrais.php</file>
+            <file>file:/C:/wamp/www/gsb2.5/index.php</file>
+            <file>file:/C:/wamp/www/gsb2.5/include/class.pdogsb.inc.php</file>
+            <file>file:/C:/wamp/www/gsb2.5/controleurs/c_connexion.php</file>
         </group>
     </open-files>
 </project-private>

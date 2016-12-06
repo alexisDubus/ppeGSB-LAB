@@ -18,9 +18,11 @@
 
 class PdoGsb{
 
+        
         private static $serveur='mysql:host=localhost';
-        private static $bdd='dbname=gsb_fr';
+        private static $bdd='dbname=gsb_test';
         private static $user='root' ;    		
+
       	//private static $bdd='dbname=gsb_frais';   		
       	//private static $user='root';    		
       	//private static $mdp='AzertY!59';	
@@ -32,9 +34,7 @@ class PdoGsb{
  * pour toutes les méthodes de la classe
  */				
 	private function __construct(){
-		$fichier = fopen(__DIR__ .'/mdp.txt', 'r');
-		//$leMdp = fgets($fichier, 9);
-		$leMdp = "AzertY!59";
+		$leMdp = '';
     	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, $leMdp);
 		PdoGsb::$monPdo->query("SET CHARACTER SET utf8");
 
@@ -65,11 +65,12 @@ class PdoGsb{
 	public function getInfosUtilisateur($login, $mdp){
                 $mdpSHA = sha1($mdp);
             
-		$req = "select utilisateur.id as id, utilisateur.nom as nom, utilisateur.prenom as prenom, utilisateur.idRole as idRole from utilisateur 
-		where utilisateur.login='$login' and utilisateur.mdpSHA='$mdpSHA'";
+		$req = "select utilisateur.id as id, utilisateur.nom as nom, utilisateur.prenom as prenom, utilisateur.idRole as idRole, role.profession as role from utilisateur, role 
+		where utilisateur.login='$login' and utilisateur.mdpSHA='$mdpSHA' and utilisateur.idRole = role.id ";
 		$rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
 		return $ligne;
+                $_SESSION['role']= $ligne["role"];
 	}
         
   /**
