@@ -98,6 +98,7 @@ CREATE TABLE `lignefraisforfait` (
   `mois` char(6) NOT NULL,
   `idFraisForfait` char(3) NOT NULL,
   `quantite` int(11) DEFAULT NULL
+  'montant' decimal(10,2) DEFAULT NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
