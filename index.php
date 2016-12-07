@@ -27,7 +27,8 @@ switch($uc){
 	}
 if($_SESSION['role'] == 'Administrateur')
 {
-    //include("vues/v_ajouteFrais.php");
+    include("controleurs/c_admin.php");
+     //header('Location: http://www.votresite.com/pageprotegee.php');
     //Redirige vers vues/v_ajouteFrais.php
 }
 	

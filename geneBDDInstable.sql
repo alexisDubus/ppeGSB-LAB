@@ -123,6 +123,13 @@ INSERT INTO `lignefraisforfait` (`idutilisateur`, `mois`, `idFraisForfait`, `qua
 -- Déclencheurs `lignefraisforfait`
 --
 DELIMITER $$
+CREATE TRIGGER `before_insert_lignefraisforfait` BEFORE INSERT
+ON `lignefraisforfait` FOR EACH ROW 
+SET NEW.montant = ( SELECT NEW.quantite * fraisforfait.montant 
+                    FROM fraisforfait 
+                    WHERE NEW.idFraisForfait = fraisforfait.id )
+
+
 
 CREATE TRIGGER `before_update_lignefraisforfait` BEFORE UPDATE 
 ON `lignefraisforfait` FOR EACH ROW 
