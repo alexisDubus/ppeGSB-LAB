@@ -16,7 +16,11 @@ include("vues/v_sommaire.php");
         </tr>
 
         <--! Boucle qui récupere toutes le fraisforfait pour les afficher -->
-        <?php foreach($fraisforfaits as $fraisforfait): ?>
+        <?php
+        //$fraitForfaits;
+        foreach($fraisforfaits as $fraisforfait): 
+            //What?
+        ?>
         <tr>
             <td><?php echo $fraisforfait['id'] ?></td>
             <td><?php echo $fraisforfait['libelle'] ?></td>

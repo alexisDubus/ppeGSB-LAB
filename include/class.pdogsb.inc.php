@@ -69,8 +69,8 @@ class PdoGsb{
 		where utilisateur.login='$login' and utilisateur.mdpSHA='$mdpSHA' and utilisateur.idRole = role.id ";
 		$rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
-		return $ligne;
                 $_SESSION['role']= $ligne["role"];
+		return $ligne;
 	}
         
   /**
@@ -115,6 +115,7 @@ class PdoGsb{
 			$lesLignes[$i]['date'] =  dateAnglaisVersFrancais($date);
 		}
 		return $lesLignes; 
+                
 	}
 /**
  * Retourne le nombre de justificatif d'un utilisateur pour un mois donné
