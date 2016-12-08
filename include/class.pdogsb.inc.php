@@ -148,6 +148,15 @@ class PdoGsb{
 		$lesLignes = $res->fetchAll();
 		return $lesLignes; 
 	}
+        
+        public function getLesInfosFrais(){
+		$req = "select fraisforfait.id as idfrais, fraisforfait.libelle as libelle, 
+		lignefraisforfait.quantite as quantite, lignefraisforfait.dateFrais as dateFrais, lignefraisforfait.description as description from lignefraisforfait inner join fraisforfait 
+		on fraisforfait.id = lignefraisforfait.idfraisforfait";	
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes; 
+	}
 /**
  * Retourne tous les id de la table FraisForfait
  
@@ -179,7 +188,6 @@ class PdoGsb{
 			and lignefraisforfait.idfraisforfait = '$unIdFrais'";
 			PdoGsb::$monPdo->exec($req);
 		}
-		
 	}
 /**
  * met à jour le nombre de justificatifs de la table fichefrais
@@ -263,11 +271,11 @@ class PdoGsb{
          * @param type $date
          * @param type $quantite
          */
-        public function creeNouveauFraisForfait($idUtilisateur,$mois,$typeFrais,$description,$date,$quantite){
+        public function creeNouveauFraisForfait($idUtilisateur,$mois,$typeFrais,$description,$date,$quantite,$idFraisForfait){
                 $quantiteInt = (int)$quantite;
 		$dateFr = dateFrancaisVersAnglais($date);
 		//$req = "insert into lignefraisforfait (idutilisateur,mois,idFraisForfait,quantite,montant,dateFrais,typeFrais,description) values($idUtilisateur,$mois,`ETP`,$quantiteInt,0.00,$dateFr,$typeFrais,$description);";
-                $req = "insert into lignefraisforfait (idutilisateur,mois,idFraisForfait,quantite,montant,dateFrais,typeFrais,description) values('$idUtilisateur','$mois','ETP',$quantiteInt,0.00,'$dateFr','$typeFrais','$description');";
+                $req = "insert into lignefraisforfait (idutilisateur,mois,idFraisForfait,quantite,montant,dateFrais,typeFrais,description) values('$idUtilisateur','$mois','$idFraisForfait',$quantiteInt,0.00,'$dateFr','$typeFrais','$description');";
 		PdoGsb::$monPdo->exec($req);
 	}
        
@@ -290,6 +298,14 @@ class PdoGsb{
 	}
 	
 
+        /**
+         * 
+         * @param type $idFrais
+         */
+        public function supprimerFraisForfait($idUtilisateur,$mois,$typeFrais){
+		$req = "delete from lignefraisforfait where lignefraisforfait.idutilisateur ='$idUtilisateur' and lignefraisforfait.mois ='$mois' and lignefraisforfait.typeFrais ='$typeFrais';";
+		PdoGsb::$monPdo->exec($req);
+	}
 /**
  * Supprime le frais hors forfait dont l'id est passé en argument
  
