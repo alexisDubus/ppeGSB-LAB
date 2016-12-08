@@ -13,20 +13,23 @@ switch($action){
 		}
 		break;
 	}
-	case 'validerMajFraisForfait':{
-                
-		$lesFrais = $_REQUEST['lesFrais'];
-		if(lesQteFraisValides($lesFrais)){
-	  	 	$pdo->majFraisForfait($idUtilisateur,$mois,$lesFrais);
-		}
-		else{
-			ajouterErreur("Les valeurs des frais doivent �tre num�riques");
+	case 'validerCreationFrais':{
+                $typeFrais = $_REQUEST['typeFrais'];
+		$date = $_REQUEST['date'];
+		$description = $_REQUEST['description'];
+		$quantite = $_REQUEST['quantite'];
+                $date = dateAnglaisVersFrancais($date);
+		valideInfosFrais($date,$description,$quantite);
+		if (nbErreurs() != 0 ){
 			include("vues/v_erreurs.php");
 		}
-	  break;
+		else{
+			$pdo->creeNouveauFraisForfait($idUtilisateur,$mois,$typeFrais,$description,$date,$quantite);
+		}
+		break;
 	}
 }
-$lesFraisForfait= $pdo->getLesFraisForfait($idUtilisateur,$mois);
+//$lesFraisForfait= $pdo->getLesFraisForfait($idUtilisateur,$mois);
 $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idUtilisateur,$mois);
 include("vues/v_listeFraisForfait.php");
 
