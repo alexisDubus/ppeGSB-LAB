@@ -45,27 +45,29 @@
 			echo $numAnnee?> :</legend>			
 		</div>
 		<div class="panel-body">
-			<form class="form-horizontal" role="form" method="POST"  action="index.php?uc=gererFrais&action=validerMajFraisForfait">
-			  <div class="form-group">
-				<?php
-						foreach ($lesFraisForfait as $unFrais)
-						{
-							$idFrais = $unFrais['idfrais'];
-							$libelle = $unFrais[	'libelle'];
-							$quantite = $unFrais['quantite'];
-					?>
-							<div class="form-group">
-								<label for="idFrais"><?php echo $libelle ?></label>
-								<input class="form-control" placeholder="<?php echo $quantite?>" type="text" id="idFrais" name="lesFrais[<?php echo $idFrais?>]""<?php echo $quantite?>"<?php if ($lesInfosFicheFrais['idEtat']!='CR') { echo 'disabled';} ?> >
-							</div>
-
-					<?php
-						}
-					?>
-				</div>
-				<input class="btn btn-primary" id="ok" type="submit" value="Valider" size="20" <?php if ($lesInfosFicheFrais['idEtat']!='CR') { echo 'disabled';} ?>/>
-			  </div>
-			</form>
-		</div>
-	</div>
+                    <h3>Saisie d'un nouveau frais forfaitisé : </h3>
+			<form class="form-horizontal" role="form" action="index.php?uc=gererFrais&action=validerCreationFrais" method="post">
+			<div class="form-group"><br />
+                                <label>Type de frais : </label>
+                                <select name="typeFrais">
+                                    <option>Forfait etape</option>
+                                    <option>Frais kilométrique</option>
+                                    <option>Nuitée hôtel</option>
+                                    <option>Repas restaurant</option>
+                                </select><br />
+                                
+                                <label>Date de l'engagement de la dépense : </label>
+                                <input class="form-control" placeholder="0" type="Date" id="idFrais" name="date"><br />
+                                
+                                <label>Descritpion : </label>
+                                <input class="form-control" type="text" id="idFrais" name="description"><br />
+                                
+                                <label>Quantité : </label><br />
+                                <input class="form-control" type="text" id="idFrais" name="quantite"><br />
+                        </div>
+			<input class="btn btn-primary" id="ok" type="submit" value="Valider" size="20" />
+                        </form
+                </div>
+        </div>
+</div>
 
