@@ -20,7 +20,7 @@ class PdoGsb{
 
         
         private static $serveur='mysql:host=localhost';
-        private static $bdd='dbname=gsb_test';
+        private static $bdd='dbname=gsb_frais';
         private static $user='root' ;    		
 
       	//private static $bdd='dbname=gsb_frais';   		
@@ -254,7 +254,22 @@ class PdoGsb{
 			PdoGsb::$monPdo->exec($req);
 		 }
 	}
-        
+        /**
+         * 
+         * @param type $idUtilisateur
+         * @param type $mois
+         * @param type $typeFrais
+         * @param type $description
+         * @param type $date
+         * @param type $quantite
+         */
+        public function creeNouveauFraisForfait($idUtilisateur,$mois,$typeFrais,$description,$date,$quantite){
+                $quantiteInt = (int)$quantite;
+		$dateFr = dateFrancaisVersAnglais($date);
+		//$req = "insert into lignefraisforfait (idutilisateur,mois,idFraisForfait,quantite,montant,dateFrais,typeFrais,description) values($idUtilisateur,$mois,`ETP`,$quantiteInt,0.00,$dateFr,$typeFrais,$description);";
+                $req = "insert into lignefraisforfait (idutilisateur,mois,idFraisForfait,quantite,montant,dateFrais,typeFrais,description) values('$idUtilisateur','$mois','ETP',$quantiteInt,0.00,'$dateFr','$typeFrais','$description');";
+		PdoGsb::$monPdo->exec($req);
+	}
        
 
 /**
