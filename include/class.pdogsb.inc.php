@@ -149,6 +149,19 @@ class PdoGsb{
 		return $lesLignes; 
 	}
 /**
+ * Retourne sous forme d'un tableau associatif toutes les lignes de la table 
+ * fraisforfait
+ 
+ * @return l'id, le libelle et le montant sous la forme d'un tableau associatif 
+*/ 
+        public function getFraisForfaitOnly(){
+                $req = "SELECT  fraisforfait.id as idfrais, fraisforfait.libelle as libelle, fraisforfait.montant as montant
+                        FROM    fraisforfait";
+                $res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;        
+        }
+/**
  * Retourne tous les id de la table FraisForfait
  
  * @return un tableau associatif 
