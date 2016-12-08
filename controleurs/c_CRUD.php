@@ -1,10 +1,7 @@
 <?php
 
-require_once("include/fct.inc.php");
-require_once ("include/class.pdogsb.inc.php");
-
-
 include("vues/v_sommaire.php");
+
 
 $idUtilisateur = $_SESSION['idUtilisateur'];
 $mois = getMois(date("d/m/Y"));
@@ -24,11 +21,23 @@ switch($action)
 {
 	/* Action "Voir" forfait  */
   case 'read':
-  	$fraisforfaits = Doctrine_Core::getTable('fraisforfait')->findAll();
+  	$fraisforfaits = getFraisForfaitOnly();
+        include ("vues/v_fraisforfait.php");
     break;
 
     /* Action "Créer" forfait  */
   case 'create':
+      $id      = $_REQUEST['id'];
+      $libelle = $_REQUEST['libelle'];
+      $montant = $_REQUEST['montant'];
+      valideInfosFraisForfait($id,$libelle,$montant);
+      if (nbErreurs() != 0 )
+        {
+            include("vues/v_erreurs.php");
+        }
+      else {
+          $pdo -> creerNouveauTypeFraisForfait($id,$libelle,$montant);
+      }               
     break;
 
     /* Action "Modifier" forfait  */

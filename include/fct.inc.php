@@ -170,6 +170,43 @@ function valideInfosFrais($dateFrais,$libelle,$montant){
 			ajouterErreur("Le champ montant doit être numérique");
 		}
 }
+
+
+/**
+ * Vérifie la validité des trois arguments : l'id, le libellé du fraisforfait et le montant 
+ 
+ * des message d'erreurs sont ajoutés au tableau des erreurs
+ 
+ * @param $id 
+ * @param $libelle 
+ * @param $montant
+ */
+function valideInfosFraisForfait($id,$libelle,$montant)
+{
+	if($id=="")
+	{
+		ajouterErreur("Le champ identifiant ne doit pas être vide");
+	}
+	else
+		if ( isIdFraisForfaitExist($id) == true)
+		{
+			ajouterErreur("Cet identifiant existe déja");
+		}
+
+	if($libelle == "")
+	{
+		ajouterErreur("Le champ description ne peut pas être vide");
+	}
+	if($montant == "")
+	{
+		ajouterErreur("Le champ montant ne peut pas être vide");
+	}
+	else
+		if( !is_numeric($montant) )
+		{
+			ajouterErreur("Le champ montant doit être numérique");
+		}
+}
 /**
  * Ajoute le libellé d'une erreur au tableau des erreurs 
  

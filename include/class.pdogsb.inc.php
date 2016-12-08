@@ -291,6 +291,18 @@ class PdoGsb{
                 $req = "insert into lignefraisforfait (idutilisateur,mois,idFraisForfait,quantite,montant,dateFrais,typeFrais,description) values('$idUtilisateur','$mois','$idFraisForfait',$quantiteInt,0.00,'$dateFr','$typeFrais','$description');";
 		PdoGsb::$monPdo->exec($req);
 	}
+
+		/**
+		*	Créer un fraisforfait
+		*	@param type $id
+        * 	@param type $libelle
+        * 	@param type $montant
+		*/
+		Public function creerNouveauTypeFraisForfait($id, $libelle, $montant){
+			$montantDec = (decimal(10,2))$montant;
+			$req = "insert into fraisforfait (id,libelle,montant) values ('$id','$libelle','$montantDec'); ";
+			PdoGsb::$monPdo->exec($req);
+		}
        
 
 /**
@@ -384,6 +396,21 @@ class PdoGsb{
 		PdoGsb::$monPdo->exec($req);
 	}
 	
+	public function isIDFraisForfaitExist($id){
+		$result = false;
+		$req = "select fraisforfait.id
+				FROM fraisforfait";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLigne = $res->fetch();
+		foreach ($uneligne as $leslignes)
+		{
+			if ($uneligne == $id )
+			{
+				$resut = true;
+			}
+		}
+		return result;
+	}
 	
 }
 ?>
