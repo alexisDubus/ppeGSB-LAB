@@ -42,9 +42,12 @@
         <li class="active"><a href="index.php?uc=gererFraisHorsForfaits&action=saisirFraisHorsForfait">Saisir mes fiches de frais hors forfait</a></li>
         <li class="active"><a href="index.php?uc=etatFrais&action=selectionnerMois">Mes fiches de frais</a></li>
         <! Reste a faire en sorte que le btn ne s'affiche que quand le profil est Administrateur !>
+        <?php if ($_SESSION['role'] == 'Administrateur') { ?> 
         <li class="active"><a href="index.php?uc=menuCRUD&action=afficherCRUD">Menu CRUD</a></li> 
+        <?php } ?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+
 		  <li><a><?php echo $_SESSION['prenom']."  ".$_SESSION['nom']?></a></li>
 		  <li><a><?php echo $_SESSION['role'];?></a></li>
         <li class="active"><a href="index.php?uc=connexion&action=deconnexion">Se déconnecter </a></li>
