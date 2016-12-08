@@ -34,7 +34,7 @@ class PdoGsb{
  * pour toutes les méthodes de la classe
  */				
 	private function __construct(){
-		$leMdp = '';
+		$leMdp = 'root';
     	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, $leMdp);
 		PdoGsb::$monPdo->query("SET CHARACTER SET utf8");
 
