@@ -27,14 +27,18 @@ switch($uc){
 	
 	
 	}
+//<<<<<<< HEAD
 /*
 if($_SESSION['role'] == 'Administrateur')
+=======
+/*if($_SESSION['role'] == 'Administrateur')
+>>>>>>> 4496ef8c9334240ed354f7d8011db679622bef29
 {
     include("controleurs/c_admin.php");
      //header('Location: http://www.votresite.com/pageprotegee.php');
     //Redirige vers vues/v_ajouteFrais.php
-}
+}*/
 	
-	*/
+	
 
 ?>

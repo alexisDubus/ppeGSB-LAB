@@ -1,8 +1,15 @@
 <?php
-require(dirname(__FILE__).'/../config/global.php');
 
 require_once("include/fct.inc.php");
 require_once ("include/class.pdogsb.inc.php");
+
+
+include("vues/v_sommaire.php");
+
+$idUtilisateur = $_SESSION['idUtilisateur'];
+$mois = getMois(date("d/m/Y"));
+$numAnnee =substr( $mois,0,4);
+$numMois =substr( $mois,4,2);
 
 // On récupère l'action à effectuer (Create, Read, Update ou Delete).
 $action = 'read';
@@ -40,4 +47,4 @@ switch($action)
 }
 
 /* Nous appellerons ici la page HTML appropriée. */
-include(HTML_DIR.$action.'.php');
+
