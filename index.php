@@ -21,6 +21,9 @@ switch($uc){
 	case 'etatFrais' :{
 		include("controleurs/c_etatFrais.php");break; 
 	}
+	case 'menuCRUD' : {
+		include("controleurs/c_CRUD.php");break;
+	}
 	
 	
 	}
