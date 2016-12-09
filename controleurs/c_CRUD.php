@@ -19,40 +19,47 @@ if(isset($_REQUEST['action']) && in_array($_REQUEST['action'],
 /* NTtaitement des différentes actions */
 switch($action)
 {
-	/* Action "Voir" forfait  */
   case 'read':
-  	$fraisforfaits = getFraisForfaitOnly();
-        include ("vues/v_fraisforfait.php");
+  {
+    $fraisforfaits = Doctrine_Core::getTable('fraisforfait')->findAll();
+    include ("vues/v_fraisforfait.php");
     break;
-
-    /* Action "Créer" forfait  */
+  }
   case 'create':
+  {
       $id      = $_REQUEST['id'];
       $libelle = $_REQUEST['libelle'];
       $montant = $_REQUEST['montant'];
       valideInfosFraisForfait($id,$libelle,$montant);
       if (nbErreurs() != 0 )
-        {
+      {
             include("vues/v_erreurs.php");
-        }
-      else {
+      }
+      else 
+      {
           $pdo -> creerNouveauTypeFraisForfait($id,$libelle,$montant);
-      }               
+      }              
     break;
-
-    /* Action "Modifier" forfait  */
+  }
+  /* Action "Modifier" forfait  */
   case 'update':
+  {
     break;
+  }
+    
 
     /* Action "Supprimer" forfait  */
   case 'delete':
-  			$id = isset($_POST['id']) ? $_POST['id'] : $_GET['id'];
- 			// On s'assure que le forfait existe
- 			if($fraisforfait = Doctrine_Core::getTable('fraisforfait')->find($id))
- 			{
-  				$fraisforfait->delete();
- 			}
+  {
+      $id = isset($_POST['id']) ? $_POST['id'] : $_GET['id'];
+      // On s'assure que le forfait existe
+      if($fraisforfait = Doctrine_Core::getTable('fraisforfait')->find($id))
+      {
+          $fraisforfait->delete();
+      }
     break;
+  }
+  			
 }
 
 /* Nous appellerons ici la page HTML appropriée. */

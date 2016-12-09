@@ -3,15 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/gsb2.5/index.php</file>
-            <file>file:/C:/wamp/www/gsb2.5/include/class.pdogsb.inc.php</file>
-            <file>file:/C:/wamp/www/gsb2.5/controleurs/c_etatFrais.php</file>
-            <file>file:/C:/wamp/www/gsb2.5/controleurs/c_admin.php</file>
-            <file>file:/C:/wamp/www/gsb2.5/vues/v_listeFraisForfait.php</file>
-            <file>file:/C:/wamp/www/gsb2.5/controleurs/c_connexion.php</file>
-            <file>file:/C:/wamp/www/gsb2.5/include/fct.inc.php</file>
-            <file>file:/C:/wamp/www/gsb2.5/vues/v_fraisforfait.php</file>
-            <file>file:/C:/wamp/www/gsb2.5/vues/v_listeMois.php</file>
+            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/controleurs/c_etatFrais.php</file>
+            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/controleurs/c_CRUD.php</file>
+            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/controleurs/c_gererFraisHorsForfaits.php</file>
+            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/vues/v_etatFrais.php</file>
+            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/include/class.pdogsb.inc.php</file>
+            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/vues/v_fraisforfait.php</file>
+            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/vues/v_sommaire.php</file>
+            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/index.php</file>
+            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/include/fct.inc.php</file>
         </group>
     </open-files>
 </project-private>

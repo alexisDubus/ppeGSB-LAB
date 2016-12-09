@@ -247,6 +247,7 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp
 ('f21', 'Finck', 'Jacques', 'jfinck', 'mpb3t', '10 avenue du Prado', '13002', 'Marseille', '2001-11-10', '6d8b2060b60132d9bdb09d37913fbef637b295f2', '2'),
 ('f39', 'Frémont', 'Fernande', 'ffremont', 'xs5tq', '4 route de la mer', '13012', 'Allauh', '1998-10-01', 'aa45efe9ecbf37db0089beeedea62ceb57db7f17', '1'),
 ('f4', 'Gest', 'Alain', 'agest', 'dywvt', '30 avenue de la mer', '13025', 'Berre', '1985-11-01', '1af7dedacbbe8ce324e316429a816daeff4c542f', '0');
+('z44','Administrateur','Un','admin','admin','198 rue de lille','59130','Lammbersart','1985-11-01', '1af7dedacbbe8ce324e316429a816daeff4c542f', '0');)
 
 --
 -- Constraints for dumped tables

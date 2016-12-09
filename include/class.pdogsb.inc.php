@@ -16,7 +16,8 @@
  * @link       http://www.php.net/manual/fr/book.pdo.php
  */
 
-class PdoGsb{
+class PdoGsb
+{
 
         
         private static $serveur='mysql:host=localhost';
@@ -157,19 +158,8 @@ class PdoGsb{
 		$lesLignes = $res->fetchAll();
 		return $lesLignes; 
 	}
-/**
- * Retourne sous forme d'un tableau associatif toutes les lignes de la table 
- * fraisforfait
- 
- * @return l'id, le libelle et le montant sous la forme d'un tableau associatif 
-*/ 
-        public function getFraisForfaitOnly(){
-                $req = "SELECT  fraisforfait.id as idfrais, fraisforfait.libelle as libelle, fraisforfait.montant as montant
-                        FROM    fraisforfait";
-                $res = PdoGsb::$monPdo->query($req);
-		$lesLignes = $res->fetchAll();
-		return $lesLignes;        
-        }
+
+
 /**
  * Retourne tous les id de la table FraisForfait
  
@@ -292,19 +282,6 @@ class PdoGsb{
 		PdoGsb::$monPdo->exec($req);
 	}
 
-		/**
-		*	Créer un fraisforfait
-		*	@param type $id
-        * 	@param type $libelle
-        * 	@param type $montant
-		*/
-		Public function creerNouveauTypeFraisForfait($id, $libelle, $montant){
-			$montantDec = (decimal(10,2))$montant;
-			$req = "insert into fraisforfait (id,libelle,montant) values ('$id','$libelle','$montantDec'); ";
-			PdoGsb::$monPdo->exec($req);
-		}
-       
-
 /**
  * Crée un nouveau frais hors forfait pour un utilisateur et un mois donné
  * à partir des informations fournies en paramètre
@@ -396,21 +373,7 @@ class PdoGsb{
 		PdoGsb::$monPdo->exec($req);
 	}
 	
-	public function isIDFraisForfaitExist($id){
-		$result = false;
-		$req = "select fraisforfait.id
-				FROM fraisforfait";
-		$res = PdoGsb::$monPdo->query($req);
-		$lesLigne = $res->fetch();
-		foreach ($uneligne as $leslignes)
-		{
-			if ($uneligne == $id )
-			{
-				$resut = true;
-			}
-		}
-		return result;
-	}
-	
 }
+
+
 ?>
