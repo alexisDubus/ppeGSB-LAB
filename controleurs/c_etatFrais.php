@@ -24,6 +24,7 @@ switch($action){
 		$lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idUtilisateur,$leMois);
 		$numAnnee =substr( $leMois,0,4);
 		$numMois =substr( $leMois,4,2);
+                $nomMois = donneNomMois($numMois);
 		$libEtat = $lesInfosFicheFrais['libEtat'];
 		$montantValide = $lesInfosFicheFrais['montantValide'];
 		$nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];

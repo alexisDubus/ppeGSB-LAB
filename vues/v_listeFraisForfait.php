@@ -4,44 +4,7 @@
 			<div class="panel-title"><h2></h2></div>
 			</br></br>
 		  <legend>Eléments forfaitisés du mois <?php 
-				switch ($numMois) {
-			case 1:
-				echo "de janvier ";
-				break;
-			case 2:
-				echo "de février ";
-				break;
-			case 3:
-				echo "de mars ";
-				break;
-			case 4:
-				echo "d'avril ";
-				break;
-			case 5:
-				echo "de mai ";
-				break;
-			case 6:
-				echo "de juin ";
-				break;
-			case 7:
-				echo "de juillet ";
-				break;
-			case 8:
-				echo "d'août ";
-				break;
-			case 9:
-				echo "de septembre ";
-				break;
-			case 10:
-				echo "d'octobre ";
-				break;
-			case 11:
-				echo "de novembre ";
-				break;
-			case 12:
-				echo "de décembre ";
-				break;		
-			}
+			echo $nomMois;
 			echo $numAnnee?> :</legend>			
 		</div>
 		<div class="panel-body">
@@ -101,7 +64,7 @@
                                         $montantRepasRestaurant = donneMontantTotal("Repas Restaurant", $quantiteRepasRestaurant);
                                 ?>
                                            	<tr>
-                                                    <td> <?php echo "Montant Totale"?></td>
+                                                    <td> <?php echo "Montant Total"?></td>
                                                     <td> <?php echo $montantForfaitEtape ?></td>
                                                     <td><?php echo $montantFraisKilometrique ?></td>
                                                     <td><?php echo $montantNuiteeHotel ?></td>

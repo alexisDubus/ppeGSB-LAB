@@ -149,10 +149,10 @@ class PdoGsb{
 		return $lesLignes; 
 	}
         
-        public function getLesInfosFrais(){
+        public function getLesInfosFrais($idUtilisateur){
 		$req = "select fraisforfait.id as idfrais, fraisforfait.libelle as libelle, 
 		lignefraisforfait.quantite as quantite, lignefraisforfait.dateFrais as dateFrais, lignefraisforfait.description as description from lignefraisforfait inner join fraisforfait 
-		on fraisforfait.id = lignefraisforfait.idfraisforfait";	
+		on fraisforfait.id = lignefraisforfait.idfraisforfait where lignefraisforfait.idutilisateur = '$idUtilisateur'";	
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes; 

@@ -5,6 +5,7 @@ $idUtilisateur = $_SESSION['idUtilisateur'];
 $mois = getMois(date("d/m/Y"));
 $numAnnee =substr( $mois,0,4);
 $numMois =substr( $mois,4,2);
+$nomMois = donneNomMois($numMois);
 $action = $_REQUEST['action'];
 switch($action){
 	case 'saisirFraisForfaitisés':{
@@ -36,7 +37,7 @@ switch($action){
 	}
 }
 $lesFraisForfait= $pdo->getLesFraisForfait($idUtilisateur,$mois);
-$lesInfosFrais = $pdo->getLesInfosFrais();
+$lesInfosFrais = $pdo->getLesInfosFrais($idUtilisateur);
 $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idUtilisateur,$mois);
 include("vues/v_listeFraisForfait.php");
 
