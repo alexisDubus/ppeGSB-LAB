@@ -42,7 +42,7 @@
         <li class="active"><a href="index.php?uc=gererFraisHorsForfaits&action=saisirFraisHorsForfait">Saisir mes fiches de frais hors forfait</a></li>
         <li class="active"><a href="index.php?uc=etatFrais&action=selectionnerMois">Mes fiches de frais</a></li>       
         <?php if ($_SESSION['role'] == 'Administrateur') { ?> 
-        <li class="active"><a href="index.php?uc=menuCRUD&action=afficherCRUD">Menu CRUD</a></li> 
+        <li class="active"><a href="index.php?uc=menuCRUD&action=read">Menu CRUD</a></li> 
         <?php } ?>
       </ul>
       <ul class="nav navbar-nav navbar-right">

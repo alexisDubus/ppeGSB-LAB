@@ -1,30 +1,28 @@
 <?php
 
-include("vues/v_sommaire.php");
 
+include("vues/v_sommaire.php");
 
 $idUtilisateur = $_SESSION['idUtilisateur'];
 $mois = getMois(date("d/m/Y"));
 $numAnnee =substr( $mois,0,4);
 $numMois =substr( $mois,4,2);
 
-// On récupère l'action à effectuer (Create, Read, Update ou Delete).
-$action = 'read';
-if(isset($_REQUEST['action']) && in_array($_REQUEST['action'],
-	array('create', 'read', 'update', 'delete')))
-{
-  $action = $_REQUEST['action'];
-}
+// On récupère l'action read au début.
+$action = $_REQUEST['action'];
 
-/* NTtaitement des différentes actions */
+
+
+/* Traitement des différentes actions */
 switch($action)
 {
   case 'read':
   {
-    $fraisforfaits = Doctrine_Core::getTable('fraisforfait')->findAll();
-    include ("vues/v_fraisforfait.php");
+    $lesfraisforfaits =$pdo->getFraisForfaitOnly();
+    include("vues/v_voirfraisforfait.php");
     break;
   }
+
   case 'create':
   {
       $id      = $_REQUEST['id'];
@@ -41,14 +39,15 @@ switch($action)
       }              
     break;
   }
-  /* Action "Modifier" forfait  */
+
+  
   case 'update':
   {
     break;
   }
     
 
-    /* Action "Supprimer" forfait  */
+  
   case 'delete':
   {
       $id = isset($_POST['id']) ? $_POST['id'] : $_GET['id'];
@@ -62,5 +61,4 @@ switch($action)
   			
 }
 
-/* Nous appellerons ici la page HTML appropriée. */
 

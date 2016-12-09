@@ -118,6 +118,21 @@ class PdoGsb
 		return $lesLignes; 
                 
 	}
+
+	/**
+ * Retourne sous forme d'un tableau associatif toutes les lignes de la table 
+ * fraisforfait
+ *
+ * @return l'id, le libelle et le montant sous la forme d'un tableau associatif 
+ */
+        public function getFraisForfaitOnly()
+        {
+            $req = "select  fraisforfait.id as id, fraisforfait.libelle as libelle, fraisforfait.montant as montant
+                    from    fraisforfait";
+            $res = PdoGsb::$monPdo->query($req);
+			$lesLignes = $res->fetchAll();
+			return $lesLignes;        
+        }
 /**
  * Retourne le nombre de justificatif d'un utilisateur pour un mois donné
  
