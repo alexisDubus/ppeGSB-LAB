@@ -21,7 +21,7 @@ class PdoGsb
 
         
         private static $serveur='mysql:host=localhost';
-        private static $bdd='dbname=gsb_test';
+        private static $bdd='dbname=gsb_frais';
         private static $user='root' ;    		
 
       	//private static $bdd='dbname=gsb_frais';   		
@@ -35,7 +35,7 @@ class PdoGsb
  * pour toutes les méthodes de la classe
  */				
 	private function __construct(){
-		$leMdp = 'root';
+		$leMdp = '';
     	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, $leMdp);
 		PdoGsb::$monPdo->query("SET CHARACTER SET utf8");
 
@@ -165,10 +165,10 @@ class PdoGsb
 		return $lesLignes; 
 	}
         
-        public function getLesInfosFrais(){
+        public function getLesInfosFrais($idUtilisateur){
 		$req = "select fraisforfait.id as idfrais, fraisforfait.libelle as libelle, 
-		lignefraisforfait.quantite as quantite, lignefraisforfait.dateFrais as dateFrais, lignefraisforfait.description as description from lignefraisforfait inner join fraisforfait 
-		on fraisforfait.id = lignefraisforfait.idfraisforfait";	
+		lignefraisforfait.id as id, lignefraisforfait.quantite as quantite, lignefraisforfait.dateFrais as dateFrais, lignefraisforfait.description as description from lignefraisforfait inner join fraisforfait 
+		on fraisforfait.id = lignefraisforfait.idfraisforfait where lignefraisforfait.idutilisateur = '$idUtilisateur'";	
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes; 
@@ -330,9 +330,14 @@ class PdoGsb
          * 
          * @param type $idFrais
          */
+<<<<<<< HEAD
         public function supprimerFraisForfait($idUtilisateur,$mois,$typeFrais)
         {
 		$req = "delete from lignefraisforfait where lignefraisforfait.idutilisateur ='$idUtilisateur' and lignefraisforfait.mois ='$mois' and lignefraisforfait.typeFrais ='$typeFrais';";
+=======
+        public function supprimerFraisForfait($id){
+		$req = "delete from lignefraisforfait where lignefraisforfait.id ='$id';";
+>>>>>>> 06e365d7c0ba3a478e20ef222d1de9f9366b875e
 		PdoGsb::$monPdo->exec($req);
 		}
 /**
