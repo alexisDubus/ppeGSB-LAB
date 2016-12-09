@@ -313,16 +313,28 @@ class PdoGsb
 		values(DEFAULT,'$idUtilisateur','$mois','$libelle','$dateFr','$montant')";
 		PdoGsb::$monPdo->exec($req);
 	}
+
+	public function creerNouveauTypeFraisForfait ($id, $libelle, $montant)
+	{
+		$req = "insert into fraisforfait (id,libelle,montant) values ('$id','$libelle','$montant'); ";
+		PdoGsb::$monPdo->exec($req);
+	}
 	
+	public function supprimerUnFraisForfait($idFrais)
+	{
+		$req = "delete from fraisforfait where fraisforfait.id = '$idFrais'";
+		PdoGsb::$monPdo->exec($req);
+	}
 
         /**
          * 
          * @param type $idFrais
          */
-        public function supprimerFraisForfait($idUtilisateur,$mois,$typeFrais){
+        public function supprimerFraisForfait($idUtilisateur,$mois,$typeFrais)
+        {
 		$req = "delete from lignefraisforfait where lignefraisforfait.idutilisateur ='$idUtilisateur' and lignefraisforfait.mois ='$mois' and lignefraisforfait.typeFrais ='$typeFrais';";
 		PdoGsb::$monPdo->exec($req);
-	}
+		}
 /**
  * Supprime le frais hors forfait dont l'id est passé en argument
  
