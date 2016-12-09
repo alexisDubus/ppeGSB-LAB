@@ -1,43 +1,64 @@
 <?php
-require(dirname(__FILE__).'/../config/global.php');
 
-require_once("include/fct.inc.php");
-require_once ("include/class.pdogsb.inc.php");
 
-// On récupère l'action à effectuer (Create, Read, Update ou Delete).
-$action = 'read';
-if(isset($_REQUEST['action']) && in_array($_REQUEST['action'],
-	array('create', 'read', 'update', 'delete')))
-{
-  $action = $_REQUEST['action'];
-}
+include("vues/v_sommaire.php");
 
-/* NTtaitement des différentes actions */
+$idUtilisateur = $_SESSION['idUtilisateur'];
+$mois = getMois(date("d/m/Y"));
+$numAnnee =substr( $mois,0,4);
+$numMois =substr( $mois,4,2);
+
+// On récupère l'action read au début.
+$action = $_REQUEST['action'];
+
+
+
+/* Traitement des différentes actions */
 switch($action)
 {
-	/* Action "Voir" forfait  */
   case 'read':
-  	$fraisforfaits = Doctrine_Core::getTable('fraisforfait')->findAll();
+  {
+    $lesfraisforfaits =$pdo->getFraisForfaitOnly();
+    include("vues/v_voirfraisforfait.php");
     break;
+  }
 
-    /* Action "Créer" forfait  */
   case 'create':
+  {
+      $id      = $_REQUEST['id'];
+      $libelle = $_REQUEST['libelle'];
+      $montant = $_REQUEST['montant'];
+      valideInfosFraisForfait($id,$libelle,$montant);
+      if (nbErreurs() != 0 )
+      {
+            include("vues/v_erreurs.php");
+      }
+      else 
+      {
+          $pdo -> creerNouveauTypeFraisForfait($id,$libelle,$montant);
+      }              
     break;
+  }
 
-    /* Action "Modifier" forfait  */
+  
   case 'update':
+  {
     break;
+  }
+    
 
-    /* Action "Supprimer" forfait  */
+  
   case 'delete':
-  			$id = isset($_POST['id']) ? $_POST['id'] : $_GET['id'];
- 			// On s'assure que le forfait existe
- 			if($fraisforfait = Doctrine_Core::getTable('fraisforfait')->find($id))
- 			{
-  				$fraisforfait->delete();
- 			}
+  {
+      $id = isset($_POST['id']) ? $_POST['id'] : $_GET['id'];
+      // On s'assure que le forfait existe
+      if($fraisforfait = Doctrine_Core::getTable('fraisforfait')->find($id))
+      {
+          $fraisforfait->delete();
+      }
     break;
+  }
+  			
 }
 
-/* Nous appellerons ici la page HTML appropriée. */
-include(HTML_DIR.$action.'.php');
+

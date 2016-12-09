@@ -31,8 +31,8 @@ switch($action){
 		break;
 	}
         case 'supprimerFrais':{
-		$typeFrais = $_REQUEST['typeFrais'];
-                $pdo->supprimerFraisForfait($idUtilisateur,$mois,$typeFrais);
+            $id = $_REQUEST['id'];
+                $pdo->supprimerFraisForfait($id);
 		break;
 	}
 }

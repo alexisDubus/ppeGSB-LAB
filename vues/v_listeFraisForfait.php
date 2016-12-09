@@ -83,13 +83,14 @@
 					<th class="action">&nbsp;</th>              
 				 </tr>
 				 <?php    
-
+                                                                
 					foreach( $lesInfosFrais as $unFraisForfait) 
 					{
 						$typeFrais = $unFraisForfait['libelle'];
 						$date = $unFraisForfait['dateFrais'];
 						$descriptiont=$unFraisForfait['description'];
 						$quantite = $unFraisForfait['quantite'];
+                                                $id = $unFraisForfait['id'];
 						
 				?>		
 						<tr>
@@ -98,7 +99,7 @@
 							<td><?php echo $descriptiont ?></td>
                                                         <td><?php echo $quantite ?></td>
 							<td> <?php 
-									echo '<a href="index.php?uc=gererFrais&action=supprimerFrais&typeFrais='.$typeFrais.'"
+									echo '<a href="index.php?uc=gererFrais&action=supprimerFrais&id='.$id.'"
 								onclick="return confirm(\'Voulez-vous vraiment supprimer ce frais?\');">Supprimer ce frais</a></td>';
 								
 						?></tr><?php		 }  ?>	  
