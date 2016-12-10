@@ -99,7 +99,9 @@ INSERT INTO `fraisforfait` (`id`, `libelle`, `montant`) VALUES
 -- Table structure for table `lignefraisforfait`
 --
 
+
 CREATE TABLE IF NOT EXISTS `lignefraisforfait` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idutilisateur` char(4) NOT NULL,
   `mois` char(6) NOT NULL,
   `idFraisForfait` char(3) NOT NULL,
@@ -108,24 +110,25 @@ CREATE TABLE IF NOT EXISTS `lignefraisforfait` (
   `dateFrais` date DEFAULT NULL,
   `typeFrais` varchar(20) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`idutilisateur`,`mois`,`idFraisForfait`),
-  KEY `idFraisForfait` (`idFraisForfait`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  KEY `lignefraisforfait_ibfk_1` (`idutilisateur`,`mois`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `lignefraisforfait`
 --
 
-INSERT INTO `lignefraisforfait` (`idutilisateur`, `mois`, `idFraisForfait`, `quantite`, `montant`, `dateFrais`, `typeFrais`, `description`) VALUES
-('a131', '201612', 'ETP', 2, '220.00', '2016-12-12', 'Forfait etape', 'rdv médecin Lille'),
-('a131', '201612', 'KM', 2, '220.00', '2016-12-12', 'Frais Kilométrique', 'rdv médecin Lyon'),
-('a17', '201611', 'ETP', 20, '2200.00', '2016-12-12', 'Forfait etape', 'rdv médecin Paris'),
-('a17', '201611', 'KM', 100, '62.00', '2016-12-12', 'Frais Kilométrique', 'rdv médecin Lille'),
-('c3', '201612', 'ETP', 2, '220.00', '2016-12-12', 'Repas restaurant', 'RDV medecin'),
-('f39', '201612', 'ETP', 0, '0.00', '2016-12-12', 'Forfait etape', 'rdv médecin Lille'),
-('f39', '201612', 'KM', 0, '0.00', '2016-12-12', 'Frais Kilométrique', 'rdv médecin Lille'),
-('f39', '201612', 'NUI', 0, '0.00', '2016-12-12', 'Nuitée Hôtel', 'rdv médecin Lille'),
-('f39', '201612', 'REP', 0, '0.00', '2016-12-12', 'Repas Restaurant', 'rdv médecin Lille');
+INSERT INTO `lignefraisforfait` (`id`, `idutilisateur`, `mois`, `idFraisForfait`, `quantite`, `montant`, `dateFrais`, `typeFrais`, `description`) VALUES
+(8, 'a131', '201612', 'NUI', 3, '240.00', '2016-09-02', 'Nuitée Hôtel', 'Hôtel "du lac"'),
+(9, 'a131', '201612', 'KM', 9, '5.58', '2016-09-04', 'Frais Kilométrique', 'Lyon - Paris'),
+(10, 'a131', '201612', 'REP', 31, '775.00', '2016-09-21', 'Repas Restaurant', 'Soirée Dr Dupont'),
+(11, 'a131', '201612', 'KM', 40, '24.80', '2016-09-20', 'Frais Kilométrique', 'Trajet Paris - Bordeaux'),
+(17, 'a131', '201612', 'ETP', 2, '220.00', '2016-09-08', 'Forfait Etape', 'Voyage a Paris');
+
+--
+-- Constraints for table `lignefraisforfait`
+--
+
 
 --
 -- Triggers `lignefraisforfait`
@@ -210,21 +213,13 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `cp` char(5) DEFAULT NULL,
   `ville` char(30) DEFAULT NULL,
   `dateEmbauche` date DEFAULT NULL,
-<<<<<<< HEAD
-  `mdpSHA` varchar(255) DEFAULT NULL,
-=======
->>>>>>> c4cd3b838a3de32bec44901e1cc46a3bc1e8a50e
   `idRole` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `role_ibfk_1` (`idRole`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Anciennement table visiteur';
 
 --
-<<<<<<< HEAD
--- Dumping data for table `utilisateur`
-=======
 -- Contenu de la table `utilisateur`
->>>>>>> c4cd3b838a3de32bec44901e1cc46a3bc1e8a50e
 --
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `ville`, `dateEmbauche`, `idRole`) VALUES
@@ -234,20 +229,12 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp
 ('a93', 'Tusseau', 'Louis', 'ltusseau', 'ktp3s', '22 rue des Ternes', '46123', 'Gramat', '2000-05-01', '2'),
 ('b13', 'Bentot', 'Pascal', 'pbentot', 'doyw1', '11 allée des Cerises', '46512', 'Bessines', '1992-07-09', '2'),
 ('b16', 'Bioret', 'Luc', 'lbioret', 'hrjfs', '1 Avenue gambetta', '46000', 'Cahors', '1998-05-11', '2'),
-<<<<<<< HEAD
-('b19', 'Bunisset', 'Francis', 'fbunisset', '4vbnd', '10 rue des Perles', '93100', 'Montreuil', '2'),
-=======
 ('b19', 'Bunisset', 'Francis', 'fbunisset', '4vbnd', '10 rue des Perles', '93100', 'Montreuil', '1987-10-21', '2'),
->>>>>>> c4cd3b838a3de32bec44901e1cc46a3bc1e8a50e
 ('b25', 'Bunisset', 'Denise', 'dbunisset', 's1y1r', '23 rue Manin', '75019', 'paris', '2010-12-05', '2'),
 ('b28', 'Cacheux', 'Bernard', 'bcacheux', 'uf7r3', '114 rue Blanche', '75017', 'Paris', '2009-11-12', '2'),
 ('b34', 'Cadic', 'Eric', 'ecadic', '6u8dc', '123 avenue de la République', '75011', 'Paris', '2008-09-23', '2'),
 ('b4', 'Charoze', 'Catherine', 'ccharoze', 'u817o', '100 rue Petit', '75019', 'Paris', '2005-11-12', '2'),
-<<<<<<< HEAD
-('b50', 'Clepkens', 'Christophe', 'cclepkens', 'bw1us', '12 allée des Anges', '93230', 'Romainville', '2'),
-=======
 ('b50', 'Clepkens', 'Christophe', 'cclepkens', 'bw1us', '12 allée des Anges', '93230', 'Romainville', '2003-08-11', '2'),
->>>>>>> c4cd3b838a3de32bec44901e1cc46a3bc1e8a50e
 ('b59', 'Cottin', 'Vincenne', 'vcottin', '2hoh9', '36 rue Des Roches', '93100', 'Monteuil', '2001-11-18', '2'),
 ('c14', 'Daburon', 'François', 'fdaburon', '7oqpv', '13 rue de Chanzy', '94000', 'Créteil', '2002-02-11', '2'),
 ('c3', 'De', 'Philippe', 'pde', 'gk9kx', '13 rue Barthes', '94000', 'Créteil', '2010-12-14', '2'),
@@ -263,20 +250,11 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp
 ('f21', 'Finck', 'Jacques', 'jfinck', 'mpb3t', '10 avenue du Prado', '13002', 'Marseille', '2001-11-10', '2'),
 ('f39', 'Frémont', 'Fernande', 'ffremont', 'xs5tq', '4 route de la mer', '13012', 'Allauh', '1998-10-01', '1'),
 ('f4', 'Gest', 'Alain', 'agest', 'dywvt', '30 avenue de la mer', '13025', 'Berre', '1985-11-01', '0'),
-<<<<<<< HEAD
-('z44','Administrateur','Un','admin','admin','198 rue de lille','59130','Lammbersart','1985-11-01', '0');
-
-=======
 ('z44', 'Administrateur', 'Un', 'admin', 'admin', '198 rue de lille', '59130', 'Lammbersart', '1985-11-01', '0');
->>>>>>> c4cd3b838a3de32bec44901e1cc46a3bc1e8a50e
 --
 -- Constraints for dumped tables
 --
 
-<<<<<<< HEAD
---cryptage de la bdd
-=======
->>>>>>> c4cd3b838a3de32bec44901e1cc46a3bc1e8a50e
 
 ALTER TABLE `utilisateur`
 ADD `mdpSHA` char(255);
@@ -295,8 +273,7 @@ ALTER TABLE `fichefrais`
 -- Constraints for table `lignefraisforfait`
 --
 ALTER TABLE `lignefraisforfait`
-  ADD CONSTRAINT `lignefraisforfait_ibfk_1` FOREIGN KEY (`idutilisateur`, `mois`) REFERENCES `fichefrais` (`idutilisateur`, `mois`),
-  ADD CONSTRAINT `lignefraisforfait_ibfk_2` FOREIGN KEY (`idFraisForfait`) REFERENCES `fraisforfait` (`id`);
+  ADD CONSTRAINT `lignefraisforfait_ibfk_1` FOREIGN KEY (`idutilisateur`, `mois`) REFERENCES `fichefrais` (`idutilisateur`, `mois`);
 
 --
 -- Constraints for table `lignefraishorsforfait`
