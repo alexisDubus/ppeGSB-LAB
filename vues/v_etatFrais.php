@@ -13,29 +13,32 @@
   	<table class="table">
             <caption>Descriptif des éléments forfaitisés</caption>
 			  <thead>
-				<tr>
-					<th>Forfait Etape</th>
-					<th>Frais Kilométrique</th>  
-					<th>Nuitée Hôtel</th>  
-                                        <th>Repas Restaurant</th>  
+                              <tr>
+                                    <th class="quantiteTotale"></th>
+					<?php
+                                        foreach ($lesLibelleFrais as $unLibelleFrais) {
+                                            echo '<th>';
+                                            echo $unLibelleFrais['libelle'];
+                                            echo '</th>';
+                                        }
+                                    ?>
 					<th class="action">&nbsp;</th>                
 				 </tr>
-                                 
-                                 <?php    
-                                        $quantiteForfaitEtape = donneQuantiteTypeFrais("Forfait Etape", $lesFraisForfait);
-                                        $quantiteFraisKilometrique = donneQuantiteTypeFrais("Frais Kilométrique", $lesFraisForfait);
-                                        $quantiteNuiteeHotel = donneQuantiteTypeFrais("Nuitée Hôtel", $lesFraisForfait);
-                                        $quantiteRepasRestaurant = donneQuantiteTypeFrais("Repas Restaurant", $lesFraisForfait);
-				?>		
-						<tr>
-                                                    <td> <?php echo $quantiteForfaitEtape ?></td>
-                                                    <td><?php echo $quantiteFraisKilometrique ?></td>
-                                                    <td><?php echo $quantiteNuiteeHotel ?></td>
-                                                    <td><?php echo $quantiteRepasRestaurant ?></td>
-                                                </tr>
+                                <?php
+                                    echo '<tr>
+                                        . <td>';
+                                    echo "Quantité Totale";
+                                    echo '</td>';
+                                    foreach ($lesLibelleFrais as $unLibelleFrais) {
+                                        $quantiteFraisForfait = donneQuantiteTypeFrais($unLibelleFrais['libelle'], $lesFraisForfait);
+                                        echo '<td>';
+                                        echo $quantiteFraisForfait;
+                                        echo '</td>';
+                                    }
+                                ?>
 			 </table>
   	<table class="table">
-  	   <caption>Descriptif des éléments hors forfait -<?php echo $nbJustificatifs ?> justificatifs reçus -
+  	   <caption>Descriptif des éléments hors forfait <?php echo $nbJustificatifs ?> justificatifs reçus 
        <table class="table">
 			  <thead>
 				<tr>

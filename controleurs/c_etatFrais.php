@@ -24,7 +24,8 @@ switch($action)
 		include("vues/v_listeMois.php");
 		$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idUtilisateur,$leMois);
 		$lesFraisForfait= $pdo->getLesFraisForfait($idUtilisateur,$leMois);
-		$lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idUtilisateur,$leMois);
+		$lesLibelleFrais = $pdo->getLibelleFraisForfait();
+                $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idUtilisateur,$leMois);
 		$numAnnee =substr( $leMois,0,4);
 		$numMois =substr( $leMois,4,2);
                 $nomMois = donneNomMois($numMois);

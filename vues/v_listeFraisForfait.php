@@ -13,10 +13,13 @@
 			<div class="form-group"><br />
                                 <label>Type de frais : </label>
                                 <select name="typeFrais">
-                                    <option>Forfait Etape</option>
-                                    <option>Frais Kilométrique</option>
-                                    <option>Nuitée Hôtel</option>
-                                    <option>Repas Restaurant</option>
+                                    <?php
+                                        foreach ($lesLibelleFrais as $unLibelleFrais) {
+                                            echo '<option>';
+                                            echo $unLibelleFrais['libelle'];
+                                            echo '</option>';
+                                        }
+                                    ?>
                                 </select><br />
                                 
                                 <label>Date de l'engagement de la dépense : </label>
@@ -37,39 +40,40 @@
 			  <thead>
 				<tr>
                                     <th class="quantiteTotale"></th>
-					<th>Forfait Etape</th>
-					<th>Frais Kilométrique</th>  
-					<th>Nuitée Hôtel</th>  
-                                        <th>Repas Restaurant</th>  
+					<?php
+                                        foreach ($lesLibelleFrais as $unLibelleFrais) {
+                                            echo '<th>';
+                                            echo $unLibelleFrais['libelle'];
+                                            echo '</th>';
+                                        }
+                                    ?>
 					<th class="action">&nbsp;</th>                
 				 </tr>
                                  
                                  <?php    
-                                        $quantiteForfaitEtape = donneQuantiteTypeFrais("Forfait Etape", $lesFraisForfait);
-                                        $quantiteFraisKilometrique = donneQuantiteTypeFrais("Frais Kilométrique", $lesFraisForfait);
-                                        $quantiteNuiteeHotel = donneQuantiteTypeFrais("Nuitée Hôtel", $lesFraisForfait);
-                                        $quantiteRepasRestaurant = donneQuantiteTypeFrais("Repas Restaurant", $lesFraisForfait);
-				?>		
-						<tr>
-                                                    <td> <?php echo "Quantité Totale"?></td>
-                                                    <td> <?php echo $quantiteForfaitEtape ?></td>
-                                                    <td><?php echo $quantiteFraisKilometrique ?></td>
-                                                    <td><?php echo $quantiteNuiteeHotel ?></td>
-                                                    <td><?php echo $quantiteRepasRestaurant ?></td>
-                                                </tr>
-                                <?php 
-                                        $montantForfaitEtape = donneMontantTotal("Forfait Etape", $quantiteForfaitEtape);
-                                        $montantFraisKilometrique = donneMontantTotal("Frais Kilométrique", $quantiteFraisKilometrique);
-                                        $montantNuiteeHotel = donneMontantTotal("Nuitée Hôtel", $quantiteNuiteeHotel);
-                                        $montantRepasRestaurant = donneMontantTotal("Repas Restaurant", $quantiteRepasRestaurant);
+                                    echo '<tr>
+                                        . <td>';
+                                    echo "Quantité Totale";
+                                    echo '</td>';
+                                    foreach ($lesLibelleFrais as $unLibelleFrais) {
+                                        $quantiteFraisForfait = donneQuantiteTypeFrais($unLibelleFrais['libelle'], $lesFraisForfait);
+                                        echo '<td>';
+                                        echo $quantiteFraisForfait;
+                                        echo '</td>';
+                                    }
+                                    echo '<tr>
+                                        . <td>';
+                                    echo "Montant Total";
+                                    echo '</td>';
+                                    foreach ($lesLibelleFrais as $unLibelleFrais) {
+                                        $quantiteFraisForfait = donneQuantiteTypeFrais($unLibelleFrais['libelle'], $lesFraisForfait);
+                                        $montantFraisForfait = donneMontantTotal($unLibelleFrais['libelle'], $quantiteFraisForfait);
+                                        echo '<td>';
+                                        echo $montantFraisForfait;
+                                        echo '</td>';
+                                    }
+                                    echo '</tr>';
                                 ?>
-                                           	<tr>
-                                                    <td> <?php echo "Montant Total"?></td>
-                                                    <td> <?php echo $montantForfaitEtape ?></td>
-                                                    <td><?php echo $montantFraisKilometrique ?></td>
-                                                    <td><?php echo $montantNuiteeHotel ?></td>
-                                                    <td><?php echo $montantRepasRestaurant ?></td>
-                                                </tr>
 			 </table>
             </div>
             <div class="panel-body">

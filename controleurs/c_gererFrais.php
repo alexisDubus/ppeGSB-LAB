@@ -39,6 +39,8 @@ switch($action){
 $lesFraisForfait= $pdo->getLesFraisForfait($idUtilisateur,$mois);
 $lesInfosFrais = $pdo->getLesInfosFrais($idUtilisateur);
 $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idUtilisateur,$mois);
+$lesLibelleFrais = $pdo->getLibelleFraisForfait();
+$nombreFrais = $pdo->getNombreFraisForfait();
 include("vues/v_listeFraisForfait.php");
 
 ?>

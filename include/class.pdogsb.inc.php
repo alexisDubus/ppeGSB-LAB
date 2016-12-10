@@ -21,9 +21,9 @@ class PdoGsb
 
         
         private static $serveur='mysql:host=localhost';
-        private static $bdd='dbname=gsb_fr';
-        private static $user='lamp';    		
-        private static $leMdp = 'root';
+        private static $bdd='dbname=gsb_frais';
+        private static $user='root';    		
+        private static $leMdp = '';
         //private static $bdd='dbname=gsb_frais';   		
       	//private static $user='root';    		
       	//private static $mdp='AzertY!59';	
@@ -179,7 +179,27 @@ class PdoGsb
 		return $lesLignes; 
 	}
 
-
+        /**
+         * 
+         * @return type
+         */
+        public function getLibelleFraisForfait() {
+            $req = "select fraisforfait.libelle as libelle from fraisforfait";
+            $res = PdoGsb::$monPdo->query($req);
+            $lesLignes = $res->fetchAll();
+            return $lesLignes;
+        }
+        
+        /**
+         * 
+         * @return type
+         */
+        public function getNombreFraisForfait() {
+            $req = "select count(*) as nombreFrais from fraisforfait";
+            $res = PdoGsb::$monPdo->query($req);
+            $lesLignes = $res->fetchAll();
+            return $lesLignes;
+        }
 /**
  * Retourne tous les id de la table FraisForfait
  
