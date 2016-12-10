@@ -176,6 +176,7 @@ function valideInfosFrais($dateFrais,$libelle,$montant){
  * Vérifie la validité des trois arguments : l'id, le libellé du fraisforfait et le montant 
  
  * des message d'erreurs sont ajoutés au tableau des erreurs
+ *--------- A mettre das fct.php
  
  * @param $id 
  * @param $libelle 
@@ -187,12 +188,6 @@ function valideInfosFraisForfait($id,$libelle,$montant)
 	{
 		ajouterErreur("Le champ identifiant ne doit pas être vide");
 	}
-	else
-		if ( isIdFraisForfaitExist($id) == true)
-		{
-			ajouterErreur("Cet identifiant existe déja");
-		}
-
 	if($libelle == "")
 	{
 		ajouterErreur("Le champ description ne peut pas être vide");
@@ -201,12 +196,15 @@ function valideInfosFraisForfait($id,$libelle,$montant)
 	{
 		ajouterErreur("Le champ montant ne peut pas être vide");
 	}
-	else
+		else
 		if( !is_numeric($montant) )
 		{
 			ajouterErreur("Le champ montant doit être numérique");
 		}
 }
+
+
+
 /**
  * Ajoute le libellé d'une erreur au tableau des erreurs 
  
@@ -242,7 +240,7 @@ function donneQuantiteTypeFrais($type, $lesFraisForfaits) {
     $quantiteFrais = 0;
     foreach ($lesFraisForfaits as $leFraisForfait) {
         if ($leFraisForfait['libelle'] == $type) {
-            $quantiteFrais++;
+            $quantiteFrais += (int)$leFraisForfait['quantite'];
         }
     }
     return $quantiteFrais;
@@ -295,5 +293,53 @@ function donneMontantTotal($type, $quantite) {
             break;
     }
     return $montantTotal;
+}
+
+/**
+ * 
+ * @param type $numMois
+ * @return string
+ */
+function donneNomMois($numMois) {
+    $nomMois = "";
+    switch ($numMois) {
+	case 1:
+            $nomMois = "de janvier ";
+            break;
+	case 2:
+            $nomMois = "de février ";
+            break;
+	case 3:
+            $nomMois = "de mars ";
+            break;
+	case 4:
+            $nomMois = "d'avril ";
+            break;
+	case 5:
+            $nomMois = "de mai ";
+            break;
+	case 6:
+            $nomMois = "de juin ";
+            break;
+	case 7:
+            $nomMois = "de juillet ";
+            break;
+	case 8:
+            $nomMois = "d'août ";
+            break;
+	case 9:
+            $nomMois = "de septembre ";
+            break;
+	case 10:
+            $nomMois = "d'octobre ";
+            break;
+	case 11:
+            $nomMois = "de novembre ";
+            break;
+	case 12:
+            $nomMois = "de décembre ";
+            break;		
+	}
+    return $nomMois;
 }
 ?>

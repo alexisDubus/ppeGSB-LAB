@@ -1,44 +1,39 @@
 <?php
+
 session_start();
 require_once("include/fct.inc.php");
 require_once ("include/class.pdogsb.inc.php");
 $pdo = PdoGsb::getPdoGsb();
 $estConnecte = estConnecte();
-if(!isset($_REQUEST['uc']) || !$estConnecte){
+
+if(!isset($_REQUEST['uc']) || !$estConnecte)
+{
    $_REQUEST['uc'] = 'connexion';
-}	 
+}	
+
 $uc = $_REQUEST['uc'];
-switch($uc){
-	case 'connexion':{
+switch($uc)
+{
+	case 'connexion':
+	{
 		include("controleurs/c_connexion.php");break;
 	}	
-	case 'gererFrais' :{
+	case 'gererFrais' :
+	{
 		include("controleurs/c_gererFrais.php");break;
 	}
-    case 'gererFraisHorsForfaits' :{
+    case 'gererFraisHorsForfaits' :
+    {
 		include("controleurs/c_gererFraisHorsForfaits.php");break;
 	}
-	case 'etatFrais' :{
+	case 'etatFrais' :
+	{
 		include("controleurs/c_etatFrais.php");break; 
 	}
-	case 'menuCRUD' : {
+	case 'menuCRUD' : 
+	{
 		include("controleurs/c_CRUD.php");break;
-	}
-	
-	
-	}
-//<<<<<<< HEAD
-/*
-if($_SESSION['role'] == 'Administrateur')
-=======
-/*if($_SESSION['role'] == 'Administrateur')
->>>>>>> 4496ef8c9334240ed354f7d8011db679622bef29
-{
-    include("controleurs/c_admin.php");
-     //header('Location: http://www.votresite.com/pageprotegee.php');
-    //Redirige vers vues/v_ajouteFrais.php
-}*/
-	
-	
+}
 
+}
 ?>

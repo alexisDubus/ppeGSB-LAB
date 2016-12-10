@@ -2,44 +2,7 @@
 	<div class="content-box-large">
 		<div class="panel-heading">
 			<div class="panel-title"><h2>Fiche de frais du mois <?php 
-				switch ($numMois) {
-			case 1:
-				echo "de janvier ";
-				break;
-			case 2:
-				echo "de février ";
-				break;
-			case 3:
-				echo "de mars ";
-				break;
-			case 4:
-				echo "d'avril ";
-				break;
-			case 5:
-				echo "de mai ";
-				break;
-			case 6:
-				echo "de juin ";
-				break;
-			case 7:
-				echo "de juillet ";
-				break;
-			case 8:
-				echo "d'août ";
-				break;
-			case 9:
-				echo "de septembre ";
-				break;
-			case 10:
-				echo "d'octobre ";
-				break;
-			case 11:
-				echo "de novembre ";
-				break;
-			case 12:
-				echo "de décembre ";
-				break;		
-			}
+			echo $nomMois;
 			echo $numAnnee?> :</h2></div>
 		</div>
 		<div class="panel-body">
@@ -48,72 +11,55 @@
 				</br></br> 
 	
   	<table class="table">
-				</br></br>
-  	   <caption>Eléments forfaitisés </caption>
-        <tr>
-         <?php
-		 $a = '<table><tr>';
-         foreach ( $lesFraisForfait as $unFraisForfait ) 
-		 {
-			$libelle = $unFraisForfait['libelle'];
-			$a.= '<th>'.$libelle.'</th>';
-		?>	
-			<th> <?php echo $libelle?></th>
-		 <?php
-        }
-		
-		?>
-		</tr>
-        <tr>
-        <?php
-		$a.='</tr><tr>';
-          foreach (  $lesFraisForfait as $unFraisForfait  ) 
-		  {
-				$quantite = $unFraisForfait['quantite'];
-				$a.='<td>'.$quantite.'</td>';
-				
-		?>
-                <td class="qteForfait"><?php echo $quantite?> </td>
-		 <?php
-          }
-		  $a.='</tr></table><br /><br /><br /><br /> <p> Montant des frais hors-forfait </p> <table><tr>';
-		?>
-		
-		</tr>
-    </table>
+            <caption>Descriptif des éléments forfaitisés</caption>
+			  <thead>
+				<tr>
+					<th>Forfait Etape</th>
+					<th>Frais Kilométrique</th>  
+					<th>Nuitée Hôtel</th>  
+                                        <th>Repas Restaurant</th>  
+					<th class="action">&nbsp;</th>                
+				 </tr>
+                                 
+                                 <?php    
+                                        $quantiteForfaitEtape = donneQuantiteTypeFrais("Forfait Etape", $lesFraisForfait);
+                                        $quantiteFraisKilometrique = donneQuantiteTypeFrais("Frais Kilométrique", $lesFraisForfait);
+                                        $quantiteNuiteeHotel = donneQuantiteTypeFrais("Nuitée Hôtel", $lesFraisForfait);
+                                        $quantiteRepasRestaurant = donneQuantiteTypeFrais("Repas Restaurant", $lesFraisForfait);
+				?>		
+						<tr>
+                                                    <td> <?php echo $quantiteForfaitEtape ?></td>
+                                                    <td><?php echo $quantiteFraisKilometrique ?></td>
+                                                    <td><?php echo $quantiteNuiteeHotel ?></td>
+                                                    <td><?php echo $quantiteRepasRestaurant ?></td>
+                                                </tr>
+			 </table>
   	<table class="table">
   	   <caption>Descriptif des éléments hors forfait -<?php echo $nbJustificatifs ?> justificatifs reçus -
-       </caption>
-             <tr>
-                <th class="date">Date</th>
-                <th class="libelle">Libellé</th>
-                <th class='montant'>Montant</th>                
-             </tr>
-			 
-			 <?php $a.='<th>Date</th>
-                <th>Libellé</th>
-                <th>Montant</th>'; ?>
-        <?php      
-          foreach ( $lesFraisHorsForfait as $unFraisHorsForfait ) 
-		  {
-			$date = $unFraisHorsForfait['date'];
-			$libelle = $unFraisHorsForfait['libelle'];
-			$montant = $unFraisHorsForfait['montant'];
-			
-			$a.='</tr><tr><td>'.$date.'</td><td>'.$libelle.'</td><td>'.$montant.'</td>';
-			
-		?>
-             <tr>
-                <td><?php echo $date ?></td>
-                <td><?php echo $libelle ?></td>
-                <td><?php echo $montant ?></td>
-             </tr>
-        <?php 
-          }
-		  
-		  $a.='</tr></table>';
-		?>
-    </table>
+       <table class="table">
+			  <thead>
+				<tr>
+					<th class="date">Date</th>
+					<th class="libelle">Libellé</th>  
+					<th class="montant">Montant</th>  
+					<th class="action">&nbsp;</th>              
+				 </tr>
+				 <?php    
+
+					foreach( $lesFraisHorsForfait as $unFraisHorsForfait) 
+					{
+						$libelle = $unFraisHorsForfait['libelle'];
+						$date = $unFraisHorsForfait['date'];
+						$montant=$unFraisHorsForfait['montant'];
+						$id = $unFraisHorsForfait['id']
+						
+				?>		
+						<tr>
+							<td> <?php echo $date ?></td>
+							<td><?php echo $libelle ?></td>
+							<td><?php echo $montant ?></td>
+						</tr><?php		 }  ?>	  
+			 </table>
 	
 	
 	

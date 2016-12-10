@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2016 at 11:11 AM
+-- Generation Time: Dec 09, 2016 at 11:29 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -64,11 +64,15 @@ CREATE TABLE IF NOT EXISTS `fichefrais` (
 --
 
 INSERT INTO `fichefrais` (`idutilisateur`, `mois`, `nbJustificatifs`, `montantValide`, `dateModif`, `idEtat`) VALUES
+('a131', '201609', 0, '100.00', '2016-12-10', 'CL'),
+('a131', '201610', 0, '20.00', '2016-12-01', 'CL'),
 ('a131', '201611', 0, '0.00', '2016-12-03', 'CL'),
 ('a131', '201612', 0, '0.00', '2016-12-03', 'CR'),
 ('a17', '201611', 0, '0.00', '2016-12-03', 'CL'),
+('a17', '201612', 0, '0.00', '2016-12-09', 'CR'),
 ('c3', '201612', 0, '0.00', '2016-12-07', 'CR'),
-('f39', '201612', 0, '0.00', '2016-12-03', 'CR');
+('f39', '201612', 0, '0.00', '2016-12-03', 'CR'),
+('f4', '201612', 0, '0.00', '2016-12-08', 'CR');
 
 -- --------------------------------------------------------
 
@@ -100,6 +104,7 @@ INSERT INTO `fraisforfait` (`id`, `libelle`, `montant`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `lignefraisforfait` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idutilisateur` char(4) NOT NULL,
   `mois` char(6) NOT NULL,
   `idFraisForfait` char(3) NOT NULL,
@@ -108,23 +113,26 @@ CREATE TABLE IF NOT EXISTS `lignefraisforfait` (
   `dateFrais` date DEFAULT NULL,
   `typeFrais` varchar(20) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`idutilisateur`,`mois`,`idFraisForfait`),
-  KEY `idFraisForfait` (`idFraisForfait`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  KEY `lignefraisforfait_ibfk_1` (`idutilisateur`,`mois`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `lignefraisforfait`
 --
 
-INSERT INTO `lignefraisforfait` (`idutilisateur`, `mois`, `idFraisForfait`, `quantite`, `montant`, `dateFrais`, `typeFrais`, `description`) VALUES
-('a131', '201612', 'ETP', 2, '220.00', '2016-12-12', 'Forfait etape', 'MACHIN'),
-('a17', '201611', 'ETP', 20, '2200.00', NULL, NULL, NULL),
-('a17', '201611', 'KM', 100, '62.00', NULL, NULL, NULL),
-('c3', '201612', 'ETP', 2, '220.00', '2016-12-12', 'Repas restaurant', 'RDV medecin'),
-('f39', '201612', 'ETP', 0, '0.00', NULL, NULL, NULL),
-('f39', '201612', 'KM', 0, '0.00', NULL, NULL, NULL),
-('f39', '201612', 'NUI', 0, '0.00', NULL, NULL, NULL),
-('f39', '201612', 'REP', 0, '0.00', NULL, NULL, NULL);
+INSERT INTO `lignefraisforfait` (`id`, `idutilisateur`, `mois`, `idFraisForfait`, `quantite`, `montant`, `dateFrais`, `typeFrais`, `description`) VALUES
+(1, 'a131', '201612', 'ETP', 1, '110.00', '2016-09-09', 'Forfait Etape', 'Réunion'),
+(2, 'a131', '201612', 'ETP', 1, '110.00', '2016-09-10', 'Forfait Etape', 'Réunion'),
+(3, 'a131', '201612', 'ETP', 2, '220.00', '2016-09-11', 'Forfait Etape', 'Réunion'),
+(4, 'a17', '201612', 'ETP', 0, '0.00', NULL, NULL, NULL),
+(5, 'a17', '201612', 'KM', 0, '0.00', NULL, NULL, NULL),
+(6, 'a17', '201612', 'NUI', 0, '0.00', NULL, NULL, NULL),
+(7, 'a17', '201612', 'REP', 0, '0.00', NULL, NULL, NULL),
+(8, 'a131', '201612', 'NUI', 3, '240.00', '2016-09-02', 'Nuitée Hôtel', 'Hôtel "Au gros dodo"'),
+(9, 'a131', '201612', 'KM', 9, '5.58', '2016-09-04', 'Frais Kilométrique', 'Rallye'),
+(10, 'a131', '201612', 'REP', 31, '775.00', '2016-09-21', 'Repas Restaurant', 'Cassoulet'),
+(11, 'a131', '201612', 'KM', 40, '24.80', '2016-09-20', 'Frais Kilométrique', 'Tour du monde');
 
 --
 -- Triggers `lignefraisforfait`
@@ -162,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `lignefraishorsforfait` (
   `montant` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idutilisateur` (`idutilisateur`,`mois`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `lignefraishorsforfait`
@@ -170,7 +178,10 @@ CREATE TABLE IF NOT EXISTS `lignefraishorsforfait` (
 
 INSERT INTO `lignefraishorsforfait` (`id`, `idutilisateur`, `mois`, `libelle`, `date`, `montant`) VALUES
 (1, 'a131', '201611', 'hotel trés cher', '2016-10-12', '120.00'),
-(2, 'a131', '201611', 'Restaurant "chez Benoît"', '2016-05-01', '1500.00');
+(2, 'a131', '201611', 'Restaurant "chez Benoît"', '2016-05-01', '1500.00'),
+(3, 'a131', '201612', 'Taxi', '2016-10-03', '67.00'),
+(4, 'a131', '201612', 'restaurant', '2016-12-05', '67.00'),
+(5, 'a131', '201612', 'Restaurant Miam', '2016-09-06', '20.00');
 
 -- --------------------------------------------------------
 
@@ -247,7 +258,6 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp
 ('f21', 'Finck', 'Jacques', 'jfinck', 'mpb3t', '10 avenue du Prado', '13002', 'Marseille', '2001-11-10', '6d8b2060b60132d9bdb09d37913fbef637b295f2', '2'),
 ('f39', 'Frémont', 'Fernande', 'ffremont', 'xs5tq', '4 route de la mer', '13012', 'Allauh', '1998-10-01', 'aa45efe9ecbf37db0089beeedea62ceb57db7f17', '1'),
 ('f4', 'Gest', 'Alain', 'agest', 'dywvt', '30 avenue de la mer', '13025', 'Berre', '1985-11-01', '1af7dedacbbe8ce324e316429a816daeff4c542f', '0');
-('z44','Administrateur','Un','admin','admin','198 rue de lille','59130','Lammbersart','1985-11-01', '1af7dedacbbe8ce324e316429a816daeff4c542f', '0');)
 
 --
 -- Constraints for dumped tables
@@ -264,8 +274,7 @@ ALTER TABLE `fichefrais`
 -- Constraints for table `lignefraisforfait`
 --
 ALTER TABLE `lignefraisforfait`
-  ADD CONSTRAINT `lignefraisforfait_ibfk_1` FOREIGN KEY (`idutilisateur`, `mois`) REFERENCES `fichefrais` (`idutilisateur`, `mois`),
-  ADD CONSTRAINT `lignefraisforfait_ibfk_2` FOREIGN KEY (`idFraisForfait`) REFERENCES `fraisforfait` (`id`);
+  ADD CONSTRAINT `lignefraisforfait_ibfk_1` FOREIGN KEY (`idutilisateur`, `mois`) REFERENCES `fichefrais` (`idutilisateur`, `mois`);
 
 --
 -- Constraints for table `lignefraishorsforfait`

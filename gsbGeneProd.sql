@@ -210,14 +210,21 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `cp` char(5) DEFAULT NULL,
   `ville` char(30) DEFAULT NULL,
   `dateEmbauche` date DEFAULT NULL,
+<<<<<<< HEAD
   `mdpSHA` varchar(255) DEFAULT NULL,
+=======
+>>>>>>> c4cd3b838a3de32bec44901e1cc46a3bc1e8a50e
   `idRole` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `role_ibfk_1` (`idRole`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Anciennement table visiteur';
 
 --
+<<<<<<< HEAD
 -- Dumping data for table `utilisateur`
+=======
+-- Contenu de la table `utilisateur`
+>>>>>>> c4cd3b838a3de32bec44901e1cc46a3bc1e8a50e
 --
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `ville`, `dateEmbauche`, `idRole`) VALUES
@@ -227,12 +234,20 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp
 ('a93', 'Tusseau', 'Louis', 'ltusseau', 'ktp3s', '22 rue des Ternes', '46123', 'Gramat', '2000-05-01', '2'),
 ('b13', 'Bentot', 'Pascal', 'pbentot', 'doyw1', '11 allée des Cerises', '46512', 'Bessines', '1992-07-09', '2'),
 ('b16', 'Bioret', 'Luc', 'lbioret', 'hrjfs', '1 Avenue gambetta', '46000', 'Cahors', '1998-05-11', '2'),
+<<<<<<< HEAD
 ('b19', 'Bunisset', 'Francis', 'fbunisset', '4vbnd', '10 rue des Perles', '93100', 'Montreuil', '2'),
+=======
+('b19', 'Bunisset', 'Francis', 'fbunisset', '4vbnd', '10 rue des Perles', '93100', 'Montreuil', '1987-10-21', '2'),
+>>>>>>> c4cd3b838a3de32bec44901e1cc46a3bc1e8a50e
 ('b25', 'Bunisset', 'Denise', 'dbunisset', 's1y1r', '23 rue Manin', '75019', 'paris', '2010-12-05', '2'),
 ('b28', 'Cacheux', 'Bernard', 'bcacheux', 'uf7r3', '114 rue Blanche', '75017', 'Paris', '2009-11-12', '2'),
 ('b34', 'Cadic', 'Eric', 'ecadic', '6u8dc', '123 avenue de la République', '75011', 'Paris', '2008-09-23', '2'),
 ('b4', 'Charoze', 'Catherine', 'ccharoze', 'u817o', '100 rue Petit', '75019', 'Paris', '2005-11-12', '2'),
+<<<<<<< HEAD
 ('b50', 'Clepkens', 'Christophe', 'cclepkens', 'bw1us', '12 allée des Anges', '93230', 'Romainville', '2'),
+=======
+('b50', 'Clepkens', 'Christophe', 'cclepkens', 'bw1us', '12 allée des Anges', '93230', 'Romainville', '2003-08-11', '2'),
+>>>>>>> c4cd3b838a3de32bec44901e1cc46a3bc1e8a50e
 ('b59', 'Cottin', 'Vincenne', 'vcottin', '2hoh9', '36 rue Des Roches', '93100', 'Monteuil', '2001-11-18', '2'),
 ('c14', 'Daburon', 'François', 'fdaburon', '7oqpv', '13 rue de Chanzy', '94000', 'Créteil', '2002-02-11', '2'),
 ('c3', 'De', 'Philippe', 'pde', 'gk9kx', '13 rue Barthes', '94000', 'Créteil', '2010-12-14', '2'),
@@ -248,13 +263,20 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp
 ('f21', 'Finck', 'Jacques', 'jfinck', 'mpb3t', '10 avenue du Prado', '13002', 'Marseille', '2001-11-10', '2'),
 ('f39', 'Frémont', 'Fernande', 'ffremont', 'xs5tq', '4 route de la mer', '13012', 'Allauh', '1998-10-01', '1'),
 ('f4', 'Gest', 'Alain', 'agest', 'dywvt', '30 avenue de la mer', '13025', 'Berre', '1985-11-01', '0'),
+<<<<<<< HEAD
 ('z44','Administrateur','Un','admin','admin','198 rue de lille','59130','Lammbersart','1985-11-01', '0');
 
+=======
+('z44', 'Administrateur', 'Un', 'admin', 'admin', '198 rue de lille', '59130', 'Lammbersart', '1985-11-01', '0');
+>>>>>>> c4cd3b838a3de32bec44901e1cc46a3bc1e8a50e
 --
 -- Constraints for dumped tables
 --
 
+<<<<<<< HEAD
 --cryptage de la bdd
+=======
+>>>>>>> c4cd3b838a3de32bec44901e1cc46a3bc1e8a50e
 
 ALTER TABLE `utilisateur`
 ADD `mdpSHA` char(255);
