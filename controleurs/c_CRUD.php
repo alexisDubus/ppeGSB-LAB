@@ -51,8 +51,8 @@ switch($action)
         case 'second' :
         {
           $idOld   = $_REQUEST['idFrais'];
-          //$id      = $_REQUEST['id'];
-          $id      = "ETP";
+          $id      = $_REQUEST['id'];
+          //$id      = "ETP";
           $libelle = $_REQUEST['libelle'];
           $montant = $_REQUEST['montant'];
           valideInfosFraisForfait($id,$libelle,$montant);

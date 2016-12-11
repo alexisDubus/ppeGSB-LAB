@@ -1,5 +1,5 @@
 
-<! Partie pour l'affichage d'un frais forfait !>
+<! Partie pour la modification d'un frais forfait !>
 
 <div class="col-md-6">
     <div class="content-box-large">
@@ -9,7 +9,7 @@
         </div>
 
         <div class="panel-body">
-            <form class="form-horizontal" role="form" action="index.php?uc=menuCRUD&action=update&etape=second&idFrais=<?php echo $_REQUEST['idFrais']?>" method="post">
+            <?php echo '<form class="form-horizontal" role="form" action="index.php?uc=menuCRUD&action=update&etape=second&idFrais='.$id.'" method="post">'?>
                 <div class="form-group">
                     <div class="form-group">
 
