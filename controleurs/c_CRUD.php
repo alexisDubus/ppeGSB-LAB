@@ -37,12 +37,34 @@ switch($action)
   
   case 'update':
   {
-    $id = $_REQUEST['id'];
-    $unFraisFrofait = $pdo->getOneFraisForfait($id);
-    include("vues/v_modifFraisForfait.php");
-    break;
+      $etape = $_REQUEST['etape'];
+      switch($etape)
+      {
+        case 'first' :
+        {         
+          $id = $_REQUEST['id'];
+          $unFraisForfait = $pdo->getOneFraisForfait($id);
+          include("vues/v_modifFraisForfait.php");
+          break;
+        }
+
+        case 'second' :
+        {
+          $idOld   = $_REQUEST['idFF'];
+          $id      = $_REQUEST['id'];
+          $libelle = $_REQUEST['libelle'];
+          $montant = $_REQUEST['montant'];
+          valideInfosFraisForfait($id,$libelle,$montant);
+          if (nbErreurs() != 0 ){
+            include("vues/v_erreurs.php");
+          }
+          else{
+              $pdo->updateOneFraisForfait($idOld,$id,$libelle,$montant);
+            }          
+          break;
+        }   
+      }
   }
-    
 
   
   case 'delete':

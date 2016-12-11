@@ -147,6 +147,14 @@ class PdoGsb
 			$lesLignes = $res->fetchAll();
 			return $lesLignes;        
         }
+
+        public function updateOneFraisForfait($idOld,$id,$libelle,$montant)
+        {
+        	$req = "update fraisforfait
+        			set id='$id' , libelle='$libelle' , montant = '$montant'
+        			where fraisforfait.id = '$idOld' ";
+			PdoGsb::$monPdo->exec($req);
+        }
 /**
  * Retourne le nombre de justificatif d'un utilisateur pour un mois donné
  

@@ -26,7 +26,7 @@
                         <td><?php echo $libelle ?></td>
                         <td><?php echo $montant ?></td>
                         <td>
-                            <?php echo '<a href="index.php?uc=menuCRUD&action=update&idFrais='.$id.'"'.'
+                            <?php echo '<a href="index.php?uc=menuCRUD&action=update&etape=first&idFrais='.$id.'"'.'
                                 onclick="return confirm(\'Voulez-vous vraiment modifier ce frais?\');">Modifier</a>';
                             ?>
 
@@ -53,21 +53,21 @@
                 <div class="form-group">
                     <div class="form-group">
 
-                    <label for="txtDateHF"> Identifiant : </label>
+                    <label for="txtIdFF"> Identifiant : </label>
                     </br>
-                    <input class="form-control" type="text" id="txtIdFF" name="id" />
-                    </br>
-                    </br>
-
-                    <label for="txtLibelleHF">Libellé :</label>
-                    </br>
-                    <input class="form-control" type="text" id="txtLibelleFF" name="libelle" />
+                    <input class="form-control" type="text" id="txtBIdFF" name="id" />
                     </br>
                     </br>
 
-                    <label for="txtMontantHF">Montant : </label>
+                    <label for="txtLibelleFF">Libellé :</label>
                     </br>
-                    <input class="form-control" type="text" id="txtMontantFF" name="montant" />
+                    <input class="form-control" type="text" id="txtBLibelleFF" name="libelle" />
+                    </br>
+                    </br>
+
+                    <label for="txtMontantFF">Montant : </label>
+                    </br>
+                    <input class="form-control" type="text" id="txtBMontantFF" name="montant" />
                     </br>
                     </br>
                 </div>
