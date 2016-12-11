@@ -1,38 +1,4 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/wamp/www/gsb2.4/controleurs/c_etatFrais.php</file>
-            <file>file:/C:/wamp/www/gsb2.4/controleurs/c_gererFraisHorsForfaits.php</file>
-            <file>file:/C:/wamp/www/gsb2.4/include/class.pdogsb.inc.php</file>
-            <file>file:/C:/wamp/www/gsb2.4/GSB-GenerationDonneesV3.5/include/ftc.inc.php</file>
-            <file>file:/C:/wamp/www/gsb2.4/vues/v_listeFraisForfait.php</file>
-            <file>file:/C:/wamp/www/gsb2.4/index.php</file>
-            <file>file:/C:/wamp/www/gsb2.4/vues/v_listeFraisHorsForfait.php</file>
-            <file>file:/C:/wamp/www/gsb2.4/controleurs/c_gererFrais.php</file>
-            <file>file:/C:/wamp/www/gsb2.4/include/fct.inc.php</file>
-            <file>file:/C:/wamp/www/gsb2.4/controleurs/c_CRUD.php</file>
-        </group>
-    </open-files>
 </project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/controleurs/c_etatFrais.php</file>
-            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/controleurs/c_CRUD.php</file>
-            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/controleurs/c_gererFraisHorsForfaits.php</file>
-            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/vues/v_etatFrais.php</file>
-            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/include/class.pdogsb.inc.php</file>
-            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/vues/v_fraisforfait.php</file>
-            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/vues/v_sommaire.php</file>
-            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/index.php</file>
-            <file>file:/Applications/MAMP/htdocs/PPEGSB_2.4/include/fct.inc.php</file>
-        </group>
-    </open-files>
-</project-private>
->>>>>>> 729bb26c56a4978b634a9128cc50ef588ae8b1fe

@@ -42,7 +42,7 @@ switch($action)
       {
         case 'first' :
         {         
-          $id = $_REQUEST['id'];
+          $id = $_REQUEST['idFrais'];
           $unFraisForfait = $pdo->getOneFraisForfait($id);
           include("vues/v_modifFraisForfait.php");
           break;
@@ -50,8 +50,9 @@ switch($action)
 
         case 'second' :
         {
-          $idOld   = $_REQUEST['idFF'];
-          $id      = $_REQUEST['id'];
+          $idOld   = $_REQUEST['idFrais'];
+          //$id      = $_REQUEST['id'];
+          $id      = "ETP";
           $libelle = $_REQUEST['libelle'];
           $montant = $_REQUEST['montant'];
           valideInfosFraisForfait($id,$libelle,$montant);

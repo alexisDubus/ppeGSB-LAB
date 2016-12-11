@@ -9,7 +9,7 @@
         </div>
 
         <div class="panel-body">
-            <form class="form-horizontal" role="form" action="index.php?uc=menuCRUD&action=update&etape=second&<?php echo $unFraisForfait['id']?>" method="post">
+            <form class="form-horizontal" role="form" action="index.php?uc=menuCRUD&action=update&etape=second&idFrais=<?php echo $_REQUEST['idFrais']?>" method="post">
                 <div class="form-group">
                     <div class="form-group">
 
