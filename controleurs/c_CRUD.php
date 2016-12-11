@@ -24,7 +24,7 @@ switch($action)
     $id      = $_REQUEST['id'];
     $libelle = $_REQUEST['libelle'];
     $montant = $_REQUEST['montant'];
-    valideInfosFrais($dateFrais,$libelle,$montant);
+    valideInfosFraisForfait($id,$libelle,$montant);
     if (nbErreurs() != 0 ){
       include("vues/v_erreurs.php");
     }
@@ -37,6 +37,9 @@ switch($action)
   
   case 'update':
   {
+    $id = $_REQUEST['id'];
+    $unFraisFrofait = $pdo->getOneFraisForfait($id);
+    include("vues/v_modifFraisForfait.php");
     break;
   }
     

@@ -7,7 +7,8 @@ $numAnnee =substr( $mois,0,4);
 $numMois =substr( $mois,4,2);
 $action = $_REQUEST['action'];
 switch($action){
-	case 'validerCreationFrais':{
+	case 'validerCreationFrais':
+	{
 		$dateFrais = $_REQUEST['dateFrais'];
 		$libelle = $_REQUEST['libelle'];
 		$montant = $_REQUEST['montant'];

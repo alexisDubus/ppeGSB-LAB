@@ -1,3 +1,5 @@
+<! Partie pour l'affichage des frais forfait existant !>
+
 <div class="col-md-6">
     <div class="content-box-large">
 	   <div class="panel-heading">
@@ -7,7 +9,7 @@
             <table class="table">
               <thead> 
                     <tr>
-                        <th class="libelle">Identifiant</th>
+                        <th class="id">Identifiant</th>
                         <th class="libelle">Libelle</th>
                         <th class="montant">Montant</th>
                         <th class="action">&nbsp;</th>                      
@@ -24,7 +26,9 @@
                         <td><?php echo $libelle ?></td>
                         <td><?php echo $montant ?></td>
                         <td>
-                            <a href="index.php?uc=menuCRUD&action=update&id='.$id.'"?>Modifier</a>
+                            <?php echo '<a href="index.php?uc=menuCRUD&action=update&idFrais='.$id.'"'.'
+                                onclick="return confirm(\'Voulez-vous vraiment modifier ce frais?\');">Modifier</a>';
+                            ?>
 
                             <?php echo '<a href="index.php?uc=menuCRUD&action=delete&idFrais='.$id.'"'.'
                                 onclick="return confirm(\'Voulez-vous vraiment supprimer ce frais?\');">Supprimer</a></td>';
@@ -36,6 +40,8 @@
 
 
 
+<! Partie pour la création d'un nouveau frais forfait !>
+
 <div class="col-md-6">
     <div class="content-box-large">
         <div class="panel-heading">
@@ -43,7 +49,7 @@
         </div>
 
         <div class="panel-body">
-            <form class="form-horizontal" role="form" action="index.php?uc=menuCRUD&action=update" method="post">
+            <form class="form-horizontal" role="form" action="index.php?uc=menuCRUD&action=create" method="post">
                 <div class="form-group">
                     <div class="form-group">
 

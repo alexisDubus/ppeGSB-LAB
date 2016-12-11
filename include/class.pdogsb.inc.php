@@ -23,7 +23,7 @@ class PdoGsb
         private static $serveur='mysql:host=localhost';
         private static $bdd='dbname=gsb_frais';
         private static $user='root';    		
-        private static $leMdp = '';
+        private static $leMdp = 'root';
         //private static $bdd='dbname=gsb_frais';   		
       	//private static $user='root';    		
       	//private static $mdp='AzertY!59';	
@@ -128,6 +128,21 @@ class PdoGsb
         {
             $req = "select  fraisforfait.id as id, fraisforfait.libelle as libelle, fraisforfait.montant as montant
                     from    fraisforfait";
+            $res = PdoGsb::$monPdo->query($req);
+			$lesLignes = $res->fetchAll();
+			return $lesLignes;        
+        }
+
+/** Retourne sous forme d'un tableau associatif le frais forfait correspondant a l'id d'un 
+ * fraisforfait
+ *
+ * @return l'id, le libelle et le montant sous la forme d'un tableau associatif 
+ */
+        public function getOneFraisForfait($id)
+        {
+            $req = "select  *
+            		from    fraisforfait
+            		where fraisforfait.id ='$id'";
             $res = PdoGsb::$monPdo->query($req);
 			$lesLignes = $res->fetchAll();
 			return $lesLignes;        
@@ -346,7 +361,7 @@ class PdoGsb
          * @param type $libelle
          * @param type $montant
          */
-	public function creerNouveauTypeFraisForfait ($id, $libelle, $montant)
+	public function creerNouveauTypeFraisForfait ($id,$libelle,$montant)
 	{
 		$req = "insert into fraisforfait (id,libelle,montant) values ('$id','$libelle','$montant'); ";
 		PdoGsb::$monPdo->exec($req);
