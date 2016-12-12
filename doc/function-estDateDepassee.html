@@ -68,21 +68,33 @@
 
 			<h3>Functions</h3>
 			<ul>
-				<li><a href="function-ajouterErreur.html" class="invalid">ajouterErreur</a></li>
-				<li><a href="function-connecter.html" class="invalid">connecter</a></li>
-				<li><a href="function-dateAnglaisVersFrancais.html" class="invalid">dateAnglaisVersFrancais</a></li>
-				<li><a href="function-dateFrancaisVersAnglais.html" class="invalid">dateFrancaisVersAnglais</a></li>
-				<li><a href="function-deconnecter.html" class="invalid">deconnecter</a></li>
-				<li><a href="function-estConnecte.html" class="invalid">estConnecte</a></li>
-				<li class="active"><a href="function-estDateDepassee.html" class="invalid">estDateDepassee</a></li>
-				<li><a href="function-estDateValide.html" class="invalid">estDateValide</a></li>
-				<li><a href="function-estEntierPositif.html" class="invalid">estEntierPositif</a></li>
-				<li><a href="function-estTableauEntiers.html" class="invalid">estTableauEntiers</a></li>
+				<li><a href="function-ajouterErreur.html">ajouterErreur</a></li>
+				<li><a href="function-connecter.html">connecter</a></li>
+				<li><a href="function-creationFichesFrais.html">creationFichesFrais</a></li>
+				<li><a href="function-creationFraisForfait.html">creationFraisForfait</a></li>
+				<li><a href="function-creationFraisHorsForfait.html">creationFraisHorsForfait</a></li>
+				<li><a href="function-dateAnglaisVersFrancais.html">dateAnglaisVersFrancais</a></li>
+				<li><a href="function-dateFrancaisVersAnglais.html">dateFrancaisVersAnglais</a></li>
+				<li><a href="function-deconnecter.html">deconnecter</a></li>
+				<li><a href="function-estConnecte.html">estConnecte</a></li>
+				<li class="active"><a href="function-estDateDepassee.html">estDateDepassee</a></li>
+				<li><a href="function-estDateValide.html">estDateValide</a></li>
+				<li><a href="function-estEntierPositif.html">estEntierPositif</a></li>
+				<li><a href="function-estTableauEntiers.html">estTableauEntiers</a></li>
 				<li><a href="function-fnReadDir.html">fnReadDir</a></li>
+				<li><a href="function-getDernierMois.html">getDernierMois</a></li>
+				<li><a href="function-getDesFraisHorsForfait.html">getDesFraisHorsForfait</a></li>
+				<li><a href="function-getLesFichesFrais.html">getLesFichesFrais</a></li>
+				<li><a href="function-getLesIdFraisForfait.html">getLesIdFraisForfait</a></li>
+				<li><a href="function-getLesVisiteurs.html">getLesVisiteurs</a></li>
 				<li><a href="function-getMois.html" class="invalid">getMois</a></li>
-				<li><a href="function-lesQteFraisValides.html" class="invalid">lesQteFraisValides</a></li>
-				<li><a href="function-nbErreurs.html" class="invalid">nbErreurs</a></li>
-				<li><a href="function-valideInfosFrais.html" class="invalid">valideInfosFrais</a></li>
+				<li><a href="function-getMoisPrecedent.html">getMoisPrecedent</a></li>
+				<li><a href="function-getMoisSuivant.html">getMoisSuivant</a></li>
+				<li><a href="function-lesQteFraisValides.html">lesQteFraisValides</a></li>
+				<li><a href="function-majFicheFrais.html">majFicheFrais</a></li>
+				<li><a href="function-nbErreurs.html">nbErreurs</a></li>
+				<li><a href="function-updateMdpVisiteur.html">updateMdpVisiteur</a></li>
+				<li><a href="function-valideInfosFrais.html">valideInfosFrais</a></li>
 			</ul>
 		</div>
 	</div>
@@ -117,16 +129,43 @@
 <div id="content" class="function">
 	<h1>Function estDateDepassee</h1>
 
-		<div class="invalid">
-			<p>
-				Documentation of this function could not be generated.
-			</p>
-			<p>
-				Function was originally declared in GSB-GenerationDonneesV3.5/include/ftc.inc.php and is invalid because of:
-			</p>
-			<ul>
-			</ul>
-		</div>
+
+	<div class="description">
+	<p>Vérifie si une date est inférieure d'un an à la date actuelle</p>
+	</div>
+
+	<div class="info">
+		
+		
+		<b>Located at</b>
+		<a href="source-function-estDateDepassee.html#91-104" title="Go to source code">
+			include/fct.inc.php
+		</a><br>
+	</div>
+
+
+	<table class="summary" id="parameters">
+	<caption>Parameters summary</caption>
+	<tr id="$dateTestee">
+		<td class="name"><code></code></td>
+		<td class="value"><code><var>$dateTestee</var></code></td>
+		<td></td>
+	</tr>
+	</table>
+
+	<table class="summary" id="returns">
+	<caption>Return value summary</caption>
+	<tr>
+		<td class="name"><code>
+			vrai
+		</code></td>
+		<td>
+			ou faux
+		</td>
+	</tr>
+	</table>
+
+
 </div>
 
 	<div id="footer">
@@ -135,6 +174,6 @@
 </div>
 </div>
 <script src="resources/combined.js?cd021bc814832c24a7cec5319ea03335bfba1caf"></script>
-<script src="elementlist.js?86fda12d53b93489f1050a6fa6874c3714cf3a19"></script>
+<script src="elementlist.js?364fb370aee78d67df06e4cb04b21088d64700a9"></script>
 </body>
 </html>

@@ -21,6 +21,7 @@ switch($action){
 		}
 		else { 
 			$id = $utilisateur['id'];
+                        //$pdo->getRoleUtilisateur($id); //va initialiser la variable $_SESSION['role']
 			$nom =  $utilisateur['nom'];
 			$prenom = $utilisateur['prenom'];
 			connecter($id,$nom,$prenom);

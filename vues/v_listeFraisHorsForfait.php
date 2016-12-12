@@ -1,4 +1,4 @@
-﻿<div class="col-md-6">
+<div class="col-md-6">
 	<div class="content-box-large">
 		<div class="panel-heading">
 			<legend>Elément hors forfait</legend>
@@ -28,7 +28,7 @@
 							<td><?php echo $montant ?></td>
 							<td> <?php if ($lesInfosFicheFrais['idEtat']!='CR') { echo '<a></a>';}
 								else {
-									echo '<a href="index.php?uc=gererFrais&action=supprimerFrais&idFrais='.$id.'"
+									echo '<a href="index.php?uc=gererFraisHorsForfaits&action=supprimerFrais&idFrais='.$id.'"
 								onclick="return confirm(\'Voulez-vous vraiment supprimer ce frais?\');">Supprimer ce frais</a></td>';
 								}
 						?></tr><?php		 }  ?>	  
@@ -46,7 +46,7 @@
 			<legend>Nouvel élément hors forfait</legend>			
 		</div>
 		<div class="panel-body">
-			<form class="form-horizontal" role="form" action="index.php?uc=gererFrais&action=validerCreationFrais" method="post">
+			<form class="form-horizontal" role="form" action="index.php?uc=gererFraisHorsForfaits&action=validerCreationFrais" method="post">
 				<div class="form-group">
 					<div class="form-group">
 					<label for="txtDateHF"> Date (jj/mm/aaaa): </label>

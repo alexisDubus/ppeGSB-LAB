@@ -171,6 +171,41 @@ function valideInfosFrais($dateFrais,$libelle,$montant){
 			ajouterErreur("Le champ montant doit être numérique");
 		}
 }
+
+
+/**
+ * Vérifie la validité des trois arguments : l'id, le libellé du fraisforfait et le montant 
+ 
+ * des message d'erreurs sont ajoutés au tableau des erreurs
+ *--------- A mettre das fct.php
+ 
+ * @param $id 
+ * @param $libelle 
+ * @param $montant
+ */
+function valideInfosFraisForfait($id,$libelle,$montant)
+{
+	if($id=="")
+	{
+		ajouterErreur("Le champ identifiant ne doit pas être vide");
+	}
+	if($libelle == "")
+	{
+		ajouterErreur("Le champ description ne peut pas être vide");
+	}
+	if($montant == "")
+	{
+		ajouterErreur("Le champ montant ne peut pas être vide");
+	}
+		else
+		if( !is_numeric($montant) )
+		{
+			ajouterErreur("Le champ montant doit être numérique");
+		}
+}
+
+
+
 /**
  * Ajoute le libellé d'une erreur au tableau des erreurs 
  
@@ -194,5 +229,118 @@ function nbErreurs(){
 	else{
 	   return count($_REQUEST['erreurs']);
 	}
+}
+
+/**
+ * 
+ * @param type $type
+ * @param type $lesFraisForfaits
+ * @return int
+ */
+function donneQuantiteTypeFrais($type, $lesFraisForfaits) {
+    $quantiteFrais = 0;
+    foreach ($lesFraisForfaits as $leFraisForfait) {
+        if ($leFraisForfait['libelle'] == $type) {
+            $quantiteFrais += (int)$leFraisForfait['quantite'];
+        }
+    }
+    return $quantiteFrais;
+}
+
+/**
+ * 
+ * @param type $type
+ * @return string
+ */
+function donneIdFrais($type) {
+    $idFrais = "";
+    switch ($type) {
+        case ("Forfait Etape") : 
+            $idFrais = "ETP";
+            break;
+        case ("Frais Kilométrique") :
+            $idFrais = "KM";
+            break;
+        case ("Nuitée Hôtel") :
+            $idFrais = "NUI";
+            break;
+        case ("Repas Restaurant") :
+            $idFrais = "REP";
+            break;
+    }
+    return $idFrais;
+}
+
+/**
+ * 
+ * @param type $type
+ * @param type $quantite
+ * @return type
+ */
+function donneMontantTotal($type, $quantite) {
+    $montantTotal = 0.00;
+    switch ($type) {
+        case ("Forfait Etape") : 
+            $montantTotal = $quantite * 110;
+            break;
+        case ("Frais Kilométrique") :
+            $montantTotal = $quantite * 0.62;
+            break;
+        case ("Nuitée Hôtel") :
+            $montantTotal = $quantite * 80;
+            break;
+        case ("Repas Restaurant") :
+            $montantTotal = $quantite * 25;
+            break;
+    }
+    return $montantTotal;
+}
+
+/**
+ * 
+ * @param type $numMois
+ * @return string
+ */
+function donneNomMois($numMois) {
+    $nomMois = "";
+    switch ($numMois) {
+	case 1:
+            $nomMois = "de janvier ";
+            break;
+	case 2:
+            $nomMois = "de février ";
+            break;
+	case 3:
+            $nomMois = "de mars ";
+            break;
+	case 4:
+            $nomMois = "d'avril ";
+            break;
+	case 5:
+            $nomMois = "de mai ";
+            break;
+	case 6:
+            $nomMois = "de juin ";
+            break;
+	case 7:
+            $nomMois = "de juillet ";
+            break;
+	case 8:
+            $nomMois = "d'août ";
+            break;
+	case 9:
+            $nomMois = "de septembre ";
+            break;
+	case 10:
+            $nomMois = "d'octobre ";
+            break;
+	case 11:
+            $nomMois = "de novembre ";
+            break;
+	case 12:
+            $nomMois = "de décembre ";
+            break;		
+	}
+    return $nomMois;
 }
 ?>

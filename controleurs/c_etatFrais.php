@@ -3,8 +3,10 @@
 include("vues/v_sommaire.php");
 $action = $_REQUEST['action'];
 $idUtilisateur = $_SESSION['idUtilisateur'];
-switch($action){
-	case 'selectionnerMois':{
+switch($action)
+{
+	case 'selectionnerMois':
+	{
 		$lesMois=$pdo->getLesMoisDisponibles($idUtilisateur);
 		// Afin de sélectionner par défaut le dernier mois dans la zone de liste
 		// on demande toutes les clés, et on prend la première,
@@ -14,16 +16,23 @@ switch($action){
 		include("vues/v_listeMois.php");
 		break;
 	}
-	case 'voirEtatFrais':{
+	case 'voirEtatFrais':
+	{
 		$leMois = $_REQUEST['lstMois']; 
+                if($leMois == NULL)
+                {
+                    $leMois = 0; //patch d'urgence
+                }
 		$lesMois=$pdo->getLesMoisDisponibles($idUtilisateur);
 		$moisASelectionner = $leMois;
 		include("vues/v_listeMois.php");
 		$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idUtilisateur,$leMois);
 		$lesFraisForfait= $pdo->getLesFraisForfait($idUtilisateur,$leMois);
-		$lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idUtilisateur,$leMois);
+		$lesLibelleFrais = $pdo->getLibelleFraisForfait();
+                $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idUtilisateur,$leMois);
 		$numAnnee =substr( $leMois,0,4);
 		$numMois =substr( $leMois,4,2);
+                $nomMois = donneNomMois($numMois);
 		$libEtat = $lesInfosFicheFrais['libEtat'];
 		$montantValide = $lesInfosFicheFrais['montantValide'];
 		$nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];

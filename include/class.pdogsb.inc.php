@@ -16,13 +16,15 @@
  * @link       http://www.php.net/manual/fr/book.pdo.php
  */
 
-class PdoGsb{
+class PdoGsb
+{
 
-    private static $serveur='mysql:host=localhost';
-    private static $bdd='dbname=gsb_fr';
-    private static $user='root' ;    		
-
-      	//private static $bdd='dbname=gsb_frais';   		
+        
+        private static $serveur='mysql:host=localhost';
+        private static $bdd='dbname=gsb_prod';
+        private static $user='root';    		
+        private static $leMdp = '';
+        //private static $bdd='dbname=gsb_frais';   		
       	//private static $user='root';    		
       	//private static $mdp='AzertY!59';	
 	private static $monPdo;
@@ -33,10 +35,7 @@ class PdoGsb{
  * pour toutes les méthodes de la classe
  */				
 	private function __construct(){
-		$fichier = fopen(__DIR__ .'/mdp.txt', 'r');
-		//$leMdp = fgets($fichier, 9);
-		$leMdp = "";
-    	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, $leMdp);
+    	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, PdoGsb::$leMdp);
 		PdoGsb::$monPdo->query("SET CHARACTER SET utf8");
 
 	}
@@ -65,19 +64,36 @@ class PdoGsb{
 */
 	public function getInfosUtilisateur($login, $mdp){
                 $mdpSHA = sha1($mdp);
-            
-		$req = "select utilisateur.id as id, utilisateur.nom as nom, utilisateur.prenom as prenom from utilisateur 
-		where utilisateur.login='$login' and utilisateur.mdpSHA='$mdpSHA'";
+                
+		$req = "select utilisateur.id as id, utilisateur.nom as nom, utilisateur.prenom as prenom, utilisateur.idRole as idRole, role.profession as role from utilisateur, role 
+		where utilisateur.login='$login' and utilisateur.mdpSHA='$mdpSHA' and utilisateur.idRole = role.id ";
 		$rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
-		//var_dump($ligne);
+                $_SESSION['role']= $ligne["role"];
 		return $ligne;
 	}
-	
+        
+  /**
+  *  Initialise la valeur $_SESSION['role'] de l'utilisateur qui est fonction de sa profession(Administrateur, comptable ou visiteur médical)
+  *  la variable superglobale $_SESSION['role'] sera affichée au nivreau de la barre de navigation
+  * 
+  * @param type $utilisateur
+  */
+        public function getRoleUtilisateur($idutilisateur)
+        {
+                //$requete = "select role.profession as role from role where role.id = 0;";
+                $requete = "select role.profession as role from role, utilisateur where utilisateur.id='$idutilisateur' and utilisateur.idRole = role.id;";
+		$retour = PdoGsb::$monPdo->query($requete);
+		$ligneRetour = $retour->fetch();
+                
+                $_SESSION['role']= $ligneRetour["role"];
+                if($ligneRetour["role"] == null )
+                {
+                    var_dump($ligneRetour);
+                }
+        }
 
-
-	
-/**
+        /**
  * Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
  * concernées par les deux arguments
  
@@ -99,7 +115,52 @@ class PdoGsb{
 			$lesLignes[$i]['date'] =  dateAnglaisVersFrancais($date);
 		}
 		return $lesLignes; 
+                
 	}
+
+	/**
+ * Retourne sous forme d'un tableau associatif toutes les lignes de la table 
+ * fraisforfait
+ *
+ * @return l'id, le libelle et le montant sous la forme d'un tableau associatif 
+ */
+        public function getFraisForfaitOnly()
+        {
+            $req = "select  fraisforfait.id as id, fraisforfait.libelle as libelle, fraisforfait.montant as montant
+                    from    fraisforfait";
+            $res = PdoGsb::$monPdo->query($req);
+			$lesLignes = $res->fetchAll();
+			return $lesLignes;        
+        }
+
+/** Retourne sous forme d'un tableau associatif le frais forfait correspondant a l'id d'un 
+ * fraisforfait
+ *
+ * @return l'id, le libelle et le montant sous la forme d'un tableau associatif 
+ */
+        public function getOneFraisForfait($id)
+        {
+            $req = "select  *
+            		from    fraisforfait
+            		where fraisforfait.id ='$id'";
+            $res = PdoGsb::$monPdo->query($req);
+			$lesLignes = $res->fetchAll();
+			return $lesLignes;        
+        }
+/**
+ * met à jour un frais forfait modifié par l'admin
+ * @param type $idOld
+ * @param type $id
+ * @param type $libelle
+ * @param type $montant
+ */
+        public function updateOneFraisForfait($idOld,$id,$libelle,$montant)
+        {
+        	$req = "update fraisforfait
+        			set id='$id' , libelle='$libelle' , montant = '$montant'
+        			where fraisforfait.id = '$idOld' ";
+			PdoGsb::$monPdo->exec($req);
+        }
 /**
  * Retourne le nombre de justificatif d'un utilisateur pour un mois donné
  
@@ -131,6 +192,43 @@ class PdoGsb{
 		$lesLignes = $res->fetchAll();
 		return $lesLignes; 
 	}
+        
+        /**
+         * retourne les frais forfaits d'un utilisateur
+         * 
+         * @param type $idUtilisateur
+         * @return type
+         */
+        public function getLesInfosFrais($idUtilisateur){
+		$req = "select fraisforfait.id as idfrais, fraisforfait.libelle as libelle, 
+		lignefraisforfait.id as id, lignefraisforfait.quantite as quantite, lignefraisforfait.dateFrais as dateFrais, lignefraisforfait.description as description from lignefraisforfait inner join fraisforfait 
+		on fraisforfait.id = lignefraisforfait.idfraisforfait where lignefraisforfait.idutilisateur = '$idUtilisateur'";	
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes; 
+	}
+
+        /**
+         * renvoie les libelles des frais forfaits
+         * @return type
+         */
+        public function getLibelleFraisForfait() {
+            $req = "select fraisforfait.libelle as libelle from fraisforfait";
+            $res = PdoGsb::$monPdo->query($req);
+            $lesLignes = $res->fetchAll();
+            return $lesLignes;
+        }
+        
+        /**
+         * renvoie le nombre de frais forfaits
+         * @return type
+         */
+        public function getNombreFraisForfait() {
+            $req = "select count(*) as nombreFrais from fraisforfait";
+            $res = PdoGsb::$monPdo->query($req);
+            $lesLignes = $res->fetchAll();
+            return $lesLignes;
+        }
 /**
  * Retourne tous les id de la table FraisForfait
  
@@ -162,7 +260,6 @@ class PdoGsb{
 			and lignefraisforfait.idfraisforfait = '$unIdFrais'";
 			PdoGsb::$monPdo->exec($req);
 		}
-		
 	}
 /**
  * met à jour le nombre de justificatifs de la table fichefrais
@@ -237,27 +334,84 @@ class PdoGsb{
 			PdoGsb::$monPdo->exec($req);
 		 }
 	}
-        
-       
+        /**
+         * Crée un nouveau frais forfait pour un utilisateur et un mois donné
+         * à partir des informations fournies en paramètre
+         * 
+         * @param type $idUtilisateur
+         * @param type $mois
+         * @param type $typeFrais
+         * @param type $description
+         * @param type $date
+         * @param type $quantite
+         */
+        public function creeNouveauFraisForfait($idUtilisateur,$mois,$typeFrais,$description,$date,$quantite,$idFraisForfait){
+                $quantiteInt = (int)$quantite;
+		$dateFr = dateFrancaisVersAnglais($date);
+		//$req = "insert into lignefraisforfait (idutilisateur,mois,idFraisForfait,quantite,montant,dateFrais,typeFrais,description) values($idUtilisateur,$mois,`ETP`,$quantiteInt,0.00,$dateFr,$typeFrais,$description);";
+                $req = "insert into lignefraisforfait (idutilisateur,mois,idFraisForfait,quantite,montant,dateFrais,typeFrais,description) values('$idUtilisateur','$mois','$idFraisForfait',$quantiteInt,0.00,'$dateFr','$typeFrais','$description');";
+		PdoGsb::$monPdo->exec($req);
+	}
 
-/**
- * Crée un nouveau frais hors forfait pour un utilisateur et un mois donné
- * à partir des informations fournies en paramètre
- 
- * @param $idUtilisateur
- * @param $mois sous la forme aaaamm
- * @param $libelle : le libelle du frais
- * @param $date : la date du frais au format français jj//mm/aaaa
- * @param $montant : le montant
-*/
+        /**
+         * Crée un nouveau frais hors forfait pour un utilisateur et un mois donné
+         * à partir des informations fournies en paramètre
+
+         * @param $idUtilisateur
+         * @param $mois sous la forme aaaamm
+         * @param $libelle : le libelle du frais
+         * @param $date : la date du frais au format français jj//mm/aaaa
+         * @param $montant : le montant
+        */
 	public function creeNouveauFraisHorsForfait($idUtilisateur,$mois,$libelle,$date,$montant){
 		$dateFr = dateFrancaisVersAnglais($date);
 		$req = "insert into lignefraishorsforfait 
-		values(DEFAULT,'$idUtilisateur','$mois','$libelle','$dateFr','$montant')";
+		values(DEFAULT,'$idUtilisateur','$mois',\"$libelle\",'$dateFr','$montant')";
+		PdoGsb::$monPdo->exec($req);
+	}
+
+        /**
+         * créé un nouveau forfait en fonction des paramétres
+         * 
+         * @param type $id
+         * @param type $libelle
+         * @param type $montant
+         */
+	public function creerNouveauTypeFraisForfait ($id,$libelle,$montant)
+	{
+		$req = "insert into fraisforfait (id,libelle,montant) values ('$id','$libelle','$montant'); ";
 		PdoGsb::$monPdo->exec($req);
 	}
 	
+        /**
+         * supprime un frais forfait
+         * 
+         * @param type $idFrais
+         */
+	public function supprimerUnFraisForfait($idFrais)
+	{
+		$req = "delete from fraisforfait where fraisforfait.id = '$idFrais'";
+		PdoGsb::$monPdo->exec($req);
+	}
+        
+        /*
+        public function supprimerFraisForfait($id){
+		$req = "delete from lignefraisforfait where lignefraisforfait.id ='$id';";
+		PdoGsb::$monPdo->exec($req);
+		}
+         /*
 
+        /**
+         * Supprimer un frais forfait 
+         * @param $idFrais
+         * @param $mois sous la forme aaaamm
+         * @param $typeFrais
+         */
+        public function supprimerFraisForfait($idUtilisateur,$mois,$typeFrais)
+        {
+		$req = "delete from lignefraisforfait where lignefraisforfait.idutilisateur ='$idUtilisateur' and lignefraisforfait.mois ='$mois' and lignefraisforfait.typeFrais ='$typeFrais';";
+        }
+        
 /**
  * Supprime le frais hors forfait dont l'id est passé en argument
  
@@ -321,8 +475,6 @@ class PdoGsb{
 		$req = "update fichefrais set idEtat = '$etat', dateModif = now() 
 		where fichefrais.idutilisateur ='$idUtilisateur' and fichefrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
-	}
-	
-	
+	}	
 }
 ?>
