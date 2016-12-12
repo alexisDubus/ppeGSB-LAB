@@ -19,6 +19,10 @@ switch($action)
 	case 'voirEtatFrais':
 	{
 		$leMois = $_REQUEST['lstMois']; 
+                if($leMois == NULL)
+                {
+                    $leMois = 0; //patch d'urgence
+                }
 		$lesMois=$pdo->getLesMoisDisponibles($idUtilisateur);
 		$moisASelectionner = $leMois;
 		include("vues/v_listeMois.php");
