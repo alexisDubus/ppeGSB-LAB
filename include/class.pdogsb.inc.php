@@ -147,7 +147,13 @@ class PdoGsb
 			$lesLignes = $res->fetchAll();
 			return $lesLignes;        
         }
-
+/**
+ * met à jour un frais forfait modifié par l'admin
+ * @param type $idOld
+ * @param type $id
+ * @param type $libelle
+ * @param type $montant
+ */
         public function updateOneFraisForfait($idOld,$id,$libelle,$montant)
         {
         	$req = "update fraisforfait
@@ -203,7 +209,7 @@ class PdoGsb
 	}
 
         /**
-         * 
+         * renvoie les libelles des frais forfaits
          * @return type
          */
         public function getLibelleFraisForfait() {
@@ -214,7 +220,7 @@ class PdoGsb
         }
         
         /**
-         * 
+         * renvoie le nombre de frais forfaits
          * @return type
          */
         public function getNombreFraisForfait() {
@@ -329,6 +335,8 @@ class PdoGsb
 		 }
 	}
         /**
+         * Crée un nouveau frais forfait pour un utilisateur et un mois donné
+         * à partir des informations fournies en paramètre
          * 
          * @param type $idUtilisateur
          * @param type $mois
@@ -358,7 +366,7 @@ class PdoGsb
 	public function creeNouveauFraisHorsForfait($idUtilisateur,$mois,$libelle,$date,$montant){
 		$dateFr = dateFrancaisVersAnglais($date);
 		$req = "insert into lignefraishorsforfait 
-		values(DEFAULT,'$idUtilisateur','$mois','$libelle','$dateFr','$montant')";
+		values(DEFAULT,'$idUtilisateur','$mois',\"$libelle\",'$dateFr','$montant')";
 		PdoGsb::$monPdo->exec($req);
 	}
 
@@ -394,8 +402,10 @@ class PdoGsb
          /*
 
         /**
-         * 
-         * @param type $idFrais
+         * Supprimer un frais forfait 
+         * @param $idFrais
+         * @param $mois sous la forme aaaamm
+         * @param $typeFrais
          */
         public function supprimerFraisForfait($idUtilisateur,$mois,$typeFrais)
         {
@@ -465,9 +475,6 @@ class PdoGsb
 		$req = "update fichefrais set idEtat = '$etat', dateModif = now() 
 		where fichefrais.idutilisateur ='$idUtilisateur' and fichefrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
-	}
-	
+	}	
 }
-
-
 ?>
