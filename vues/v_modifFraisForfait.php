@@ -15,7 +15,7 @@
 
                     <label for="txtDateHF"> Identifiant : </label>
                     </br>
-                    <input class="form-control" type="text" id="txtIdFF" name="id"  />
+                    <input class="form-control" type="text" id="idd" name="idd"  />
                     </br>
                     </br>
 

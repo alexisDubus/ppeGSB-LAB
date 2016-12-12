@@ -51,7 +51,7 @@ switch($action)
         case 'second' :
         {
           $idOld   = $_REQUEST['idFrais'];
-          $id      = $_REQUEST['id'];
+          $id      = $_POST['idd'];
           //$id      = "ETP";
           $libelle = $_REQUEST['libelle'];
           $montant = $_REQUEST['montant'];
