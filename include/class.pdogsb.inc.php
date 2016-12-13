@@ -21,9 +21,9 @@ class PdoGsb
 
         
         private static $serveur='mysql:host=localhost';
-        private static $bdd='dbname=gsb_prod';
+        private static $bdd='dbname=gsb_test';
         private static $user='root';    		
-        private static $leMdp = 'root';
+        private static $leMdp = '';
         //private static $bdd='dbname=gsb_frais';   		
       	//private static $user='root';    		
       	//private static $mdp='AzertY!59';	
@@ -499,5 +499,18 @@ class PdoGsb
 		where fichefrais.idutilisateur ='$idUtilisateur' and fichefrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
 	}	
+        
+        /**
+         * Retourne le statut de l'application en fonction. Peut être modifier par l'administrateur via phpMyAdmin. 
+         * 
+         * @return type
+         */
+        public function estEnMaj()
+        {
+            $req = "select occupe from statut;";
+            $res = PdoGsb::$monPdo->query($req);
+            $laLigne = $res->fetch();
+            return $laLigne['occupe'];
+        }
 }
 ?>

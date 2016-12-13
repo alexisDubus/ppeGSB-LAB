@@ -12,28 +12,39 @@ if(!isset($_REQUEST['uc']) || !$estConnecte)
 }	
 
 $uc = $_REQUEST['uc'];
-switch($uc)
+
+$occupe= $pdo->estEnMaj();
+
+if($occupe == 0)
 {
-	case 'connexion':
-	{
-		include("controleurs/c_connexion.php");break;
-	}	
-	case 'gererFrais' :
-	{
-		include("controleurs/c_gererFrais.php");break;
-	}
-    case 'gererFraisHorsForfaits' :
+    switch($uc)
     {
-		include("controleurs/c_gererFraisHorsForfaits.php");break;
-	}
-	case 'etatFrais' :
-	{
-		include("controleurs/c_etatFrais.php");break; 
-	}
-	case 'menuCRUD' : 
-	{
-		include("controleurs/c_CRUD.php");break;
+            case 'connexion':
+            {
+                    include("controleurs/c_connexion.php");break;
+            }	
+            case 'gererFrais' :
+            {
+                    include("controleurs/c_gererFrais.php");break;
+            }
+        case 'gererFraisHorsForfaits' :
+        {
+                    include("controleurs/c_gererFraisHorsForfaits.php");break;
+            }
+            case 'etatFrais' :
+            {
+                    include("controleurs/c_etatFrais.php");break; 
+            }
+            case 'menuCRUD' : 
+            {
+                    include("controleurs/c_CRUD.php");break;
+    }
+
+    }
+}
+ else {
+     echo "<h1>L'application est actuellement indisponible. Merci de revenir d'ici quelques minutes.  </h1>";
 }
 
-}
+
 ?>
