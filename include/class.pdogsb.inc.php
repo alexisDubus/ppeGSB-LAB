@@ -23,7 +23,7 @@ class PdoGsb
         private static $serveur='mysql:host=localhost';
         private static $bdd='dbname=gsb_prod';
         private static $user='root';    		
-        private static $leMdp = '';
+        private static $leMdp = 'root';
         //private static $bdd='dbname=gsb_frais';   		
       	//private static $user='root';    		
       	//private static $mdp='AzertY!59';	
