@@ -32,7 +32,7 @@ switch($action){
 	}
         case 'supprimerFrais':{
             $id = $_REQUEST['id'];
-                $pdo->supprimerUnFraisForfait($id);
+                $pdo->supprimerFraisForfait($id);
 		break;
 	}
 }

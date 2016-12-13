@@ -413,7 +413,7 @@ class PdoGsb
          */
 	public function supprimerUnFraisForfait($idFrais)
 	{
-		$req = "delete from lignefraisforfait where lignefraisforfait.id = '$idFrais'";
+		$req = "delete from fraisforfait where fraisforfait.id = '$idFrais'";
 		PdoGsb::$monPdo->exec($req);
 	}
         
