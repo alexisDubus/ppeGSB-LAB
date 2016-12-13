@@ -39,7 +39,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="">Documentation</a></li>
+        <li class="active"><a href="doc/DocumentationUtilisateur.pdf">Documentation</a></li>
         <li class="active"><a href="index.php?uc=gererFrais&action=saisirFraisForfaitisés">Saisir mes fiches de frais forfaitisés</a></li>
         <li class="active"><a href="index.php?uc=gererFraisHorsForfaits&action=saisirFraisHorsForfait">Saisir mes fiches de frais hors forfait</a></li>
         <li class="active"><a href="index.php?uc=etatFrais&action=selectionnerMois">Mes fiches de frais</a></li>       
