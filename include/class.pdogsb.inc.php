@@ -220,6 +220,29 @@ class PdoGsb
         }
         
         /**
+         * renvoie les id des frais forfaits
+         * @return type
+         */
+        public function getIdFraisForfait($fraisForfait) {
+            $req = "select fraisforfait.id as id from fraisforfait where libelle = '$fraisForfait'";
+            $res = PdoGsb::$monPdo->query($req);
+            $lesLignes = $res->fetchAll();
+            return $lesLignes;
+        }
+        
+        
+        public function getMontantFraisForfait($type,$quantite) {
+            $montantTotal = 0.00;
+            $montant = 0.00;
+            $req = "select montant from fraisforfait where libelle = '$type'";
+            $res = PdoGsb::$monPdo->query($req);
+            $lesLignes = $res->fetchAll();
+            $montant = floatval($lesLignes[0][0]);
+            $montantTotal = $quantite * $montant;
+            return $montantTotal;
+        }
+        
+        /**
          * renvoie le nombre de frais forfaits
          * @return type
          */
@@ -349,7 +372,7 @@ class PdoGsb
                 $quantiteInt = (int)$quantite;
 		$dateFr = dateFrancaisVersAnglais($date);
 		//$req = "insert into lignefraisforfait (idutilisateur,mois,idFraisForfait,quantite,montant,dateFrais,typeFrais,description) values($idUtilisateur,$mois,`ETP`,$quantiteInt,0.00,$dateFr,$typeFrais,$description);";
-                $req = "insert into lignefraisforfait (idutilisateur,mois,idFraisForfait,quantite,montant,dateFrais,typeFrais,description) values('$idUtilisateur','$mois','$idFraisForfait',$quantiteInt,0.00,'$dateFr','$typeFrais','$description');";
+                $req = "insert into lignefraisforfait (idutilisateur,mois,idFraisForfait,quantite,montant,dateFrais,typeFrais,description) values('$idUtilisateur','$mois','$idFraisForfait[0]',$quantiteInt,0.00,'$dateFr','$typeFrais','$description');";
 		PdoGsb::$monPdo->exec($req);
 	}
 
@@ -390,7 +413,7 @@ class PdoGsb
          */
 	public function supprimerUnFraisForfait($idFrais)
 	{
-		$req = "delete from fraisforfait where fraisforfait.id = '$idFrais'";
+		$req = "delete from lignefraisforfait where lignefraisforfait.id = '$idFrais'";
 		PdoGsb::$monPdo->exec($req);
 	}
         

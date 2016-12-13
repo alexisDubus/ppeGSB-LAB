@@ -21,12 +21,12 @@ switch($action){
 		$quantite = $_REQUEST['quantite'];
                 $date = dateAnglaisVersFrancais($date);
 		valideInfosFrais($date,$description,$quantite);
-                $idFraisForfait = donneIdFrais($typeFrais);
+                $idFraisForfait = $pdo->getIdFraisForfait($typeFrais);
 		if (nbErreurs() != 0 ){
 			include("vues/v_erreurs.php");
 		}
 		else{
-			$pdo->creeNouveauFraisForfait($idUtilisateur,$mois,$typeFrais,$description,$date,$quantite,$idFraisForfait);
+			$pdo->creeNouveauFraisForfait($idUtilisateur,$mois,$typeFrais,$description,$date,$quantite,$idFraisForfait[0]);
 		}
 		break;
 	}
