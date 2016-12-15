@@ -21,9 +21,9 @@ class PdoGsb
 
         
         private static $serveur='mysql:host=localhost';
-        private static $bdd='dbname=gsb_test';
+        private static $bdd='dbname=gsb_prod';
         private static $user='root';    		
-        private static $leMdp = '';
+        private static $leMdp = 'root';
         //private static $bdd='dbname=gsb_frais';   		
       	//private static $user='root';    		
       	//private static $mdp='AzertY!59';	
@@ -159,7 +159,7 @@ class PdoGsb
         	$req = "update fraisforfait
         			set id='$id' , libelle='$libelle' , montant = '$montant'
         			where fraisforfait.id = '$idOld' ";
-			PdoGsb::$monPdo->exec($req);
+        	PdoGsb::$monPdo->exec($req);
         }
 /**
  * Retourne le nombre de justificatif d'un utilisateur pour un mois donné
