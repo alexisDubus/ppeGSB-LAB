@@ -28,8 +28,8 @@ class PdoGsb
       	//private static $user='root';    		
       	//private static $leMdp='AzertY!59';	
 	private static $monPdo;
-	private static $monPdoGsb=null;
-		
+	private static $monPdoGsb = null;
+	
 /**
  * Constructeur privé, crée l'instance de PDO qui sera sollicitée
  * pour toutes les méthodes de la classe
