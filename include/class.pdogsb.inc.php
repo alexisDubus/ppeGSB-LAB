@@ -24,7 +24,7 @@ class PdoGsb
        // private static $bdd='dbname=gsb_prod';
         private static $user='lamp';    		
         //private static $leMdp = '';
-        private static $bdd='dbname=gsb_fr';   		
+        private static $bdd='dbname=gsb_frais';   		
       	//private static $user='root';    		
       	private static $leMdp='AzertY!59';	
 	private static $monPdo;
