@@ -251,9 +251,10 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp
 
 ALTER TABLE `utilisateur`
 ADD `mdpSHA` char(255);
-UPDATE `utilisateur` SET `mdpSHA` = sha2(`mdp`, 224);
---ALTER TABLE `utilisateur`
---DROP COLUMN `mdp`;
+UPDATE `utilisateur` SET `mdpSHA` = sha1(`mdp`);
+/*UPDATE `utilisateur` SET `mdpSHA` = sha2(`mdp`, 224);*/
+/*ALTER TABLE `utilisateur`
+DROP COLUMN `mdp`; */
 
 --
 -- Structure de la table `statut`
