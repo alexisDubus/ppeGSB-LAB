@@ -264,6 +264,69 @@ CREATE TABLE IF NOT EXISTS `statut` (
   `occupe` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+--
+--debut medecin special
+--
+
+
+#------------------------------------------------------------
+# Table: medecin
+#------------------------------------------------------------
+
+CREATE TABLE medecin(
+        id             Int NOT NULL AUTO_INCREMENT ,
+        nom            Varchar (255) NOT NULL ,
+        prenom         Varchar (255) NOT NULL ,
+        idcabinet     Int NOT NULL ,
+        idutilisateur char(4) NOT NULL ,
+        PRIMARY KEY (id ) ,
+        INDEX (idutilisateur ,idcabinet )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+#------------------------------------------------------------
+# Table: visite
+#------------------------------------------------------------
+
+CREATE TABLE visite(
+        id             Int NOT NULL AUTO_INCREMENT ,
+        dateVisite     Datetime NOT NULL ,
+        dateRdv        Datetime NOT NULL ,
+        idutilisateur  char(4) NOT NULL ,
+        idmedecin      Int NOT NULL ,
+        heureArrivee   Datetime NOT NULL ,
+        heureDepart    Datetime NOT NULL ,
+        heureDebut     Datetime NOT NULL ,
+        PRIMARY KEY (id ), 
+		INDEX (idutilisateur ,idmedecin )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+#------------------------------------------------------------
+# Table: cabinet
+#------------------------------------------------------------
+
+CREATE TABLE cabinet(
+        id        Int NOT NULL AUTO_INCREMENT ,
+        rue       Varchar (255) NOT NULL ,
+        CP        Varchar (25) NOT NULL ,
+        ville     Varchar (255) NOT NULL ,
+        longitude Double NOT NULL ,
+        PRIMARY KEY (id )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE medecin ADD CONSTRAINT FK_medecin_id_cabinet FOREIGN KEY (idcabinet) REFERENCES cabinet(id);
+ALTER TABLE medecin ADD CONSTRAINT FK_medecin_id_utilisateur FOREIGN KEY (idutilisateur) REFERENCES utilisateur(id);
+ALTER TABLE visite ADD CONSTRAINT FK_visite_id_medecin FOREIGN KEY (idmedecin) REFERENCES medecin(id);
+ALTER TABLE visite ADD CONSTRAINT FK_visite_id_utilisateur FOREIGN KEY (idutilisateur) REFERENCES utilisateur(id);
+
+
+--
+--FIN medecin spécial
+--
+
 --
 -- Contenu de la table `statut`
 --
