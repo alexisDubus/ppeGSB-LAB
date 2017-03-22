@@ -265,67 +265,89 @@ CREATE TABLE IF NOT EXISTS `statut` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---
---debut medecin special
---
+/*
+debut medecin special
+*/
 
 
-#------------------------------------------------------------
-# Table: medecin
-#------------------------------------------------------------
-
-CREATE TABLE medecin(
-        id             Int NOT NULL AUTO_INCREMENT ,
-        nom            Varchar (255) NOT NULL ,
-        prenom         Varchar (255) NOT NULL ,
-        idcabinet     Int NOT NULL ,
-        idutilisateur char(4) NOT NULL ,
-        PRIMARY KEY (id ) ,
-        INDEX (idutilisateur ,idcabinet )
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `medecin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `idcabinet` int(11) NOT NULL,
+  `idutilisateur` char(4) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idutilisateur` (`idutilisateur`,`idcabinet`),
+  KEY `FK_medecin_id_cabinet` (`idcabinet`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 
-#------------------------------------------------------------
-# Table: visite
-#------------------------------------------------------------
-
-CREATE TABLE visite(
-        id             Int NOT NULL AUTO_INCREMENT ,
-        dateVisite     Datetime NOT NULL ,
-        dateRdv        Datetime NOT NULL ,
-        idutilisateur  char(4) NOT NULL ,
-        idmedecin      Int NOT NULL ,
-        heureArrivee   Datetime NOT NULL ,
-        heureDepart    Datetime NOT NULL ,
-        heureDebut     Datetime NOT NULL ,
-        PRIMARY KEY (id ), 
-		INDEX (idutilisateur ,idmedecin )
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-#------------------------------------------------------------
-# Table: cabinet
-#------------------------------------------------------------
-
-CREATE TABLE cabinet(
-        id        Int NOT NULL AUTO_INCREMENT ,
-        rue       Varchar (255) NOT NULL ,
-        CP        Varchar (25) NOT NULL ,
-        ville     Varchar (255) NOT NULL ,
-        longitude Double NOT NULL ,
-        PRIMARY KEY (id )
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-ALTER TABLE medecin ADD CONSTRAINT FK_medecin_id_cabinet FOREIGN KEY (idcabinet) REFERENCES cabinet(id);
-ALTER TABLE medecin ADD CONSTRAINT FK_medecin_id_utilisateur FOREIGN KEY (idutilisateur) REFERENCES utilisateur(id);
-ALTER TABLE visite ADD CONSTRAINT FK_visite_id_medecin FOREIGN KEY (idmedecin) REFERENCES medecin(id);
-ALTER TABLE visite ADD CONSTRAINT FK_visite_id_utilisateur FOREIGN KEY (idutilisateur) REFERENCES utilisateur(id);
+CREATE TABLE IF NOT EXISTS `visite` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dateVisite` date NOT NULL,
+  `rdv` tinyint(1) NOT NULL,
+  `idutilisateur` char(4) NOT NULL,
+  `idmedecin` int(11) NOT NULL,
+  `heureArrivee` datetime NOT NULL,
+  `heureDepart` datetime NOT NULL,
+  `heureDebut` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idutilisateur` (`idutilisateur`,`idmedecin`),
+  KEY `FK_visite_id_medecin` (`idmedecin`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 
 --
---FIN medecin spécial
+-- Structure de la table `cabinet`
 --
+
+CREATE TABLE IF NOT EXISTS `cabinet` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rue` varchar(255) NOT NULL,
+  `CP` varchar(25) NOT NULL,
+  `ville` varchar(255) NOT NULL,
+  `longitude` double NOT NULL,
+  `latitude` double NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+
+
+INSERT INTO `cabinet` (`id`, `rue`, `CP`, `ville`, `longitude`, `latitude`) VALUES
+(1, '91, rue nationale', '59000', 'Lille', 1205815.584, 56214556.5969),
+(2, '108, boulevard de la liberté', '59000', 'Lille', 1555815.584, 5621875556.5969),
+(3, '51, boulevard de la liberté', '59000', 'Lille', 1555815.584, 5621875556.5969);
+
+INSERT INTO `medecin` (`id`, `nom`, `prenom`, `idcabinet`, `idutilisateur`) VALUES
+(1, 'Pierre', 'Duparc', 1, 'a131'),
+(2, 'Benoît', 'Lapoutre', 2, 'a55'),
+(3, 'Alexis', 'Fjord', 3, 'a93');
+
+
+INSERT INTO `visite` (`id`, `dateVisite`, `rdv`, `idutilisateur`, `idmedecin`, `heureArrivee`, `heureDepart`, `heureDebut`) VALUES
+(1, '2017-03-16', 1, 'a17', 1, '2017-03-16 10:22:19', '2017-03-22 13:20:20', '2017-03-22 12:20:19'),
+(2, '2017-03-22', 0, 'a55', 2, '2017-03-22 12:15:17', '2017-03-22 13:20:18', '2017-03-22 12:28:26'),
+(3, '2017-03-22', 1, 'a93', 3, '2017-03-22 09:22:19', '2017-03-22 08:22:20', '2017-03-22 09:23:20');
+
+
+--
+-- Contraintes pour la table `medecin`
+--
+ALTER TABLE `medecin`
+  ADD CONSTRAINT `FK_medecin_id_utilisateur` FOREIGN KEY (`idutilisateur`) REFERENCES `utilisateur` (`id`),
+  ADD CONSTRAINT `FK_medecin_id_cabinet` FOREIGN KEY (`idcabinet`) REFERENCES `cabinet` (`id`);
+
+--
+-- Contraintes pour la table `visite`
+--
+ALTER TABLE `visite`
+  ADD CONSTRAINT `FK_visite_id_medecin` FOREIGN KEY (`idmedecin`) REFERENCES `medecin` (`id`),
+  ADD CONSTRAINT `FK_visite_id_utilisateur` FOREIGN KEY (`idutilisateur`) REFERENCES `utilisateur` (`id`);
+
+
+/*
+FIN medecin spécial
+*/
 
 --
 -- Contenu de la table `statut`
