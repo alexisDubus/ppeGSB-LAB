@@ -50,5 +50,16 @@ namespace gsbCsharp
         {
 
         }
+
+        private void listeVisiteurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void creationVisiteurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCreateVisiteur creerUnVisiteur = new FormCreateVisiteur();
+            OUVRE_UNE_MDI_FILLE(creerUnVisiteur, this);
+        }
     }
 }

@@ -63,12 +63,14 @@
             this.creationVisiteurToolStripMenuItem.Name = "creationVisiteurToolStripMenuItem";
             this.creationVisiteurToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.creationVisiteurToolStripMenuItem.Text = "Création";
+            this.creationVisiteurToolStripMenuItem.Click += new System.EventHandler(this.creationVisiteurToolStripMenuItem_Click);
             // 
             // listeVisiteurToolStripMenuItem
             // 
             this.listeVisiteurToolStripMenuItem.Name = "listeVisiteurToolStripMenuItem";
             this.listeVisiteurToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.listeVisiteurToolStripMenuItem.Text = "Saison";
+            this.listeVisiteurToolStripMenuItem.Text = "Liste";
+            this.listeVisiteurToolStripMenuItem.Click += new System.EventHandler(this.listeVisiteurToolStripMenuItem_Click);
             // 
             // medecinToolStripMenuItem
             // 
@@ -82,8 +84,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 506);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.Name = "FormAcceuil";
             this.Text = "GSB : acceuil";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormAcceuil_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
