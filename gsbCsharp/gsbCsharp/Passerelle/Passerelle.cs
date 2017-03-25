@@ -28,6 +28,9 @@ namespace Passerelle
             maConnection.Open();
         }
 
+        /// <summary>
+        /// Selectionne tout les visiteurs et les met dans la liste
+        /// </summary>
         public static void selectAllVisiteur()
         {
             connexion();
@@ -48,43 +51,20 @@ namespace Passerelle
                 String ville = (String)unJeuResultat.GetString("ville");
                 DateTime dateEmbauche = (DateTime)unJeuResultat.GetMySqlDateTime("dateEmbauche");
                 String idRole = (String)unJeuResultat.GetString("idRole");
+                String email = (String)unJeuResultat.GetString("email");
                 String mdp = (String)unJeuResultat.GetString("mdp");
-                /*
+                int version = (int)unJeuResultat.GetInt16("version");
                 try
                 {
-                    adresseRue = (string)unJeuResultat.GetString("adresseRue");
+                    Utilisateur unUtilisateur = new Utilisateur( id,  nom,  prenom,  login,  mdp,  adresse,  cp,  ville,  dateEmbauche,  idRole,  email,  version);
+                    listeDesUtilisateurs.Add(unUtilisateur); //on rajoute l'utilisateur a la liste
+
                 }
                 catch (Exception exe1)
                 {
 
                 }
-                string cp = "";
-                try
-                {
-                    cp = (string)unJeuResultat.GetString("cp");
-                }
-                catch (Exception exe2)
-                {
-
-                }
-                string adresseVille = "";
-                try
-                {
-                    adresseVille = (string)unJeuResultat.GetString("adresseVille");
-                }
-                catch (Exception exe3)
-                {
-
-                }
-                if (cp == "")
-                {
-                    assembleurForfaitSimple(nom, prenom, photo, dateDebut, dateFin, dateNaiss);
-                }
-                else
-                {
-                    assembleurForfaitSaison(nom, prenom, dateNaiss, adresseRue, cp, adresseVille);
-                }
-            */
+                
             }
 
             unJeuResultat.Close();
