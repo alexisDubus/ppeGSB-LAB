@@ -9,7 +9,7 @@ namespace Metier
     /// <summary>
     /// Classe utilisateur
     /// </summary>
-    class Utilisateur
+    public class Utilisateur
     {
         #region proprietes
 
