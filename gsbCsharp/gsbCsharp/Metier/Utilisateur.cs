@@ -184,6 +184,14 @@ namespace Metier
             setVersion(version);
         }
 
+        /// <summary>
+        /// créé un utilisateu vide
+        /// </summary>
+        public Utilisateur()
+        {
+
+        }
+
         #endregion
 
         #region fonction
