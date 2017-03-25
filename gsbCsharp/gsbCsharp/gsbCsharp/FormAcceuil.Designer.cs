@@ -34,16 +34,9 @@
             this.creationVisiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeVisiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.medecinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewVisiteur = new System.Windows.Forms.DataGridView();
-            this.prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.getlogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ajouterMedecinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visiteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.labelNombreVisiteur = new System.Windows.Forms.Label();
-            this.textBoxNombreVisiteur = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVisiteur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.visiteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,78 +79,29 @@
             // 
             // medecinToolStripMenuItem
             // 
+            this.medecinToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ajouterMedecinToolStripMenuItem});
             this.medecinToolStripMenuItem.Name = "medecinToolStripMenuItem";
-            this.medecinToolStripMenuItem.Size = new System.Drawing.Size(120, 24);
-            this.medecinToolStripMenuItem.Text = "Voir les forfaits";
+            this.medecinToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.medecinToolStripMenuItem.Text = "Medecins";
             // 
-            // dataGridViewVisiteur
+            // ajouterMedecinToolStripMenuItem
             // 
-            this.dataGridViewVisiteur.AutoGenerateColumns = false;
-            this.dataGridViewVisiteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewVisiteur.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.prenom,
-            this.email,
-            this.nom,
-            this.getlogin});
-            this.dataGridViewVisiteur.DataSource = this.visiteBindingSource;
-            this.dataGridViewVisiteur.Location = new System.Drawing.Point(39, 31);
-            this.dataGridViewVisiteur.Name = "dataGridViewVisiteur";
-            this.dataGridViewVisiteur.RowTemplate.Height = 24;
-            this.dataGridViewVisiteur.Size = new System.Drawing.Size(681, 454);
-            this.dataGridViewVisiteur.TabIndex = 6;
-            this.dataGridViewVisiteur.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVisiteur_CellContentClick_2);
-            // 
-            // prenom
-            // 
-            this.prenom.DataPropertyName = "nom";
-            this.prenom.HeaderText = "prenom";
-            this.prenom.Name = "prenom";
-            // 
-            // email
-            // 
-            this.email.HeaderText = "email";
-            this.email.Name = "email";
-            // 
-            // nom
-            // 
-            this.nom.HeaderText = "nom";
-            this.nom.Name = "nom";
-            // 
-            // getlogin
-            // 
-            this.getlogin.HeaderText = "login";
-            this.getlogin.Name = "getlogin";
+            this.ajouterMedecinToolStripMenuItem.Name = "ajouterMedecinToolStripMenuItem";
+            this.ajouterMedecinToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.ajouterMedecinToolStripMenuItem.Text = "Ajouter";
+            this.ajouterMedecinToolStripMenuItem.Click += new System.EventHandler(this.ajouterMedecinToolStripMenuItem_Click);
             // 
             // visiteBindingSource
             // 
             this.visiteBindingSource.DataSource = typeof(Metier.Visite);
             this.visiteBindingSource.CurrentChanged += new System.EventHandler(this.visiteBindingSource_CurrentChanged);
             // 
-            // labelNombreVisiteur
-            // 
-            this.labelNombreVisiteur.AutoSize = true;
-            this.labelNombreVisiteur.Location = new System.Drawing.Point(775, 78);
-            this.labelNombreVisiteur.Name = "labelNombreVisiteur";
-            this.labelNombreVisiteur.Size = new System.Drawing.Size(128, 17);
-            this.labelNombreVisiteur.TabIndex = 8;
-            this.labelNombreVisiteur.Text = "utilisateur au total: ";
-            this.labelNombreVisiteur.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // textBoxNombreVisiteur
-            // 
-            this.textBoxNombreVisiteur.Location = new System.Drawing.Point(967, 78);
-            this.textBoxNombreVisiteur.Name = "textBoxNombreVisiteur";
-            this.textBoxNombreVisiteur.Size = new System.Drawing.Size(100, 22);
-            this.textBoxNombreVisiteur.TabIndex = 9;
-            // 
             // FormAcceuil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1194, 506);
-            this.Controls.Add(this.textBoxNombreVisiteur);
-            this.Controls.Add(this.labelNombreVisiteur);
-            this.Controls.Add(this.dataGridViewVisiteur);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.Name = "FormAcceuil";
@@ -166,7 +110,6 @@
             this.Load += new System.EventHandler(this.FormAcceuil_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVisiteur)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.visiteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -180,14 +123,8 @@
         private System.Windows.Forms.ToolStripMenuItem creationVisiteurToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeVisiteurToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem medecinToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridViewVisiteur;
         private System.Windows.Forms.BindingSource visiteBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn getlogin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prenom;
-        private System.Windows.Forms.Label labelNombreVisiteur;
-        private System.Windows.Forms.TextBox textBoxNombreVisiteur;
+        private System.Windows.Forms.ToolStripMenuItem ajouterMedecinToolStripMenuItem;
     }
 }
 

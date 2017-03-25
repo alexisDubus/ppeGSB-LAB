@@ -87,6 +87,7 @@ namespace Metier
         #endregion
 
         #region set
+        
         public void setId(String id)
         {
             this.id = id;

@@ -33,7 +33,7 @@
             // 
             // btnAddVisiteur
             // 
-            this.btnAddVisiteur.Location = new System.Drawing.Point(158, 293);
+            this.btnAddVisiteur.Location = new System.Drawing.Point(149, 273);
             this.btnAddVisiteur.Name = "btnAddVisiteur";
             this.btnAddVisiteur.Size = new System.Drawing.Size(136, 23);
             this.btnAddVisiteur.TabIndex = 0;

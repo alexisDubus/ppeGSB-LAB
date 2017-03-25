@@ -52,19 +52,37 @@
     <Compile Include="FormAcceuil.Designer.cs">
       <DependentUpon>FormAcceuil.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCreateMedecin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateMedecin.Designer.cs">
+      <DependentUpon>FormCreateMedecin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCreateVisiteur.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCreateVisiteur.Designer.cs">
       <DependentUpon>FormCreateVisiteur.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormListeVisiteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListeVisiteur.Designer.cs">
+      <DependentUpon>FormListeVisiteur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAcceuil.resx">
       <DependentUpon>FormAcceuil.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCreatemedecin.resx">
+      <DependentUpon>FormCreateMedecin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCreateVisiteur.resx">
       <DependentUpon>FormCreateVisiteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListeVisiteur.resx">
+      <DependentUpon>FormListeVisiteur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
