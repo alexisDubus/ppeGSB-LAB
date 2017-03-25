@@ -52,6 +52,12 @@
     <Compile Include="FormAcceuil.Designer.cs">
       <DependentUpon>FormAcceuil.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCreateCabinet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateCabinet.Designer.cs">
+      <DependentUpon>FormCreateCabinet.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCreateMedecin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAcceuil.resx">
       <DependentUpon>FormAcceuil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateCabinet.resx">
+      <DependentUpon>FormCreateCabinet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreatemedecin.resx">
       <DependentUpon>FormCreateMedecin.cs</DependentUpon>

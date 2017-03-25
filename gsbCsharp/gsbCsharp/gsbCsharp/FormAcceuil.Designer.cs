@@ -36,6 +36,8 @@
             this.medecinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterMedecinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visiteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cabinetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajouterCabinetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.visiteBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +47,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.VisiteurToolStripMenuItem,
-            this.medecinToolStripMenuItem});
+            this.medecinToolStripMenuItem,
+            this.cabinetToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
@@ -88,7 +91,7 @@
             // ajouterMedecinToolStripMenuItem
             // 
             this.ajouterMedecinToolStripMenuItem.Name = "ajouterMedecinToolStripMenuItem";
-            this.ajouterMedecinToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.ajouterMedecinToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.ajouterMedecinToolStripMenuItem.Text = "Ajouter";
             this.ajouterMedecinToolStripMenuItem.Click += new System.EventHandler(this.ajouterMedecinToolStripMenuItem_Click);
             // 
@@ -96,6 +99,21 @@
             // 
             this.visiteBindingSource.DataSource = typeof(Metier.Visite);
             this.visiteBindingSource.CurrentChanged += new System.EventHandler(this.visiteBindingSource_CurrentChanged);
+            // 
+            // cabinetToolStripMenuItem
+            // 
+            this.cabinetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ajouterCabinetToolStripMenuItem});
+            this.cabinetToolStripMenuItem.Name = "cabinetToolStripMenuItem";
+            this.cabinetToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
+            this.cabinetToolStripMenuItem.Text = "Cabinet";
+            // 
+            // ajouterCabinetToolStripMenuItem
+            // 
+            this.ajouterCabinetToolStripMenuItem.Name = "ajouterCabinetToolStripMenuItem";
+            this.ajouterCabinetToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.ajouterCabinetToolStripMenuItem.Text = "Ajouter";
+            this.ajouterCabinetToolStripMenuItem.Click += new System.EventHandler(this.ajouterToolStripMenuItem_Click);
             // 
             // FormAcceuil
             // 
@@ -125,6 +143,8 @@
         private System.Windows.Forms.ToolStripMenuItem medecinToolStripMenuItem;
         private System.Windows.Forms.BindingSource visiteBindingSource;
         private System.Windows.Forms.ToolStripMenuItem ajouterMedecinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cabinetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajouterCabinetToolStripMenuItem;
     }
 }
 

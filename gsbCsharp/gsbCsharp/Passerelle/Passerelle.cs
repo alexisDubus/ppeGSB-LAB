@@ -157,7 +157,7 @@ namespace Passerelle
         {
             connexion();
             MySqlCommand maCommande = maConnection.CreateCommand();
-            maCommande.CommandText = "INSERT INTO cabinet(rue, CP, ville, longitude, latitude, dateNaiss) VALUES(@id, @rue, @CP, @ville, @longitude, @latitude);";
+            maCommande.CommandText = "INSERT INTO cabinet(rue, CP, ville, longitude, latitude) VALUES(@rue, @CP, @ville, @longitude, @latitude);";
             //maCommande.Parameters.AddWithValue("@id", cabinet.getId());
             maCommande.Parameters.AddWithValue("@rue", cabinet.getRue());
             maCommande.Parameters.AddWithValue("@CP", cabinet.getCP());

@@ -33,7 +33,7 @@
             this.textBoxNomMedecin = new System.Windows.Forms.TextBox();
             this.textBoxPrenomMedecin = new System.Windows.Forms.TextBox();
             this.btnAjouteMedecin = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxMedecin = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -71,28 +71,28 @@
             // 
             // btnAjouteMedecin
             // 
-            this.btnAjouteMedecin.Location = new System.Drawing.Point(242, 331);
+            this.btnAjouteMedecin.Location = new System.Drawing.Point(258, 336);
             this.btnAjouteMedecin.Name = "btnAjouteMedecin";
             this.btnAjouteMedecin.Size = new System.Drawing.Size(75, 23);
             this.btnAjouteMedecin.TabIndex = 4;
             this.btnAjouteMedecin.Text = "Ajouter";
             this.btnAjouteMedecin.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // listBoxMedecin
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(218, 246);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 52);
-            this.listBox1.TabIndex = 5;
+            this.listBoxMedecin.FormattingEnabled = true;
+            this.listBoxMedecin.ItemHeight = 16;
+            this.listBoxMedecin.Location = new System.Drawing.Point(258, 249);
+            this.listBoxMedecin.Name = "listBoxMedecin";
+            this.listBoxMedecin.Size = new System.Drawing.Size(120, 52);
+            this.listBoxMedecin.TabIndex = 5;
             // 
             // FormCreateMedecin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 402);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxMedecin);
             this.Controls.Add(this.btnAjouteMedecin);
             this.Controls.Add(this.textBoxPrenomMedecin);
             this.Controls.Add(this.textBoxNomMedecin);
@@ -114,6 +114,6 @@
         private System.Windows.Forms.TextBox textBoxNomMedecin;
         private System.Windows.Forms.TextBox textBoxPrenomMedecin;
         private System.Windows.Forms.Button btnAjouteMedecin;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxMedecin;
     }
 }

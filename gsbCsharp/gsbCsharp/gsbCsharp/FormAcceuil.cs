@@ -111,5 +111,11 @@ namespace gsbCsharp
             FormCreateMedecin creerUnMedecin = new FormCreateMedecin();
             OUVRE_UNE_MDI_FILLE(creerUnMedecin, this);
         }
+
+        private void ajouterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCreateCabinet creerUnCabinet = new FormCreateCabinet();
+            OUVRE_UNE_MDI_FILLE(creerUnCabinet, this);
+        }
     }
 }

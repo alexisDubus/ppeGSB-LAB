@@ -117,6 +117,19 @@ namespace Metier
             setCabinet(cabinet);
         }
 
+        /// <summary>
+        /// créé un Médecin sans utilisateur attaché
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
+        /// <param name="cabinet"></param>
+        public Medecin( String nom, String prenom, Cabinet cabinet)
+        {
+            setNom(nom);
+            setPrenom(prenom);
+            setCabinet(cabinet);
+        }
+
         #endregion
     }
 }
