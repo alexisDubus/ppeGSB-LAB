@@ -113,6 +113,23 @@ namespace Metier
             setLatitude(latitude);
         }
 
+        /// <summary>
+        /// constructeur de Cabinet
+        /// </summary>
+        /// <param name="rue"></param>
+        /// <param name="CP"></param>
+        /// <param name="ville"></param>
+        /// <param name="longitude"></param>
+        /// <param name="latitude"></param>
+        public Cabinet(String rue, String CP, String ville, double longitude, double latitude)
+        {
+            setRue(rue);
+            setCP(CP);
+            setVille(ville);
+            setLongitude(longitude);
+            setLatitude(latitude);
+        }
+
         #endregion
     }
 }

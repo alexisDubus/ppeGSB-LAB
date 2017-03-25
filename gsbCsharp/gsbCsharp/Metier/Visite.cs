@@ -139,6 +139,27 @@ namespace Metier
             setHeureDebut(heureDebut);
         }
 
+        /// <summary>
+        /// créateur de Visite
+        /// </summary>
+        /// <param name="dateVisite"></param>
+        /// <param name="rdv"></param>
+        /// <param name="visiteur"></param>
+        /// <param name="medecin"></param>
+        /// <param name="heureArrivee"></param>
+        /// <param name="heureDepart"></param>
+        /// <param name="heureDebut"></param>
+        public Visite(DateTime dateVisite, Boolean rdv, Utilisateur visiteur, Medecin medecin, DateTime heureArrivee, DateTime heureDepart, DateTime heureDebut)
+        {
+            setDateVisite(dateVisite);
+            setRdv(rdv);
+            setUtilisateur(visiteur);
+            setMedecin(medecin);
+            setHeureArrivee(heureArrivee);
+            setHeureDepart(heureDepart);
+            setHeureDebut(heureDebut);
+        }
+
 
         #endregion
     }

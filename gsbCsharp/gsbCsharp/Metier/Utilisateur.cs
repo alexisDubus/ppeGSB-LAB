@@ -186,6 +186,35 @@ namespace Metier
         }
 
         /// <summary>
+        /// constructeur de l'utilisateur
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
+        /// <param name="login"></param>
+        /// <param name="mdp"></param>
+        /// <param name="adresse"></param>
+        /// <param name="cp"></param>
+        /// <param name="ville"></param>
+        /// <param name="dateEmbauche"></param>
+        /// <param name="idRole"></param>
+        /// <param name="email"></param>
+        /// <param name="version"></param>
+        public Utilisateur(String nom, String prenom, String login, String mdp, String adresse, String cp, String ville, DateTime dateEmbauche, String idRole, String email, int version)
+        {
+            setNom(nom);
+            setPrenom(prenom);
+            setLogin(login);
+            setMdp(mdp);
+            setAdresse(adresse);
+            setCP(cp);
+            setVille(ville);
+            setDateEmbauche(dateEmbauche);
+            setIdRole(idRole);
+            setEmail(email);
+            setVersion(version);
+        }
+
+        /// <summary>
         /// créé un utilisateu vide
         /// </summary>
         public Utilisateur()
