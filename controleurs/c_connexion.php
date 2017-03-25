@@ -1,4 +1,4 @@
-﻿<?php
+﻿﻿<?php
 
 
 if(!isset($_REQUEST['action'])){
@@ -11,7 +11,23 @@ switch($action){
 		break;
 	}
         case 'motDePasseOublie':{
-            
+            include("vues/v_mdp_oublie.php");
+            break;
+        }
+        case 'changeMDP':{
+            $login = $_REQUEST['login'];
+            $existe = $pdo->utilisateurExiste($login);
+            if ($existe == true) {
+                ajouterErreur("Login correct, vous allez recevoir votre nouveau mot de passe par email.");
+		include("vues/v_erreurs.php");
+                $adresse = $pdo->getAdresseMail($login);
+                $newMDP = $pdo->getNouveauMDP($login);
+                envoyerMail($adresse, $newMDP);
+            } else {
+                ajouterErreur("Login incorrect");
+		include("vues/v_erreurs.php");
+                include("vues/v_mdp_oublie.php");
+            }            
             break;
         }
 	case 'valideConnexion':{
