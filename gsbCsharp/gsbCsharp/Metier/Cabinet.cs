@@ -9,7 +9,7 @@ namespace Metier
     class Cabinet
     {
         #region proprietes
-        private int id;
+        private int id; //mettre en statique?
         private String rue;
         private String CP;
         private String ville;

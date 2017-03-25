@@ -10,7 +10,7 @@ namespace Metier
     {
         #region proprietes
         private Utilisateur utilisateur = new Utilisateur(); //l'utilisateur sera vide
-        private int id;
+        private int id; //mettre en statique?
         private DateTime dateVisite;
         private Boolean rdv;
         //mettre objet medecin
