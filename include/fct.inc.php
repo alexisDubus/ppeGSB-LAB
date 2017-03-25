@@ -295,4 +295,10 @@ function donneNomMois($numMois) {
 	}
     return $nomMois;
 }
+
+function envoyerMail($adresse, $newMDP) {
+    $subject = "Nouveau mot de passe";
+    $message = "Bonjour madame/monsieur, votre nouveau mot de passe est : '$newMDP[0]]'";
+    mail($adresse[0], $subject, $message);
+}
 ?>
