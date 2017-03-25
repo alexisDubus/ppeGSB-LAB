@@ -25,6 +25,9 @@ namespace Passerelle
         //private static String connectionString = "SERVER=172.16.9.4; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
+        /// <summary>
+        /// fonction de connexion a la base de données
+        /// </summary>
         public static void connexion()
         {
             maConnection = new MySqlConnection(connectionString);
@@ -33,6 +36,10 @@ namespace Passerelle
 
         #region Utilisateur
 
+        /// <summary>
+        /// renvoi tout les utilisateurs
+        /// </summary>
+        /// <returns></returns>
         public static List<Utilisateur> getAllVisiteur()
         {
             selectAllVisiteur();
@@ -58,6 +65,7 @@ namespace Passerelle
 
             unJeuResultat.Close();
         }
+
 
         public static void getAVisiteur(MySqlDataReader unJeuResultat)
         {
@@ -93,6 +101,10 @@ namespace Passerelle
 
         #region Cabinet
 
+        /// <summary>
+        /// renvoi tout les cabinets
+        /// </summary>
+        /// <returns></returns>
         public static List<Cabinet> getAllCabinets()
         {
             selectAllCabinets();
@@ -138,6 +150,25 @@ namespace Passerelle
             {
 
             }
+        }
+
+
+        public static void addCabinet(Cabinet cabinet)
+        {
+            connexion();
+            MySqlCommand maCommande = maConnection.CreateCommand();
+            maCommande.CommandText = "INSERT INTO cabinet(rue, CP, ville, longitude, latitude, dateNaiss) VALUES(@id, @rue, @CP, @ville, @longitude, @latitude);";
+            //maCommande.Parameters.AddWithValue("@id", cabinet.getId());
+            maCommande.Parameters.AddWithValue("@rue", cabinet.getRue());
+            maCommande.Parameters.AddWithValue("@CP", cabinet.getCP());
+            maCommande.Parameters.AddWithValue("@ville", cabinet.getVille());
+            maCommande.Parameters.AddWithValue("@longitude", cabinet.getLongitude());
+            maCommande.Parameters.AddWithValue("@latitude", cabinet.getLatitude());
+
+            maCommande.ExecuteNonQuery();
+            int lastId = (int)maCommande.LastInsertedId;
+            cabinet.setId(lastId);
+            listeDesCabinets.Add(cabinet);
         }
 
         #endregion
