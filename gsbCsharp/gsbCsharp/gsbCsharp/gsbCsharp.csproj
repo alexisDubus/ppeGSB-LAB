@@ -75,6 +75,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\Metier.Cabinet.datasource" />
+    <None Include="Properties\DataSources\Metier.Medecin.datasource" />
+    <None Include="Properties\DataSources\Metier.Utilisateur.datasource" />
+    <None Include="Properties\DataSources\Metier.Visite.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,6 +91,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Metier\Metier.csproj">
+      <Project>{d275a697-a2bd-4e98-930e-415433f16b01}</Project>
+      <Name>Metier</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Passerelle\Passerelle.csproj">
+      <Project>{ffba5b90-e54b-4ef6-8b34-886cc2fe44ac}</Project>
+      <Name>Passerelle</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

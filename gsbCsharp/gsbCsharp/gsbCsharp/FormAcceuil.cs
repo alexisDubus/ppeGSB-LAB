@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Metier;
+using Passerelle;
 
 namespace gsbCsharp
 {
     public partial class FormAcceuil : Form
     {
+        List<Utilisateur> listeVisiteur = new List<Utilisateur>();
+
         public FormAcceuil()
         {
             InitializeComponent();
@@ -33,7 +37,23 @@ namespace gsbCsharp
         }
         private void FormAcceuil_Load(object sender, EventArgs e)
         {
+            listeVisiteur = Passerelle.Passerelle.getAllVisiteur();
+            var source = new BindingSource(listeVisiteur, null);
+            dataGridViewVisiteur.DataSource = source;
+            visiteBindingSource.DataSource = listeVisiteur.ToArray();
 
+
+
+
+
+
+
+            //BindingSource bds = new BindingSource();
+
+            //bds.DataSource = listeVisiteur;
+            //dataGridViewVisiteur.DataSource = bds;
+            int nombrevisiteur = listeVisiteur.Count;
+            textBoxNombreVisiteur.Text = nombrevisiteur.ToString();
         }
 
         private void classiqueToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,6 +80,45 @@ namespace gsbCsharp
         {
             FormCreateVisiteur creerUnVisiteur = new FormCreateVisiteur();
             OUVRE_UNE_MDI_FILLE(creerUnVisiteur, this);
+        }
+
+
+        //Méthode de click généré automatiquement
+
+
+        private void dataGridViewVisiteur_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewVisiteur_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewVisiteur_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void visiteBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

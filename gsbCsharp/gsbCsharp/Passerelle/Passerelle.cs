@@ -19,13 +19,20 @@ namespace Passerelle
     {
         //private static List<ForfaitSki> listeDesForfaits = initPasserelle();
         private static List<Utilisateur> listeDesUtilisateurs = new List<Utilisateur>();
-        private static String connectionString = "SERVER=172.16.9.3; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        //private static String connectionString = "SERVER=172.16.9.4; DATABASE=gsb_frais; UID=root; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
         public static void connexion()
         {
             maConnection = new MySqlConnection(connectionString);
             maConnection.Open();
+        }
+
+        public static List<Utilisateur> getAllVisiteur()
+        {
+            selectAllVisiteur();
+            return listeDesUtilisateurs;
         }
 
         /// <summary>
