@@ -10,3 +10,9 @@ C:\wamp\www\gsb4.0\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormAcceuil
 C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\gsbCsharp.exe.config
 C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.exe
 C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.pdb
+C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\gsbCsharp.exe
+C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\gsbCsharp.pdb
+C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.csprojResolveAssemblyReference.cache
+C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormAcceuil.resources
+C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.Properties.Resources.resources
+C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.csproj.GenerateResource.Cache

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    class Cabinet
+    public class Cabinet
     {
         #region proprietes
         private int id; //mettre en statique?
