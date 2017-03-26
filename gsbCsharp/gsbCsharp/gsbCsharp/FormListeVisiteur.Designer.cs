@@ -36,7 +36,6 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.getlogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listBoxVisiteur = new System.Windows.Forms.ListBox();
             this.utilisateurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBoxVisiteur = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -97,18 +96,6 @@
             this.getlogin.HeaderText = "login";
             this.getlogin.Name = "getlogin";
             // 
-            // listBoxVisiteur
-            // 
-            this.listBoxVisiteur.FormattingEnabled = true;
-            this.listBoxVisiteur.ItemHeight = 16;
-            this.listBoxVisiteur.Items.AddRange(new object[] {
-            "nom, prenom"});
-            this.listBoxVisiteur.Location = new System.Drawing.Point(595, 77);
-            this.listBoxVisiteur.Name = "listBoxVisiteur";
-            this.listBoxVisiteur.Size = new System.Drawing.Size(101, 36);
-            this.listBoxVisiteur.TabIndex = 14;
-            this.listBoxVisiteur.SelectedIndexChanged += new System.EventHandler(this.listBoxVisiteur_SelectedIndexChanged);
-            // 
             // utilisateurBindingSource
             // 
             this.utilisateurBindingSource.DataSource = typeof(Metier.Utilisateur);
@@ -137,7 +124,6 @@
             this.ClientSize = new System.Drawing.Size(1159, 503);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBoxVisiteur);
-            this.Controls.Add(this.listBoxVisiteur);
             this.Controls.Add(this.textBoxNombreVisiteur);
             this.Controls.Add(this.labelNombreVisiteur);
             this.Controls.Add(this.dataGridViewVisiteur);
@@ -161,7 +147,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn getlogin;
-        private System.Windows.Forms.ListBox listBoxVisiteur;
         private System.Windows.Forms.BindingSource utilisateurBindingSource;
         private System.Windows.Forms.ComboBox comboBoxVisiteur;
         private System.Windows.Forms.DataGridView dataGridView1;

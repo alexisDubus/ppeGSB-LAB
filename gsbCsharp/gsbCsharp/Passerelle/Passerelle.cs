@@ -46,6 +46,8 @@ namespace Passerelle
         /// <returns></returns>
         public static BindingList<Utilisateur> getAllVisiteur()
         {
+            BindingList<Medecin> listeReset = new BindingList<Medecin>();
+            listeDesMedecins = listeReset;
             selectAllVisiteur();
             return listeDesVisiteurs;
         }
