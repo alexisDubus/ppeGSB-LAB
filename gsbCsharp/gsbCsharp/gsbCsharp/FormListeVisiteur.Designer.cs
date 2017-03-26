@@ -39,8 +39,10 @@
             this.listBoxVisiteur = new System.Windows.Forms.ListBox();
             this.utilisateurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBoxVisiteur = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVisiteur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxNombreVisiteur
@@ -101,9 +103,9 @@
             this.listBoxVisiteur.ItemHeight = 16;
             this.listBoxVisiteur.Items.AddRange(new object[] {
             "nom, prenom"});
-            this.listBoxVisiteur.Location = new System.Drawing.Point(371, 12);
+            this.listBoxVisiteur.Location = new System.Drawing.Point(595, 77);
             this.listBoxVisiteur.Name = "listBoxVisiteur";
-            this.listBoxVisiteur.Size = new System.Drawing.Size(193, 324);
+            this.listBoxVisiteur.Size = new System.Drawing.Size(101, 36);
             this.listBoxVisiteur.TabIndex = 14;
             this.listBoxVisiteur.SelectedIndexChanged += new System.EventHandler(this.listBoxVisiteur_SelectedIndexChanged);
             // 
@@ -116,14 +118,24 @@
             this.comboBoxVisiteur.FormattingEnabled = true;
             this.comboBoxVisiteur.Location = new System.Drawing.Point(595, 12);
             this.comboBoxVisiteur.Name = "comboBoxVisiteur";
-            this.comboBoxVisiteur.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxVisiteur.Size = new System.Drawing.Size(212, 24);
             this.comboBoxVisiteur.TabIndex = 15;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(331, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(258, 331);
+            this.dataGridView1.TabIndex = 16;
             // 
             // FormListeVisiteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1159, 503);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBoxVisiteur);
             this.Controls.Add(this.listBoxVisiteur);
             this.Controls.Add(this.textBoxNombreVisiteur);
@@ -134,6 +146,7 @@
             this.Load += new System.EventHandler(this.FormListeVisiteur_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVisiteur)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +164,6 @@
         private System.Windows.Forms.ListBox listBoxVisiteur;
         private System.Windows.Forms.BindingSource utilisateurBindingSource;
         private System.Windows.Forms.ComboBox comboBoxVisiteur;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

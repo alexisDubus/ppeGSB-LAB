@@ -22,7 +22,7 @@ namespace Passerelle
         private static BindingList<Medecin> listeDesMedecins = new BindingList<Medecin>();
         private static BindingList<Cabinet> listeDesCabinets = new BindingList<Cabinet>();
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
-        private static BindingList<Utilisateur> listeDesUtilisateurs = new BindingList<Utilisateur>();
+        private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
         private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         //private static String connectionString = "SERVER=172.16.9.4; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
@@ -47,7 +47,7 @@ namespace Passerelle
         public static BindingList<Utilisateur> getAllVisiteur()
         {
             selectAllVisiteur();
-            return listeDesUtilisateurs;
+            return listeDesVisiteurs;
         }
 
         /// <summary>
@@ -89,10 +89,10 @@ namespace Passerelle
             try
             {
                 Utilisateur unUtilisateur = new Utilisateur(id, nom, prenom, login, mdp, adresse, cp, ville, dateEmbauche, idRole, email, version);
-                listeDesUtilisateurs.Add(unUtilisateur); //on rajoute l'utilisateur a la liste
+                listeDesVisiteurs.Add(unUtilisateur); //on rajoute l'utilisateur a la liste
 
             }
-            catch (Exception exe1)
+            catch (Exception exeUtilisateur)
             {
 
             }
@@ -101,6 +101,150 @@ namespace Passerelle
 
         #endregion
 
+
+        #region Medecin
+
+        /// <summary>
+        /// renvoi tout les Medecin
+        /// </summary>
+        /// <returns></returns>
+        public static BindingList<Utilisateur> getAllMedecin()
+        {
+            selectAllMedecin();
+            return listeDesVisiteurs;
+        }
+
+        /// <summary>
+        /// Selectionne tout les medecin et les met dans la liste
+        /// </summary>
+        public static void selectAllMedecin()
+        {
+            connexion();
+            MySqlCommand maCommande = maConnection.CreateCommand();
+            String requeteSelect = "Select * from medecin;";
+            maCommande.CommandText = requeteSelect;
+            MySqlDataReader unJeuResultat = maCommande.ExecuteReader();
+            //return unJeuResultat;
+
+            while (unJeuResultat.Read())
+            {
+                getAMedecin(unJeuResultat);
+            }
+
+            unJeuResultat.Close();
+        }
+
+
+        public static void getAMedecin(MySqlDataReader unJeuResultat)
+        {
+
+            int id = (int)unJeuResultat.GetInt16("id");
+            String nom = (String)unJeuResultat.GetString("nom");
+            String prenom = (String)unJeuResultat.GetString("prenom");
+            int idCabinet = (int)unJeuResultat.GetInt16("idcabinet");
+            String idUtilisateur = (String)unJeuResultat.GetString("idutilisateur");
+            try
+            {
+                Utilisateur unUtilisateur = new Utilisateur();
+                Cabinet unCabinet = new Cabinet();
+                foreach (Metier.Utilisateur leVisiteur in listeDesVisiteurs)
+                {
+                    if (idUtilisateur == leVisiteur.getId())
+                        unUtilisateur = leVisiteur;
+                }
+
+                foreach (Metier.Cabinet leCabinet in listeDesCabinets)
+                {
+                    if (idCabinet == leCabinet.getId())
+                        unCabinet = leCabinet;
+                }
+
+                Medecin unMedecin = new Medecin(id, nom, prenom, unCabinet, unUtilisateur);
+                listeDesMedecins.Add(unMedecin);
+
+            }
+            catch (Exception exeMedecin)
+            {
+
+            }
+
+        }
+
+        #endregion
+
+
+        #region Visite
+
+        /// <summary>
+        /// renvoi tout les Visites
+        /// </summary>
+        /// <returns></returns>
+        public static BindingList<Visite> getAllVisite()
+        {
+            selectAllVisite();
+            return listeDesVisites;
+        }
+
+        /// <summary>
+        /// Selectionne tout les Visites et les met dans la liste
+        /// </summary>
+        public static void selectAllVisite()
+        {
+            connexion();
+            MySqlCommand maCommande = maConnection.CreateCommand();
+            String requeteSelect = "Select * from visite;";
+            maCommande.CommandText = requeteSelect;
+            MySqlDataReader unJeuResultat = maCommande.ExecuteReader();
+            //return unJeuResultat;
+
+            while (unJeuResultat.Read())
+            {
+                getAVisite(unJeuResultat);
+            }
+
+            unJeuResultat.Close();
+        }
+
+
+        public static void getAVisite(MySqlDataReader unJeuResultat)
+        {
+
+            int id = (int)unJeuResultat.GetInt16("id");
+            DateTime dateVisite = (DateTime)unJeuResultat.GetDateTime("dateVisite");
+            Boolean rdv = (Boolean)unJeuResultat.GetBoolean("rdv");
+            String idUtilisateur = (String)unJeuResultat.GetString("idutilisateur");
+            int idMedecin = (int)unJeuResultat.GetInt16("idMedecin");
+            DateTime heureArrivee = (DateTime)unJeuResultat.GetDateTime("heureArrivee");
+            DateTime heureDepart = (DateTime)unJeuResultat.GetDateTime("heureDepart");
+            DateTime heureDebut = (DateTime)unJeuResultat.GetDateTime("heureDebut");
+            try
+            {
+                Utilisateur unUtilisateur = new Utilisateur();
+                Medecin unMedecin = new Medecin();
+                foreach (Metier.Utilisateur leVisiteur in listeDesVisiteurs)
+                {
+                    if (idUtilisateur == leVisiteur.getId())
+                        unUtilisateur = leVisiteur;
+                }
+
+                foreach (Metier.Medecin leMedecin in listeDesMedecins)
+                {
+                    if (idMedecin == leMedecin.getId())
+                        unMedecin = leMedecin;
+                }
+
+                Visite visite = new Visite(id, dateVisite, rdv, unUtilisateur, unMedecin, heureArrivee, heureDepart, heureDebut);
+                listeDesVisites.Add(visite);
+
+            }
+            catch (Exception exeVisite)
+            {
+
+            }
+
+        }
+
+        #endregion
 
 
         #region Cabinet
@@ -150,7 +294,7 @@ namespace Passerelle
                 listeDesCabinets.Add(unCabinet);
 
             }
-            catch (Exception exe2)
+            catch (Exception exeCabinet)
             {
 
             }

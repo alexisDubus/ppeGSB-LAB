@@ -29,15 +29,42 @@ namespace gsbCsharp
             dataGridViewVisiteur.DataSource = source;
             
 
-            listBoxVisiteur.DataSource = source;
+            //listBoxVisiteur.DataSource = source;
 
             
             foreach (Metier.Utilisateur leVisiteur in listeVisiteur)
             {
-                comboBoxVisiteur.Items.Add(leVisiteur);
+                comboBoxVisiteur.Items.Add(leVisiteur.getNom() + " " + leVisiteur.getPrenom() + " id: " + leVisiteur.getId());
             }
+
+            BindGrid();
             
 
+
+
+        }
+
+        private void BindGrid()
+        {
+            dataGridView1.AutoGenerateColumns = false;
+
+            //create the column programatically
+            DataGridViewCell cell = new DataGridViewTextBoxCell();
+            DataGridViewTextBoxColumn colFileName = new DataGridViewTextBoxColumn()
+            {
+                CellTemplate = cell,
+                Name = "nom",
+                HeaderText = "nom",
+                DataPropertyName = "nom" // Tell the column which property of FileName it should use
+            };
+
+            dataGridView1.Columns.Add(colFileName);
+
+            //var filelist = GetFileListOnWebServer().ToList();
+            var filenamesList = new BindingList<Utilisateur>(listeVisiteur); // <-- BindingList
+
+            //Bind BindingList directly to the DataGrid, no need of BindingSource
+            dataGridView1.DataSource = filenamesList;
         }
 
         private void FormListeVisiteur_Load(object sender, EventArgs e)
