@@ -20,6 +20,63 @@ namespace Metier
         private DateTime heureDebut;
         #endregion
 
+
+
+        /// <summary>
+        /// créateur de Visite
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="dateVisite"></param>
+        /// <param name="rdv"></param>
+        /// <param name="visiteur"></param>
+        /// <param name="medecin"></param>
+        /// <param name="heureArrivee"></param>
+        /// <param name="heureDepart"></param>
+        /// <param name="heureDebut"></param>
+        public Visite(int id, DateTime dateVisite, Boolean rdv, Utilisateur visiteur, Medecin medecin, DateTime heureArrivee, DateTime heureDepart, DateTime heureDebut)
+        {
+            setId(id);
+            setDateVisite(dateVisite);
+            setRdv(rdv);
+            setUtilisateur(visiteur);
+            setMedecin(medecin);
+            setHeureArrivee(heureArrivee);
+            setHeureDepart(heureDepart);
+            setHeureDebut(heureDebut);
+        }
+
+        /// <summary>
+        /// créateur de Visite
+        /// </summary>
+        /// <param name="dateVisite"></param>
+        /// <param name="rdv"></param>
+        /// <param name="visiteur"></param>
+        /// <param name="medecin"></param>
+        /// <param name="heureArrivee"></param>
+        /// <param name="heureDepart"></param>
+        /// <param name="heureDebut"></param>
+        public Visite(DateTime dateVisite, Boolean rdv, Utilisateur visiteur, Medecin medecin, DateTime heureArrivee, DateTime heureDepart, DateTime heureDebut)
+        {
+            setDateVisite(dateVisite);
+            setRdv(rdv);
+            setUtilisateur(visiteur);
+            setMedecin(medecin);
+            setHeureArrivee(heureArrivee);
+            setHeureDepart(heureDepart);
+            setHeureDebut(heureDebut);
+        }
+
+        #region constructeur
+        /// <summary>
+        /// Créé une visite vide
+        /// </summary>
+        public Visite()
+        {
+
+        }
+
+        #endregion
+
         #region get
         public int getId()
         {
@@ -107,60 +164,5 @@ namespace Metier
 
         #endregion
 
-        #region constructeur
-        /// <summary>
-        /// Créé une visite vide
-        /// </summary>
-        public Visite ()
-        {
-
-        }
-
-        /// <summary>
-        /// créateur de Visite
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="dateVisite"></param>
-        /// <param name="rdv"></param>
-        /// <param name="visiteur"></param>
-        /// <param name="medecin"></param>
-        /// <param name="heureArrivee"></param>
-        /// <param name="heureDepart"></param>
-        /// <param name="heureDebut"></param>
-        public Visite(int id, DateTime dateVisite, Boolean rdv, Utilisateur visiteur, Medecin medecin, DateTime heureArrivee, DateTime heureDepart, DateTime heureDebut)
-        {
-            setId(id);
-            setDateVisite(dateVisite);
-            setRdv(rdv);
-            setUtilisateur(visiteur);
-            setMedecin(medecin);
-            setHeureArrivee(heureArrivee);
-            setHeureDepart(heureDepart);
-            setHeureDebut(heureDebut);
-        }
-
-        /// <summary>
-        /// créateur de Visite
-        /// </summary>
-        /// <param name="dateVisite"></param>
-        /// <param name="rdv"></param>
-        /// <param name="visiteur"></param>
-        /// <param name="medecin"></param>
-        /// <param name="heureArrivee"></param>
-        /// <param name="heureDepart"></param>
-        /// <param name="heureDebut"></param>
-        public Visite(DateTime dateVisite, Boolean rdv, Utilisateur visiteur, Medecin medecin, DateTime heureArrivee, DateTime heureDepart, DateTime heureDebut)
-        {
-            setDateVisite(dateVisite);
-            setRdv(rdv);
-            setUtilisateur(visiteur);
-            setMedecin(medecin);
-            setHeureArrivee(heureArrivee);
-            setHeureDepart(heureDepart);
-            setHeureDebut(heureDebut);
-        }
-
-
-        #endregion
     }
 }

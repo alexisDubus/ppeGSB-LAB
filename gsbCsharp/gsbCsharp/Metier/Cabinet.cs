@@ -17,6 +17,58 @@ namespace Metier
         private double latitude;
         #endregion
 
+
+
+
+        /// <summary>
+        /// constructeur de Cabinet
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="rue"></param>
+        /// <param name="CP"></param>
+        /// <param name="ville"></param>
+        /// <param name="longitude"></param>
+        /// <param name="latitude"></param>
+        public Cabinet(int id, String rue, String CP, String ville, double longitude, double latitude)
+        {
+            setId(id);
+            setRue(rue);
+            setCP(CP);
+            setVille(ville);
+            setLongitude(longitude);
+            setLatitude(latitude);
+        }
+
+        /// <summary>
+        /// constructeur de Cabinet
+        /// </summary>
+        /// <param name="rue"></param>
+        /// <param name="CP"></param>
+        /// <param name="ville"></param>
+        /// <param name="longitude"></param>
+        /// <param name="latitude"></param>
+        public Cabinet(String rue, String CP, String ville, double longitude, double latitude)
+        {
+            setRue(rue);
+            setCP(CP);
+            setVille(ville);
+            setLongitude(longitude);
+            setLatitude(latitude);
+        }
+
+
+        #region constructeur
+        /// <summary>
+        /// créé un cabinet vide
+        /// </summary>
+        public Cabinet()
+        {
+
+        }
+
+        #endregion
+
+
         #region get
         public int getId()
         {
@@ -81,53 +133,6 @@ namespace Metier
         public void setLatitude(double latitude)
         {
             this.latitude = latitude;
-        }
-
-        #endregion
-
-        #region constructeur
-        /// <summary>
-        /// créé un cabinet vide
-        /// </summary>
-        public Cabinet ()
-        {
-
-        }
-
-        /// <summary>
-        /// constructeur de Cabinet
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="rue"></param>
-        /// <param name="CP"></param>
-        /// <param name="ville"></param>
-        /// <param name="longitude"></param>
-        /// <param name="latitude"></param>
-        public Cabinet (int id, String rue, String CP, String ville, double longitude, double latitude)
-        {
-            setId(id);
-            setRue(rue);
-            setCP(CP);
-            setVille(ville);
-            setLongitude(longitude);
-            setLatitude(latitude);
-        }
-
-        /// <summary>
-        /// constructeur de Cabinet
-        /// </summary>
-        /// <param name="rue"></param>
-        /// <param name="CP"></param>
-        /// <param name="ville"></param>
-        /// <param name="longitude"></param>
-        /// <param name="latitude"></param>
-        public Cabinet(String rue, String CP, String ville, double longitude, double latitude)
-        {
-            setRue(rue);
-            setCP(CP);
-            setVille(ville);
-            setLongitude(longitude);
-            setLatitude(latitude);
         }
 
         #endregion

@@ -13,8 +13,67 @@ namespace Metier
         private Cabinet cabinet = new Cabinet(); //le cabinet sera vide
         private int id; //mettre en static?
         private String nom;
-        private String prenom; 
-        
+        private String prenom;
+
+        #endregion
+
+
+
+        /// <summary>
+        /// créé un Médecin avec tout les paramétre disponible
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
+        /// <param name="cabinet"></param>
+        /// <param name="utilisateur"></param>
+        public Medecin(int id, String nom, String prenom, Cabinet cabinet, Utilisateur utilisateur)
+        {
+            setId(id);
+            setNom(nom);
+            setPrenom(prenom);
+            setCabinet(cabinet);
+            setVisiteur(utilisateur);
+        }
+
+        /// <summary>
+        /// créé un Médecin sans utilisateur attaché
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
+        /// <param name="cabinet"></param>
+        public Medecin(int id, String nom, String prenom, Cabinet cabinet)
+        {
+            setId(id);
+            setNom(nom);
+            setPrenom(prenom);
+            setCabinet(cabinet);
+        }
+
+        /// <summary>
+        /// créé un Médecin sans utilisateur attaché
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
+        /// <param name="cabinet"></param>
+        public Medecin(String nom, String prenom, Cabinet cabinet)
+        {
+            setNom(nom);
+            setPrenom(prenom);
+            setCabinet(cabinet);
+        }
+
+
+        #region constructeur
+        /// <summary>
+        /// créé un medecin vide
+        /// </summary>
+        public Medecin()
+        {
+
+        }
+
         #endregion
 
         #region get
@@ -76,60 +135,5 @@ namespace Metier
 
         #endregion
 
-        #region constructeur
-        /// <summary>
-        /// créé un medecin vide
-        /// </summary>
-        public Medecin()
-        {
-
-        }
-
-        /// <summary>
-        /// créé un Médecin avec tout les paramétre disponible
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="nom"></param>
-        /// <param name="prenom"></param>
-        /// <param name="cabinet"></param>
-        /// <param name="utilisateur"></param>
-        public Medecin(int id, String nom, String prenom, Cabinet cabinet, Utilisateur utilisateur)
-        {
-            setId(id);
-            setNom(nom);
-            setPrenom(prenom);
-            setCabinet(cabinet);
-            setVisiteur(utilisateur);
-        }
-
-        /// <summary>
-        /// créé un Médecin sans utilisateur attaché
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="nom"></param>
-        /// <param name="prenom"></param>
-        /// <param name="cabinet"></param>
-        public Medecin(int id, String nom, String prenom, Cabinet cabinet)
-        {
-            setId(id);
-            setNom(nom);
-            setPrenom(prenom);
-            setCabinet(cabinet);
-        }
-
-        /// <summary>
-        /// créé un Médecin sans utilisateur attaché
-        /// </summary>
-        /// <param name="nom"></param>
-        /// <param name="prenom"></param>
-        /// <param name="cabinet"></param>
-        public Medecin( String nom, String prenom, Cabinet cabinet)
-        {
-            setNom(nom);
-            setPrenom(prenom);
-            setCabinet(cabinet);
-        }
-
-        #endregion
     }
 }
