@@ -9,6 +9,7 @@ using System.IO;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using Metier;
+using System.ComponentModel;
 
 namespace Passerelle
 {
@@ -17,13 +18,16 @@ namespace Passerelle
     /// </summary>
     public static class Passerelle
     {
-        private static List<Medecin> listeDesMedecins = new List<Medecin>();
-        private static List<Cabinet> listeDesCabinets = new List<Cabinet>();
-        private static List<Visite> listeDesVisites = new List<Visite>();
-        private static List<Utilisateur> listeDesUtilisateurs = new List<Utilisateur>();
+        
+        private static BindingList<Medecin> listeDesMedecins = new BindingList<Medecin>();
+        private static BindingList<Cabinet> listeDesCabinets = new BindingList<Cabinet>();
+        private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
+        private static BindingList<Utilisateur> listeDesUtilisateurs = new BindingList<Utilisateur>();
         private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         //private static String connectionString = "SERVER=172.16.9.4; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
+
+        
 
         /// <summary>
         /// fonction de connexion a la base de données
@@ -40,7 +44,7 @@ namespace Passerelle
         /// renvoi tout les utilisateurs
         /// </summary>
         /// <returns></returns>
-        public static List<Utilisateur> getAllVisiteur()
+        public static BindingList<Utilisateur> getAllVisiteur()
         {
             selectAllVisiteur();
             return listeDesUtilisateurs;
@@ -53,7 +57,7 @@ namespace Passerelle
         {
             connexion();
             MySqlCommand maCommande = maConnection.CreateCommand();
-            String requeteSelect = "Select * from utilisateur;";
+            String requeteSelect = "Select * from utilisateur where idRole = 2;";
             maCommande.CommandText = requeteSelect;
             MySqlDataReader unJeuResultat = maCommande.ExecuteReader();
             //return unJeuResultat;
@@ -105,7 +109,7 @@ namespace Passerelle
         /// renvoi tout les cabinets
         /// </summary>
         /// <returns></returns>
-        public static List<Cabinet> getAllCabinets()
+        public static BindingList<Cabinet> getAllCabinets()
         {
             selectAllCabinets();
             return listeDesCabinets;

@@ -28,18 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.VisiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creationVisiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeVisiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.medecinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterMedecinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.visiteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cabinetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterCabinetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.visiteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -95,11 +92,6 @@
             this.ajouterMedecinToolStripMenuItem.Text = "Ajouter";
             this.ajouterMedecinToolStripMenuItem.Click += new System.EventHandler(this.ajouterMedecinToolStripMenuItem_Click);
             // 
-            // visiteBindingSource
-            // 
-            this.visiteBindingSource.DataSource = typeof(Metier.Visite);
-            this.visiteBindingSource.CurrentChanged += new System.EventHandler(this.visiteBindingSource_CurrentChanged);
-            // 
             // cabinetToolStripMenuItem
             // 
             this.cabinetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -111,7 +103,7 @@
             // ajouterCabinetToolStripMenuItem
             // 
             this.ajouterCabinetToolStripMenuItem.Name = "ajouterCabinetToolStripMenuItem";
-            this.ajouterCabinetToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.ajouterCabinetToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.ajouterCabinetToolStripMenuItem.Text = "Ajouter";
             this.ajouterCabinetToolStripMenuItem.Click += new System.EventHandler(this.ajouterToolStripMenuItem_Click);
             // 
@@ -128,7 +120,6 @@
             this.Load += new System.EventHandler(this.FormAcceuil_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.visiteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,7 +132,6 @@
         private System.Windows.Forms.ToolStripMenuItem creationVisiteurToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeVisiteurToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem medecinToolStripMenuItem;
-        private System.Windows.Forms.BindingSource visiteBindingSource;
         private System.Windows.Forms.ToolStripMenuItem ajouterMedecinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cabinetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajouterCabinetToolStripMenuItem;
