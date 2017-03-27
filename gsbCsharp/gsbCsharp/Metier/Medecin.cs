@@ -135,5 +135,14 @@ namespace Metier
 
         #endregion
 
+        #region fonction
+        public override String ToString()
+        {
+            String leString = this.getNom() + " " + this.getPrenom();
+            return leString;
+        }
+
+        #endregion
+
     }
 }

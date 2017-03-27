@@ -164,5 +164,14 @@ namespace Metier
 
         #endregion
 
+        #region fonction 
+        public override String ToString()
+        {
+            String leString = "";
+            return leString;
+        }
+
+        #endregion
+
     }
 }

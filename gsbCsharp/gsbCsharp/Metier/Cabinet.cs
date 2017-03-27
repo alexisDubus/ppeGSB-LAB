@@ -136,5 +136,15 @@ namespace Metier
         }
 
         #endregion
+
+        #region fonction
+
+        public override String ToString()
+        {
+            String leString = this.getRue() + " " + this.getVille() + ", " + this.getCP();
+            return leString;
+        }
+        #endregion
+
     }
 }

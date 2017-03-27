@@ -35,6 +35,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxNomMedecin = new System.Windows.Forms.TextBox();
             this.textBoxPrenomMedecin = new System.Windows.Forms.TextBox();
+            this.textBoxMedecinCabinet = new System.Windows.Forms.TextBox();
+            this.textBoxMedecinVisiteur = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBoxMedecin
@@ -58,9 +62,9 @@
             // 
             // buttonModifMedicin
             // 
-            this.buttonModifMedicin.Location = new System.Drawing.Point(595, 206);
+            this.buttonModifMedicin.Location = new System.Drawing.Point(598, 228);
             this.buttonModifMedicin.Name = "buttonModifMedicin";
-            this.buttonModifMedicin.Size = new System.Drawing.Size(178, 23);
+            this.buttonModifMedicin.Size = new System.Drawing.Size(186, 23);
             this.buttonModifMedicin.TabIndex = 2;
             this.buttonModifMedicin.Text = "Modifier le Medecin";
             this.buttonModifMedicin.UseVisualStyleBackColor = true;
@@ -103,11 +107,52 @@
             this.textBoxPrenomMedecin.TabIndex = 6;
             this.textBoxPrenomMedecin.Visible = false;
             // 
+            // textBoxMedecinCabinet
+            // 
+            this.textBoxMedecinCabinet.Location = new System.Drawing.Point(684, 179);
+            this.textBoxMedecinCabinet.Name = "textBoxMedecinCabinet";
+            this.textBoxMedecinCabinet.Size = new System.Drawing.Size(100, 22);
+            this.textBoxMedecinCabinet.TabIndex = 10;
+            this.textBoxMedecinCabinet.Visible = false;
+            // 
+            // textBoxMedecinVisiteur
+            // 
+            this.textBoxMedecinVisiteur.Location = new System.Drawing.Point(684, 138);
+            this.textBoxMedecinVisiteur.Name = "textBoxMedecinVisiteur";
+            this.textBoxMedecinVisiteur.Size = new System.Drawing.Size(100, 22);
+            this.textBoxMedecinVisiteur.TabIndex = 9;
+            this.textBoxMedecinVisiteur.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(595, 179);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 17);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "cabinet";
+            this.label3.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(595, 138);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "visiteur";
+            this.label4.Visible = false;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
             // FormListeMedecin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 434);
+            this.Controls.Add(this.textBoxMedecinCabinet);
+            this.Controls.Add(this.textBoxMedecinVisiteur);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxPrenomMedecin);
             this.Controls.Add(this.textBoxNomMedecin);
             this.Controls.Add(this.label2);
@@ -132,5 +177,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxNomMedecin;
         private System.Windows.Forms.TextBox textBoxPrenomMedecin;
+        private System.Windows.Forms.TextBox textBoxMedecinCabinet;
+        private System.Windows.Forms.TextBox textBoxMedecinVisiteur;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

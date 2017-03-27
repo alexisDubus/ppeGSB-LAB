@@ -34,7 +34,7 @@ namespace gsbCsharp
             
             foreach (Metier.Utilisateur leVisiteur in listeVisiteur)
             {
-                comboBoxVisiteur.Items.Add(leVisiteur.getNom() + " " + leVisiteur.getPrenom() + " id: " + leVisiteur.getId());
+                comboBoxVisiteur.Items.Add(leVisiteur);
             }
 
             BindGrid();

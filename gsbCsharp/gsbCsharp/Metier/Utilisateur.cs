@@ -254,6 +254,11 @@ namespace Metier
                 return false;
         }
 
+        public override String ToString()
+        {
+            String leString = this.getNom() + " " + this.getPrenom() + ", " + this.getCp() +  ", " +this.getVille();
+            return leString;
+        }
 
 
         #endregion
