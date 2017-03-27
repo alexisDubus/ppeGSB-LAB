@@ -28,8 +28,9 @@ namespace Passerelle
         //private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
-        
 
+
+        
         /// <summary>
         /// fonction de connexion a la base de données
         /// </summary>
@@ -59,16 +60,38 @@ namespace Passerelle
             }
         }
 
+        public static void init()
+        {
+            listeDesCabinets = getAllCabinets();
+
+            listeDesVisiteurs = getAllVisiteur();
+
+            listeDesMedecins = getAllMedecin();
+            
+            listeDesVisites = getAllVisite();
+        }
+
         #region Utilisateur
 
+
         /// <summary>
-        /// renvoi tout les utilisateurs
+        /// Retourne la liste des Visiteur, aucune requéte
+        /// </summary>
+        /// <returns></returns>
+        public static BindingList<Utilisateur> returnAllvisiteur()
+        {
+            return listeDesVisiteurs;
+        }
+
+        /// <summary>
+        /// renvoi tout les utilisateurs aprés les avoir récupéré de la BDD
         /// </summary>
         /// <returns></returns>
         public static BindingList<Utilisateur> getAllVisiteur()
         {
-            BindingList<Medecin> listeReset = new BindingList<Medecin>();
-            listeDesMedecins = listeReset;
+            BindingList<Utilisateur> listeReset = new BindingList<Utilisateur>();
+            listeDesVisiteurs = listeReset;
+            
             selectAllVisiteur();
             return listeDesVisiteurs;
         }
@@ -127,8 +150,18 @@ namespace Passerelle
 
         #region Medecin
 
+
         /// <summary>
-        /// renvoi tout les Medecin
+        /// Retourne la liste des Medecin, aucune requéte
+        /// </summary>
+        /// <returns></returns>
+        public static BindingList<Medecin> returnAllMedecin()
+        {
+            return listeDesMedecins;
+        }
+
+        /// <summary>
+        /// renvoi tout les Medecin  aprés les avoir récupéré de la BDD
         /// </summary>
         /// <returns></returns>
         public static BindingList<Medecin> getAllMedecin()
@@ -195,13 +228,40 @@ namespace Passerelle
 
         }
 
+
+        public static void addMedecin(Medecin medecin)
+        {
+            connexion();
+            MySqlCommand maCommande = maConnection.CreateCommand();
+            maCommande.CommandText = "INSERT INTO medecin(nom, prenom, idCabinet, idUtilisateur) VALUES(@nom, @prenom, @idCabinet, @idUtilisateur);";
+            maCommande.Parameters.AddWithValue("@nom", medecin.getNom());
+            maCommande.Parameters.AddWithValue("@prenom", medecin.getPrenom());
+            maCommande.Parameters.AddWithValue("@idCabinet", medecin.getCabinet().getId());
+            maCommande.Parameters.AddWithValue("@idUtilisateur", medecin.getVisiteur().getId());
+
+            maCommande.ExecuteNonQuery();
+            int lastId = (int)maCommande.LastInsertedId;
+            medecin.setId(lastId);
+            listeDesMedecins.Add(medecin);
+        }
+
         #endregion
 
 
         #region Visite
 
+
         /// <summary>
-        /// renvoi tout les Visites
+        /// Retourne la liste des Visite, aucune requéte
+        /// </summary>
+        /// <returns></returns>
+        public static BindingList<Visite> returnAllVisite()
+        {
+            return listeDesVisites;
+        }
+
+        /// <summary>
+        /// renvoi tout les Visites aprés les avoir récupéré de la BDD
         /// </summary>
         /// <returns></returns>
         public static BindingList<Visite> getAllVisite()
@@ -277,7 +337,16 @@ namespace Passerelle
         #region Cabinet
 
         /// <summary>
-        /// renvoi tout les cabinets
+        /// Retourne la liste des Cabinets, aucune requéte
+        /// </summary>
+        /// <returns></returns>
+        public static BindingList<Cabinet> returnAllCabinets()
+        {
+            return listeDesCabinets;
+        }
+
+        /// <summary>
+        /// renvoi tout les cabinets aprés les avoir récupéré de la BDD
         /// </summary>
         /// <returns></returns>
         public static BindingList<Cabinet> getAllCabinets()

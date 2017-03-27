@@ -23,11 +23,19 @@ namespace gsbCsharp
         {
             InitializeComponent();
 
-            listeDesCabinets = Passerelle.Passerelle.getAllCabinets();
-            listBoxCabinet.DataSource = listeDesCabinets;
+            Passerelle.Passerelle.init();
+            listeDesCabinets = Passerelle.Passerelle.returnAllCabinets();
+            listeDesVisiteur = Passerelle.Passerelle.returnAllvisiteur();
+            
 
-            listeDesVisiteur = Passerelle.Passerelle.getAllVisiteur();
-            listBoxVisiteur.DataSource = listeDesVisiteur;
+            foreach (Metier.Utilisateur visiteur in listeDesVisiteur)
+            {
+                comboBoxMedecinVisiteur.Items.Add(visiteur);
+            }
+            foreach (Metier.Cabinet unCabinet in listeDesCabinets)
+            {
+                comboBoxMedecinCabinet.Items.Add(unCabinet);
+            }
 
         }
 
@@ -48,11 +56,18 @@ namespace gsbCsharp
 
         private void btnAjouteMedecin_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnCreateMedecin_Click(object sender, EventArgs e)
+        {
             String nom = textBoxNomMedecin.Text.ToString();
             String prenom = textBoxPrenomMedecin.Text.ToString();
-            //var visiteur = listBoxVisiteur.
+            Utilisateur unUtilisateur = (Utilisateur)comboBoxMedecinVisiteur.SelectedItem;
+            Cabinet unCabinet = (Cabinet)comboBoxMedecinCabinet.SelectedItem;
+            Medecin unMedecin = new Medecin(nom, prenom, unCabinet, unUtilisateur);
 
-
+            Passerelle.Passerelle.addMedecin(unMedecin);
         }
     }
 }

@@ -17,7 +17,20 @@ namespace Metier
 
         #endregion
 
-
+        /// <summary>
+        /// créé un Médecin avec tout les paramétre disponible
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
+        /// <param name="cabinet"></param>
+        /// <param name="utilisateur"></param>
+        public Medecin(String nom, String prenom, Cabinet cabinet, Utilisateur utilisateur)
+        {
+            setNom(nom);
+            setPrenom(prenom);
+            setCabinet(cabinet);
+            setVisiteur(utilisateur);
+        }
 
         /// <summary>
         /// créé un Médecin avec tout les paramétre disponible
@@ -35,6 +48,7 @@ namespace Metier
             setCabinet(cabinet);
             setVisiteur(utilisateur);
         }
+
 
         /// <summary>
         /// créé un Médecin sans utilisateur attaché

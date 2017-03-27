@@ -16,14 +16,28 @@ namespace gsbCsharp
     {
 
         public static BindingList<Medecin> listeMedecin = new BindingList<Medecin>();
+        public static BindingList<Utilisateur> listeVisiteur = new BindingList<Utilisateur>();
+        public static BindingList<Cabinet> listeCabinet = new BindingList<Cabinet>();
         public FormListeMedecin()
         {
             InitializeComponent();
-            listeMedecin = Passerelle.Passerelle.getAllMedecin();
+            Passerelle.Passerelle.init();
+            listeCabinet = Passerelle.Passerelle.returnAllCabinets();
+            listeMedecin = Passerelle.Passerelle.returnAllMedecin();
+            listeVisiteur = Passerelle.Passerelle.returnAllvisiteur();
 
             foreach (Metier.Medecin leMedecin in listeMedecin)
             {
                 comboBoxMedecin.Items.Add(leMedecin);
+            }
+
+            foreach (Metier.Utilisateur visiteur in listeVisiteur)
+            {
+                comboBoxMedecinVisiteur.Items.Add(visiteur);
+            }
+            foreach (Metier.Cabinet unCabinet in listeCabinet)
+            {
+                comboBoxMedecinCabinet.Items.Add(unCabinet);
             }
         }
 
@@ -38,19 +52,22 @@ namespace gsbCsharp
             //MessageBox.Show(sender.ToString());
             //MessageBox.Show(e.GetType().ToString());
             //var test = sender.GetType().ToString();
+            Medecin unMedecin = (Medecin)comboBoxMedecin.SelectedItem;
+            comboBoxMedecinCabinet.SelectedItem = unMedecin.getCabinet();
+            comboBoxMedecinVisiteur.SelectedItem = unMedecin.getVisiteur();
+            //MessageBox.Show(unMedecin.getNom());
+            /*textBoxNomMedecin.Visible = true;
+            textBoxPrenomMedecin.Visible = true;
+            label1.Visible = true;
+            label2.Visible = true;
+            buttonModifMedicin.Visible = true;*/
+            textBoxNomMedecin.Text = unMedecin.getNom();
+            textBoxPrenomMedecin.Text = unMedecin.getPrenom();
         }
 
         private void btnEditMedecin_Click(object sender, EventArgs e)
         {
-            Medecin unMedecin = (Medecin)comboBoxMedecin.SelectedItem;
-            //MessageBox.Show(unMedecin.getNom());
-            textBoxNomMedecin.Visible = true;
-            textBoxPrenomMedecin.Visible = true;
-            label1.Visible = true;
-            label2.Visible = true;
-            buttonModifMedicin.Visible = true;
-            textBoxNomMedecin.Text = unMedecin.getNom();
-            textBoxPrenomMedecin.Text = unMedecin.getPrenom();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
