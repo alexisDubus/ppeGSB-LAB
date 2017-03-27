@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Data;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using Metier;
@@ -24,7 +25,7 @@ namespace Passerelle
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
         private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
-        //private static String connectionString = "SERVER=172.16.9.4; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        //private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
         
@@ -35,7 +36,27 @@ namespace Passerelle
         public static void connexion()
         {
             maConnection = new MySqlConnection(connectionString);
-            maConnection.Open();
+            try
+            {
+                maConnection.Open();
+            }
+            catch (MySqlException ex)
+            {
+
+                switch (ex.Number)
+                {
+                    case 0:
+                        throw new Exception("Cannot connect to server.  Contact administrator");
+                        break;
+                    case 1042:
+                        throw new Exception("Unable to connect to any of the specified MySQL hosts.");
+                        break;
+
+                    case 1045:
+                        throw new Exception("Invalid username/password, please try again");
+                        break;
+                }
+            }
         }
 
         #region Utilisateur
@@ -112,6 +133,8 @@ namespace Passerelle
         /// <returns></returns>
         public static BindingList<Utilisateur> getAllMedecin()
         {
+            BindingList<Utilisateur> listeReset = new BindingList<Utilisateur>();
+            listeDesVisiteurs = listeReset;
             selectAllMedecin();
             return listeDesVisiteurs;
         }
@@ -183,6 +206,8 @@ namespace Passerelle
         /// <returns></returns>
         public static BindingList<Visite> getAllVisite()
         {
+            BindingList<Visite> listeReset = new BindingList<Visite>();
+            listeDesVisites = listeReset;
             selectAllVisite();
             return listeDesVisites;
         }
@@ -257,6 +282,8 @@ namespace Passerelle
         /// <returns></returns>
         public static BindingList<Cabinet> getAllCabinets()
         {
+            BindingList<Cabinet> listeReset = new BindingList<Cabinet>();
+            listeDesCabinets = listeReset;
             selectAllCabinets();
             return listeDesCabinets;
         }
