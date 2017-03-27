@@ -167,7 +167,7 @@ namespace Metier
         #region fonction 
         public override String ToString()
         {
-            String leString = "";
+            String leString = this.getDateVisite() + ", " + this.getmedecin().ToString() + ", " + this.getVisiteur().ToString();
             return leString;
         }
 
