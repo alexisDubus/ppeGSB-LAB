@@ -101,7 +101,7 @@
             this.comboBoxVisiteur.FormattingEnabled = true;
             this.comboBoxVisiteur.Location = new System.Drawing.Point(595, 12);
             this.comboBoxVisiteur.Name = "comboBoxVisiteur";
-            this.comboBoxVisiteur.Size = new System.Drawing.Size(212, 24);
+            this.comboBoxVisiteur.Size = new System.Drawing.Size(330, 24);
             this.comboBoxVisiteur.TabIndex = 15;
             this.comboBoxVisiteur.SelectedIndexChanged += new System.EventHandler(this.comboBoxVisiteur_SelectedIndexChanged_1);
             // 
