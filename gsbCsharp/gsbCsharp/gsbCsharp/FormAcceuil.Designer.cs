@@ -36,6 +36,7 @@
             this.ajouterMedecinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cabinetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterCabinetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +81,8 @@
             // medecinToolStripMenuItem
             // 
             this.medecinToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ajouterMedecinToolStripMenuItem});
+            this.ajouterMedecinToolStripMenuItem,
+            this.listeToolStripMenuItem});
             this.medecinToolStripMenuItem.Name = "medecinToolStripMenuItem";
             this.medecinToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
             this.medecinToolStripMenuItem.Text = "Medecins";
@@ -88,7 +90,7 @@
             // ajouterMedecinToolStripMenuItem
             // 
             this.ajouterMedecinToolStripMenuItem.Name = "ajouterMedecinToolStripMenuItem";
-            this.ajouterMedecinToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.ajouterMedecinToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.ajouterMedecinToolStripMenuItem.Text = "Ajouter";
             this.ajouterMedecinToolStripMenuItem.Click += new System.EventHandler(this.ajouterMedecinToolStripMenuItem_Click);
             // 
@@ -106,6 +108,13 @@
             this.ajouterCabinetToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.ajouterCabinetToolStripMenuItem.Text = "Ajouter";
             this.ajouterCabinetToolStripMenuItem.Click += new System.EventHandler(this.ajouterToolStripMenuItem_Click);
+            // 
+            // listeToolStripMenuItem
+            // 
+            this.listeToolStripMenuItem.Name = "listeToolStripMenuItem";
+            this.listeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.listeToolStripMenuItem.Text = "Liste";
+            this.listeToolStripMenuItem.Click += new System.EventHandler(this.listeToolStripMenuItem_Click);
             // 
             // FormAcceuil
             // 
@@ -135,6 +144,7 @@
         private System.Windows.Forms.ToolStripMenuItem ajouterMedecinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cabinetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajouterCabinetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listeToolStripMenuItem;
     }
 }
 

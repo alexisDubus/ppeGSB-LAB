@@ -131,12 +131,12 @@ namespace Passerelle
         /// renvoi tout les Medecin
         /// </summary>
         /// <returns></returns>
-        public static BindingList<Utilisateur> getAllMedecin()
+        public static BindingList<Medecin> getAllMedecin()
         {
-            BindingList<Utilisateur> listeReset = new BindingList<Utilisateur>();
-            listeDesVisiteurs = listeReset;
+            BindingList<Medecin> listeReset = new BindingList<Medecin>();
+            listeDesMedecins = listeReset;
             selectAllMedecin();
-            return listeDesVisiteurs;
+            return listeDesMedecins;
         }
 
         /// <summary>

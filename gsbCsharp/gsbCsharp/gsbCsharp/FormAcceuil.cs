@@ -117,5 +117,11 @@ namespace gsbCsharp
             FormCreateCabinet creerUnCabinet = new FormCreateCabinet();
             OUVRE_UNE_MDI_FILLE(creerUnCabinet, this);
         }
+
+        private void listeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormListeMedecin listeMedecin = new FormListeMedecin();
+            OUVRE_UNE_MDI_FILLE(listeMedecin, this);
+        }
     }
 }

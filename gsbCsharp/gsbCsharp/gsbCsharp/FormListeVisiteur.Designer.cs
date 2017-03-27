@@ -36,12 +36,12 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.getlogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utilisateurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBoxVisiteur = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.utilisateurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVisiteur)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxNombreVisiteur
@@ -96,10 +96,6 @@
             this.getlogin.HeaderText = "login";
             this.getlogin.Name = "getlogin";
             // 
-            // utilisateurBindingSource
-            // 
-            this.utilisateurBindingSource.DataSource = typeof(Metier.Utilisateur);
-            // 
             // comboBoxVisiteur
             // 
             this.comboBoxVisiteur.FormattingEnabled = true;
@@ -107,6 +103,7 @@
             this.comboBoxVisiteur.Name = "comboBoxVisiteur";
             this.comboBoxVisiteur.Size = new System.Drawing.Size(212, 24);
             this.comboBoxVisiteur.TabIndex = 15;
+            this.comboBoxVisiteur.SelectedIndexChanged += new System.EventHandler(this.comboBoxVisiteur_SelectedIndexChanged_1);
             // 
             // dataGridView1
             // 
@@ -116,6 +113,10 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(258, 331);
             this.dataGridView1.TabIndex = 16;
+            // 
+            // utilisateurBindingSource
+            // 
+            this.utilisateurBindingSource.DataSource = typeof(Metier.Utilisateur);
             // 
             // FormListeVisiteur
             // 
@@ -131,8 +132,8 @@
             this.Text = "FormListeVisiteur";
             this.Load += new System.EventHandler(this.FormListeVisiteur_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVisiteur)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

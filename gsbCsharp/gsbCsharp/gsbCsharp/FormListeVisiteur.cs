@@ -118,5 +118,10 @@ namespace gsbCsharp
             formListVisiteur.Text = senderComboBox.SelectedItem.ToString();
             formListVisiteur.ShowDialog();
         }
+
+        private void comboBoxVisiteur_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

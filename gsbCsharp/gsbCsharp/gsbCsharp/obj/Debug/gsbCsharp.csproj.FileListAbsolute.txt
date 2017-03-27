@@ -25,3 +25,4 @@ C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\Passerelle.pdb
 C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormCreateMedecin.resources
 C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormListeVisiteur.resources
 C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormCreateCabinet.resources
+C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormListeMedecin.resources
