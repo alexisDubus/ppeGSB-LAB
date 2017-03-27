@@ -46,7 +46,7 @@ namespace gsbCsharp
 
         private void BindGrid()
         {
-            dataGridView1.AutoGenerateColumns = false;
+            dataGridViewVisiteur.AutoGenerateColumns = false;
 
             //create the column programatically
             DataGridViewCell cell = new DataGridViewTextBoxCell();
@@ -58,18 +58,16 @@ namespace gsbCsharp
                 DataPropertyName = "nom" // Tell the column which property of FileName it should use
             };
 
-            dataGridView1.Columns.Add(colFileName);
 
             //var filelist = GetFileListOnWebServer().ToList();
             var filenamesList = new BindingList<Utilisateur>(listeVisiteur); // <-- BindingList
 
             //Bind BindingList directly to the DataGrid, no need of BindingSource
-            dataGridView1.DataSource = filenamesList;
         }
 
         private void FormListeVisiteur_Load(object sender, EventArgs e)
         {
-            
+
             //dataGridViewVisiteur.DataSource = source;
             //visiteBindingSource.DataSource = listeVisiteur.ToArray();
             //dataGridViewVisiteur.DataSource = source;
@@ -86,7 +84,6 @@ namespace gsbCsharp
             //visiteBindingSource.DataSource = source;
 
             //dataGridViewVisiteur.DataSource = visiteBindingSource.DataSource;
-
 
             int nombrevisiteur = listeVisiteur.Count;
             textBoxNombreVisiteur.Text = nombrevisiteur.ToString();
@@ -105,6 +102,21 @@ namespace gsbCsharp
         private void listBoxVisiteur_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void comboBoxVisiteur_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox senderComboBox = (ComboBox)sender;
+
+            FormListeVisiteur formListVisiteur = new FormListeVisiteur();
+            // You can check senderComboBox.SelectedText or other here
+            formListVisiteur.Text = senderComboBox.SelectedItem.ToString();
+            formListVisiteur.ShowDialog();
         }
     }
 }
