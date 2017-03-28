@@ -311,12 +311,14 @@ namespace Passerelle
         {
             connexion();
             MySqlCommand maCommande = maConnection.CreateCommand();
-            maCommande.CommandText = "UPDATE  medecin set nom = '"+ medecin.getNom() + "', prenom = '" + medecin.getPrenom() + "', idcabinet = '" + medecin.getCabinet().getId() + "', idutilisateur = '" + medecin.getVisiteur().getId() + "' where medecin.id = '" + medecin.getId() + "'";
-          /*  maCommande.Parameters.AddWithValue("@id", medecin.getId());
+           /* MySqlCommand maCommande = maConnection.CreateCommand();
+            maCommande.CommandText = "UPDATE  medecin set nom = '" + medecin.getNom() + "', prenom = '" + medecin.getPrenom() + "', idcabinet = '" + medecin.getCabinet().getId() + "', idutilisateur = '" + medecin.getVisiteur().getId() + "' where medecin.id = '" + medecin.getId() + "'"; */
+            maCommande.CommandText = "UPDATE  medecin set nom = @nom, prenom = @prenom, idcabinet = @idCabinet, idutilisateur = @idUtilisateur where medecin.id = @id";
+            maCommande.Parameters.AddWithValue("@id", medecin.getId());
             maCommande.Parameters.AddWithValue("@nom", medecin.getNom());
             maCommande.Parameters.AddWithValue("@prenom", medecin.getPrenom());
             maCommande.Parameters.AddWithValue("@idCabinet", medecin.getCabinet().getId());
-            maCommande.Parameters.AddWithValue("@idUtilisateur", medecin.getVisiteur().getId());*/
+            maCommande.Parameters.AddWithValue("@idUtilisateur", medecin.getVisiteur().getId());
 
             maCommande.ExecuteNonQuery();
             init();
