@@ -69,5 +69,12 @@ namespace gsbCsharp
             FormEditMedecin editUnMedecin = new FormEditMedecin(unMedecin);
             editUnMedecin.Show();
         }
+
+        private void btnVoirVisites_Click(object sender, EventArgs e)
+        {
+            Utilisateur unVisiteur = (Utilisateur)comboBoxListeMedecin.SelectedItem;
+            FormViewVisiteVisiteur showVisiteVisiteur = new FormViewVisiteVisiteur(unVisiteur);
+            showVisiteVisiteur.Show();
+        }
     }
 }

@@ -130,7 +130,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEditMedecin);
             this.Name = "FormEditMedecin";
-            this.Text = "FormEditMedecin";
+            this.Text = "Modifier un Médecin";
             this.Load += new System.EventHandler(this.FormEditMedecin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

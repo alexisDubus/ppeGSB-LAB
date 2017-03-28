@@ -63,8 +63,7 @@ namespace gsbCsharp
 
         private void creationVisiteurToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCreateVisiteur creerUnVisiteur = new FormCreateVisiteur();
-            OUVRE_UNE_MDI_FILLE(creerUnVisiteur, this);
+            
         }
 
 

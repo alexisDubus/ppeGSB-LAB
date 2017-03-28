@@ -65,12 +65,6 @@
     <Compile Include="FormCreateMedecin.Designer.cs">
       <DependentUpon>FormCreateMedecin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCreateVisiteur.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormCreateVisiteur.Designer.cs">
-      <DependentUpon>FormCreateVisiteur.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormEditMedecin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +83,12 @@
     <Compile Include="FormListeVisiteur.Designer.cs">
       <DependentUpon>FormListeVisiteur.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViewVisiteVisiteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViewVisiteVisiteur.Designer.cs">
+      <DependentUpon>FormViewVisiteVisiteur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAcceuil.resx">
@@ -100,9 +100,6 @@
     <EmbeddedResource Include="FormCreatemedecin.resx">
       <DependentUpon>FormCreateMedecin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCreateVisiteur.resx">
-      <DependentUpon>FormCreateVisiteur.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormEditMedecin.resx">
       <DependentUpon>FormEditMedecin.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormListeVisiteur.resx">
       <DependentUpon>FormListeVisiteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViewVisiteVisiteur.resx">
+      <DependentUpon>FormViewVisiteVisiteur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

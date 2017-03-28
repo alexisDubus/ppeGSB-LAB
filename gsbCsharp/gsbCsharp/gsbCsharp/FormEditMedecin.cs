@@ -19,7 +19,7 @@ namespace gsbCsharp
         public FormEditMedecin(Medecin unMedecin)
         {
             InitializeComponent();
-            Passerelle.Passerelle.init();
+            //Passerelle.Passerelle.init();
             listeCabinet = Passerelle.Passerelle.returnAllCabinets();
             listeVisiteur = Passerelle.Passerelle.returnAllvisiteur();
             

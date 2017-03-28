@@ -7,17 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Passerelle;
+using Metier;
 
 namespace gsbCsharp
 {
-    public partial class FormCreateVisiteur : Form
+    public partial class FormViewVisiteVisiteur : Form
     {
-        public FormCreateVisiteur()
+        public FormViewVisiteVisiteur(Utilisateur unVisiteur)
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void FormViewVisiteVisiteur_Load(object sender, EventArgs e)
         {
 
         }

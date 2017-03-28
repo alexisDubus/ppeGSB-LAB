@@ -30,13 +30,12 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.VisiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.creationVisiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeVisiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.medecinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterMedecinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cabinetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterCabinetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,23 +57,15 @@
             // VisiteurToolStripMenuItem
             // 
             this.VisiteurToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.creationVisiteurToolStripMenuItem,
             this.listeVisiteurToolStripMenuItem});
             this.VisiteurToolStripMenuItem.Name = "VisiteurToolStripMenuItem";
             this.VisiteurToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
             this.VisiteurToolStripMenuItem.Text = "Visiteur";
             // 
-            // creationVisiteurToolStripMenuItem
-            // 
-            this.creationVisiteurToolStripMenuItem.Name = "creationVisiteurToolStripMenuItem";
-            this.creationVisiteurToolStripMenuItem.Size = new System.Drawing.Size(140, 26);
-            this.creationVisiteurToolStripMenuItem.Text = "Création";
-            this.creationVisiteurToolStripMenuItem.Click += new System.EventHandler(this.creationVisiteurToolStripMenuItem_Click);
-            // 
             // listeVisiteurToolStripMenuItem
             // 
             this.listeVisiteurToolStripMenuItem.Name = "listeVisiteurToolStripMenuItem";
-            this.listeVisiteurToolStripMenuItem.Size = new System.Drawing.Size(140, 26);
+            this.listeVisiteurToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.listeVisiteurToolStripMenuItem.Text = "Liste";
             this.listeVisiteurToolStripMenuItem.Click += new System.EventHandler(this.listeVisiteurToolStripMenuItem_Click);
             // 
@@ -90,9 +81,16 @@
             // ajouterMedecinToolStripMenuItem
             // 
             this.ajouterMedecinToolStripMenuItem.Name = "ajouterMedecinToolStripMenuItem";
-            this.ajouterMedecinToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.ajouterMedecinToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.ajouterMedecinToolStripMenuItem.Text = "Ajouter";
             this.ajouterMedecinToolStripMenuItem.Click += new System.EventHandler(this.ajouterMedecinToolStripMenuItem_Click);
+            // 
+            // listeToolStripMenuItem
+            // 
+            this.listeToolStripMenuItem.Name = "listeToolStripMenuItem";
+            this.listeToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.listeToolStripMenuItem.Text = "Liste";
+            this.listeToolStripMenuItem.Click += new System.EventHandler(this.listeToolStripMenuItem_Click);
             // 
             // cabinetToolStripMenuItem
             // 
@@ -108,13 +106,6 @@
             this.ajouterCabinetToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.ajouterCabinetToolStripMenuItem.Text = "Ajouter";
             this.ajouterCabinetToolStripMenuItem.Click += new System.EventHandler(this.ajouterToolStripMenuItem_Click);
-            // 
-            // listeToolStripMenuItem
-            // 
-            this.listeToolStripMenuItem.Name = "listeToolStripMenuItem";
-            this.listeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.listeToolStripMenuItem.Text = "Liste";
-            this.listeToolStripMenuItem.Click += new System.EventHandler(this.listeToolStripMenuItem_Click);
             // 
             // FormAcceuil
             // 
@@ -138,7 +129,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem VisiteurToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem creationVisiteurToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeVisiteurToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem medecinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajouterMedecinToolStripMenuItem;

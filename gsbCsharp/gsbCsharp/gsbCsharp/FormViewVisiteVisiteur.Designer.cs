@@ -1,6 +1,6 @@
 ﻿namespace gsbCsharp
 {
-    partial class FormCreateVisiteur
+    partial class FormViewVisiteVisiteur
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAddVisiteur = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnAddVisiteur
-            // 
-            this.btnAddVisiteur.Location = new System.Drawing.Point(149, 273);
-            this.btnAddVisiteur.Name = "btnAddVisiteur";
-            this.btnAddVisiteur.Size = new System.Drawing.Size(136, 23);
-            this.btnAddVisiteur.TabIndex = 0;
-            this.btnAddVisiteur.Text = "Ajouter";
-            this.btnAddVisiteur.UseVisualStyleBackColor = true;
-            this.btnAddVisiteur.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // FormCreateVisiteur
+            // FormViewVisiteVisiteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 342);
-            this.Controls.Add(this.btnAddVisiteur);
-            this.Name = "FormCreateVisiteur";
-            this.Text = "FormCreateVisiteur";
+            this.ClientSize = new System.Drawing.Size(957, 439);
+            this.Name = "FormViewVisiteVisiteur";
+            this.Text = "FormViewVisiteVisiteur";
+            this.Load += new System.EventHandler(this.FormViewVisiteVisiteur_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnAddVisiteur;
     }
 }
