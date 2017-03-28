@@ -73,6 +73,17 @@ namespace Passerelle
 
         #region Utilisateur
 
+        public static BindingList<Medecin> getListeMedecinVisiteur(Utilisateur unVisiteur)
+        {
+            BindingList<Medecin> liste = new BindingList<Medecin>();
+            foreach (Metier.Medecin leMedecin in listeDesMedecins)
+            {
+                if (unVisiteur == leMedecin.getVisiteur())
+                    liste.Add(leMedecin);
+            }
+            return liste;
+        }
+
 
         /// <summary>
         /// Retourne la liste des Visiteur, aucune requéte
