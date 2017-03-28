@@ -85,6 +85,54 @@ namespace Passerelle
         }
 
 
+        public static BindingList<Medecin> getListeMedecinVisiteur2(Utilisateur unVisiteur)
+        {
+            connexion();
+            BindingList<Medecin> listeMedecin = new BindingList<Medecin>();
+            MySqlCommand maCommande = maConnection.CreateCommand();
+            String requeteSelect = "Select * from medecin where idutilisateur = '"+ unVisiteur.getId() + "'";
+            maCommande.CommandText = requeteSelect;
+            MySqlDataReader unJeuResultat = maCommande.ExecuteReader();
+
+            while (unJeuResultat.Read())
+            {
+                int id = (int)unJeuResultat.GetInt16("id");
+                String nom = (String)unJeuResultat.GetString("nom");
+                String prenom = (String)unJeuResultat.GetString("prenom");
+                int idCabinet = (int)unJeuResultat.GetInt16("idcabinet");
+                String idUtilisateur = (String)unJeuResultat.GetString("idutilisateur");
+                try
+                {
+                    Utilisateur unUtilisateur = new Utilisateur();
+                    Cabinet unCabinet = new Cabinet();
+                    foreach (Metier.Utilisateur leVisiteur in listeDesVisiteurs)
+                    {
+                        if (idUtilisateur == leVisiteur.getId())
+                            unUtilisateur = leVisiteur;
+                    }
+
+                    foreach (Metier.Cabinet leCabinet in listeDesCabinets)
+                    {
+                        if (idCabinet == leCabinet.getId())
+                            unCabinet = leCabinet;
+                    }
+
+                    Medecin unMedecin = new Medecin(id, nom, prenom, unCabinet, unUtilisateur);
+                    listeMedecin.Add(unMedecin);
+
+                }
+                catch (Exception exeMedecin)
+                {
+
+                }
+                
+            }
+
+            unJeuResultat.Close();
+            return listeMedecin;
+        }
+
+
         /// <summary>
         /// Retourne la liste des Visiteur, aucune requéte
         /// </summary>
@@ -203,6 +251,7 @@ namespace Passerelle
             unJeuResultat.Close();
         }
 
+        
 
         public static void getAMedecin(MySqlDataReader unJeuResultat)
         {

@@ -38,12 +38,13 @@ namespace gsbCsharp
         private void comboBoxVisiteur_SelectedIndexChanged_2(object sender, EventArgs e)
         {
             Utilisateur unVisiteur = (Utilisateur)comboBoxVisiteur.SelectedItem;
-            
-            foreach (Metier.Medecin medecin in Passerelle.Passerelle.getListeMedecinVisiteur(unVisiteur))
+            //BindingList<Medecin> listeMedecin = Passerelle.Passerelle.getListeMedecinVisiteur(unVisiteur);
+            BindingList<Medecin> listeMedecin = Passerelle.Passerelle.getListeMedecinVisiteur2(unVisiteur);
+            foreach (Metier.Medecin medecin in  listeMedecin)
             {
                 comboBoxListeMedecin.Items.Add(medecin);
             }
-
+            comboBoxListeMedecin.SelectedItem = listeMedecin;
            
         }
 

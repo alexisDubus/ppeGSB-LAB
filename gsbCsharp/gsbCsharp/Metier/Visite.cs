@@ -18,6 +18,19 @@ namespace Metier
         private DateTime heureArrivee;
         private DateTime heureDepart;
         private DateTime heureDebut;
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
         #endregion
 
 
@@ -80,7 +93,7 @@ namespace Metier
         #region get
         public int getId()
         {
-            return this.id;
+            return this.Id;
         }
 
         public DateTime getDateVisite()
@@ -134,7 +147,7 @@ namespace Metier
 
         public void setId(int id)
         {
-            this.id = id;
+            this.Id = id;
         }
 
         public void setRdv(Boolean rdv)
