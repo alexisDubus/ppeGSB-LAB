@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.comboBoxVisiteur = new System.Windows.Forms.ComboBox();
-            this.btnMedecin = new System.Windows.Forms.Button();
             this.btnStat = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.comboBoxListeDepartement = new System.Windows.Forms.ComboBox();
@@ -42,23 +41,14 @@
             this.comboBoxVisiteur.FormattingEnabled = true;
             this.comboBoxVisiteur.Location = new System.Drawing.Point(56, 53);
             this.comboBoxVisiteur.Name = "comboBoxVisiteur";
-            this.comboBoxVisiteur.Size = new System.Drawing.Size(402, 24);
+            this.comboBoxVisiteur.Size = new System.Drawing.Size(538, 24);
             this.comboBoxVisiteur.TabIndex = 1;
+            this.comboBoxVisiteur.Text = "Cliquer pour choisir un visiteur";
             this.comboBoxVisiteur.SelectedIndexChanged += new System.EventHandler(this.comboBoxVisiteur_SelectedIndexChanged_2);
-            // 
-            // btnMedecin
-            // 
-            this.btnMedecin.Location = new System.Drawing.Point(56, 136);
-            this.btnMedecin.Name = "btnMedecin";
-            this.btnMedecin.Size = new System.Drawing.Size(186, 23);
-            this.btnMedecin.TabIndex = 2;
-            this.btnMedecin.Text = "Voir les Médecins";
-            this.btnMedecin.UseVisualStyleBackColor = true;
-            this.btnMedecin.Click += new System.EventHandler(this.btnMedecin_Click);
             // 
             // btnStat
             // 
-            this.btnStat.Location = new System.Drawing.Point(313, 136);
+            this.btnStat.Location = new System.Drawing.Point(449, 136);
             this.btnStat.Name = "btnStat";
             this.btnStat.Size = new System.Drawing.Size(145, 23);
             this.btnStat.TabIndex = 3;
@@ -68,9 +58,9 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(762, 136);
+            this.btnSearch.Location = new System.Drawing.Point(879, 53);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(182, 23);
+            this.btnSearch.Size = new System.Drawing.Size(129, 23);
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Rechercher";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -78,28 +68,31 @@
             // comboBoxListeDepartement
             // 
             this.comboBoxListeDepartement.FormattingEnabled = true;
-            this.comboBoxListeDepartement.Location = new System.Drawing.Point(762, 53);
+            this.comboBoxListeDepartement.Location = new System.Drawing.Point(676, 53);
             this.comboBoxListeDepartement.Name = "comboBoxListeDepartement";
             this.comboBoxListeDepartement.Size = new System.Drawing.Size(182, 24);
             this.comboBoxListeDepartement.TabIndex = 5;
+            this.comboBoxListeDepartement.Text = "Les régions";
             // 
             // comboBoxListeMedecin
             // 
             this.comboBoxListeMedecin.FormattingEnabled = true;
-            this.comboBoxListeMedecin.Location = new System.Drawing.Point(56, 284);
+            this.comboBoxListeMedecin.Location = new System.Drawing.Point(56, 136);
             this.comboBoxListeMedecin.Name = "comboBoxListeMedecin";
-            this.comboBoxListeMedecin.Size = new System.Drawing.Size(186, 24);
+            this.comboBoxListeMedecin.Size = new System.Drawing.Size(256, 24);
             this.comboBoxListeMedecin.TabIndex = 6;
+            this.comboBoxListeMedecin.Text = "Medecin du visiteur";
             this.comboBoxListeMedecin.SelectedIndexChanged += new System.EventHandler(this.comboBoxListeMedecin_SelectedIndexChanged);
             // 
             // btnShowMedecin
             // 
-            this.btnShowMedecin.Location = new System.Drawing.Point(56, 352);
+            this.btnShowMedecin.Location = new System.Drawing.Point(56, 204);
             this.btnShowMedecin.Name = "btnShowMedecin";
-            this.btnShowMedecin.Size = new System.Drawing.Size(186, 23);
+            this.btnShowMedecin.Size = new System.Drawing.Size(256, 23);
             this.btnShowMedecin.TabIndex = 7;
             this.btnShowMedecin.Text = "Voir ce médecin";
             this.btnShowMedecin.UseVisualStyleBackColor = true;
+            this.btnShowMedecin.Click += new System.EventHandler(this.btnShowMedecin_Click);
             // 
             // FormListeVisiteur
             // 
@@ -111,7 +104,6 @@
             this.Controls.Add(this.comboBoxListeDepartement);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnStat);
-            this.Controls.Add(this.btnMedecin);
             this.Controls.Add(this.comboBoxVisiteur);
             this.Name = "FormListeVisiteur";
             this.Text = "FormListeVisiteur";
@@ -122,7 +114,6 @@
 
         #endregion
         private System.Windows.Forms.ComboBox comboBoxVisiteur;
-        private System.Windows.Forms.Button btnMedecin;
         private System.Windows.Forms.Button btnStat;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ComboBox comboBoxListeDepartement;

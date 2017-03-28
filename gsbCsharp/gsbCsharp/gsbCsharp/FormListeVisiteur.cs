@@ -62,5 +62,12 @@ namespace gsbCsharp
         {
 
         }
+
+        private void btnShowMedecin_Click(object sender, EventArgs e)
+        {
+            Medecin unMedecin = (Medecin)comboBoxListeMedecin.SelectedItem;
+            FormEditMedecin editUnMedecin = new FormEditMedecin(unMedecin);
+            editUnMedecin.Show();
+        }
     }
 }
