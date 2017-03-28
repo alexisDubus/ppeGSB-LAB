@@ -15,16 +15,18 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     private static final String USER_KEY = "utilisateurId";
     private static final String USER_NAME = "utilisateurNom";
     private static final String USER_LASTNAME = "utilisateurPrenom";
-    private static final String USER_LOGIN = "utilisateurLogin";
-    private static final String USER_MDP = "utilisateurMdp";
+    //private static final String USER_LOGIN = "utilisateurLogin";
+    //private static final String USER_MDP = "utilisateurMdp";
+    private static final String USER_VERSION = "utilisateurVersion";
 
     private static final String USER_TABLE_CREATE =
             "CREATE TABLE " + USER_TABLE_NAME + " (" +
                     USER_KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     USER_NAME + " TEXT, " +
                     USER_LASTNAME + " TEXT, " +
-                    USER_LOGIN + " TEXT, " +
-                    USER_MDP + " TEXT);";
+                    //USER_LOGIN + " TEXT, " +
+                    //USER_MDP + " TEXT" +
+                    USER_VERSION + ");";
 
     public static final String USER_TABLE_DROP = "DROP TABLE IF EXISTS " + USER_TABLE_NAME + ";";
 
