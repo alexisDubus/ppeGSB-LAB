@@ -68,6 +68,11 @@ namespace gsbCsharp
             Medecin unMedecin = new Medecin(nom, prenom, unCabinet, unUtilisateur);
 
             Passerelle.Passerelle.addMedecin(unMedecin);
+
+            textBoxNomMedecin.Text = "";
+            textBoxPrenomMedecin.Text =  "";
+            comboBoxMedecinVisiteur.SelectedItem = "";
+            comboBoxMedecinCabinet.SelectedItem = "";
         }
     }
 }

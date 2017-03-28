@@ -49,25 +49,19 @@ namespace gsbCsharp
 
         private void comboBoxMedecin_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            //MessageBox.Show(sender.ToString());
-            //MessageBox.Show(e.GetType().ToString());
-            //var test = sender.GetType().ToString();
             Medecin unMedecin = (Medecin)comboBoxMedecin.SelectedItem;
             comboBoxMedecinCabinet.SelectedItem = unMedecin.getCabinet();
             comboBoxMedecinVisiteur.SelectedItem = unMedecin.getVisiteur();
-            //MessageBox.Show(unMedecin.getNom());
-            /*textBoxNomMedecin.Visible = true;
-            textBoxPrenomMedecin.Visible = true;
-            label1.Visible = true;
-            label2.Visible = true;
-            buttonModifMedicin.Visible = true;*/
             textBoxNomMedecin.Text = unMedecin.getNom();
             textBoxPrenomMedecin.Text = unMedecin.getPrenom();
         }
 
         private void btnEditMedecin_Click(object sender, EventArgs e)
         {
-            
+            comboBoxMedecinCabinet.SelectedItem = false;
+            comboBoxMedecinVisiteur.SelectedItem = false;
+            textBoxNomMedecin.Text = "";
+            textBoxPrenomMedecin.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
