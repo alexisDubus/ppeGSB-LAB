@@ -19,7 +19,7 @@ namespace gsbCsharp
         {
             InitializeComponent();
             listeVisiteur = Passerelle.Passerelle.getAllVisiteur();
-            Passerelle.Passerelle.init();
+            
             
             foreach (Metier.Utilisateur visiteur in listeVisiteur)
             {

@@ -48,3 +48,4 @@ C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.Prop
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.csproj.GenerateResource.Cache
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.exe
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.pdb
+C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormStatistique.resources

@@ -57,7 +57,7 @@ namespace gsbCsharp
                 leMedecin.setNom(textBoxNomMedecin.Text);
                 leMedecin.setPrenom(textBoxPrenomMedecin.Text);
                 Cabinet unCabinet = (Cabinet)comboBoxMedecinCabinet.SelectedItem;
-                Utilisateur unVisiteur = (Utilisateur)comboBoxMedecinCabinet.SelectedItem;
+                Utilisateur unVisiteur = (Utilisateur)comboBoxMedecinVisiteur.SelectedItem;
                 leMedecin.setCabinet(unCabinet);
                 leMedecin.setVisiteur(unVisiteur);
                 Passerelle.Passerelle.editMedecin(leMedecin);
