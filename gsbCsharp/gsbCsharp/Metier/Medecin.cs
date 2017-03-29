@@ -15,7 +15,35 @@ namespace Metier
         private String nom;
         private String prenom;
 
+
+
         #endregion
+
+        public string Nom
+        {
+            get
+            {
+                return nom;
+            }
+
+            set
+            {
+                nom = value;
+            }
+        }
+
+        public string Prenom
+        {
+            get
+            {
+                return prenom;
+            }
+
+            set
+            {
+                prenom = value;
+            }
+        }
 
         /// <summary>
         /// créé un Médecin avec tout les paramétre disponible
@@ -98,12 +126,12 @@ namespace Metier
 
         public String getNom()
         {
-            return this.nom;
+            return this.Nom;
         }
 
         public String getPrenom()
         {
-            return this.prenom;
+            return this.Prenom;
         }
 
         public Cabinet getCabinet()
@@ -126,12 +154,12 @@ namespace Metier
 
         public void setNom(String nom)
         {
-            this.nom = nom; 
+            this.Nom = nom; 
         }
 
         public void setPrenom(String prenom)
         {
-            this.prenom = prenom;
+            this.Prenom = prenom;
         }
 
         
