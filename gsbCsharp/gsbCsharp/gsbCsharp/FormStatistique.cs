@@ -23,7 +23,19 @@ namespace gsbCsharp
 
         public void statistiques(Utilisateur unUtilisateur)
         {
-            BindingList<Visite> lesVisites = Passerelle.Passerelle.returnAllVisite(); 
+            BindingList<Visite> lesVisites = Passerelle.Passerelle.returnAllVisite();
+            BindingList<Visite> lesVisitesUtilisateur = new BindingList<Visite>();
+            foreach(Visite uneVisite in lesVisites)
+            {
+                if (uneVisite.getHeureDebut().Month == DateTime.Now.Month)
+                {
+                    if (uneVisite.getVisiteur().getId() == unUtilisateur.getId())
+                    {
+                        lesVisitesUtilisateur.Add(uneVisite);
+                    }
+                }
+            }
+            lblStat2.Text = lesVisitesUtilisateur.Count.ToString();
         }
 
         private void FormStatistique_Load(object sender, EventArgs e)
