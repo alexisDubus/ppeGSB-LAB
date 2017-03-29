@@ -25,19 +25,25 @@ namespace gsbCsharp
         {
             BindingList<Visite> lesVisites = Passerelle.Passerelle.returnAllVisite();
             BindingList<Visite> lesVisitesUtilisateur = new BindingList<Visite>();
-            foreach(Visite uneVisite in lesVisites)
+            BindingList<TimeSpan> lesTempsAttente = new BindingList<TimeSpan>();
+            BindingList<TimeSpan> tempsTotal = new BindingList<TimeSpan>();
+            foreach (Visite uneVisite in lesVisites)
             {
                 if (uneVisite.getHeureDebut().Month == DateTime.Now.Month)
                 {
                     if (uneVisite.getVisiteur().getId() == unUtilisateur.getId())
                     {
                         lesVisitesUtilisateur.Add(uneVisite);
+                        lesTempsAttente.Add(uneVisite.getHeureDepart() - uneVisite.getHeureDebut());
+                        tempsTotal.Add(uneVisite.getHeureDepart() - uneVisite.getHeureArrivee());
                     }
                 }
             }
             lblStat2.Text = lesVisitesUtilisateur.Count.ToString();
-
-
+            TimeSpan tempsAttenteMoyen = TimeSpan.FromMilliseconds(lesTempsAttente.Average(i => i.TotalMilliseconds));
+            TimeSpan tempsPasseMoyen = TimeSpan.FromMilliseconds(tempsTotal.Average(i => i.TotalMilliseconds));
+            lblStat3.Text = tempsPasseMoyen.Hours + " h " + tempsPasseMoyen.Minutes + " min " + tempsPasseMoyen.Seconds + " sec"; ;
+            lblStat4.Text = tempsAttenteMoyen.Hours + " h " + tempsAttenteMoyen.Minutes + " min " + tempsAttenteMoyen.Seconds + " sec";
         }
 
         private void FormStatistique_Load(object sender, EventArgs e)
