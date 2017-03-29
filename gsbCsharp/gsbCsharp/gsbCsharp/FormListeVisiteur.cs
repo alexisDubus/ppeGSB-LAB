@@ -19,14 +19,12 @@ namespace gsbCsharp
         public FormListeVisiteur()
         {
             InitializeComponent();
-            listeVisiteur = Passerelle.Passerelle.getAllVisiteur();
-            //listeDepartements.add
+            listeVisiteur = Passerelle.Passerelle.returnAllvisiteur();
 
             foreach (Metier.Utilisateur visiteur in listeVisiteur)
             {
                 comboBoxVisiteur.Items.Add(visiteur);
             }
-
 
         }
         
@@ -73,6 +71,19 @@ namespace gsbCsharp
 
         private void comboBoxListeDepartement_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            String uneRegion = (String)textBoxDepartements.Text;
+            listeVisiteur = Passerelle.Passerelle.getVisiteurByRegion(uneRegion);
+
+            comboBoxVisiteur.Items.Clear();
+            foreach (Metier.Utilisateur visiteur in listeVisiteur)
+            {
+                comboBoxVisiteur.Items.Add(visiteur);
+            }
 
         }
     }

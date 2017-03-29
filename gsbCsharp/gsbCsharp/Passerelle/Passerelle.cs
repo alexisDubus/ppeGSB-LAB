@@ -19,7 +19,7 @@ namespace Passerelle
     /// </summary>
     public static class Passerelle
     {
-        
+        public static BindingList<String> listeDepartements = new BindingList<String>();
         private static BindingList<Medecin> listeDesMedecins = new BindingList<Medecin>();
         private static BindingList<Cabinet> listeDesCabinets = new BindingList<Cabinet>();
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
@@ -68,7 +68,34 @@ namespace Passerelle
             listeDesMedecins = getAllMedecin();
             
             listeDesVisites = getAllVisite();
+
+            initListeDepartements();
         }
+
+        public static void initListeDepartements()
+        {
+            BindingList<String> listeReset = new BindingList<String>();
+            listeDepartements = listeReset;
+            for (int i = 1; i <= 9; i++)
+            {
+                listeDepartements.Add("0"+ i.ToString() +"000");
+            }
+            for (int i = 10; i <= 95; i++)
+            {
+                listeDepartements.Add(i.ToString() + "000");
+            }
+            listeDepartements.Add("97100");
+            listeDepartements.Add("97200");
+            listeDepartements.Add("97300");
+            listeDepartements.Add("97400");
+            listeDepartements.Add("97600");
+        }
+
+        public static BindingList<String> returnListeDepartements()
+        {
+            return listeDepartements;
+        }
+            
 
         #region Utilisateur
 
@@ -86,7 +113,11 @@ namespace Passerelle
             return liste;
         }
 
-
+        /// <summary>
+        /// Inutilisé
+        /// </summary>
+        /// <param name="unVisiteur"></param>
+        /// <returns></returns>
         public static BindingList<Medecin> getListeMedecinVisiteur(Utilisateur unVisiteur)
         {
             connexion();
@@ -326,6 +357,28 @@ namespace Passerelle
             maCommande.ExecuteNonQuery();
             init();
         }
+
+
+        /// <summary>
+        /// Retourne une liste de visiteurs en fonction de leur code postal (CP)
+        /// </summary>
+        /// <param name="region"></param>
+        /// <returns></returns>
+        public static BindingList<Utilisateur> getVisiteurByRegion(String region)
+        {
+            BindingList<Utilisateur> liste = new BindingList<Utilisateur>();
+            foreach (Metier.Utilisateur unVisiteur in listeDesVisiteurs)
+            {
+                if(region.Length == 5)
+                {
+                    region = region.Substring(0, 2);
+                }
+                if (unVisiteur.getCp().StartsWith(region))
+                    liste.Add(unVisiteur);
+            }
+            return liste;
+        }
+
 
         #endregion
 
