@@ -55,7 +55,8 @@ namespace gsbCsharp
 
         private void btnStat_Click(object sender, EventArgs e)
         {
-
+            FormStatistique statistique = new FormStatistique((Utilisateur)comboBoxVisiteur.SelectedItem);
+            statistique.Show();
         }
 
         private void comboBoxListeMedecin_SelectedIndexChanged(object sender, EventArgs e)
