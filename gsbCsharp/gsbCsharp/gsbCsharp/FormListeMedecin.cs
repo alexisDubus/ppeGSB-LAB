@@ -57,8 +57,7 @@ namespace gsbCsharp
 
         private void btnEditMedecin_Click(object sender, EventArgs e)
         {
-            comboBoxMedecinCabinet.SelectedItem = false;
-            comboBoxMedecinVisiteur.SelectedItem = false;
+            
             textBoxNomMedecin.Text = "";
             textBoxPrenomMedecin.Text = "";
         }
