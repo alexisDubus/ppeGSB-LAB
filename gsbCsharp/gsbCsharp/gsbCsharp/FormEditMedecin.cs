@@ -16,8 +16,10 @@ namespace gsbCsharp
     {
         public static BindingList<Utilisateur> listeVisiteur = new BindingList<Utilisateur>();
         public static BindingList<Cabinet> listeCabinet = new BindingList<Cabinet>();
+        public static Medecin leMedecin = new Medecin();
         public FormEditMedecin(Medecin unMedecin)
         {
+            leMedecin = unMedecin;
             InitializeComponent();
             //Passerelle.Passerelle.init();
             listeCabinet = Passerelle.Passerelle.returnAllCabinets();
@@ -46,7 +48,20 @@ namespace gsbCsharp
 
         private void btnEditMedecin_Click(object sender, EventArgs e)
         {
-
+            if(textBoxNomMedecin.Text == "" || textBoxNomMedecin.Text == " " || textBoxPrenomMedecin.Text == "" || textBoxPrenomMedecin.Text == " ")
+            {
+                MessageBox.Show("le nom/prénom ne doit pas étre vide! ");
+            }
+            else
+            {
+                leMedecin.setNom(textBoxNomMedecin.Text);
+                leMedecin.setPrenom(textBoxPrenomMedecin.Text);
+                Cabinet unCabinet = (Cabinet)comboBoxMedecinCabinet.SelectedItem;
+                Utilisateur unVisiteur = (Utilisateur)comboBoxMedecinCabinet.SelectedItem;
+                leMedecin.setCabinet(unCabinet);
+                leMedecin.setVisiteur(unVisiteur);
+                Passerelle.Passerelle.editMedecin(leMedecin);
+            }
         }
     }
 }

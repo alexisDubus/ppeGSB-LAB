@@ -74,6 +74,7 @@
             this.comboBoxListeDepartement.Size = new System.Drawing.Size(182, 24);
             this.comboBoxListeDepartement.TabIndex = 5;
             this.comboBoxListeDepartement.Text = "Trier par départements";
+            this.comboBoxListeDepartement.SelectedIndexChanged += new System.EventHandler(this.comboBoxListeDepartement_SelectedIndexChanged);
             // 
             // comboBoxListeMedecin
             // 

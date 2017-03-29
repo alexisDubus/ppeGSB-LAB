@@ -20,6 +20,7 @@ namespace gsbCsharp
             InitializeComponent();
             listeVisiteur = Passerelle.Passerelle.getAllVisiteur();
             Passerelle.Passerelle.init();
+            
             foreach (Metier.Utilisateur visiteur in listeVisiteur)
             {
                 comboBoxVisiteur.Items.Add(visiteur);
@@ -38,8 +39,8 @@ namespace gsbCsharp
         private void comboBoxVisiteur_SelectedIndexChanged_2(object sender, EventArgs e)
         {
             Utilisateur unVisiteur = (Utilisateur)comboBoxVisiteur.SelectedItem;
-            //BindingList<Medecin> listeMedecin = Passerelle.Passerelle.getListeMedecinVisiteur(unVisiteur);
             BindingList<Medecin> listeMedecin = Passerelle.Passerelle.getListeMedecinVisiteur2(unVisiteur);
+            comboBoxListeMedecin.Items.Clear();
             foreach (Metier.Medecin medecin in  listeMedecin)
             {
                 comboBoxListeMedecin.Items.Add(medecin);
@@ -73,9 +74,14 @@ namespace gsbCsharp
 
         private void btnVoirVisites_Click(object sender, EventArgs e)
         {
-            Utilisateur unVisiteur = (Utilisateur)comboBoxListeMedecin.SelectedItem;
+            Utilisateur unVisiteur = (Utilisateur)comboBoxVisiteur.SelectedItem;
             FormViewVisiteVisiteur showVisiteVisiteur = new FormViewVisiteVisiteur(unVisiteur);
             showVisiteVisiteur.Show();
+        }
+
+        private void comboBoxListeDepartement_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

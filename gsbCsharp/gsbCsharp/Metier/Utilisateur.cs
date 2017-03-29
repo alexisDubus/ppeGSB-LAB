@@ -25,6 +25,7 @@ namespace Metier
         private String idRole;
         private String email;
         private int version;
+        
         #endregion
 
 

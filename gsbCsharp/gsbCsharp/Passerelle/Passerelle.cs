@@ -48,14 +48,13 @@ namespace Passerelle
                 {
                     case 0:
                         throw new Exception("Cannot connect to server.  Contact administrator");
-                        break;
+                       
                     case 1042:
                         throw new Exception("Unable to connect to any of the specified MySQL hosts.");
-                        break;
 
                     case 1045:
                         throw new Exception("Invalid username/password, please try again");
-                        break;
+                       
                 }
             }
         }
@@ -288,12 +287,15 @@ namespace Passerelle
 
         }
 
-
+        /// <summary>
+        /// Insére le médecin donné en paramétre dans la BDD
+        /// </summary>
+        /// <param name="medecin"></param>
         public static void addMedecin(Medecin medecin)
         {
             connexion();
             MySqlCommand maCommande = maConnection.CreateCommand();
-            maCommande.CommandText = "INSERT INTO medecin(nom, prenom, idCabinet, idUtilisateur) VALUES(@nom, @prenom, @idCabinet, @idUtilisateur);";
+            maCommande.CommandText = "INSERT INTO medecin(nom, prenom, idCabinet, idUtilisateur) VALUES(@nom, @prenom, @idcabinet, @idutilisateur);";
             maCommande.Parameters.AddWithValue("@nom", medecin.getNom());
             maCommande.Parameters.AddWithValue("@prenom", medecin.getPrenom());
             maCommande.Parameters.AddWithValue("@idCabinet", medecin.getCabinet().getId());
@@ -303,6 +305,23 @@ namespace Passerelle
             int lastId = (int)maCommande.LastInsertedId;
             medecin.setId(lastId);
             listeDesMedecins.Add(medecin);
+        }
+
+        public static void editMedecin(Medecin medecin)
+        {
+            connexion();
+            MySqlCommand maCommande = maConnection.CreateCommand();
+           /* MySqlCommand maCommande = maConnection.CreateCommand();
+            maCommande.CommandText = "UPDATE  medecin set nom = '" + medecin.getNom() + "', prenom = '" + medecin.getPrenom() + "', idcabinet = '" + medecin.getCabinet().getId() + "', idutilisateur = '" + medecin.getVisiteur().getId() + "' where medecin.id = '" + medecin.getId() + "'"; */
+            maCommande.CommandText = "UPDATE  medecin set nom = @nom, prenom = @prenom, idcabinet = @idCabinet, idutilisateur = @idUtilisateur where medecin.id = @id";
+            maCommande.Parameters.AddWithValue("@id", medecin.getId());
+            maCommande.Parameters.AddWithValue("@nom", medecin.getNom());
+            maCommande.Parameters.AddWithValue("@prenom", medecin.getPrenom());
+            maCommande.Parameters.AddWithValue("@idCabinet", medecin.getCabinet().getId());
+            maCommande.Parameters.AddWithValue("@idUtilisateur", medecin.getVisiteur().getId());
+
+            maCommande.ExecuteNonQuery();
+            init();
         }
 
         #endregion

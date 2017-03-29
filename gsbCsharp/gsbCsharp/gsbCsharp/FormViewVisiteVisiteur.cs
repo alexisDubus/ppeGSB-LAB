@@ -14,9 +14,18 @@ namespace gsbCsharp
 {
     public partial class FormViewVisiteVisiteur : Form
     {
+        public static BindingList<Medecin> listeMedecin = new BindingList<Medecin>();
         public FormViewVisiteVisiteur(Utilisateur unVisiteur)
         {
             InitializeComponent();
+            Passerelle.Passerelle.init();
+            listeMedecin = Passerelle.Passerelle.returnAllMedecin();
+
+            foreach (Metier.Medecin leMedecin in listeMedecin)
+            {
+                comboBoxMedecin.Items.Add(leMedecin);
+            }
+            //comboBoxMedecin.SelectedItem = unVisiteur.get();
         }
 
         private void FormViewVisiteVisiteur_Load(object sender, EventArgs e)

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Metier;
+using Passerelle;
 
 namespace gsbCsharp
 {
@@ -22,7 +23,7 @@ namespace gsbCsharp
 
         public void statistiques(Utilisateur unUtilisateur)
         {
-
+            BindingList<Visite> lesVisites = Passerelle.Passerelle.returnAllVisite(); 
         }
 
         private void FormStatistique_Load(object sender, EventArgs e)
