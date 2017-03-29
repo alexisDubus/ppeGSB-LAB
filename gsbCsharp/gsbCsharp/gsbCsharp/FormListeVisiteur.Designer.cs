@@ -31,9 +31,9 @@
             this.comboBoxVisiteur = new System.Windows.Forms.ComboBox();
             this.btnStat = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.comboBoxListeDepartement = new System.Windows.Forms.ComboBox();
             this.btnShowMedecin = new System.Windows.Forms.Button();
             this.dataGridViewMedecin = new System.Windows.Forms.DataGridView();
+            this.textBoxDepartements = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedecin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +51,7 @@
             // 
             this.btnStat.Location = new System.Drawing.Point(436, 111);
             this.btnStat.Name = "btnStat";
-            this.btnStat.Size = new System.Drawing.Size(178, 23);
+            this.btnStat.Size = new System.Drawing.Size(178, 24);
             this.btnStat.TabIndex = 3;
             this.btnStat.Text = "Voir les Statistiques";
             this.btnStat.UseVisualStyleBackColor = true;
@@ -61,26 +61,17 @@
             // 
             this.btnSearch.Location = new System.Drawing.Point(879, 53);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(129, 23);
+            this.btnSearch.Size = new System.Drawing.Size(137, 24);
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Rechercher";
             this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxListeDepartement
-            // 
-            this.comboBoxListeDepartement.FormattingEnabled = true;
-            this.comboBoxListeDepartement.Location = new System.Drawing.Point(676, 53);
-            this.comboBoxListeDepartement.Name = "comboBoxListeDepartement";
-            this.comboBoxListeDepartement.Size = new System.Drawing.Size(182, 24);
-            this.comboBoxListeDepartement.TabIndex = 5;
-            this.comboBoxListeDepartement.Text = "Filtrer par départements";
-            this.comboBoxListeDepartement.SelectedIndexChanged += new System.EventHandler(this.comboBoxListeDepartement_SelectedIndexChanged);
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnShowMedecin
             // 
-            this.btnShowMedecin.Location = new System.Drawing.Point(56, 300);
+            this.btnShowMedecin.Location = new System.Drawing.Point(56, 453);
             this.btnShowMedecin.Name = "btnShowMedecin";
-            this.btnShowMedecin.Size = new System.Drawing.Size(170, 23);
+            this.btnShowMedecin.Size = new System.Drawing.Size(170, 27);
             this.btnShowMedecin.TabIndex = 7;
             this.btnShowMedecin.Text = "Voir ce médecin";
             this.btnShowMedecin.UseVisualStyleBackColor = true;
@@ -92,17 +83,27 @@
             this.dataGridViewMedecin.Location = new System.Drawing.Point(56, 111);
             this.dataGridViewMedecin.Name = "dataGridViewMedecin";
             this.dataGridViewMedecin.RowTemplate.Height = 24;
-            this.dataGridViewMedecin.Size = new System.Drawing.Size(354, 150);
+            this.dataGridViewMedecin.Size = new System.Drawing.Size(354, 313);
             this.dataGridViewMedecin.TabIndex = 8;
+            // 
+            // textBoxDepartements
+            // 
+            this.textBoxDepartements.AccessibleDescription = "Premiére lettre du code postal";
+            this.textBoxDepartements.AccessibleName = "Premiére lettre du code postal";
+            this.textBoxDepartements.Location = new System.Drawing.Point(691, 55);
+            this.textBoxDepartements.Name = "textBoxDepartements";
+            this.textBoxDepartements.Size = new System.Drawing.Size(182, 22);
+            this.textBoxDepartements.TabIndex = 9;
+            this.textBoxDepartements.Tag = "";
             // 
             // FormListeVisiteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1159, 503);
+            this.Controls.Add(this.textBoxDepartements);
             this.Controls.Add(this.dataGridViewMedecin);
             this.Controls.Add(this.btnShowMedecin);
-            this.Controls.Add(this.comboBoxListeDepartement);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnStat);
             this.Controls.Add(this.comboBoxVisiteur);
@@ -111,6 +112,7 @@
             this.Load += new System.EventHandler(this.FormListeVisiteur_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedecin)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -118,8 +120,8 @@
         private System.Windows.Forms.ComboBox comboBoxVisiteur;
         private System.Windows.Forms.Button btnStat;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.ComboBox comboBoxListeDepartement;
         private System.Windows.Forms.Button btnShowMedecin;
         private System.Windows.Forms.DataGridView dataGridViewMedecin;
+        private System.Windows.Forms.TextBox textBoxDepartements;
     }
 }
