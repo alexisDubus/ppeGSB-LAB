@@ -83,6 +83,12 @@
     <Compile Include="FormListeVisiteur.Designer.cs">
       <DependentUpon>FormListeVisiteur.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormStatistique.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStatistique.Designer.cs">
+      <DependentUpon>FormStatistique.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViewVisiteVisiteur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormListeVisiteur.resx">
       <DependentUpon>FormListeVisiteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStatistique.resx">
+      <DependentUpon>FormStatistique.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViewVisiteVisiteur.resx">
       <DependentUpon>FormViewVisiteVisiteur.cs</DependentUpon>
