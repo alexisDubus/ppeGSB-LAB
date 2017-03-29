@@ -36,6 +36,8 @@ namespace gsbCsharp
                 }
             }
             lblStat2.Text = lesVisitesUtilisateur.Count.ToString();
+
+
         }
 
         private void FormStatistique_Load(object sender, EventArgs e)
