@@ -19,6 +19,7 @@ namespace gsbCsharp
         public FormAcceuil()
         {
             InitializeComponent();
+            Passerelle.Passerelle.init();
         }
         /// <summary>
         /// ferme la feuille ouverte précdemment et ouvre la nouvelle feuille

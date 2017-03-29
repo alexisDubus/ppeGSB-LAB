@@ -23,7 +23,7 @@ namespace gsbCsharp
         {
             InitializeComponent();
 
-            Passerelle.Passerelle.init();
+            
             listeDesCabinets = Passerelle.Passerelle.returnAllCabinets();
             listeDesVisiteur = Passerelle.Passerelle.returnAllvisiteur();
             

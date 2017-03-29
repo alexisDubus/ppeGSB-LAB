@@ -18,7 +18,7 @@ namespace gsbCsharp
         public FormViewVisiteVisiteur(Utilisateur unVisiteur)
         {
             InitializeComponent();
-            Passerelle.Passerelle.init();
+            
             listeMedecin = Passerelle.Passerelle.returnAllMedecin();
 
             foreach (Metier.Medecin leMedecin in listeMedecin)

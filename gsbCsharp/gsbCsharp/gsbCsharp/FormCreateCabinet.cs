@@ -35,5 +35,10 @@ namespace gsbCsharp
             Cabinet unCabinet = new Cabinet(rue, CP, ville, longitude, latitude);
             Passerelle.Passerelle.addCabinet(unCabinet);
         }
+
+        private void FormCreateCabinet_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

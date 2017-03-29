@@ -21,7 +21,6 @@ namespace gsbCsharp
         public FormListeMedecin()
         {
             InitializeComponent();
-            Passerelle.Passerelle.init();
             listeCabinet = Passerelle.Passerelle.returnAllCabinets();
             listeMedecin = Passerelle.Passerelle.returnAllMedecin();
             listeVisiteur = Passerelle.Passerelle.returnAllvisiteur();

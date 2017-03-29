@@ -110,6 +110,7 @@
             this.Controls.Add(this.btnCreateCabinet);
             this.Name = "FormCreateCabinet";
             this.Text = "GSB : création d\'un cabinet";
+            this.Load += new System.EventHandler(this.FormCreateCabinet_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
