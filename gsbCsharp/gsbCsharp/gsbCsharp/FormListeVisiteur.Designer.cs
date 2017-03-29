@@ -32,9 +32,9 @@
             this.btnStat = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.comboBoxListeDepartement = new System.Windows.Forms.ComboBox();
-            this.comboBoxListeMedecin = new System.Windows.Forms.ComboBox();
             this.btnShowMedecin = new System.Windows.Forms.Button();
-            this.btnVoirVisites = new System.Windows.Forms.Button();
+            this.dataGridViewMedecin = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedecin)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxVisiteur
@@ -42,16 +42,16 @@
             this.comboBoxVisiteur.FormattingEnabled = true;
             this.comboBoxVisiteur.Location = new System.Drawing.Point(56, 53);
             this.comboBoxVisiteur.Name = "comboBoxVisiteur";
-            this.comboBoxVisiteur.Size = new System.Drawing.Size(538, 24);
+            this.comboBoxVisiteur.Size = new System.Drawing.Size(558, 24);
             this.comboBoxVisiteur.TabIndex = 1;
             this.comboBoxVisiteur.Text = "Cliquer pour choisir un visiteur";
             this.comboBoxVisiteur.SelectedIndexChanged += new System.EventHandler(this.comboBoxVisiteur_SelectedIndexChanged_2);
             // 
             // btnStat
             // 
-            this.btnStat.Location = new System.Drawing.Point(449, 136);
+            this.btnStat.Location = new System.Drawing.Point(436, 111);
             this.btnStat.Name = "btnStat";
-            this.btnStat.Size = new System.Drawing.Size(145, 23);
+            this.btnStat.Size = new System.Drawing.Size(178, 23);
             this.btnStat.TabIndex = 3;
             this.btnStat.Text = "Voir les Statistiques";
             this.btnStat.UseVisualStyleBackColor = true;
@@ -73,22 +73,12 @@
             this.comboBoxListeDepartement.Name = "comboBoxListeDepartement";
             this.comboBoxListeDepartement.Size = new System.Drawing.Size(182, 24);
             this.comboBoxListeDepartement.TabIndex = 5;
-            this.comboBoxListeDepartement.Text = "Trier par départements";
+            this.comboBoxListeDepartement.Text = "Filtrer par départements";
             this.comboBoxListeDepartement.SelectedIndexChanged += new System.EventHandler(this.comboBoxListeDepartement_SelectedIndexChanged);
-            // 
-            // comboBoxListeMedecin
-            // 
-            this.comboBoxListeMedecin.FormattingEnabled = true;
-            this.comboBoxListeMedecin.Location = new System.Drawing.Point(56, 136);
-            this.comboBoxListeMedecin.Name = "comboBoxListeMedecin";
-            this.comboBoxListeMedecin.Size = new System.Drawing.Size(170, 24);
-            this.comboBoxListeMedecin.TabIndex = 6;
-            this.comboBoxListeMedecin.Text = "Medecin du visiteur";
-            this.comboBoxListeMedecin.SelectedIndexChanged += new System.EventHandler(this.comboBoxListeMedecin_SelectedIndexChanged);
             // 
             // btnShowMedecin
             // 
-            this.btnShowMedecin.Location = new System.Drawing.Point(56, 204);
+            this.btnShowMedecin.Location = new System.Drawing.Point(56, 300);
             this.btnShowMedecin.Name = "btnShowMedecin";
             this.btnShowMedecin.Size = new System.Drawing.Size(170, 23);
             this.btnShowMedecin.TabIndex = 7;
@@ -96,24 +86,22 @@
             this.btnShowMedecin.UseVisualStyleBackColor = true;
             this.btnShowMedecin.Click += new System.EventHandler(this.btnShowMedecin_Click);
             // 
-            // btnVoirVisites
+            // dataGridViewMedecin
             // 
-            this.btnVoirVisites.Location = new System.Drawing.Point(275, 137);
-            this.btnVoirVisites.Name = "btnVoirVisites";
-            this.btnVoirVisites.Size = new System.Drawing.Size(145, 23);
-            this.btnVoirVisites.TabIndex = 8;
-            this.btnVoirVisites.Text = "Voir les Visites";
-            this.btnVoirVisites.UseVisualStyleBackColor = true;
-            this.btnVoirVisites.Click += new System.EventHandler(this.btnVoirVisites_Click);
+            this.dataGridViewMedecin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMedecin.Location = new System.Drawing.Point(56, 111);
+            this.dataGridViewMedecin.Name = "dataGridViewMedecin";
+            this.dataGridViewMedecin.RowTemplate.Height = 24;
+            this.dataGridViewMedecin.Size = new System.Drawing.Size(354, 150);
+            this.dataGridViewMedecin.TabIndex = 8;
             // 
             // FormListeVisiteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1159, 503);
-            this.Controls.Add(this.btnVoirVisites);
+            this.Controls.Add(this.dataGridViewMedecin);
             this.Controls.Add(this.btnShowMedecin);
-            this.Controls.Add(this.comboBoxListeMedecin);
             this.Controls.Add(this.comboBoxListeDepartement);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnStat);
@@ -121,6 +109,7 @@
             this.Name = "FormListeVisiteur";
             this.Text = "Liste des visiteurs";
             this.Load += new System.EventHandler(this.FormListeVisiteur_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedecin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -130,8 +119,7 @@
         private System.Windows.Forms.Button btnStat;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ComboBox comboBoxListeDepartement;
-        private System.Windows.Forms.ComboBox comboBoxListeMedecin;
         private System.Windows.Forms.Button btnShowMedecin;
-        private System.Windows.Forms.Button btnVoirVisites;
+        private System.Windows.Forms.DataGridView dataGridViewMedecin;
     }
 }

@@ -15,12 +15,13 @@ namespace gsbCsharp
     public partial class FormListeVisiteur : Form
     {
         public static BindingList<Utilisateur> listeVisiteur = new BindingList<Utilisateur>();
+        public static BindingList<String> listeDepartements = new BindingList<String>();
         public FormListeVisiteur()
         {
             InitializeComponent();
             listeVisiteur = Passerelle.Passerelle.getAllVisiteur();
-            
-            
+            //listeDepartements.add
+
             foreach (Metier.Utilisateur visiteur in listeVisiteur)
             {
                 comboBoxVisiteur.Items.Add(visiteur);
@@ -40,12 +41,9 @@ namespace gsbCsharp
         {
             Utilisateur unVisiteur = (Utilisateur)comboBoxVisiteur.SelectedItem;
             BindingList<Medecin> listeMedecin = Passerelle.Passerelle.getListeMedecinVisiteur2(unVisiteur);
-            comboBoxListeMedecin.Items.Clear();
-            foreach (Metier.Medecin medecin in  listeMedecin)
-            {
-                comboBoxListeMedecin.Items.Add(medecin);
-            }
-            comboBoxListeMedecin.SelectedItem = listeMedecin;
+
+            dataGridViewMedecin.DataSource = listeMedecin;
+
            
         }
 
@@ -67,17 +65,11 @@ namespace gsbCsharp
 
         private void btnShowMedecin_Click(object sender, EventArgs e)
         {
-            Medecin unMedecin = (Medecin)comboBoxListeMedecin.SelectedItem;
+           /* Medecin unMedecin = (Medecin)dataGridViewMedecin.SelectedCells.
             FormEditMedecin editUnMedecin = new FormEditMedecin(unMedecin);
-            editUnMedecin.Show();
+            editUnMedecin.Show(); */
         }
-
-        private void btnVoirVisites_Click(object sender, EventArgs e)
-        {
-            Utilisateur unVisiteur = (Utilisateur)comboBoxVisiteur.SelectedItem;
-            FormViewVisiteVisiteur showVisiteVisiteur = new FormViewVisiteVisiteur(unVisiteur);
-            showVisiteVisiteur.Show();
-        }
+        
 
         private void comboBoxListeDepartement_SelectedIndexChanged(object sender, EventArgs e)
         {
