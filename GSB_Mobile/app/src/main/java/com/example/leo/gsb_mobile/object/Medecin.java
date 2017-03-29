@@ -9,10 +9,10 @@ public class Medecin {
 
     private String nom;
     private String prenom;
-    private long idUtilisateur;
-    private long idCabinet;
+    private String idUtilisateur;
+    private String idCabinet;
 
-    public Medecin( String nom, String prenom, long idUtilisateur, long idCabinet) {
+    public Medecin( String nom, String prenom, String idCabinet, String idUtilisateur) {
         super();
         this.nom = nom;
         this.prenom = prenom;
@@ -38,19 +38,19 @@ public class Medecin {
         this.prenom = prenom;
     }
 
-    public long getIdUtilisateur() {
+    public String getIdUtilisateur() {
         return idUtilisateur;
     }
 
-    public void setIdUtilisateur(long idUtilisateur) {
+    public void setIdUtilisateur(String idUtilisateur) {
         this.idUtilisateur = idUtilisateur;
     }
 
-    public long getIdCabinet() {
+    public String getIdCabinet() {
         return idCabinet;
     }
 
-    public void setIdCabinet(long idCabinet) {
+    public void setIdCabinet(String idCabinet) {
         this.idCabinet = idCabinet;
     }
 }

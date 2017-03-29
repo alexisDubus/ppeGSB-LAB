@@ -63,8 +63,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                     MEDECIN_KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     MEDECIN_NAME + " TEXT, " +
                     MEDECIN_LASTNAME + " TEXT, " +
-                    CABINET_KEY + " INTEGER, " +
-                    USER_KEY + " INTEGER);";
+                    CABINET_KEY + " TEXT, " +
+                    USER_KEY + " TEXT);";
 
     public static final String MEDECIN_TABLE_DROP = "DROP TABLE IF EXISTS " + MEDECIN_TABLE_NAME + ";";
 
@@ -85,8 +85,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                     VISITE_HOUR_ARRIVE + " TEXT, " +
                     VISITE_HOUR_START + " TEXT, " +
                     VISITE_HOUR_END + " TEXT, " +
-                    MEDECIN_KEY + " INTEGER, " +
-                    USER_KEY + " INTEGER);";
+                    MEDECIN_KEY + " TEXT, " +
+                    USER_KEY + " TEXT);";
 
     public static final String VISITE_TABLE_DROP = "DROP TABLE IF EXISTS " + VISITE_TABLE_NAME + ";";
 

@@ -6,12 +6,12 @@ package com.example.leo.gsb_mobile.object;
 
 public class Utilisateur {
 
-    private long userId;
+    private String userId;
     private String nom;
     private String prenom;
     private int numVersion;
 
-    public Utilisateur(long id, String nom, String prenom, int numVersion) {
+    public Utilisateur(String id, String nom, String prenom, int numVersion) {
         this.userId = id;
         this.nom = nom;
         this.prenom = prenom;

@@ -53,7 +53,6 @@ public class CabinetDAO extends DAOBase {
     }
 
     public Cabinet selectionner(long id) {
-        //Cursor c = mDb.query(TABLE_NAME, new String[] {STREET, CP, TOWN, POSX, POSY}, KEY + " LIKE \"" + id +"\"", null, null, null, null);
         Cursor c = mDb.rawQuery("select * " + " from " + TABLE_NAME + " where cabinetId > ?", new String[]{""+id+""});
         return cursorToCabinet(c);
     }

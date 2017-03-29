@@ -1,21 +1,13 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Leo">
     <words>
-      <w>besoin</w>
-      <w>debogage</w>
-      <w>dernière</w>
-      <w>début</w>
-      <w>fermer</w>
-      <w>heure</w>
-      <w>lambersart</w>
-      <w>lastname</w>
-      <w>medecin</w>
-      <w>méthodes</w>
-      <w>prenom</w>
-      <w>puisque</w>
-      <w>selectionner</w>
-      <w>sinon</w>
-      <w>visite</w>
+      <w>adresse</w>
+      <w>ajouté</w>
+      <w>medecins</w>
+      <w>objet</w>
+      <w>remplit</w>
+      <w>séléctionné</w>
+      <w>testforlist</w>
     </words>
   </dictionary>
 </component>

@@ -30,7 +30,7 @@ public class MedecinDAO extends DAOBase {
         value.put(MedecinDAO.LASTNAME, medecin.getPrenom());
         value.put(MedecinDAO.CABINET_KEY, medecin.getIdCabinet());
         value.put(MedecinDAO.USER_KEY, medecin.getIdUtilisateur());
-        mDb.insert(CabinetDAO.TABLE_NAME, null, value);
+        mDb.insert(MedecinDAO.TABLE_NAME, null, value);
     }
 
     public void supprimer(long id) {
@@ -43,9 +43,9 @@ public class MedecinDAO extends DAOBase {
     }
 
     private Medecin cursorToMedecin(Cursor c){
+
         if (c.getCount() == 0)
             return null;
-
         //Sinon on se place sur le premier élément
         c.moveToFirst();
         // On crée un Cabinet
@@ -53,6 +53,8 @@ public class MedecinDAO extends DAOBase {
 
         unMedecin.setNom(c.getString(1));
         unMedecin.setPrenom(c.getString(2));
+        unMedecin.setIdCabinet(c.getString(3));
+        unMedecin.setIdUtilisateur(c.getString(4));
 
         c.close();
 
