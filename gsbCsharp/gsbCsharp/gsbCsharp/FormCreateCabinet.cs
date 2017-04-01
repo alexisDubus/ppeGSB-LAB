@@ -9,14 +9,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Metier;
 using Passerelle;
+using System.IO;
+using System.Web;
+using System.Xml;
+using System.Net;
+using Newtonsoft.Json;
 
 namespace gsbCsharp
 {
     public partial class FormCreateCabinet : Form
     {
+        public double longitude;
+        public double latitude;
         public FormCreateCabinet()
         {
             InitializeComponent();
+            getGeoCode3();
+            //getGeoCode("155 rue de Wervicq", "59000", "Linselles");
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -39,6 +48,98 @@ namespace gsbCsharp
         private void FormCreateCabinet_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void getGeoCode2()
+        {
+            var url = String.Format("https://maps.googleapis.com/maps/api/geocode/json?address=91+Rue+Nationale+Lille&key=%20AIzaSyC5EGGscQmGGxBT5hojO2ioVNZjVoJbFwE");
+            using (WebClient wc = new WebClient())
+            {
+                var json = wc.DownloadString(url);
+                JsonTextReader reader = new JsonTextReader(new StringReader(json));
+                dynamic obj = JsonConvert.DeserializeObject(json);
+                var test = obj["results"];
+                var test1 = test;
+                var test2 = test[0];
+
+                //var description = obj.value[0].properties.aclRules[0].properties.description;
+                while (reader.Read())
+                {
+                    if (reader.TokenType.ToString() == "float")
+                    {
+                        String tempo = reader.Value.ToString();
+                        MessageBox.Show(tempo);
+                        //MessageBox.Show("Token: {0}, Value: {1} " + reader.TokenType.ToString()+ "  " + reader.Value.ToString());
+                    }
+                    else
+                    {
+                        Console.WriteLine("Token: {0}", reader.TokenType);
+                    }
+                }
+            }
+        }
+
+
+        private void getGeoCode3()
+        {
+            var url = String.Format("https://maps.googleapis.com/maps/api/geocode/xml?address=91+Rue+Nationale+Lille&key=%20AIzaSyC5EGGscQmGGxBT5hojO2ioVNZjVoJbFwE");
+            using (WebClient wc = new WebClient())
+            {
+                var json = wc.DownloadString(url);
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(json);
+                XmlNode node = doc.DocumentElement;
+                string attr = node.Attributes["status"]?.OuterXml;
+                String test = node.Attributes["status"]?.InnerText;
+                string test2 = node.Attributes["status"]?.InnerText;
+            }
+        }
+
+        private void getGeoCode(String rue, String CP, String ville)
+        {
+            StreamReader streamR;
+            string monUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + rue + "+"+ville+ "+"+ CP;
+
+            //var url = String.Format(monUrl);
+            var url = String.Format("https://maps.googleapis.com/maps/api/geocode/xml?address=91+Rue+Nationale+Lille&key=%20AIzaSyC5EGGscQmGGxBT5hojO2ioVNZjVoJbFwE");
+
+
+            var webClient = new WebClient();
+
+            try
+            {
+                //récupére le résultat et le met dans le stream reader
+
+                streamR = new StreamReader(webClient.OpenRead(url));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("the error was" + ex.Message);
+            }
+
+
+            JsonTextReader reader = new JsonTextReader(streamR);
+            while (reader.Read())
+                {
+                    if (reader.Value != null)
+                        {
+                            MessageBox.Show("Token: {0}, Value: {1}"+ reader.TokenType.ToString());
+                        }
+                    else
+                         {
+                            Console.WriteLine("Token: {0}", reader.TokenType);
+                        }
+                }
+            /*
+            var xmlTextReader = new XmlTextReader(streamR);
+            xmlTextReader.Read();
+
+            string[] coord = xmlTextReader.Value.Split(new char[] { ',' });
+
+            string longitudeS = coord[0];
+            string latitudeS = coord[1];
+
+            MessageBox.Show(longitudeS + " , "+ latitudeS);  */
         }
     }
 }

@@ -19,18 +19,19 @@ namespace Passerelle
     /// </summary>
     public static class Passerelle
     {
+        public static String idUtilisateur;
+        public static int typeUtilisateur; 
         public static BindingList<String> listeDepartements = new BindingList<String>();
         private static BindingList<Medecin> listeDesMedecins = new BindingList<Medecin>();
         private static BindingList<Cabinet> listeDesCabinets = new BindingList<Cabinet>();
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
+        //private static String connectionString = "SERVER=172.16.9.3; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
-        //private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
+        #region commun 
 
-
-        
         /// <summary>
         /// fonction de connexion a la base de données
         /// </summary>
@@ -54,11 +55,16 @@ namespace Passerelle
 
                     case 1045:
                         throw new Exception("Invalid username/password, please try again");
-                       
+
+                    default:
+                        throw new Exception("erreur inconnue");
                 }
             }
         }
 
+        /// <summary>
+        /// Initialise les 4 listes d'éléments
+        /// </summary>
         public static void init()
         {
             listeDesCabinets = getAllCabinets();
@@ -68,10 +74,50 @@ namespace Passerelle
             listeDesMedecins = getAllMedecin();
             
             listeDesVisites = getAllVisite();
-
-            initListeDepartements();
+            
         }
 
+        /// <summary>
+        /// Met à jour l'idUtilisateur
+        /// </summary>
+        /// <param name="id"></param>
+        public static void setIdUtilisateur(String id)
+        {
+            idUtilisateur = id;
+        }
+
+        /// <summary>
+        /// retourne l'idUtilisateur
+        /// </summary>
+        /// <returns>idUtilisateur</returns>
+        public static String getIdUtilisateur()
+        {
+            return idUtilisateur;
+        }
+
+        /// <summary>
+        /// Change le type d'utilisateur (0,1,2)
+        /// </summary>
+        /// <param name="type"></param>
+        public static void setTypeUtilisateur(int type)
+        {
+            typeUtilisateur = type;
+        }
+
+        /// <summary>
+        /// retourne le type d'utilisateur
+        /// </summary>
+        /// <returns>typeUtilisateur</returns>
+        public static int getTypeUtilisateur()
+        {
+            return typeUtilisateur;
+        }
+
+        
+
+        #endregion 
+
+        /*
         public static void initListeDepartements()
         {
             BindingList<String> listeReset = new BindingList<String>();
@@ -95,10 +141,15 @@ namespace Passerelle
         {
             return listeDepartements;
         }
-            
+            */
 
         #region Utilisateur
 
+        /// <summary>
+        /// Utilisé pour renvoyer les médecins d'un visiteur
+        /// </summary>
+        /// <param name="unVisiteur"></param>
+        /// <returns></returns>
         public static BindingList<Medecin> getListeMedecinVisiteur2(Utilisateur unVisiteur)
         {
             BindingList<Medecin> liste = new BindingList<Medecin>();
@@ -357,8 +408,7 @@ namespace Passerelle
             maCommande.ExecuteNonQuery();
             init();
         }
-
-
+        
         /// <summary>
         /// Retourne une liste de visiteurs en fonction de leur code postal (CP)
         /// </summary>
@@ -477,6 +527,25 @@ namespace Passerelle
 
             }
 
+        }
+
+        /// <summary>
+        /// Utilisé pour renvoyer les médecins d'un visiteur
+        /// A TESTER
+        /// </summary>
+        /// <param name="unVisiteur"></param>
+        /// <returns></returns>
+        public static Utilisateur getVisiteurUnique(String id)
+        {
+            Utilisateur fauxUser = new Utilisateur();
+            foreach (Metier.Utilisateur leVisiteur in listeDesVisiteurs)
+            {
+                if (id == leVisiteur.getId())
+                    return leVisiteur;
+               
+            }
+
+            return fauxUser;
         }
 
         #endregion

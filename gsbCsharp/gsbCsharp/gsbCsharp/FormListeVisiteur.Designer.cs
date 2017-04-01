@@ -88,8 +88,8 @@
             // 
             // textBoxDepartements
             // 
-            this.textBoxDepartements.AccessibleDescription = "Premiére lettre du code postal";
-            this.textBoxDepartements.AccessibleName = "Premiére lettre du code postal";
+            this.textBoxDepartements.AccessibleDescription = "";
+            this.textBoxDepartements.AccessibleName = "";
             this.textBoxDepartements.Location = new System.Drawing.Point(691, 55);
             this.textBoxDepartements.Name = "textBoxDepartements";
             this.textBoxDepartements.Size = new System.Drawing.Size(182, 22);

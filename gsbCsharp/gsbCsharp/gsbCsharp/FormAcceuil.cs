@@ -15,12 +15,24 @@ namespace gsbCsharp
     public partial class FormAcceuil : Form
     {
         List<Utilisateur> listeVisiteur = new List<Utilisateur>();
+        public static int typeUtilisateur;
 
         public FormAcceuil()
         {
             InitializeComponent();
             Passerelle.Passerelle.init();
+            Passerelle.Passerelle.setTypeUtilisateur(2);
+            typeUtilisateur = Passerelle.Passerelle.getTypeUtilisateur();
         }
+
+        public static void checkTypeUser()
+        {
+            if (typeUtilisateur != 0)
+            {
+                
+            }
+        }
+
         /// <summary>
         /// ferme la feuille ouverte précdemment et ouvre la nouvelle feuille
         /// </summary>
@@ -28,6 +40,7 @@ namespace gsbCsharp
         /// <param name="laFeuilleMDI">la feuille mdi dans laquelle doit être ouverte la feuille</param>
         public static void OUVRE_UNE_MDI_FILLE(Form uneForm, Form laFeuilleMDI)
         {
+            
             foreach (Form uneFeuille in laFeuilleMDI.MdiChildren)
                 uneFeuille.Close();
 
@@ -40,71 +53,23 @@ namespace gsbCsharp
         {
             
         }
-
-        private void classiqueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void saisonToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void voirLesForfaitsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void listeVisiteurToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormListeVisiteur voirVisiteur = new FormListeVisiteur();
             OUVRE_UNE_MDI_FILLE(voirVisiteur, this);
         }
-
-        private void creationVisiteurToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+        
 
         //Méthode de click généré automatiquement
 
-
-        private void dataGridViewVisiteur_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridViewVisiteur_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridViewVisiteur_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+            
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
-
-        private void visiteBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void ajouterMedecinToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -122,6 +87,17 @@ namespace gsbCsharp
         {
             FormListeMedecin listeMedecin = new FormListeMedecin();
             OUVRE_UNE_MDI_FILLE(listeMedecin, this);
+        }
+
+        private void visiteVisiteurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormViewVisiteVisiteur listeVisite = new FormViewVisiteVisiteur(Passerelle.Passerelle.getVisiteurUnique("a131"));
+            OUVRE_UNE_MDI_FILLE(listeVisite, this);
         }
     }
 }
