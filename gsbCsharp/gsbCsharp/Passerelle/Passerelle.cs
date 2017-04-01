@@ -427,6 +427,19 @@ namespace Passerelle
             unJeuResultat.Close();
         }
 
+        public static BindingList<Medecin> getListeVisite(Utilisateur unVisiteur)
+        {
+            BindingList<Medecin> liste = new BindingList<Medecin>();
+            Utilisateur leVisiteur;
+            foreach (Metier.Medecin leMedecin in listeDesMedecins)
+
+            {
+                leVisiteur = leMedecin.getVisiteur();
+                if (unVisiteur.getId() == leVisiteur.getId())
+                    liste.Add(leMedecin);
+            }
+            return liste;
+        }
 
         public static void getAVisite(MySqlDataReader unJeuResultat)
         {
