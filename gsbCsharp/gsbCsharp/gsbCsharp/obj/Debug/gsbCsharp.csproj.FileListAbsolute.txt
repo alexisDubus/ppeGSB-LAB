@@ -49,3 +49,5 @@ C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.cspr
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.exe
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.pdb
 C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormStatistique.resources
+C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\Newtonsoft.Json.dll
+C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\Newtonsoft.Json.xml
