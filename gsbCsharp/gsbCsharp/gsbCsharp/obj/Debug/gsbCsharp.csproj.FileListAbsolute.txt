@@ -55,9 +55,5 @@ C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormL
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\Newtonsoft.Json.dll
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\Newtonsoft.Json.xml
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormCreateVisite.resources
-<<<<<<< HEAD
->>>>>>> 0996362d2bb2e8bfba9fd15307905a4dd05e280f
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormListeCabinet.resources
-=======
 C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormCreateVisite.resources
->>>>>>> 24d8cca0916b5d43e39633c2fdd0b8ae1792fc24
