@@ -1,0 +1,1 @@
+C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\bin\Release\gsbCsharp.exe.config

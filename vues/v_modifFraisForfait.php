@@ -15,7 +15,7 @@
 
                     <label for="txtDateHF"> Identifiant : </label>
                     </br>
-                    <input class="form-control" type="text" id="idd" name="idd"  />
+                    <input class="form-control" type="text" id="idd" name="idd" <?php echo'placeholder="'.$id.'" value="'.$id.'"' ?> />
                     </br>
                     </br>
 

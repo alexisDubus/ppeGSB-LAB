@@ -10,6 +10,10 @@ switch($action){
 		include("vues/v_connexion.php");
 		break;
 	}
+        case 'motDePasseOublie':{
+            
+            break;
+        }
 	case 'valideConnexion':{
 		$login = $_REQUEST['login'];
 		$mdp = $_REQUEST ['mdp'];

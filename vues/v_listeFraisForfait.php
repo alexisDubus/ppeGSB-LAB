@@ -67,7 +67,7 @@
                                     echo '</td>';
                                     foreach ($lesLibelleFrais as $unLibelleFrais) {
                                         $quantiteFraisForfait = donneQuantiteTypeFrais($unLibelleFrais['libelle'], $lesFraisForfait);
-                                        $montantFraisForfait = donneMontantTotal($unLibelleFrais['libelle'], $quantiteFraisForfait);
+                                        $montantFraisForfait = $pdo->getMontantFraisForfait($unLibelleFrais['libelle'], $quantiteFraisForfait);
                                         echo '<td>';
                                         echo $montantFraisForfait;
                                         echo '</td>';

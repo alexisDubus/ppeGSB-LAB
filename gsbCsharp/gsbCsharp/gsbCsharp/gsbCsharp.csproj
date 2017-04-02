@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A254A5D2-3911-4431-945A-FF179E74F1E3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>gsbCsharp</RootNamespace>
+    <AssemblyName>gsbCsharp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GoogleMaps.LocationServices, Version=0.1.5926.26040, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleMaps.LocationServices.0.9.8.6\lib\net40\GoogleMaps.LocationServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormAcceuil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAcceuil.Designer.cs">
+      <DependentUpon>FormAcceuil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCreateCabinet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateCabinet.Designer.cs">
+      <DependentUpon>FormCreateCabinet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCreateMedecin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateMedecin.Designer.cs">
+      <DependentUpon>FormCreateMedecin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCreateVisite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateVisite.Designer.cs">
+      <DependentUpon>FormCreateVisite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditMedecin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditMedecin.Designer.cs">
+      <DependentUpon>FormEditMedecin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormListeCabinet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListeCabinet.Designer.cs">
+      <DependentUpon>FormListeCabinet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormListeMedecin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListeMedecin.Designer.cs">
+      <DependentUpon>FormListeMedecin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormListeVisiteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListeVisiteur.Designer.cs">
+      <DependentUpon>FormListeVisiteur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStatistique.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStatistique.Designer.cs">
+      <DependentUpon>FormStatistique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViewVisiteVisiteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViewVisiteVisiteur.Designer.cs">
+      <DependentUpon>FormViewVisiteVisiteur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAcceuil.resx">
+      <DependentUpon>FormAcceuil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateCabinet.resx">
+      <DependentUpon>FormCreateCabinet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreatemedecin.resx">
+      <DependentUpon>FormCreateMedecin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateVisite.resx">
+      <DependentUpon>FormCreateVisite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditMedecin.resx">
+      <DependentUpon>FormEditMedecin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListeCabinet.resx">
+      <DependentUpon>FormListeCabinet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListeMedecin.resx">
+      <DependentUpon>FormListeMedecin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListeVisiteur.resx">
+      <DependentUpon>FormListeVisiteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStatistique.resx">
+      <DependentUpon>FormStatistique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViewVisiteVisiteur.resx">
+      <DependentUpon>FormViewVisiteVisiteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Metier.Cabinet.datasource" />
+    <None Include="Properties\DataSources\Metier.Medecin.datasource" />
+    <None Include="Properties\DataSources\Metier.Utilisateur.datasource" />
+    <None Include="Properties\DataSources\Metier.Visite.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Metier\Metier.csproj">
+      <Project>{d275a697-a2bd-4e98-930e-415433f16b01}</Project>
+      <Name>Metier</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Passerelle\Passerelle.csproj">
+      <Project>{ffba5b90-e54b-4ef6-8b34-886cc2fe44ac}</Project>
+      <Name>Passerelle</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DNA.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GoogleMaps.LocationServices.readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

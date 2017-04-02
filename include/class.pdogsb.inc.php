@@ -21,15 +21,15 @@ class PdoGsb
 
         
         private static $serveur='mysql:host=localhost';
-        private static $bdd='dbname=gsb_prod';
-        private static $user='root';    		
-        private static $leMdp = '';
-        //private static $bdd='dbname=gsb_frais';   		
+       // private static $bdd='dbname=gsb_prod';
+        private static $user='lamp';    		
+        //private static $leMdp = '';
+        private static $bdd='dbname=gsb_frais';   		
       	//private static $user='root';    		
-      	//private static $mdp='AzertY!59';	
+      	private static $leMdp='AzertY!59';	
 	private static $monPdo;
-	private static $monPdoGsb=null;
-		
+	private static $monPdoGsb = null;
+	
 /**
  * Constructeur privé, crée l'instance de PDO qui sera sollicitée
  * pour toutes les méthodes de la classe
@@ -159,7 +159,7 @@ class PdoGsb
         	$req = "update fraisforfait
         			set id='$id' , libelle='$libelle' , montant = '$montant'
         			where fraisforfait.id = '$idOld' ";
-			PdoGsb::$monPdo->exec($req);
+        	PdoGsb::$monPdo->exec($req);
         }
 /**
  * Retourne le nombre de justificatif d'un utilisateur pour un mois donné
@@ -217,6 +217,29 @@ class PdoGsb
             $res = PdoGsb::$monPdo->query($req);
             $lesLignes = $res->fetchAll();
             return $lesLignes;
+        }
+        
+        /**
+         * renvoie les id des frais forfaits
+         * @return type
+         */
+        public function getIdFraisForfait($fraisForfait) {
+            $req = "select fraisforfait.id as id from fraisforfait where libelle = '$fraisForfait'";
+            $res = PdoGsb::$monPdo->query($req);
+            $lesLignes = $res->fetchAll();
+            return $lesLignes;
+        }
+        
+        
+        public function getMontantFraisForfait($type,$quantite) {
+            $montantTotal = 0.00;
+            $montant = 0.00;
+            $req = "select montant from fraisforfait where libelle = '$type'";
+            $res = PdoGsb::$monPdo->query($req);
+            $lesLignes = $res->fetchAll();
+            $montant = floatval($lesLignes[0][0]);
+            $montantTotal = $quantite * $montant;
+            return $montantTotal;
         }
         
         /**
@@ -349,7 +372,7 @@ class PdoGsb
                 $quantiteInt = (int)$quantite;
 		$dateFr = dateFrancaisVersAnglais($date);
 		//$req = "insert into lignefraisforfait (idutilisateur,mois,idFraisForfait,quantite,montant,dateFrais,typeFrais,description) values($idUtilisateur,$mois,`ETP`,$quantiteInt,0.00,$dateFr,$typeFrais,$description);";
-                $req = "insert into lignefraisforfait (idutilisateur,mois,idFraisForfait,quantite,montant,dateFrais,typeFrais,description) values('$idUtilisateur','$mois','$idFraisForfait',$quantiteInt,0.00,'$dateFr','$typeFrais','$description');";
+                $req = "insert into lignefraisforfait (idutilisateur,mois,idFraisForfait,quantite,montant,dateFrais,typeFrais,description) values('$idUtilisateur','$mois','$idFraisForfait[0]',$quantiteInt,0.00,'$dateFr','$typeFrais','$description');";
 		PdoGsb::$monPdo->exec($req);
 	}
 
@@ -476,5 +499,18 @@ class PdoGsb
 		where fichefrais.idutilisateur ='$idUtilisateur' and fichefrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
 	}	
+        
+        /**
+         * Retourne le statut de l'application en fonction. Peut être modifier par l'administrateur via phpMyAdmin. 
+         * 
+         * @return type
+         */
+        public function estEnMaj()
+        {
+            $req = "select occupe from statut;";
+            $res = PdoGsb::$monPdo->query($req);
+            $laLigne = $res->fetch();
+            return $laLigne['occupe'];
+        }
 }
 ?>

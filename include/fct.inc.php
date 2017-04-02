@@ -247,54 +247,6 @@ function donneQuantiteTypeFrais($type, $lesFraisForfaits) {
     return $quantiteFrais;
 }
 
-/**
- * 
- * @param type $type
- * @return string
- */
-function donneIdFrais($type) {
-    $idFrais = "";
-    switch ($type) {
-        case ("Forfait Etape") : 
-            $idFrais = "ETP";
-            break;
-        case ("Frais Kilométrique") :
-            $idFrais = "KM";
-            break;
-        case ("Nuitée Hôtel") :
-            $idFrais = "NUI";
-            break;
-        case ("Repas Restaurant") :
-            $idFrais = "REP";
-            break;
-    }
-    return $idFrais;
-}
-
-/**
- * 
- * @param type $type
- * @param type $quantite
- * @return type
- */
-function donneMontantTotal($type, $quantite) {
-    $montantTotal = 0.00;
-    switch ($type) {
-        case ("Forfait Etape") : 
-            $montantTotal = $quantite * 110;
-            break;
-        case ("Frais Kilométrique") :
-            $montantTotal = $quantite * 0.62;
-            break;
-        case ("Nuitée Hôtel") :
-            $montantTotal = $quantite * 80;
-            break;
-        case ("Repas Restaurant") :
-            $montantTotal = $quantite * 25;
-            break;
-    }
-    return $montantTotal;
-}
 
 /**
  * 

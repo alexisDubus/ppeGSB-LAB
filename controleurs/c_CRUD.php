@@ -13,14 +13,14 @@ $action = $_REQUEST['action'];
 switch($action)
 {
   case 'read':
-  {
+  
     $lesfraisforfaits =$pdo->getFraisForfaitOnly();
     include("vues/v_voirfraisforfait.php");
     break;
-  }
+  
 
   case 'create':
-  {
+  
     $id      = $_REQUEST['id'];
     $libelle = $_REQUEST['libelle'];
     $montant = $_REQUEST['montant'];
@@ -32,24 +32,24 @@ switch($action)
           $pdo->creerNouveauTypeFraisForfait($id,$libelle,$montant);
         }              
     break;
-  }
+  
 
   
   case 'update':
-  {
+  
       $etape = $_REQUEST['etape'];
       switch($etape)
       {
         case 'first' :
-        {         
+                 
           $id = $_REQUEST['idFrais'];
           $unFraisForfait = $pdo->getOneFraisForfait($id);
           include("vues/v_modifFraisForfait.php");
           break;
-        }
+        
 
         case 'second' :
-        {
+        
           $idOld   = $_REQUEST['idFrais'];
           $id      = $_POST['idd'];
           //$id      = "ETP";
@@ -62,18 +62,18 @@ switch($action)
           else{
               $pdo->updateOneFraisForfait($idOld,$id,$libelle,$montant);
             }          
-          break;
-        }   
+          break;        
       }
-  }
+      break;
+  
 
   
   case 'delete':
-  {
+  
       $id = $_REQUEST['idFrais'];
       $pdo->supprimerUnFraisForfait($id);
       break;
-  }
+  
   			
 }
 
