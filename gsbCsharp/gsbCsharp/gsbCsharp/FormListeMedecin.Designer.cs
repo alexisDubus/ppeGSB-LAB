@@ -130,7 +130,7 @@
             // 
             // textBoxCabinet
             // 
-            this.textBoxCabinet.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.textBoxCabinet.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.textBoxCabinet.Enabled = false;
             this.textBoxCabinet.Location = new System.Drawing.Point(473, 165);
             this.textBoxCabinet.Name = "textBoxCabinet";

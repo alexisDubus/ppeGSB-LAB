@@ -34,6 +34,9 @@
             this.btnShowMedecin = new System.Windows.Forms.Button();
             this.dataGridViewMedecin = new System.Windows.Forms.DataGridView();
             this.textBoxDepartements = new System.Windows.Forms.TextBox();
+            this.textBoxNom = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.Label();
+            this.btnSearchByNom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedecin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,17 +62,17 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(879, 53);
+            this.btnSearch.Location = new System.Drawing.Point(879, 55);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(137, 24);
+            this.btnSearch.Size = new System.Drawing.Size(203, 24);
             this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Rechercher";
+            this.btnSearch.Text = "Rechercher par département";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnShowMedecin
             // 
-            this.btnShowMedecin.Location = new System.Drawing.Point(56, 453);
+            this.btnShowMedecin.Location = new System.Drawing.Point(56, 484);
             this.btnShowMedecin.Name = "btnShowMedecin";
             this.btnShowMedecin.Size = new System.Drawing.Size(170, 27);
             this.btnShowMedecin.TabIndex = 7;
@@ -80,7 +83,7 @@
             // dataGridViewMedecin
             // 
             this.dataGridViewMedecin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMedecin.Location = new System.Drawing.Point(56, 111);
+            this.dataGridViewMedecin.Location = new System.Drawing.Point(56, 142);
             this.dataGridViewMedecin.Name = "dataGridViewMedecin";
             this.dataGridViewMedecin.RowTemplate.Height = 24;
             this.dataGridViewMedecin.Size = new System.Drawing.Size(354, 313);
@@ -96,11 +99,43 @@
             this.textBoxDepartements.TabIndex = 9;
             this.textBoxDepartements.Tag = "";
             // 
+            // textBoxNom
+            // 
+            this.textBoxNom.AccessibleDescription = "";
+            this.textBoxNom.AccessibleName = "";
+            this.textBoxNom.Location = new System.Drawing.Point(691, 100);
+            this.textBoxNom.Name = "textBoxNom";
+            this.textBoxNom.Size = new System.Drawing.Size(182, 22);
+            this.textBoxNom.TabIndex = 11;
+            this.textBoxNom.Tag = "";
+            // 
+            // textBox1
+            // 
+            this.textBox1.AutoSize = true;
+            this.textBox1.Location = new System.Drawing.Point(53, 100);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(149, 17);
+            this.textBox1.TabIndex = 12;
+            this.textBox1.Text = "Médecins du visiteur : ";
+            // 
+            // btnSearchByNom
+            // 
+            this.btnSearchByNom.Location = new System.Drawing.Point(879, 100);
+            this.btnSearchByNom.Name = "btnSearchByNom";
+            this.btnSearchByNom.Size = new System.Drawing.Size(203, 24);
+            this.btnSearchByNom.TabIndex = 13;
+            this.btnSearchByNom.Text = "Rechercher par nom";
+            this.btnSearchByNom.UseVisualStyleBackColor = true;
+            this.btnSearchByNom.Click += new System.EventHandler(this.btnSearchByNom_Click);
+            // 
             // FormListeVisiteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1159, 503);
+            this.Controls.Add(this.btnSearchByNom);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxNom);
             this.Controls.Add(this.textBoxDepartements);
             this.Controls.Add(this.dataGridViewMedecin);
             this.Controls.Add(this.btnShowMedecin);
@@ -123,5 +158,8 @@
         private System.Windows.Forms.Button btnShowMedecin;
         private System.Windows.Forms.DataGridView dataGridViewMedecin;
         private System.Windows.Forms.TextBox textBoxDepartements;
+        private System.Windows.Forms.TextBox textBoxNom;
+        private System.Windows.Forms.Label textBox1;
+        private System.Windows.Forms.Button btnSearchByNom;
     }
 }
