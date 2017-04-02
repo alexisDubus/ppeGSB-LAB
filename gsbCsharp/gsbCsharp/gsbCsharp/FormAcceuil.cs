@@ -100,7 +100,12 @@ namespace gsbCsharp
 
         }
 
-        private void listeToolStripMenuItem1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Liste des visites du visiteur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listeVisiteStripMenuItem2_Clic(object sender, EventArgs e)
         {
             FormViewVisiteVisiteur listeVisite = new FormViewVisiteVisiteur(Passerelle.Passerelle.getVisiteurUnique("a131"));
             OUVRE_UNE_MDI_FILLE(listeVisite, this);

@@ -14,6 +14,7 @@ using System.Web;
 using System.Xml;
 using System.Net;
 using Newtonsoft.Json;
+using GoogleMaps.LocationServices;
 
 namespace gsbCsharp
 {
@@ -24,7 +25,7 @@ namespace gsbCsharp
         public FormCreateCabinet()
         {
             InitializeComponent();
-            getGeoCode3();
+            //getGeoCodeLocation();
             //getGeoCode("155 rue de Wervicq", "59000", "Linselles");
         }
 
@@ -38,8 +39,13 @@ namespace gsbCsharp
             String rue = textBoxRueCabinet.Text.ToString();
             String CP = textBoxCPCabinet.Text.ToString();
             String ville = textBoxVilleCabinet.Text.ToString();
-            double longitude = 57807.6790;
-            double latitude = 6890.0966;
+            var address = rue + CP + " , " + ville;
+
+            var locationService = new GoogleLocationService();
+            var point = locationService.GetLatLongFromAddress(address);
+
+            var latitude = point.Latitude;
+            var longitude = point.Longitude;
 
             Cabinet unCabinet = new Cabinet(rue, CP, ville, longitude, latitude);
             Passerelle.Passerelle.addCabinet(unCabinet);
@@ -49,6 +55,12 @@ namespace gsbCsharp
         {
 
         }
+
+        public void getGeoCodeLocation(String rue, String CP, String ville)
+        {
+            
+        }
+
 
         private void getGeoCode2()
         {
@@ -85,9 +97,9 @@ namespace gsbCsharp
             var url = String.Format("https://maps.googleapis.com/maps/api/geocode/xml?address=91+Rue+Nationale+Lille&key=%20AIzaSyC5EGGscQmGGxBT5hojO2ioVNZjVoJbFwE");
             using (WebClient wc = new WebClient())
             {
-                var json = wc.DownloadString(url);
+                var xml = wc.DownloadString(url);
                 XmlDocument doc = new XmlDocument();
-                doc.LoadXml(json);
+                doc.LoadXml(xml);
                 XmlNode node = doc.DocumentElement;
                 foreach (XmlNode unNode in doc)
                 {

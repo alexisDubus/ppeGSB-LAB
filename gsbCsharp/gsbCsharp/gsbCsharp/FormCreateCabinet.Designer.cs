@@ -39,7 +39,7 @@
             // 
             // btnCreateCabinet
             // 
-            this.btnCreateCabinet.Location = new System.Drawing.Point(261, 332);
+            this.btnCreateCabinet.Location = new System.Drawing.Point(261, 288);
             this.btnCreateCabinet.Name = "btnCreateCabinet";
             this.btnCreateCabinet.Size = new System.Drawing.Size(75, 23);
             this.btnCreateCabinet.TabIndex = 0;
@@ -77,23 +77,23 @@
             // 
             // textBoxRueCabinet
             // 
-            this.textBoxRueCabinet.Location = new System.Drawing.Point(330, 101);
+            this.textBoxRueCabinet.Location = new System.Drawing.Point(261, 101);
             this.textBoxRueCabinet.Name = "textBoxRueCabinet";
-            this.textBoxRueCabinet.Size = new System.Drawing.Size(100, 22);
+            this.textBoxRueCabinet.Size = new System.Drawing.Size(280, 22);
             this.textBoxRueCabinet.TabIndex = 4;
             // 
             // textBoxVilleCabinet
             // 
-            this.textBoxVilleCabinet.Location = new System.Drawing.Point(330, 163);
+            this.textBoxVilleCabinet.Location = new System.Drawing.Point(261, 163);
             this.textBoxVilleCabinet.Name = "textBoxVilleCabinet";
-            this.textBoxVilleCabinet.Size = new System.Drawing.Size(100, 22);
+            this.textBoxVilleCabinet.Size = new System.Drawing.Size(280, 22);
             this.textBoxVilleCabinet.TabIndex = 5;
             // 
             // textBoxCPCabinet
             // 
-            this.textBoxCPCabinet.Location = new System.Drawing.Point(330, 228);
+            this.textBoxCPCabinet.Location = new System.Drawing.Point(261, 228);
             this.textBoxCPCabinet.Name = "textBoxCPCabinet";
-            this.textBoxCPCabinet.Size = new System.Drawing.Size(100, 22);
+            this.textBoxCPCabinet.Size = new System.Drawing.Size(280, 22);
             this.textBoxCPCabinet.TabIndex = 6;
             // 
             // FormCreateCabinet

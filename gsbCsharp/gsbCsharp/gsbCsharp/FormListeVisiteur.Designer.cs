@@ -45,14 +45,14 @@
             this.comboBoxVisiteur.FormattingEnabled = true;
             this.comboBoxVisiteur.Location = new System.Drawing.Point(56, 53);
             this.comboBoxVisiteur.Name = "comboBoxVisiteur";
-            this.comboBoxVisiteur.Size = new System.Drawing.Size(558, 24);
+            this.comboBoxVisiteur.Size = new System.Drawing.Size(434, 24);
             this.comboBoxVisiteur.TabIndex = 1;
             this.comboBoxVisiteur.Text = "Cliquer pour choisir un visiteur";
             this.comboBoxVisiteur.SelectedIndexChanged += new System.EventHandler(this.comboBoxVisiteur_SelectedIndexChanged_2);
             // 
             // btnStat
             // 
-            this.btnStat.Location = new System.Drawing.Point(436, 111);
+            this.btnStat.Location = new System.Drawing.Point(496, 54);
             this.btnStat.Name = "btnStat";
             this.btnStat.Size = new System.Drawing.Size(178, 24);
             this.btnStat.TabIndex = 3;
@@ -62,11 +62,11 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(879, 55);
+            this.btnSearch.Location = new System.Drawing.Point(941, 57);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(203, 24);
             this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Rechercher par département";
+            this.btnSearch.Text = "Rechercher par CP";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -83,17 +83,17 @@
             // dataGridViewMedecin
             // 
             this.dataGridViewMedecin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMedecin.Location = new System.Drawing.Point(56, 142);
+            this.dataGridViewMedecin.Location = new System.Drawing.Point(56, 138);
             this.dataGridViewMedecin.Name = "dataGridViewMedecin";
             this.dataGridViewMedecin.RowTemplate.Height = 24;
-            this.dataGridViewMedecin.Size = new System.Drawing.Size(354, 313);
+            this.dataGridViewMedecin.Size = new System.Drawing.Size(354, 283);
             this.dataGridViewMedecin.TabIndex = 8;
             // 
             // textBoxDepartements
             // 
             this.textBoxDepartements.AccessibleDescription = "";
             this.textBoxDepartements.AccessibleName = "";
-            this.textBoxDepartements.Location = new System.Drawing.Point(691, 55);
+            this.textBoxDepartements.Location = new System.Drawing.Point(753, 57);
             this.textBoxDepartements.Name = "textBoxDepartements";
             this.textBoxDepartements.Size = new System.Drawing.Size(182, 22);
             this.textBoxDepartements.TabIndex = 9;
@@ -103,7 +103,7 @@
             // 
             this.textBoxNom.AccessibleDescription = "";
             this.textBoxNom.AccessibleName = "";
-            this.textBoxNom.Location = new System.Drawing.Point(691, 100);
+            this.textBoxNom.Location = new System.Drawing.Point(753, 102);
             this.textBoxNom.Name = "textBoxNom";
             this.textBoxNom.Size = new System.Drawing.Size(182, 22);
             this.textBoxNom.TabIndex = 11;
@@ -112,7 +112,7 @@
             // textBox1
             // 
             this.textBox1.AutoSize = true;
-            this.textBox1.Location = new System.Drawing.Point(53, 100);
+            this.textBox1.Location = new System.Drawing.Point(53, 109);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(149, 17);
             this.textBox1.TabIndex = 12;
@@ -120,7 +120,7 @@
             // 
             // btnSearchByNom
             // 
-            this.btnSearchByNom.Location = new System.Drawing.Point(879, 100);
+            this.btnSearchByNom.Location = new System.Drawing.Point(941, 102);
             this.btnSearchByNom.Name = "btnSearchByNom";
             this.btnSearchByNom.Size = new System.Drawing.Size(203, 24);
             this.btnSearchByNom.TabIndex = 13;
@@ -132,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1159, 503);
+            this.ClientSize = new System.Drawing.Size(1159, 622);
             this.Controls.Add(this.btnSearchByNom);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBoxNom);
