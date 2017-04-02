@@ -464,6 +464,54 @@ namespace Passerelle
             //maCommande.Parameters.AddWithValue("@id", cabinet.getId());
             maCommande.Parameters.AddWithValue("@dateVisite", visite.getDateVisite());
             maCommande.Parameters.AddWithValue("@rdv", visite.getRdv());
+            maCommande.Parameters.AddWithValue("@idutilisateur", visite.getVisiteur().getId());
+            maCommande.Parameters.AddWithValue("@idmedecin", visite.getmedecin().getId());
+            maCommande.Parameters.AddWithValue("@heureArrivee", visite.getHeureArrivee());
+            maCommande.Parameters.AddWithValue("@heureDepart", visite.getHeureDepart());
+            maCommande.Parameters.AddWithValue("@heureDebut", visite.getHeureDebut());
+
+            maCommande.ExecuteNonQuery();
+            int lastId = (int)maCommande.LastInsertedId;
+            visite.setId(lastId);
+            listeDesVisites.Add(visite);
+        }
+
+        /// <summary>
+        /// Modifie la Visite sur la BDD
+        /// </summary>
+        /// <param name="visite"></param>
+        public static void editVisite(Visite visite)
+        {
+            connexion();
+            MySqlCommand maCommande = maConnection.CreateCommand();
+            maCommande.CommandText = "UPDATE  visite set dateVisite = @dateVisite, rdv = @rdv, idutilisateur = @idutilisateur, " +
+                "idmedecin = @idmedecin, heureArrivee = @heureArrivee, heureDepart = @heureDepart, heureDebut = @heureDebut where visite.id = @id";
+            maCommande.Parameters.AddWithValue("@dateVisite", visite.getDateVisite());
+            maCommande.Parameters.AddWithValue("@rdv", visite.getRdv());
+            maCommande.Parameters.AddWithValue("@idutilisateur", visite.getVisiteur().getId());
+            maCommande.Parameters.AddWithValue("@idmedecin", visite.getmedecin().getId());
+            maCommande.Parameters.AddWithValue("@heureArrivee", visite.getHeureArrivee());
+            maCommande.Parameters.AddWithValue("@heureDepart", visite.getHeureDepart());
+            maCommande.Parameters.AddWithValue("@heureDebut", visite.getHeureDebut());
+            maCommande.Parameters.AddWithValue("@id", visite.getId());
+
+            maCommande.ExecuteNonQuery();
+            init();
+        }
+
+        /// <summary>
+        /// Supprime une visite à la liste
+        /// </summary>
+        /// <returns></returns>
+        public static void supprimeVisite(Visite visite)
+        {
+            connexion();
+            MySqlCommand maCommande = maConnection.CreateCommand();
+            maCommande.CommandText = "DELETE from visite WHERE visite.id = @idVisite;";
+            //maCommande.Parameters.AddWithValue("@id", cabinet.getId());
+            maCommande.Parameters.AddWithValue("@idVisite", visite.getId());
+            maCommande.Parameters.AddWithValue("@dateVisite", visite.getDateVisite());
+            maCommande.Parameters.AddWithValue("@rdv", visite.getRdv());
             maCommande.Parameters.AddWithValue("@idutilisateur", visite.getVisiteur());
             maCommande.Parameters.AddWithValue("@idmedecin", visite.getmedecin());
             maCommande.Parameters.AddWithValue("@heureArrivee", visite.getHeureArrivee());
@@ -473,7 +521,7 @@ namespace Passerelle
             maCommande.ExecuteNonQuery();
             int lastId = (int)maCommande.LastInsertedId;
             visite.setId(lastId);
-            listeDesVisites.Add(visite);
+            listeDesVisites.Remove(visite);
         }
 
         /// <summary>

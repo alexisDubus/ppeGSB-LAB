@@ -14,12 +14,14 @@ namespace gsbCsharp
 {
     public partial class FormCreateVisite : Form
     {
+        public static BindingList<Visite> listeVisite = new BindingList<Visite>();
+
         public static BindingList<Medecin> listeMedecin = new BindingList<Medecin>();
         public FormCreateVisite()
         {
             InitializeComponent();
 
-            listeMedecin = Passerelle.Passerelle.returnAllMedecin();
+            listeMedecin = Passerelle.Passerelle.getListeMedecinVisiteur2(Passerelle.Passerelle.getVisiteurUnique(Passerelle.Passerelle.getIdUtilisateur()));
 
             foreach (Metier.Medecin leMedecin in listeMedecin)
             {
@@ -40,13 +42,20 @@ namespace gsbCsharp
             DateTime heureArrivee = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeureArrivee.Text), Int32.Parse(txtBoxMinArrivee.Text), 0);
             DateTime heureDepart = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeureDepart.Text), Int32.Parse(txtBoxMinDepart.Text), 0);
 
-            Medecin unMedecin = (Medecin)comboBoxMedecin.SelectedItem;
-            Utilisateur unUtilisateur = (Utilisateur)comboBoxVisiteur.SelectedItem;
-            Visite uneVisite = new Visite(dateVisite, checkBoxRDV.Checked, unUtilisateur, unMedecin, heureArrivee, heureDepart, heure);
+            if (heureArrivee > heureDepart)
+            {
+                MessageBox.Show("L'heure d'arrivée ne peut pas être supérieure à l'heure de départ.");
+            }
+            else
+            {
+                Medecin unMedecin = (Medecin)comboBoxMedecin.SelectedItem;
+                Utilisateur unUtilisateur = Passerelle.Passerelle.getVisiteurUnique(Passerelle.Passerelle.getIdUtilisateur());
+                Visite uneVisite = new Visite(dateVisite, checkBoxRDV.Checked, unUtilisateur, unMedecin, heureArrivee, heureDepart, heure);
 
-            Passerelle.Passerelle.addVisite(uneVisite);
+                Passerelle.Passerelle.addVisite(uneVisite);
 
-            comboBoxMedecin.SelectedItem = "";
+                comboBoxMedecin.SelectedItem = "";
+            }
         }
 
         private void FormCreateVisite_Load(object sender, EventArgs e)
@@ -60,6 +69,11 @@ namespace gsbCsharp
         }
 
         private void txtBoxHeure_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxVisite_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

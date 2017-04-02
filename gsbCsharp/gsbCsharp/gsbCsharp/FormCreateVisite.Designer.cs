@@ -33,8 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxMedecin = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxVisiteur = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtBoxHeure = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBoxMin = new System.Windows.Forms.TextBox();
@@ -100,24 +98,6 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Médecin";
             this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // comboBoxVisiteur
-            // 
-            this.comboBoxVisiteur.FormattingEnabled = true;
-            this.comboBoxVisiteur.Location = new System.Drawing.Point(176, 263);
-            this.comboBoxVisiteur.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxVisiteur.Name = "comboBoxVisiteur";
-            this.comboBoxVisiteur.Size = new System.Drawing.Size(232, 21);
-            this.comboBoxVisiteur.TabIndex = 27;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(65, 271);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Visiteur";
             // 
             // txtBoxHeure
             // 
@@ -274,8 +254,6 @@
             this.Controls.Add(this.txtBoxMin);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtBoxHeure);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBoxVisiteur);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxMedecin);
             this.Controls.Add(this.label1);
@@ -295,8 +273,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxMedecin;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBoxVisiteur;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtBoxHeure;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtBoxMin;
