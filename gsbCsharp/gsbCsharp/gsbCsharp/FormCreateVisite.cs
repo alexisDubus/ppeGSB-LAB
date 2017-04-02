@@ -37,10 +37,8 @@ namespace gsbCsharp
             DateTime date = new DateTime();
             DateTime dateVisite = dateTimeViste.Value;
             DateTime heure = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeure.Text), Int32.Parse(txtBoxMin.Text), 0);
-            DateTime dateVisiteArrivee = dataTimeArrivee.Value;
-            DateTime heureArrivee = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeureArrivee.Text), Int32.Parse(txtBoxMinArrivee.Text), 0);
-            DateTime dateVisiteDepart = dateTimeDepart.Value;
-            DateTime heureDepart = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeureDepart.Text), Int32.Parse(txtBoxMinDepart.Text), 0);
+            DateTime heureArrivee = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeure.Text), Int32.Parse(txtBoxMin.Text), 0);
+            DateTime heureDepart = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeure.Text), Int32.Parse(txtBoxMin.Text), 0);
 
             Medecin unMedecin = (Medecin)comboBoxMedecin.SelectedItem;
             Utilisateur unUtilisateur = (Utilisateur)comboBoxVisiteur.SelectedItem;

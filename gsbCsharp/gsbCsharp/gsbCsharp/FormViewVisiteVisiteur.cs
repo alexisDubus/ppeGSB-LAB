@@ -45,5 +45,11 @@ namespace gsbCsharp
         {
 
         }
+
+        private void comboBoxVisite_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Visite uneVisite = (Visite)comboBoxVisite.SelectedItem;
+            comboBoxMedecin.SelectedItem = uneVisite.getmedecin();
+        }
     }
 }
