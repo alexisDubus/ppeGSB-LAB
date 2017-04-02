@@ -93,5 +93,18 @@ namespace gsbCsharp
             }
 
         }
+        
+
+        private void btnSearchByNom_Click(object sender, EventArgs e)
+        {
+            String nom = (String)textBoxNom.Text;
+            listeVisiteur = Passerelle.Passerelle.getVisiteurByNom(nom);
+
+            comboBoxVisiteur.Items.Clear();
+            foreach (Metier.Utilisateur visiteur in listeVisiteur)
+            {
+                comboBoxVisiteur.Items.Add(visiteur);
+            }
+        }
     }
 }

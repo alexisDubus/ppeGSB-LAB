@@ -398,11 +398,10 @@ namespace Passerelle
             MySqlCommand maCommande = maConnection.CreateCommand();
            /* MySqlCommand maCommande = maConnection.CreateCommand();
             maCommande.CommandText = "UPDATE  medecin set nom = '" + medecin.getNom() + "', prenom = '" + medecin.getPrenom() + "', idcabinet = '" + medecin.getCabinet().getId() + "', idutilisateur = '" + medecin.getVisiteur().getId() + "' where medecin.id = '" + medecin.getId() + "'"; */
-            maCommande.CommandText = "UPDATE  medecin set nom = @nom, prenom = @prenom, idcabinet = @idCabinet, idutilisateur = @idUtilisateur where medecin.id = @id";
+            maCommande.CommandText = "UPDATE  medecin set nom = @nom, prenom = @prenom, idutilisateur = @idUtilisateur where medecin.id = @id";
             maCommande.Parameters.AddWithValue("@id", medecin.getId());
             maCommande.Parameters.AddWithValue("@nom", medecin.getNom());
             maCommande.Parameters.AddWithValue("@prenom", medecin.getPrenom());
-            maCommande.Parameters.AddWithValue("@idCabinet", medecin.getCabinet().getId());
             maCommande.Parameters.AddWithValue("@idUtilisateur", medecin.getVisiteur().getId());
 
             maCommande.ExecuteNonQuery();
@@ -424,6 +423,24 @@ namespace Passerelle
                     region = region.Substring(0, 2);
                 }
                 if (unVisiteur.getCp().StartsWith(region))
+                    liste.Add(unVisiteur);
+            }
+            return liste;
+        }
+
+
+        /// <summary>
+        /// Retourne une liste de visiteurs en fonction de leur code postal (CP)
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <returns></returns>
+        public static BindingList<Utilisateur> getVisiteurByNom(String nom)
+        {
+            string nom2 = nom.First().ToString().ToUpper() + String.Join("", nom.Skip(1));
+            BindingList<Utilisateur> liste = new BindingList<Utilisateur>();
+            foreach (Metier.Utilisateur unVisiteur in listeDesVisiteurs)
+            {
+                if (unVisiteur.getNom().StartsWith(nom2))
                     liste.Add(unVisiteur);
             }
             return liste;
