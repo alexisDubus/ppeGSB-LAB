@@ -36,9 +36,9 @@
             this.textBoxPrenomMedecin = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxMedecinCabinet = new System.Windows.Forms.ComboBox();
             this.comboBoxMedecinVisiteur = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.textBoxCabinet = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // comboBoxMedecin
@@ -52,7 +52,7 @@
             // 
             // btnEditMedecin
             // 
-            this.btnEditMedecin.Location = new System.Drawing.Point(473, 256);
+            this.btnEditMedecin.Location = new System.Drawing.Point(473, 262);
             this.btnEditMedecin.Name = "btnEditMedecin";
             this.btnEditMedecin.Size = new System.Drawing.Size(75, 25);
             this.btnEditMedecin.TabIndex = 1;
@@ -95,7 +95,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(384, 207);
+            this.label3.Location = new System.Drawing.Point(384, 165);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 17);
             this.label3.TabIndex = 8;
@@ -104,25 +104,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(384, 166);
+            this.label4.Location = new System.Drawing.Point(384, 211);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 17);
             this.label4.TabIndex = 7;
             this.label4.Text = "visiteur";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // comboBoxMedecinCabinet
-            // 
-            this.comboBoxMedecinCabinet.FormattingEnabled = true;
-            this.comboBoxMedecinCabinet.Location = new System.Drawing.Point(473, 205);
-            this.comboBoxMedecinCabinet.Name = "comboBoxMedecinCabinet";
-            this.comboBoxMedecinCabinet.Size = new System.Drawing.Size(308, 24);
-            this.comboBoxMedecinCabinet.TabIndex = 11;
-            // 
             // comboBoxMedecinVisiteur
             // 
             this.comboBoxMedecinVisiteur.FormattingEnabled = true;
-            this.comboBoxMedecinVisiteur.Location = new System.Drawing.Point(473, 166);
+            this.comboBoxMedecinVisiteur.Location = new System.Drawing.Point(473, 211);
             this.comboBoxMedecinVisiteur.Name = "comboBoxMedecinVisiteur";
             this.comboBoxMedecinVisiteur.Size = new System.Drawing.Size(308, 24);
             this.comboBoxMedecinVisiteur.TabIndex = 12;
@@ -136,14 +128,22 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Sélectionner un médecin : ";
             // 
+            // textBoxCabinet
+            // 
+            this.textBoxCabinet.Enabled = false;
+            this.textBoxCabinet.Location = new System.Drawing.Point(473, 165);
+            this.textBoxCabinet.Name = "textBoxCabinet";
+            this.textBoxCabinet.Size = new System.Drawing.Size(308, 22);
+            this.textBoxCabinet.TabIndex = 14;
+            // 
             // FormListeMedecin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 434);
+            this.Controls.Add(this.textBoxCabinet);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBoxMedecinVisiteur);
-            this.Controls.Add(this.comboBoxMedecinCabinet);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxPrenomMedecin);
@@ -170,8 +170,8 @@
         private System.Windows.Forms.TextBox textBoxPrenomMedecin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBoxMedecinCabinet;
         private System.Windows.Forms.ComboBox comboBoxMedecinVisiteur;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxCabinet;
     }
 }
