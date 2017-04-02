@@ -69,6 +69,12 @@
     <Compile Include="FormCreateMedecin.Designer.cs">
       <DependentUpon>FormCreateMedecin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCreateVisite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateVisite.Designer.cs">
+      <DependentUpon>FormCreateVisite.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditMedecin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreatemedecin.resx">
       <DependentUpon>FormCreateMedecin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateVisite.resx">
+      <DependentUpon>FormCreateVisite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditMedecin.resx">
       <DependentUpon>FormEditMedecin.cs</DependentUpon>
