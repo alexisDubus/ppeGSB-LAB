@@ -33,12 +33,13 @@
             this.btnEditViste = new System.Windows.Forms.Button();
             this.comboBoxVisite = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnSupprimer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxMedecin
             // 
             this.comboBoxMedecin.FormattingEnabled = true;
-            this.comboBoxMedecin.Location = new System.Drawing.Point(161, 119);
+            this.comboBoxMedecin.Location = new System.Drawing.Point(161, 99);
             this.comboBoxMedecin.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxMedecin.Name = "comboBoxMedecin";
             this.comboBoxMedecin.Size = new System.Drawing.Size(232, 21);
@@ -48,7 +49,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(56, 122);
+            this.label3.Location = new System.Drawing.Point(56, 99);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
@@ -57,7 +58,7 @@
             // 
             // btnEditViste
             // 
-            this.btnEditViste.Location = new System.Drawing.Point(59, 181);
+            this.btnEditViste.Location = new System.Drawing.Point(59, 179);
             this.btnEditViste.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditViste.Name = "btnEditViste";
             this.btnEditViste.Size = new System.Drawing.Size(56, 20);
@@ -85,11 +86,23 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "visite";
             // 
+            // btnSupprimer
+            // 
+            this.btnSupprimer.Location = new System.Drawing.Point(161, 179);
+            this.btnSupprimer.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(78, 20);
+            this.btnSupprimer.TabIndex = 25;
+            this.btnSupprimer.Text = "Supprimer";
+            this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
+            // 
             // FormViewVisiteVisiteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 357);
+            this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.comboBoxVisite);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxMedecin);
@@ -110,5 +123,6 @@
         private System.Windows.Forms.Button btnEditViste;
         private System.Windows.Forms.ComboBox comboBoxVisite;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSupprimer;
     }
 }

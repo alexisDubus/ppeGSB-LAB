@@ -51,5 +51,10 @@ namespace gsbCsharp
             Visite uneVisite = (Visite)comboBoxVisite.SelectedItem;
             comboBoxMedecin.SelectedItem = uneVisite.getmedecin();
         }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

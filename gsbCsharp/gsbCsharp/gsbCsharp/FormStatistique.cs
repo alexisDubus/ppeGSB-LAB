@@ -27,6 +27,8 @@ namespace gsbCsharp
             BindingList<Visite> lesVisitesUtilisateur = new BindingList<Visite>();
             BindingList<TimeSpan> lesTempsAttente = new BindingList<TimeSpan>();
             BindingList<TimeSpan> tempsTotal = new BindingList<TimeSpan>();
+            TimeSpan tempsAttenteMoyen = TimeSpan.Zero;
+            TimeSpan tempsPasseMoyen = TimeSpan.Zero;
             foreach (Visite uneVisite in lesVisites)
             {
                 if (uneVisite.getHeureDebut().Month == DateTime.Now.Month)
@@ -40,8 +42,20 @@ namespace gsbCsharp
                 }
             }
             lblStat2.Text = lesVisitesUtilisateur.Count.ToString();
-            TimeSpan tempsAttenteMoyen = TimeSpan.FromMilliseconds(lesTempsAttente.Average(i => i.TotalMilliseconds));
-            TimeSpan tempsPasseMoyen = TimeSpan.FromMilliseconds(tempsTotal.Average(i => i.TotalMilliseconds));
+            try
+            {
+                tempsAttenteMoyen = TimeSpan.FromMilliseconds(lesTempsAttente.Average(i => i.TotalMilliseconds));
+            } catch
+            {
+                tempsAttenteMoyen = TimeSpan.Zero;
+            }
+            try
+            {
+                tempsPasseMoyen = TimeSpan.FromMilliseconds(tempsTotal.Average(i => i.TotalMilliseconds));
+            } catch
+            {
+                tempsPasseMoyen = TimeSpan.Zero;
+            }
             lblStat3.Text = tempsPasseMoyen.Hours + " h " + tempsPasseMoyen.Minutes + " min " + tempsPasseMoyen.Seconds + " sec"; ;
             lblStat4.Text = tempsAttenteMoyen.Hours + " h " + tempsAttenteMoyen.Minutes + " min " + tempsAttenteMoyen.Seconds + " sec";
         }

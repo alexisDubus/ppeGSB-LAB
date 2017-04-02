@@ -40,11 +40,22 @@
             this.txtBoxMin = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBoxMinArrivee = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtBoxHeureArrivee = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtBoxMinDepart = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtBoxHeureDepart = new System.Windows.Forms.TextBox();
+            this.checkBoxRDV = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnCreateMedecin
             // 
-            this.btnCreateMedecin.Location = new System.Drawing.Point(68, 241);
+            this.btnCreateMedecin.Location = new System.Drawing.Point(68, 343);
             this.btnCreateMedecin.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreateMedecin.Name = "btnCreateMedecin";
             this.btnCreateMedecin.Size = new System.Drawing.Size(56, 20);
@@ -73,7 +84,7 @@
             // comboBoxMedecin
             // 
             this.comboBoxMedecin.FormattingEnabled = true;
-            this.comboBoxMedecin.Location = new System.Drawing.Point(176, 179);
+            this.comboBoxMedecin.Location = new System.Drawing.Point(176, 236);
             this.comboBoxMedecin.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxMedecin.Name = "comboBoxMedecin";
             this.comboBoxMedecin.Size = new System.Drawing.Size(232, 21);
@@ -83,7 +94,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 187);
+            this.label2.Location = new System.Drawing.Point(65, 244);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 26;
@@ -93,7 +104,7 @@
             // comboBoxVisiteur
             // 
             this.comboBoxVisiteur.FormattingEnabled = true;
-            this.comboBoxVisiteur.Location = new System.Drawing.Point(176, 206);
+            this.comboBoxVisiteur.Location = new System.Drawing.Point(176, 263);
             this.comboBoxVisiteur.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxVisiteur.Name = "comboBoxVisiteur";
             this.comboBoxVisiteur.Size = new System.Drawing.Size(232, 21);
@@ -102,7 +113,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(65, 214);
+            this.label3.Location = new System.Drawing.Point(65, 271);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 28;
@@ -150,11 +161,114 @@
             this.label6.TabIndex = 33;
             this.label6.Text = "min";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(329, 179);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(23, 13);
+            this.label7.TabIndex = 38;
+            this.label7.Text = "min";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(243, 179);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(13, 13);
+            this.label8.TabIndex = 37;
+            this.label8.Text = "h";
+            // 
+            // txtBoxMinArrivee
+            // 
+            this.txtBoxMinArrivee.Location = new System.Drawing.Point(262, 176);
+            this.txtBoxMinArrivee.Name = "txtBoxMinArrivee";
+            this.txtBoxMinArrivee.Size = new System.Drawing.Size(61, 20);
+            this.txtBoxMinArrivee.TabIndex = 36;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(65, 176);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(79, 13);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "Heure d\'arrivée";
+            // 
+            // txtBoxHeureArrivee
+            // 
+            this.txtBoxHeureArrivee.Location = new System.Drawing.Point(176, 176);
+            this.txtBoxHeureArrivee.Name = "txtBoxHeureArrivee";
+            this.txtBoxHeureArrivee.Size = new System.Drawing.Size(61, 20);
+            this.txtBoxHeureArrivee.TabIndex = 34;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(329, 211);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(23, 13);
+            this.label10.TabIndex = 43;
+            this.label10.Text = "min";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(243, 211);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(13, 13);
+            this.label11.TabIndex = 42;
+            this.label11.Text = "h";
+            // 
+            // txtBoxMinDepart
+            // 
+            this.txtBoxMinDepart.Location = new System.Drawing.Point(262, 208);
+            this.txtBoxMinDepart.Name = "txtBoxMinDepart";
+            this.txtBoxMinDepart.Size = new System.Drawing.Size(61, 20);
+            this.txtBoxMinDepart.TabIndex = 41;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(65, 208);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(84, 13);
+            this.label12.TabIndex = 40;
+            this.label12.Text = "Heure de départ";
+            // 
+            // txtBoxHeureDepart
+            // 
+            this.txtBoxHeureDepart.Location = new System.Drawing.Point(176, 208);
+            this.txtBoxHeureDepart.Name = "txtBoxHeureDepart";
+            this.txtBoxHeureDepart.Size = new System.Drawing.Size(61, 20);
+            this.txtBoxHeureDepart.TabIndex = 39;
+            // 
+            // checkBoxRDV
+            // 
+            this.checkBoxRDV.AutoSize = true;
+            this.checkBoxRDV.Location = new System.Drawing.Point(68, 308);
+            this.checkBoxRDV.Name = "checkBoxRDV";
+            this.checkBoxRDV.Size = new System.Drawing.Size(103, 17);
+            this.checkBoxRDV.TabIndex = 44;
+            this.checkBoxRDV.Text = "Sur rendez-vous";
+            this.checkBoxRDV.UseVisualStyleBackColor = true;
+            // 
             // FormCreateVisite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 553);
+            this.Controls.Add(this.checkBoxRDV);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txtBoxMinDepart);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txtBoxHeureDepart);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtBoxMinArrivee);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtBoxHeureArrivee);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtBoxMin);
@@ -188,5 +302,16 @@
         private System.Windows.Forms.TextBox txtBoxMin;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtBoxMinArrivee;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtBoxHeureArrivee;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtBoxMinDepart;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtBoxHeureDepart;
+        private System.Windows.Forms.CheckBox checkBoxRDV;
     }
 }
