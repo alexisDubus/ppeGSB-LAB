@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Metier;
 using Passerelle;
+using GoogleMaps.LocationServices;
 
 namespace gsbCsharp
 {
@@ -28,14 +29,25 @@ namespace gsbCsharp
 
         private void btnEditCabinet_Click(object sender, EventArgs e)
         {
-            double lat = 36799.765480;
-            double longi = 5780988.6548902;
+            String rue = textBoxRueCabinet.Text.ToString();
+            String CP = textBoxCPCabinet.Text.ToString();
+            String ville = textBoxVilleCabinet.Text.ToString();
+            var address = rue + CP + " , " + ville;
+
+            var locationService = new GoogleLocationService();
+            var point = locationService.GetLatLongFromAddress(address);
+
+            var latitude = point.Latitude;
+            var longitude = point.Longitude;
+            
+            
+            
             Cabinet unCabinet = (Cabinet)comboBoxCabinet.SelectedItem;
-            unCabinet.setCP(textBoxCPCabinet.Text);
-            unCabinet.setRue(textBoxRueCabinet.Text);
-            unCabinet.setVille(textBoxVilleCabinet.Text);
-            unCabinet.setLatitude(lat);
-            unCabinet.setLongitude(longi);
+            unCabinet.setCP(CP);
+            unCabinet.setRue(rue);
+            unCabinet.setVille(ville);
+            unCabinet.setLatitude(latitude);
+            unCabinet.setLongitude(longitude);
             Passerelle.Passerelle.editCabinet(unCabinet);
         }
 

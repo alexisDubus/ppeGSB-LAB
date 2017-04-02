@@ -41,23 +41,23 @@
             // 
             // textBoxCPCabinet
             // 
-            this.textBoxCPCabinet.Location = new System.Drawing.Point(414, 131);
+            this.textBoxCPCabinet.Location = new System.Drawing.Point(382, 132);
             this.textBoxCPCabinet.Name = "textBoxCPCabinet";
-            this.textBoxCPCabinet.Size = new System.Drawing.Size(190, 22);
+            this.textBoxCPCabinet.Size = new System.Drawing.Size(253, 22);
             this.textBoxCPCabinet.TabIndex = 13;
             // 
             // textBoxVilleCabinet
             // 
-            this.textBoxVilleCabinet.Location = new System.Drawing.Point(414, 91);
+            this.textBoxVilleCabinet.Location = new System.Drawing.Point(382, 92);
             this.textBoxVilleCabinet.Name = "textBoxVilleCabinet";
-            this.textBoxVilleCabinet.Size = new System.Drawing.Size(190, 22);
+            this.textBoxVilleCabinet.Size = new System.Drawing.Size(253, 22);
             this.textBoxVilleCabinet.TabIndex = 12;
             // 
             // textBoxRueCabinet
             // 
-            this.textBoxRueCabinet.Location = new System.Drawing.Point(414, 51);
+            this.textBoxRueCabinet.Location = new System.Drawing.Point(382, 52);
             this.textBoxRueCabinet.Name = "textBoxRueCabinet";
-            this.textBoxRueCabinet.Size = new System.Drawing.Size(190, 22);
+            this.textBoxRueCabinet.Size = new System.Drawing.Size(253, 22);
             this.textBoxRueCabinet.TabIndex = 11;
             // 
             // label3

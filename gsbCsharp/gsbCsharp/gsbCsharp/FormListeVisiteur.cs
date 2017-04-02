@@ -44,11 +44,7 @@ namespace gsbCsharp
 
            
         }
-
-        private void btnMedecin_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnStat_Click(object sender, EventArgs e)
         {
@@ -62,11 +58,7 @@ namespace gsbCsharp
             }
             
         }
-
-        private void comboBoxListeMedecin_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnShowMedecin_Click(object sender, EventArgs e)
         {
@@ -83,13 +75,20 @@ namespace gsbCsharp
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            String uneRegion = (String)textBoxDepartements.Text;
-            listeVisiteur = Passerelle.Passerelle.getVisiteurByRegion(uneRegion);
-
-            comboBoxVisiteur.Items.Clear();
-            foreach (Metier.Utilisateur visiteur in listeVisiteur)
+            if (textBoxDepartements.Text == "" || textBoxDepartements.Text == " " || textBoxDepartements.Text == "  " || textBoxDepartements.Text == "   " || textBoxDepartements.Text == "   ")
             {
-                comboBoxVisiteur.Items.Add(visiteur);
+                MessageBox.Show("le département ne peut pas étre nul!");
+            }
+            else
+            {
+                String uneRegion = (String)textBoxDepartements.Text;
+                listeVisiteur = Passerelle.Passerelle.getVisiteurByRegion(uneRegion);
+
+                comboBoxVisiteur.Items.Clear();
+                foreach (Metier.Utilisateur visiteur in listeVisiteur)
+                {
+                    comboBoxVisiteur.Items.Add(visiteur);
+                }
             }
 
         }
@@ -97,13 +96,20 @@ namespace gsbCsharp
 
         private void btnSearchByNom_Click(object sender, EventArgs e)
         {
-            String nom = (String)textBoxNom.Text;
-            listeVisiteur = Passerelle.Passerelle.getVisiteurByNom(nom);
-
-            comboBoxVisiteur.Items.Clear();
-            foreach (Metier.Utilisateur visiteur in listeVisiteur)
+            if(textBoxNom.Text == "" || textBoxNom.Text == " " || textBoxNom.Text == "  " || textBoxNom.Text == "   " || textBoxNom.Text == "   ")
             {
-                comboBoxVisiteur.Items.Add(visiteur);
+                MessageBox.Show("le nom ne peut pas étre nul!");
+            }
+            else
+            {
+                String nom = (String)textBoxNom.Text;
+                listeVisiteur = Passerelle.Passerelle.getVisiteurByNom(nom);
+
+                comboBoxVisiteur.Items.Clear();
+                foreach (Metier.Utilisateur visiteur in listeVisiteur)
+                {
+                    comboBoxVisiteur.Items.Add(visiteur);
+                }
             }
         }
     }

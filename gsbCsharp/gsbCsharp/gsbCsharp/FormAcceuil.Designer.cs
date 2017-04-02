@@ -130,7 +130,7 @@
             this.listeToolStripMenuItem1.Name = "listeToolStripMenuItem1";
             this.listeToolStripMenuItem1.Size = new System.Drawing.Size(114, 26);
             this.listeToolStripMenuItem1.Text = "Liste";
-            this.listeToolStripMenuItem1.Click += new System.EventHandler(this.listeToolStripMenuItem1_Click);
+            this.listeToolStripMenuItem1.Click += new System.EventHandler(this.listeVisiteStripMenuItem2_Clic);
             // 
             // listeToolStripMenuItem2
             // 
@@ -140,7 +140,7 @@
             this.listeToolStripMenuItem2.Click += new System.EventHandler(this.listeToolStripMenuItem2_Click);
             this.listeToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.listeToolStripMenuItem1.Text = "Liste";
-            this.listeToolStripMenuItem1.Click += new System.EventHandler(this.listeToolStripMenuItem1_Click);
+            this.listeToolStripMenuItem1.Click += new System.EventHandler(this.listeVisiteStripMenuItem2_Clic);
             // 
             // ajouterToolStripMenuItem
             // 
