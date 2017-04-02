@@ -30,9 +30,7 @@
         {
             this.comboBoxMedecin = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnEditViste = new System.Windows.Forms.Button();
-            this.dateTimePickerCreation = new System.Windows.Forms.DateTimePicker();
             this.comboBoxVisite = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -40,7 +38,7 @@
             // comboBoxMedecin
             // 
             this.comboBoxMedecin.FormattingEnabled = true;
-            this.comboBoxMedecin.Location = new System.Drawing.Point(161, 189);
+            this.comboBoxMedecin.Location = new System.Drawing.Point(161, 119);
             this.comboBoxMedecin.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxMedecin.Name = "comboBoxMedecin";
             this.comboBoxMedecin.Size = new System.Drawing.Size(232, 21);
@@ -50,40 +48,22 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(56, 192);
+            this.label3.Location = new System.Drawing.Point(56, 122);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 19;
             this.label3.Text = "Medecin";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 126);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "date de création";
-            // 
             // btnEditViste
             // 
-            this.btnEditViste.Location = new System.Drawing.Point(161, 243);
+            this.btnEditViste.Location = new System.Drawing.Point(59, 181);
             this.btnEditViste.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditViste.Name = "btnEditViste";
             this.btnEditViste.Size = new System.Drawing.Size(56, 20);
             this.btnEditViste.TabIndex = 13;
             this.btnEditViste.Text = "Editer";
             this.btnEditViste.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePickerCreation
-            // 
-            this.dateTimePickerCreation.Location = new System.Drawing.Point(161, 126);
-            this.dateTimePickerCreation.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePickerCreation.Name = "dateTimePickerCreation";
-            this.dateTimePickerCreation.Size = new System.Drawing.Size(232, 20);
-            this.dateTimePickerCreation.TabIndex = 22;
             // 
             // comboBoxVisite
             // 
@@ -112,10 +92,8 @@
             this.ClientSize = new System.Drawing.Size(718, 357);
             this.Controls.Add(this.comboBoxVisite);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePickerCreation);
             this.Controls.Add(this.comboBoxMedecin);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEditViste);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormViewVisiteVisiteur";
@@ -129,9 +107,7 @@
         #endregion
         private System.Windows.Forms.ComboBox comboBoxMedecin;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEditViste;
-        private System.Windows.Forms.DateTimePicker dateTimePickerCreation;
         private System.Windows.Forms.ComboBox comboBoxVisite;
         private System.Windows.Forms.Label label2;
     }
