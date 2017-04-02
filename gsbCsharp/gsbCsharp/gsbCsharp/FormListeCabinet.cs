@@ -36,6 +36,7 @@ namespace gsbCsharp
             unCabinet.setVille(textBoxVilleCabinet.Text);
             unCabinet.setLatitude(lat);
             unCabinet.setLongitude(longi);
+            Passerelle.Passerelle.editCabinet(unCabinet);
         }
 
         private void comboBoxCabinet_SelectedIndexChanged(object sender, EventArgs e)

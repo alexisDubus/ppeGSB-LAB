@@ -676,6 +676,28 @@ namespace Passerelle
             listeDesCabinets.Add(cabinet);
         }
 
+
+        /// <summary>
+        /// Modifie le Cabinet sur la BDD
+        /// </summary>
+        /// <param name="cabinet"></param>
+        public static void editCabinet(Cabinet cabinet)
+        {
+            connexion();
+            MySqlCommand maCommande = maConnection.CreateCommand();
+            maCommande.CommandText = "UPDATE  cabinet set rue = @rue, ville = @ville, CP = @CP, longitude = @longitude , latitude = @latitude where cabinet.id = @id";
+            maCommande.Parameters.AddWithValue("@id", cabinet.getId());
+            maCommande.Parameters.AddWithValue("@rue", cabinet.getRue());
+            maCommande.Parameters.AddWithValue("@ville", cabinet.getVille());
+            maCommande.Parameters.AddWithValue("@CP", cabinet.getCP());
+            maCommande.Parameters.AddWithValue("@longitude", cabinet.getLongitude());
+            maCommande.Parameters.AddWithValue("@latitude", cabinet.getLatitude());
+
+            maCommande.ExecuteNonQuery();
+            init();
+        }
+
+
         #endregion
 
 
