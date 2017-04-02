@@ -435,6 +435,29 @@ namespace Passerelle
 
         #region Visite
 
+        /// <summary>
+        /// Ajoute une visite à la liste
+        /// </summary>
+        /// <returns></returns>
+        public static void addVisite(Visite visite)
+        {
+            connexion();
+            MySqlCommand maCommande = maConnection.CreateCommand();
+            maCommande.CommandText = "INSERT INTO visite(dateVisite, rdv, idutilisateur, idmedecin, heureArrivee, heureDepart, heureDebut) VALUES(@dateVisite, @rdv, @idutilisateur, @idmedecin, @heureArrivee, @heureDepart, @heureDebut);";
+            //maCommande.Parameters.AddWithValue("@id", cabinet.getId());
+            maCommande.Parameters.AddWithValue("@dateVisite", visite.getDateVisite());
+            maCommande.Parameters.AddWithValue("@rdv", visite.getRdv());
+            maCommande.Parameters.AddWithValue("@idutilisateur", visite.getVisiteur());
+            maCommande.Parameters.AddWithValue("@idmedecin", visite.getmedecin());
+            maCommande.Parameters.AddWithValue("@heureArrivee", visite.getHeureArrivee());
+            maCommande.Parameters.AddWithValue("@heureDepart", visite.getHeureDepart());
+            maCommande.Parameters.AddWithValue("@heureDebut", visite.getHeureDebut());
+
+            maCommande.ExecuteNonQuery();
+            int lastId = (int)maCommande.LastInsertedId;
+            visite.setId(lastId);
+            listeDesVisites.Add(visite);
+        }
 
         /// <summary>
         /// Retourne la liste des Visite, aucune requéte
@@ -477,6 +500,19 @@ namespace Passerelle
             unJeuResultat.Close();
         }
 
+        public static BindingList<Medecin> getListeVisite(Utilisateur unVisiteur)
+        {
+            BindingList<Medecin> liste = new BindingList<Medecin>();
+            Utilisateur leVisiteur;
+            foreach (Metier.Medecin leMedecin in listeDesMedecins)
+
+            {
+                leVisiteur = leMedecin.getVisiteur();
+                if (unVisiteur.getId() == leVisiteur.getId())
+                    liste.Add(leMedecin);
+            }
+            return liste;
+        }
 
         public static void getAVisite(MySqlDataReader unJeuResultat)
         {
@@ -533,6 +569,25 @@ namespace Passerelle
             }
 
             return fauxUser;
+        }
+
+        /// <summary>
+        /// Utilisé pour renvoyer les médecins d'un visiteur
+        /// </summary>
+        /// <param name="unVisiteur"></param>
+        /// <returns></returns>
+        public static BindingList<Visite> getListeVisites(Utilisateur unVisiteur)
+        {
+            BindingList<Visite> liste = new BindingList<Visite>();
+            Utilisateur leVisiteur;
+            foreach (Metier.Visite laVisite in listeDesVisites)
+
+            {
+                leVisiteur = laVisite.getVisiteur();
+                if (unVisiteur.getId() == leVisiteur.getId())
+                    liste.Add(laVisite);
+            }
+            return liste;
         }
 
         #endregion

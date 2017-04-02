@@ -89,6 +89,12 @@ namespace gsbCsharp
             OUVRE_UNE_MDI_FILLE(listeMedecin, this);
         }
 
+        private void ajouterVisiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCreateVisite listeVisite = new FormCreateVisite();
+            OUVRE_UNE_MDI_FILLE(listeVisite, this);
+        }
+
         private void visiteVisiteurToolStripMenuItem_Click(object sender, EventArgs e)
         {
 

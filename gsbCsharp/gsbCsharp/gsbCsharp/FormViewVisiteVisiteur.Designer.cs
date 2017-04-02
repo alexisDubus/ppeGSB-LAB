@@ -40,67 +40,75 @@
             // comboBoxMedecin
             // 
             this.comboBoxMedecin.FormattingEnabled = true;
-            this.comboBoxMedecin.Location = new System.Drawing.Point(215, 233);
+            this.comboBoxMedecin.Location = new System.Drawing.Point(161, 189);
+            this.comboBoxMedecin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxMedecin.Name = "comboBoxMedecin";
-            this.comboBoxMedecin.Size = new System.Drawing.Size(308, 24);
+            this.comboBoxMedecin.Size = new System.Drawing.Size(232, 21);
             this.comboBoxMedecin.TabIndex = 20;
+            this.comboBoxMedecin.SelectedIndexChanged += new System.EventHandler(this.comboBoxMedecin_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(75, 236);
+            this.label3.Location = new System.Drawing.Point(56, 192);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 17);
+            this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 19;
             this.label3.Text = "Medecin";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 155);
+            this.label1.Location = new System.Drawing.Point(56, 126);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 17);
+            this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 14;
             this.label1.Text = "date de création";
             // 
             // btnEditViste
             // 
-            this.btnEditViste.Location = new System.Drawing.Point(215, 299);
+            this.btnEditViste.Location = new System.Drawing.Point(161, 243);
+            this.btnEditViste.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEditViste.Name = "btnEditViste";
-            this.btnEditViste.Size = new System.Drawing.Size(75, 25);
+            this.btnEditViste.Size = new System.Drawing.Size(56, 20);
             this.btnEditViste.TabIndex = 13;
             this.btnEditViste.Text = "Editer";
             this.btnEditViste.UseVisualStyleBackColor = true;
             // 
             // dateTimePickerCreation
             // 
-            this.dateTimePickerCreation.Location = new System.Drawing.Point(215, 155);
+            this.dateTimePickerCreation.Location = new System.Drawing.Point(161, 126);
+            this.dateTimePickerCreation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerCreation.Name = "dateTimePickerCreation";
-            this.dateTimePickerCreation.Size = new System.Drawing.Size(308, 22);
+            this.dateTimePickerCreation.Size = new System.Drawing.Size(232, 20);
             this.dateTimePickerCreation.TabIndex = 22;
             // 
             // comboBoxVisite
             // 
             this.comboBoxVisite.FormattingEnabled = true;
-            this.comboBoxVisite.Location = new System.Drawing.Point(215, 44);
+            this.comboBoxVisite.Location = new System.Drawing.Point(161, 36);
+            this.comboBoxVisite.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxVisite.Name = "comboBoxVisite";
-            this.comboBoxVisite.Size = new System.Drawing.Size(308, 24);
+            this.comboBoxVisite.Size = new System.Drawing.Size(232, 21);
             this.comboBoxVisite.TabIndex = 24;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(75, 51);
+            this.label2.Location = new System.Drawing.Point(56, 41);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 17);
+            this.label2.Size = new System.Drawing.Size(31, 13);
             this.label2.TabIndex = 23;
             this.label2.Text = "visite";
             // 
             // FormViewVisiteVisiteur
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(957, 439);
+            this.ClientSize = new System.Drawing.Size(718, 357);
             this.Controls.Add(this.comboBoxVisite);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePickerCreation);
@@ -108,6 +116,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEditViste);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormViewVisiteVisiteur";
             this.Text = "Editer les visites d\'un visiteur";
             this.Load += new System.EventHandler(this.FormViewVisiteVisiteur_Load);
