@@ -34,10 +34,7 @@ namespace gsbCsharp
             {
                 comboBoxMedecinVisiteur.Items.Add(visiteur);
             }
-            foreach (Metier.Cabinet unCabinet in listeCabinet)
-            {
-                comboBoxMedecinCabinet.Items.Add(unCabinet);
-            }
+
         }
 
         private void FormListeMedecin_Load(object sender, EventArgs e)
@@ -49,7 +46,7 @@ namespace gsbCsharp
         private void comboBoxMedecin_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             Medecin unMedecin = (Medecin)comboBoxMedecin.SelectedItem;
-            comboBoxMedecinCabinet.SelectedItem = unMedecin.getCabinet();
+            textBoxCabinet.Text = unMedecin.getCabinet().ToString();
             comboBoxMedecinVisiteur.SelectedItem = unMedecin.getVisiteur();
             textBoxNomMedecin.Text = unMedecin.getNom();
             textBoxPrenomMedecin.Text = unMedecin.getPrenom();
