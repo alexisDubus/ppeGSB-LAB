@@ -38,6 +38,7 @@
             this.ajouterCabinetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visiteVisiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.listeToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,21 +85,22 @@
             // ajouterMedecinToolStripMenuItem
             // 
             this.ajouterMedecinToolStripMenuItem.Name = "ajouterMedecinToolStripMenuItem";
-            this.ajouterMedecinToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.ajouterMedecinToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.ajouterMedecinToolStripMenuItem.Text = "Ajouter";
             this.ajouterMedecinToolStripMenuItem.Click += new System.EventHandler(this.ajouterMedecinToolStripMenuItem_Click);
             // 
             // listeToolStripMenuItem
             // 
             this.listeToolStripMenuItem.Name = "listeToolStripMenuItem";
-            this.listeToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.listeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.listeToolStripMenuItem.Text = "Liste";
             this.listeToolStripMenuItem.Click += new System.EventHandler(this.listeToolStripMenuItem_Click);
             // 
             // cabinetToolStripMenuItem
             // 
             this.cabinetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ajouterCabinetToolStripMenuItem});
+            this.ajouterCabinetToolStripMenuItem,
+            this.listeToolStripMenuItem2});
             this.cabinetToolStripMenuItem.Name = "cabinetToolStripMenuItem";
             this.cabinetToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.cabinetToolStripMenuItem.Text = "Cabinet";
@@ -106,7 +108,7 @@
             // ajouterCabinetToolStripMenuItem
             // 
             this.ajouterCabinetToolStripMenuItem.Name = "ajouterCabinetToolStripMenuItem";
-            this.ajouterCabinetToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.ajouterCabinetToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.ajouterCabinetToolStripMenuItem.Text = "Ajouter";
             this.ajouterCabinetToolStripMenuItem.Click += new System.EventHandler(this.ajouterToolStripMenuItem_Click);
             // 
@@ -122,9 +124,16 @@
             // listeToolStripMenuItem1
             // 
             this.listeToolStripMenuItem1.Name = "listeToolStripMenuItem1";
-            this.listeToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
+            this.listeToolStripMenuItem1.Size = new System.Drawing.Size(114, 26);
             this.listeToolStripMenuItem1.Text = "Liste";
             this.listeToolStripMenuItem1.Click += new System.EventHandler(this.listeToolStripMenuItem1_Click);
+            // 
+            // listeToolStripMenuItem2
+            // 
+            this.listeToolStripMenuItem2.Name = "listeToolStripMenuItem2";
+            this.listeToolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
+            this.listeToolStripMenuItem2.Text = "Liste";
+            this.listeToolStripMenuItem2.Click += new System.EventHandler(this.listeToolStripMenuItem2_Click);
             // 
             // FormAcceuil
             // 
@@ -158,6 +167,7 @@
         private System.Windows.Forms.ToolStripMenuItem visiteVisiteurToolStripMenuItem;
         public System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem listeToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem listeToolStripMenuItem2;
     }
 }
 

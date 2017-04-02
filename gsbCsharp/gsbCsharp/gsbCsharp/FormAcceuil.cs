@@ -99,5 +99,11 @@ namespace gsbCsharp
             FormViewVisiteVisiteur listeVisite = new FormViewVisiteVisiteur(Passerelle.Passerelle.getVisiteurUnique("a131"));
             OUVRE_UNE_MDI_FILLE(listeVisite, this);
         }
+
+        private void listeToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FormListeCabinet listeCabinet = new FormListeCabinet();
+            OUVRE_UNE_MDI_FILLE(listeCabinet, this);
+        }
     }
 }

@@ -75,6 +75,12 @@
     <Compile Include="FormEditMedecin.Designer.cs">
       <DependentUpon>FormEditMedecin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormListeCabinet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListeCabinet.Designer.cs">
+      <DependentUpon>FormListeCabinet.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormListeMedecin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditMedecin.resx">
       <DependentUpon>FormEditMedecin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListeCabinet.resx">
+      <DependentUpon>FormListeCabinet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormListeMedecin.resx">
       <DependentUpon>FormListeMedecin.cs</DependentUpon>

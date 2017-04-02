@@ -89,6 +89,15 @@ namespace gsbCsharp
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(json);
                 XmlNode node = doc.DocumentElement;
+                foreach (XmlNode unNode in doc)
+                {
+                    if (unNode.Name == "geometry")
+                    {
+                        // get the content of the loc node 
+                        string loc = unNode.InnerText;
+                        
+                    }
+                }
                 string attr = node.Attributes["status"]?.OuterXml;
                 String test = node.Attributes["status"]?.InnerText;
                 string test2 = node.Attributes["status"]?.InnerText;
