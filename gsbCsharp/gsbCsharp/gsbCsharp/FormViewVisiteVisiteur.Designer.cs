@@ -41,7 +41,7 @@
             // 
             this.comboBoxMedecin.FormattingEnabled = true;
             this.comboBoxMedecin.Location = new System.Drawing.Point(161, 189);
-            this.comboBoxMedecin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxMedecin.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxMedecin.Name = "comboBoxMedecin";
             this.comboBoxMedecin.Size = new System.Drawing.Size(232, 21);
             this.comboBoxMedecin.TabIndex = 20;
@@ -70,7 +70,7 @@
             // btnEditViste
             // 
             this.btnEditViste.Location = new System.Drawing.Point(161, 243);
-            this.btnEditViste.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditViste.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditViste.Name = "btnEditViste";
             this.btnEditViste.Size = new System.Drawing.Size(56, 20);
             this.btnEditViste.TabIndex = 13;
@@ -80,7 +80,7 @@
             // dateTimePickerCreation
             // 
             this.dateTimePickerCreation.Location = new System.Drawing.Point(161, 126);
-            this.dateTimePickerCreation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerCreation.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerCreation.Name = "dateTimePickerCreation";
             this.dateTimePickerCreation.Size = new System.Drawing.Size(232, 20);
             this.dateTimePickerCreation.TabIndex = 22;
@@ -89,10 +89,11 @@
             // 
             this.comboBoxVisite.FormattingEnabled = true;
             this.comboBoxVisite.Location = new System.Drawing.Point(161, 36);
-            this.comboBoxVisite.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxVisite.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxVisite.Name = "comboBoxVisite";
             this.comboBoxVisite.Size = new System.Drawing.Size(232, 21);
             this.comboBoxVisite.TabIndex = 24;
+            this.comboBoxVisite.SelectedIndexChanged += new System.EventHandler(this.comboBoxVisite_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -116,7 +117,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEditViste);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormViewVisiteVisiteur";
             this.Text = "Editer les visites d\'un visiteur";
             this.Load += new System.EventHandler(this.FormViewVisiteVisiteur_Load);
