@@ -179,7 +179,7 @@ namespace Metier
         #region fonction 
         public override String ToString()
         {
-            String leString = this.getDateVisite() + ", " + this.getmedecin().ToString() + ", " + this.getVisiteur().ToString();
+            String leString = this.getDateVisite().Day + "/" + this.getDateVisite().Month + "/" + getDateVisite().Year + ", " + this.getmedecin().ToString() + ", " + this.getVisiteur().ToString();
             return leString;
         }
 
