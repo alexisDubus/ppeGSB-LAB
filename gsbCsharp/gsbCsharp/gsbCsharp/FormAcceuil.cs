@@ -23,6 +23,7 @@ namespace gsbCsharp
             Passerelle.Passerelle.init();
             Passerelle.Passerelle.setTypeUtilisateur(2);
             typeUtilisateur = Passerelle.Passerelle.getTypeUtilisateur();
+            Passerelle.Passerelle.setIdUtilisateur("a131"); //Changer valeur par id session
         }
 
         public static void checkTypeUser()
