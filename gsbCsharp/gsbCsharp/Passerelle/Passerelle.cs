@@ -26,7 +26,7 @@ namespace Passerelle
         private static BindingList<Cabinet> listeDesCabinets = new BindingList<Cabinet>();
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
-        //private static String connectionString = "SERVER=172.16.9.3; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        //private static String connectionString = "SERVER=172.16.8.200; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
@@ -78,7 +78,7 @@ namespace Passerelle
         }
 
         /// <summary>
-        /// Met à jour l'idUtilisateur
+        /// Met à jour l'idUtilisateur en session
         /// </summary>
         /// <param name="id"></param>
         public static void setIdUtilisateur(String id)
@@ -87,7 +87,7 @@ namespace Passerelle
         }
 
         /// <summary>
-        /// retourne l'idUtilisateur
+        /// retourne l'idUtilisateur en session
         /// </summary>
         /// <returns>idUtilisateur</returns>
         public static String getIdUtilisateur()
@@ -276,7 +276,10 @@ namespace Passerelle
             unJeuResultat.Close();
         }
 
-
+        /// <summary>
+        /// Utilisé pour rajouté des visiteurs dans la liste
+        /// </summary>
+        /// <param name="unJeuResultat"></param>
         public static void getAVisiteur(MySqlDataReader unJeuResultat)
         {
 
@@ -353,7 +356,10 @@ namespace Passerelle
         }
 
         
-
+        /// <summary>
+        /// Rajoute un médecin dans la liste
+        /// </summary>
+        /// <param name="unJeuResultat"></param>
         public static void getAMedecin(MySqlDataReader unJeuResultat)
         {
 
@@ -409,12 +415,14 @@ namespace Passerelle
             listeDesMedecins.Add(medecin);
         }
 
+        /// <summary>
+        /// Modifie le médecin donné en paramétre pour faire un UPDATE en BDD
+        /// </summary>
+        /// <param name="medecin"></param>
         public static void editMedecin(Medecin medecin)
         {
             connexion();
             MySqlCommand maCommande = maConnection.CreateCommand();
-           /* MySqlCommand maCommande = maConnection.CreateCommand();
-            maCommande.CommandText = "UPDATE  medecin set nom = '" + medecin.getNom() + "', prenom = '" + medecin.getPrenom() + "', idcabinet = '" + medecin.getCabinet().getId() + "', idutilisateur = '" + medecin.getVisiteur().getId() + "' where medecin.id = '" + medecin.getId() + "'"; */
             maCommande.CommandText = "UPDATE  medecin set nom = @nom, prenom = @prenom, idutilisateur = @idUtilisateur where medecin.id = @id";
             maCommande.Parameters.AddWithValue("@id", medecin.getId());
             maCommande.Parameters.AddWithValue("@nom", medecin.getNom());
@@ -422,11 +430,12 @@ namespace Passerelle
             maCommande.Parameters.AddWithValue("@idUtilisateur", medecin.getVisiteur().getId());
 
             maCommande.ExecuteNonQuery();
-            init();
+            init(); //recharge les listes
         }
         
         /// <summary>
         /// Retourne une liste de visiteurs en fonction de leur code postal (CP)
+        /// Marche aussi avec un code postal partiel (le début)
         /// </summary>
         /// <param name="region"></param>
         /// <returns></returns>
@@ -447,7 +456,8 @@ namespace Passerelle
 
 
         /// <summary>
-        /// Retourne une liste de visiteurs en fonction de leur code postal (CP)
+        /// Retourne une liste de visiteurs en fonction de leur nom
+        /// Marche aussi avec un nom incomplet (uniquement le début)
         /// </summary>
         /// <param name="nom"></param>
         /// <returns></returns>
@@ -517,7 +527,7 @@ namespace Passerelle
         }
 
         /// <summary>
-        /// Supprime une visite à la liste
+        /// Supprime une visite de la liste
         /// </summary>
         /// <returns></returns>
         public static void supprimeVisite(Visite visite)
@@ -544,7 +554,7 @@ namespace Passerelle
         /// <summary>
         /// Retourne la liste des Visite, aucune requéte
         /// </summary>
-        /// <returns></returns>
+        /// <returns>BindingList<Visite></returns>
         public static BindingList<Visite> returnAllVisite()
         {
             return listeDesVisites;
@@ -553,7 +563,7 @@ namespace Passerelle
         /// <summary>
         /// renvoi tout les Visites aprés les avoir récupéré de la BDD
         /// </summary>
-        /// <returns></returns>
+        /// <returns>BindingList<Visite></returns>
         public static BindingList<Visite> getAllVisite()
         {
             BindingList<Visite> listeReset = new BindingList<Visite>();
@@ -563,7 +573,7 @@ namespace Passerelle
         }
 
         /// <summary>
-        /// Selectionne tout les Visites et les met dans la liste
+        /// Selectionne toutes les Visites et les met dans la liste
         /// </summary>
         public static void selectAllVisite()
         {
@@ -582,6 +592,11 @@ namespace Passerelle
             unJeuResultat.Close();
         }
 
+        /// <summary>
+        /// Récupére la liste des visiteurs en BDD
+        /// </summary>
+        /// <param name="unVisiteur"></param>
+        /// <returns>BindingList<Medecin></returns>
         public static BindingList<Medecin> getListeVisite(Utilisateur unVisiteur)
         {
             BindingList<Medecin> liste = new BindingList<Medecin>();
@@ -596,6 +611,10 @@ namespace Passerelle
             return liste;
         }
 
+        /// <summary>
+        /// rajoute une visite à la liste et la lie a un Visiteur et Médecin
+        /// </summary>
+        /// <param name="unJeuResultat"></param>
         public static void getAVisite(MySqlDataReader unJeuResultat)
         {
 
@@ -680,7 +699,7 @@ namespace Passerelle
         /// <summary>
         /// Retourne la liste des Cabinets, aucune requéte
         /// </summary>
-        /// <returns></returns>
+        /// <returns>BindingList<Cabinet></returns>
         public static BindingList<Cabinet> returnAllCabinets()
         {
             return listeDesCabinets;
@@ -689,7 +708,7 @@ namespace Passerelle
         /// <summary>
         /// renvoi tout les cabinets aprés les avoir récupéré de la BDD
         /// </summary>
-        /// <returns></returns>
+        /// <returns>BindingList<Cabinet></returns>
         public static BindingList<Cabinet> getAllCabinets()
         {
             BindingList<Cabinet> listeReset = new BindingList<Cabinet>();
@@ -719,6 +738,10 @@ namespace Passerelle
             unJeuResultat.Close();
         }
 
+        /// <summary>
+        /// Rajoute un cabinet a la liste
+        /// </summary>
+        /// <param name="unJeuResultat"></param>
         public static void getACabinet(MySqlDataReader unJeuResultat)
         {
             int id = (int)unJeuResultat.GetInt16("id");
@@ -739,7 +762,10 @@ namespace Passerelle
             }
         }
 
-
+        /// <summary>
+        /// rajoute un cabinet a la BDD
+        /// </summary>
+        /// <param name="cabinet"></param>
         public static void addCabinet(Cabinet cabinet)
         {
             connexion();

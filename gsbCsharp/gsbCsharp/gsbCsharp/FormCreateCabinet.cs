@@ -44,11 +44,18 @@ namespace gsbCsharp
             var locationService = new GoogleLocationService();
             var point = locationService.GetLatLongFromAddress(address);
 
-            var latitude = point.Latitude;
-            var longitude = point.Longitude;
+            try
+            {
+                var latitude = point.Latitude;
+                var longitude = point.Longitude;
 
-            Cabinet unCabinet = new Cabinet(rue, CP, ville, longitude, latitude);
-            Passerelle.Passerelle.addCabinet(unCabinet);
+                Cabinet unCabinet = new Cabinet(rue, CP, ville, longitude, latitude);
+                Passerelle.Passerelle.addCabinet(unCabinet);
+            }
+            catch (Exception exec1)
+            {
+                MessageBox.Show("L'adresse " + address + " n'existe pas");
+            }
         }
 
         private void FormCreateCabinet_Load(object sender, EventArgs e)
