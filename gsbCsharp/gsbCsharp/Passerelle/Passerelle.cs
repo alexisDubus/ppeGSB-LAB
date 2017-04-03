@@ -164,6 +164,23 @@ namespace Passerelle
             return liste;
         }
 
+
+        /// <summary>
+        /// Utilisé pour renvoyer les médecins d'un visiteur
+        /// </summary>
+        /// <param name="unVisiteur"></param>
+        /// <returns></returns>
+        public static BindingList<Visite> getListeVisiteVisiteur(Utilisateur unVisiteur)
+        {
+            BindingList<Visite> liste = new BindingList<Visite>();
+            foreach (Metier.Visite laVisite in listeDesVisites)
+            {
+                if (unVisiteur.getId() == laVisite.getVisiteur().getId())
+                    liste.Add(laVisite);
+            }
+            return liste;
+        }
+
         /// <summary>
         /// Inutilisé
         /// </summary>
