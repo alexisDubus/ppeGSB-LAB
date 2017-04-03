@@ -1,0 +1,4 @@
+CREATE TRIGGER `increment_utilisateur_version_delete_medecin` AFTER DELETE ON `medecin`
+ FOR EACH ROW update utilisateur 
+set version = version + 1 
+where id = old.idutilisateur
