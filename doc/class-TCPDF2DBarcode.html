@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class TCPDF2DBarcode</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Packages</h3>
+			<ul>
+				<li>
+					<a href="package-com.html">
+						com<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="package-com.tecnick.html">
+						tecnick<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="package-com.tecnick.tcpdf.html">
+						tcpdf					</a>
+
+						</li>
+							</ul></li></ul></li>
+				<li>
+					<a href="package-default.html">
+						default					</a>
+
+						</li>
+				<li>
+					<a href="package-None.html">
+						None					</a>
+
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-HTML2PDF_myPdf.html">HTML2PDF_myPdf</a></li>
+				<li><a href="class-QRcode.html">QRcode</a></li>
+				<li><a href="class-TCPDF.html">TCPDF</a></li>
+				<li class="active"><a href="class-TCPDF2DBarcode.html">TCPDF2DBarcode</a></li>
+				<li><a href="class-TCPDFBarcode.html">TCPDFBarcode</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-CheckTTF.html">CheckTTF</a></li>
+				<li><a href="function-MakeFont.html">MakeFont</a></li>
+				<li><a href="function-MakeFontDescriptor.html">MakeFontDescriptor</a></li>
+				<li><a href="function-MakeFontEncoding.html">MakeFontEncoding</a></li>
+				<li><a href="function-MakeWidthArray.html">MakeWidthArray</a></li>
+				<li><a href="function-ReadAFM.html">ReadAFM</a></li>
+				<li><a href="function-ReadLong.html">ReadLong</a></li>
+				<li><a href="function-ReadMap.html">ReadMap</a></li>
+				<li><a href="function-ReadShort.html">ReadShort</a></li>
+				<li><a href="function-ReadUFM.html">ReadUFM</a></li>
+				<li><a href="function-SaveToFile.html">SaveToFile</a></li>
+				<li><a href="function-str_split.html">str_split</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+<span>Package</span>			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class TCPDF2DBarcode</h1>
+
+
+	<div class="description">
+	<p>PHP class to creates array representations for 2D barcodes to be used with TCPDF (http://www.tcpdf.org).<br></p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Package:</b> <a href="package-com.html">com</a>\<a href="package-com.tecnick.html">tecnick</a>\<a href="package-com.tecnick.tcpdf.html">tcpdf</a><br>
+
+				<b>Copyright:</b>
+				2008-2009 Nicola Asuni - Tecnick.com S.r.l (www.tecnick.com) Via Della Pace, 11 - 09044 - Quartucciu (CA) - ITALY - www.tecnick.com - info@tecnick.com<br>
+				<b>License:</b>
+				<a href="http://www.gnu.org/copyleft/lesser.html">LGPL</a><br>
+				<b>Author:</b>
+				Nicola Asuni<br>
+				<b>Version:</b>
+				1.0.003<br>
+				<b>Link:</b>
+				<a href="http://www.tcpdf.org">http://www.tcpdf.org</a><br>
+			<b>Located at</b> <a href="source-class-TCPDF2DBarcode.html#53-150" title="Go to source code">vues/html2pdf/_tcpdf_5.0.002/2dbarcodes.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-TCPDF2DBarcode.html#70-82" title="Go to source code">__construct</a>( <span>string <var>$code</var></span>, <span>string <var>$type</var></span> )</code>
+
+		<div class="description short">
+			<p>This is the class constructor.
+Return an array representations for 2D barcodes:</p>
+
+<ul>
+<li>$arrcode['code'] code to be printed on text label</li>
+<li>$arrcode['num_rows'] required number of rows</li>
+<li>$arrcode['num_cols'] required number of columns</li>
+<li>$arrcode['bcode'][$r][$c] value of the cell is $r row and $c column (0 = transparent, 1 = black)</li></ul>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>This is the class constructor.
+Return an array representations for 2D barcodes:</p>
+
+<ul>
+<li>$arrcode['code'] code to be printed on text label</li>
+<li>$arrcode['num_rows'] required number of rows</li>
+<li>$arrcode['num_cols'] required number of columns</li>
+<li>$arrcode['bcode'][$r][$c] value of the cell is $r row and $c column (0 = transparent, 1 = black)</li></ul>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$code</var></dt>
+					<dd>code to print</dd>
+					<dt><var>$type</var></dt>
+					<dd><p>type of barcode:</p>
+
+<ul>li>RAW: raw mode - comma-separad list of array rows</li><li>RAW2: raw mode - array rows are surrounded by square parenthesis.</li><li>QRCODE : QR-CODE Low error correction</li><li>QRCODE,L : QR-CODE Low error correction</li><li>QRCODE,M : QR-CODE Medium error correction</li><li>QRCODE,Q : QR-CODE Better error correction</li><li>QRCODE,H : QR-CODE Best error correction</li></ul></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getBarcodeArray" id="_getBarcodeArray">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getBarcodeArray">#</a>
+		<code><a href="source-class-TCPDF2DBarcode.html#84-90" title="Go to source code">getBarcodeArray</a>( )</code>
+
+		<div class="description short">
+			<p>Return an array representations of barcode.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Return an array representations of barcode.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setBarcode" id="_setBarcode">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setBarcode">#</a>
+		<code><a href="source-class-TCPDF2DBarcode.html#92-149" title="Go to source code">setBarcode</a>( <span>string <var>$code</var></span>, <span>string <var>$type</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the barcode.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the barcode.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$code</var></dt>
+					<dd>code to print</dd>
+					<dt><var>$type</var></dt>
+					<dd><p>type of barcode:</p>
+
+<ul><li>RAW: raw mode - comma-separad list of array rows</li><li>RAW2: raw mode - array rows are surrounded by square parenthesis.</li><li>QRCODE : QR-CODE Low error correction</li><li>QRCODE,L : QR-CODE Low error correction</li><li>QRCODE,M : QR-CODE Medium error correction</li><li>QRCODE,Q : QR-CODE Better error correction</li><li>QRCODE,H : QR-CODE Best error correction</li></ul></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="barcode_array" id="$barcode_array">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-TCPDF2DBarcode.html#64-68" title="Go to source code"><var>$barcode_array</var></a>
+
+			<div class="description short">
+				<p>representation of barcode.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>representation of barcode.</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$barcode_array" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

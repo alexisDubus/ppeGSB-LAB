@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class HTML2PDF_parsingHtml</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Packages</h3>
+			<ul>
+				<li>
+					<a href="package-com.html">
+						com<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="package-com.tecnick.html">
+						tecnick<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="package-com.tecnick.tcpdf.html">
+						tcpdf					</a>
+
+						</li>
+							</ul></li></ul></li>
+				<li>
+					<a href="package-default.html">
+						default					</a>
+
+						</li>
+				<li>
+					<a href="package-None.html">
+						None					</a>
+
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-HTML2PDF.html" class="invalid">HTML2PDF</a></li>
+				<li><a href="class-HTML2PDF_exception.html">HTML2PDF_exception</a></li>
+				<li><a href="class-HTML2PDF_locale.html">HTML2PDF_locale</a></li>
+				<li><a href="class-HTML2PDF_parsingCss.html">HTML2PDF_parsingCss</a></li>
+				<li class="active"><a href="class-HTML2PDF_parsingHtml.html">HTML2PDF_parsingHtml</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-ajouterErreur.html">ajouterErreur</a></li>
+				<li><a href="function-connecter.html">connecter</a></li>
+				<li><a href="function-creationFichesFrais.html">creationFichesFrais</a></li>
+				<li><a href="function-creationFraisForfait.html">creationFraisForfait</a></li>
+				<li><a href="function-creationFraisHorsForfait.html">creationFraisHorsForfait</a></li>
+				<li><a href="function-dateAnglaisVersFrancais.html">dateAnglaisVersFrancais</a></li>
+				<li><a href="function-dateFrancaisVersAnglais.html">dateFrancaisVersAnglais</a></li>
+				<li><a href="function-deconnecter.html">deconnecter</a></li>
+				<li><a href="function-estConnecte.html">estConnecte</a></li>
+				<li><a href="function-estDateDepassee.html">estDateDepassee</a></li>
+				<li><a href="function-estDateValide.html">estDateValide</a></li>
+				<li><a href="function-estEntierPositif.html">estEntierPositif</a></li>
+				<li><a href="function-estTableauEntiers.html">estTableauEntiers</a></li>
+				<li><a href="function-fnReadDir.html">fnReadDir</a></li>
+				<li><a href="function-getDernierMois.html">getDernierMois</a></li>
+				<li><a href="function-getDesFraisHorsForfait.html">getDesFraisHorsForfait</a></li>
+				<li><a href="function-getLesFichesFrais.html">getLesFichesFrais</a></li>
+				<li><a href="function-getLesIdFraisForfait.html">getLesIdFraisForfait</a></li>
+				<li><a href="function-getLesVisiteurs.html">getLesVisiteurs</a></li>
+				<li><a href="function-getMois.html" class="invalid">getMois</a></li>
+				<li><a href="function-getMoisPrecedent.html">getMoisPrecedent</a></li>
+				<li><a href="function-getMoisSuivant.html">getMoisSuivant</a></li>
+				<li><a href="function-lesQteFraisValides.html">lesQteFraisValides</a></li>
+				<li><a href="function-majFicheFrais.html">majFicheFrais</a></li>
+				<li><a href="function-nbErreurs.html">nbErreurs</a></li>
+				<li><a href="function-updateMdpVisiteur.html">updateMdpVisiteur</a></li>
+				<li><a href="function-valideInfosFrais.html">valideInfosFrais</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+<span>Package</span>			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class HTML2PDF_parsingHtml</h1>
+
+
+	<div class="description">
+	<p>HTML2PDF Librairy - parsingHtml class</p>
+
+<p>HTML => PDF convertor
+distributed under the LGPL License</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		
+
+				<b>Author:</b>
+				Laurent MINGUET <a href="&#x6d;&#97;&#105;l&#x74;&#x6f;&#58;w&#x65;&#x62;&#109;&#97;&#x73;&#x74;&#101;&#114;&#x40;&#x68;&#116;&#109;&#x6c;&#x32;&#112;&#100;&#x66;&#x2e;&#102;&#114;">w&#x65;&#x62;&#109;&#97;&#x73;&#x74;&#101;&#114;&#x40;&#x68;&#116;&#109;&#x6c;&#x32;&#112;&#100;&#x66;&#x2e;&#102;&#114;</a><br>
+				<b>Version:</b>
+				4.03<br>
+			<b>Located at</b> <a href="source-class-HTML2PDF_parsingHtml.html#3-520" title="Go to source code">vues/html2pdf/_class/parsingHtml.class.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-HTML2PDF_parsingHtml.html#22-35" title="Go to source code">__construct</a>( <span>string <var>$encoding</var> = <span class="php-quote">'UTF-8'</span></span> )</code>
+
+		<div class="description short">
+			<p>main constructor</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>main constructor</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$encoding</var></dt>
+					<dd>encoding</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setEncoding" id="_setEncoding">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setEncoding">#</a>
+		<code><a href="source-class-HTML2PDF_parsingHtml.html#37-46" title="Go to source code">setEncoding</a>( <span>string <var>$encoding</var></span> )</code>
+
+		<div class="description short">
+			<p>change the encoding</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>change the encoding</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$encoding</var></dt>
+					<dd>encoding</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setHTML" id="_setHTML">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setHTML">#</a>
+		<code><a href="source-class-HTML2PDF_parsingHtml.html#48-61" title="Go to source code">setHTML</a>( <span>string <var>$html</var></span> )</code>
+
+		<div class="description short">
+			<p>Define the HTML code to parse</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Define the HTML code to parse</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$html</var></dt>
+					<dd>code</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parse" id="_parse">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parse">#</a>
+		<code><a href="source-class-HTML2PDF_parsingHtml.html#63-222" title="Go to source code">parse</a>( )</code>
+
+		<div class="description short">
+			<p>parse the HTML code</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>parse the HTML code</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_prepareTxt" id="__prepareTxt">
+
+		<td class="attributes"><code>
+			 protected 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__prepareTxt">#</a>
+		<code><a href="source-class-HTML2PDF_parsingHtml.html#224-238" title="Go to source code">_prepareTxt</a>( <span>string <var>$txt</var></span>, <span>boolean <var>$spaces</var> = <span class="php-keyword1">true</span></span> )</code>
+
+		<div class="description short">
+			<p>prepare the text</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>prepare the text</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$txt</var></dt>
+					<dd>texte</dd>
+					<dt><var>$spaces</var></dt>
+					<dd>=> replace multiple space+\t+\r+\n by a single space</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>texte
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_searchCode" id="__searchCode">
+
+		<td class="attributes"><code>
+			 protected 
+
+			null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__searchCode">#</a>
+		<code><a href="source-class-HTML2PDF_parsingHtml.html#240-282" title="Go to source code">_searchCode</a>( <span>&amp;array <var>&amp; $tmp</var></span> )</code>
+
+		<div class="description short">
+			<p>parse the HTML code</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>parse the HTML code</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$tmp</var></dt>
+					<dd>result</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					null
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_analiseCode" id="__analiseCode">
+
+		<td class="attributes"><code>
+			 protected 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__analiseCode">#</a>
+		<code><a href="source-class-HTML2PDF_parsingHtml.html#284-436" title="Go to source code">_analiseCode</a>( <span>string <var>$code</var></span> )</code>
+
+		<div class="description short">
+			<p>analise a HTML tag</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>analise a HTML tag</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$code</var></dt>
+					<dd>code to analise</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					array<br>corresponding action
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getLevel" id="_getLevel">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getLevel">#</a>
+		<code><a href="source-class-HTML2PDF_parsingHtml.html#438-506" title="Go to source code">getLevel</a>( <span>integer <var>$k</var></span> )</code>
+
+		<div class="description short">
+			<p>get a full level of HTML, between an opening and closing corresponding</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>get a full level of HTML, between an opening and closing corresponding</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$k</var></dt>
+					<dd>key</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					array<br>actions
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getHtmlErrorCode" id="_getHtmlErrorCode">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getHtmlErrorCode">#</a>
+		<code><a href="source-class-HTML2PDF_parsingHtml.html#508-519" title="Go to source code">getHtmlErrorCode</a>( <span>integer <var>$pos</var></span>, <span>integer <var>$before</var> = <span class="php-num">30</span></span>, <span>integer <var>$after</var> = <span class="php-num">40</span></span> )</code>
+
+		<div class="description short">
+			<p>return a part of the HTML code, for error message</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>return a part of the HTML code, for error message</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$pos</var></dt>
+					<dd>position</dd>
+					<dt><var>$before</var></dt>
+					<dd>before</dd>
+					<dt><var>$after</var></dt>
+					<dd>after</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>part of the html code
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="HTML_TAB" id="HTML_TAB">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-HTML2PDF_parsingHtml.html#20" title="Go to source code"><b>HTML_TAB</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#HTML_TAB" class="anchor">#</a>
+				<code><span class="php-quote">'        '</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="_html" id="$_html">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-HTML2PDF_parsingHtml.html#14" title="Go to source code"><var>$_html</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_html" class="anchor">#</a>
+				<code><span class="php-quote">''</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="_num" id="$_num">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-HTML2PDF_parsingHtml.html#15" title="Go to source code"><var>$_num</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_num" class="anchor">#</a>
+				<code><span class="php-num">0</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="_level" id="$_level">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-HTML2PDF_parsingHtml.html#16" title="Go to source code"><var>$_level</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_level" class="anchor">#</a>
+				<code><span class="php-num">0</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="_encoding" id="$_encoding">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-HTML2PDF_parsingHtml.html#17" title="Go to source code"><var>$_encoding</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_encoding" class="anchor">#</a>
+				<code><span class="php-quote">''</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="code" id="$code">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-HTML2PDF_parsingHtml.html#18" title="Go to source code"><var>$code</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$code" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
