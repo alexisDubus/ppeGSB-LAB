@@ -59,7 +59,6 @@
             this.textBoxRueCabinet.Name = "textBoxRueCabinet";
             this.textBoxRueCabinet.Size = new System.Drawing.Size(253, 22);
             this.textBoxRueCabinet.TabIndex = 11;
-            this.textBoxRueCabinet.TextChanged += new System.EventHandler(this.textBoxRueCabinet_TextChanged);
             // 
             // label3
             // 
@@ -132,7 +131,6 @@
             this.Controls.Add(this.btnEditCabinet);
             this.Name = "FormListeCabinet";
             this.Text = "Liste des Cabinet";
-            this.Load += new System.EventHandler(this.FormListeCabinet_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -37,23 +37,18 @@ namespace gsbCsharp
             var locationService = new GoogleLocationService();
             var point = locationService.GetLatLongFromAddress(address);
 
-            try
-            {
-                var latitude = point.Latitude;
-                var longitude = point.Longitude;
-                Cabinet unCabinet = (Cabinet)comboBoxCabinet.SelectedItem;
-                unCabinet.setCP(CP);
-                unCabinet.setRue(rue);
-                unCabinet.setVille(ville);
-                unCabinet.setLatitude(latitude);
-                unCabinet.setLongitude(longitude);
-                Passerelle.Passerelle.editCabinet(unCabinet);
-            }
-            catch (Exception exe2) 
-            {
-                MessageBox.Show("L'adresse " + address + " n'existe pas");
-            }
-
+            var latitude = point.Latitude;
+            var longitude = point.Longitude;
+            
+            
+            
+            Cabinet unCabinet = (Cabinet)comboBoxCabinet.SelectedItem;
+            unCabinet.setCP(CP);
+            unCabinet.setRue(rue);
+            unCabinet.setVille(ville);
+            unCabinet.setLatitude(latitude);
+            unCabinet.setLongitude(longitude);
+            Passerelle.Passerelle.editCabinet(unCabinet);
         }
 
         private void comboBoxCabinet_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,20 +57,6 @@ namespace gsbCsharp
             textBoxCPCabinet.Text = unCabinet.getCP();
             textBoxRueCabinet.Text = unCabinet.getRue();
             textBoxVilleCabinet.Text = unCabinet.getVille();
-        }
-
-        private void textBoxRueCabinet_TextChanged(object sender, EventArgs e)
-        {
-          /*  if (!System.Text.RegularExpressions.Regex.IsMatch(textBoxRueCabinet.Text, "^[a-zA-Z]"))
-            {
-                //MessageBox.Show("This textbox accepts only alphabetical characters");
-                textBoxRueCabinet.Text.Remove(textBoxRueCabinet.Text.Length - 1);
-            } */
-        }
-
-        private void FormListeCabinet_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
