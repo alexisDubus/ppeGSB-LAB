@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Metier;
 using Passerelle;
+using System.DirectoryServices;
+using System.DirectoryServices.ActiveDirectory;
 
 namespace gsbCsharp
 {
@@ -24,13 +26,16 @@ namespace gsbCsharp
             Passerelle.Passerelle.setTypeUtilisateur(2);
             typeUtilisateur = Passerelle.Passerelle.getTypeUtilisateur();
             Passerelle.Passerelle.setIdUtilisateur("a131"); //Changer valeur par id session
+            testConnexion();
+            FormConnexion connexion = new FormConnexion();
+            OUVRE_UNE_MDI_FILLE(connexion, this);
         }
 
         public static void checkTypeUser()
         {
             if (typeUtilisateur != 0)
             {
-                
+                //MenuStrip1.Items.Find("MenuToDelete1", true)[0].Enabled = false;
             }
         }
 
@@ -54,7 +59,48 @@ namespace gsbCsharp
         {
             
         }
+
+        public void testConnexion()
+        {
+            DirectoryEntry directoryEntry = new DirectoryEntry("LDAP://gsb.local");
+            DirectoryContext adamContext = new DirectoryContext(
+            DirectoryContextType.DirectoryServer, "EPSI-S9-VM-AD-1.gsb.local:50000");
+
+            DirectoryContext forestContext = new DirectoryContext(DirectoryContextType.Forest);
+
+            DirectoryContext domainContext = new DirectoryContext(DirectoryContextType.Domain);
+            
+        }
+
         
+        
+        public void testConnexionOld()
+        {
+            DirectoryEntry directoryEntry = new DirectoryEntry("LDAP://gsb.local");
+            directoryEntry.Path = "LDAP://OU=Specific Users,OU=All Users,OU=Users,DC=example,DC=com";
+            
+            DirectorySearcher searcher = new DirectorySearcher(directoryEntry)
+            {
+                PageSize = int.MaxValue,
+                Filter = "(&(objectCategory=person)(objectClass=user)(sAMAccountName=AnAccountName))"
+            };
+
+            searcher.PropertiesToLoad.Add("sn");
+
+            var result = searcher.FindOne();
+
+            if (result == null)
+            {
+                return; // Or whatever you need to do in this case
+            }
+
+            string surname;
+
+            if (result.Properties.Contains("sn"))
+            {
+                surname = result.Properties["sn"][0].ToString();
+            }
+        }
 
         private void listeVisiteurToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -116,6 +162,11 @@ namespace gsbCsharp
         {
             FormListeCabinet listeCabinet = new FormListeCabinet();
             OUVRE_UNE_MDI_FILLE(listeCabinet, this);
+        }
+
+        private void cabinetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
