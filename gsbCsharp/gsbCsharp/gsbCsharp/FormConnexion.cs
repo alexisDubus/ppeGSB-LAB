@@ -36,11 +36,12 @@ namespace gsbCsharp
             uneForm.Show();
         }
 
+
         private void btnConnexion_Click(object sender, EventArgs e)
         {
             string passwd = textBoxMdp.Text.ToString();
             string username = textBoxLogin.Text.ToString();
-            bool isAuth = Passerelle.Passerelle.IsAuthenticated(username, passwd);
+            bool isAuth = Passerelle.Passerelle.connexionLDAP(username, passwd);
             if(isAuth)
             {
                 this.Close();

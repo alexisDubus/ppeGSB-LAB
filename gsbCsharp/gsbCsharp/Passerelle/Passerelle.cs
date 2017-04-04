@@ -11,6 +11,7 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 using Metier;
 using System.ComponentModel;
+using System.DirectoryServices;
 
 namespace Passerelle
 {
@@ -27,7 +28,7 @@ namespace Passerelle
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
         //private static String connectionString = "SERVER=172.16.9.3; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
-        private static String connectionString = "SERVER=172.16.9.4; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        private static String connectionString = "SERVER=172.16.8.200; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
         #region commun 
@@ -782,7 +783,6 @@ namespace Passerelle
 
         #endregion
 
-<<<<<<< HEAD
         #region connexion 
 
         /// <summary>
@@ -790,7 +790,27 @@ namespace Passerelle
         /// </summary>
         /// <param name="username">Username to test</param>
         /// <param name="passwd">Username's password</param>
-        /// <param name="domain">Domain to connect</param>
+        /// <returns>True: Username/Password OK; False: Authentication error</returns>
+        public static bool connexionLDAP(string username, string passwd)
+        {
+            try
+            {
+                DirectoryEntry entry = new DirectoryEntry("LDAP://172.16.8.10" , username , passwd);
+                var test = entry.NativeObject;
+                return true;
+            }
+            catch(Exception exe)
+            {
+                return false;
+            }
+            
+        }
+
+        /// <summary>
+        /// Try to connect Username with password
+        /// </summary>
+        /// <param name="username">Username to test</param>
+        /// <param name="passwd">Username's password</param>
         /// <returns>True: Username/Password OK; False: Authentication error</returns>
         public static bool IsAuthenticated(string username, string passwd)
         {
@@ -802,14 +822,15 @@ namespace Passerelle
                 search.Filter = "(objectClass=user)";
                 search.SearchScope = SearchScope.Subtree;
                 SearchResult result = search.FindOne();
-                /*
+                
                 foreach (ResultPropertyValueCollection var in result.Properties.Values)
                 {
+                    var test = result.Properties.Values;
                     foreach (object var2 in var)
                     {
                         Console.WriteLine(var2.ToString());
                     }
-                }*/
+                }
 
                 return (result != null);
             }
@@ -821,9 +842,7 @@ namespace Passerelle
         }
 
         #endregion
-
-=======
->>>>>>> 4d730fc4e6fa8dc8863a4e08144c8ed82838b1c3
+        
 
     }
 }
