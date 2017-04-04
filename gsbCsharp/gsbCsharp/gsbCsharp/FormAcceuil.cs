@@ -27,13 +27,15 @@ namespace gsbCsharp
             typeUtilisateur = Passerelle.Passerelle.getTypeUtilisateur();
             Passerelle.Passerelle.setIdUtilisateur("a131"); //Changer valeur par id session
             testConnexion();
+            FormConnexion connexion = new FormConnexion();
+            OUVRE_UNE_MDI_FILLE(connexion, this);
         }
 
         public static void checkTypeUser()
         {
             if (typeUtilisateur != 0)
             {
-                MenuStrip1.Items.Find("MenuToDelete1", true)[0].Enabled = false;
+                //MenuStrip1.Items.Find("MenuToDelete1", true)[0].Enabled = false;
             }
         }
 
@@ -60,14 +62,17 @@ namespace gsbCsharp
 
         public void testConnexion()
         {
+            DirectoryEntry directoryEntry = new DirectoryEntry("LDAP://gsb.local");
             DirectoryContext adamContext = new DirectoryContext(
-            DirectoryContextType.DirectoryServer, "EPSI-S8-VM-AD-1.gsb.local:50000");
+            DirectoryContextType.DirectoryServer, "EPSI-S9-VM-AD-1.gsb.local:50000");
 
             DirectoryContext forestContext = new DirectoryContext(DirectoryContextType.Forest);
 
             DirectoryContext domainContext = new DirectoryContext(DirectoryContextType.Domain);
             
         }
+
+        
         
         public void testConnexionOld()
         {

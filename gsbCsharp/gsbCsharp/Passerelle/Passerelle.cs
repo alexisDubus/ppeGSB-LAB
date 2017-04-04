@@ -11,6 +11,7 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 using Metier;
 using System.ComponentModel;
+using System.DirectoryServices;
 
 namespace Passerelle
 {
@@ -26,9 +27,10 @@ namespace Passerelle
         private static BindingList<Cabinet> listeDesCabinets = new BindingList<Cabinet>();
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
-        //private static String connectionString = "SERVER=172.16.8.200; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
-        private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        private static String connectionString = "SERVER=172.16.9.4; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        //private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
+        
 
         #region commun 
 
@@ -805,6 +807,45 @@ namespace Passerelle
             init();
         }
 
+
+        #endregion
+
+        #region connexion 
+
+        /// <summary>
+        /// Try to connect Username with password
+        /// </summary>
+        /// <param name="username">Username to test</param>
+        /// <param name="passwd">Username's password</param>
+        /// <param name="domain">Domain to connect</param>
+        /// <returns>True: Username/Password OK; False: Authentication error</returns>
+        public static bool IsAuthenticated(string username, string passwd, string domain)
+        {
+            try
+            {
+                domain = "gsb.local";
+                DirectoryEntry entry = new DirectoryEntry("LDAP://" + domain, username, passwd, AuthenticationTypes.Secure);
+                DirectorySearcher search = new DirectorySearcher(entry);
+                search.Filter = "(objectClass=user)";
+                search.SearchScope = SearchScope.Subtree;
+                SearchResult result = search.FindOne();
+
+                foreach (ResultPropertyValueCollection var in result.Properties.Values)
+                {
+                    foreach (object var2 in var)
+                    {
+                        Console.WriteLine(var2.ToString());
+                    }
+
+                }
+
+                return (result != null);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error authenticating user. " + ex.Message);
+            }
+        }
 
         #endregion
 
