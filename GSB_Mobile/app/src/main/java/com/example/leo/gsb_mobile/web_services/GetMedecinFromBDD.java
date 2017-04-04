@@ -36,7 +36,7 @@ public class GetMedecinFromBDD extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
-        String result = "23";
+        String result = appelWS("Applications/MAMP/htdocs/PPEGSB_4.0_Mobile/stockServer_Medecin.php?var=" );
         return result;
     }
 

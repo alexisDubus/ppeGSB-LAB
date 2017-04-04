@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/txtV_Acceuil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Connexion a votre profil"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+
+    <TextView
+        android:id="@+id/txtV_Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Votre login : "
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_marginTop="120dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/editText_login"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtV_Login"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/txtV_Mdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Votre mot de passe : "
+        android:layout_below="@+id/editText_login"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/editText_mdp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtV_Mdp"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/btn_connexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Connexion"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/editText_mdp"
+        android:layout_marginTop="60dp"/>
+
+</RelativeLayout>

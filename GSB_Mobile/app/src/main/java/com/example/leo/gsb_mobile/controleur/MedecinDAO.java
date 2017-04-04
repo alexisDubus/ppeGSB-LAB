@@ -3,6 +3,7 @@ package com.example.leo.gsb_mobile.controleur;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 
 import com.example.leo.gsb_mobile.object.Cabinet;
 import com.example.leo.gsb_mobile.object.Medecin;
@@ -38,7 +39,7 @@ public class MedecinDAO extends DAOBase {
     }
 
     public Medecin selectionner(long id) {
-        Cursor c = mDb.rawQuery("select * " + " from " + TABLE_NAME + " where medecinId > ?", new String[]{""+id+""});
+        Cursor c = mDb.rawQuery("select * from " + TABLE_NAME + " where medecinId > ?", new String[]{""+id+""});
         return cursorToMedecin(c);
     }
 
@@ -48,16 +49,21 @@ public class MedecinDAO extends DAOBase {
             return null;
         //Sinon on se place sur le premier élément
         c.moveToFirst();
-        // On crée un Cabinet
+        // On crée un Medecin
         Medecin unMedecin = new Medecin();
 
+        unMedecin.setIdMedecin(c.getString(0));
         unMedecin.setNom(c.getString(1));
         unMedecin.setPrenom(c.getString(2));
         unMedecin.setIdCabinet(c.getString(3));
         unMedecin.setIdUtilisateur(c.getString(4));
 
         c.close();
-
         return unMedecin;
+    }
+
+    public long count(){
+        long numberOfRows = DatabaseUtils.queryNumEntries(mDb, TABLE_NAME);
+        return numberOfRows;
     }
 }

@@ -3,6 +3,7 @@ package com.example.leo.gsb_mobile.controleur;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 
 import com.example.leo.gsb_mobile.object.Cabinet;
 
@@ -53,7 +54,7 @@ public class CabinetDAO extends DAOBase {
     }
 
     public Cabinet selectionner(long id) {
-        Cursor c = mDb.rawQuery("select * " + " from " + TABLE_NAME + " where cabinetId > ?", new String[]{""+id+""});
+        Cursor c = mDb.rawQuery("select cabinetRue, cabinetCP, cabinetVille, cabinetPosX, cabinetPosY from " + TABLE_NAME + " where cabinetId > ?", new String[]{""+id+""});
         return cursorToCabinet(c);
     }
 
@@ -66,15 +67,20 @@ public class CabinetDAO extends DAOBase {
         // On crée un Cabinet
         Cabinet unCabinet = new Cabinet();
 
-        unCabinet.setRue(c.getString(1));
-        unCabinet.setCodePostal(c.getInt(2));
-        unCabinet.setVille(c.getString(3));
-        unCabinet.setPosX(c.getDouble(4));
-        unCabinet.setPosY(c.getDouble(5));
+        unCabinet.setRue(c.getString(0));
+        unCabinet.setCodePostal(c.getString(1));
+        unCabinet.setVille(c.getString(2));
+        unCabinet.setPosX(c.getDouble(3));
+        unCabinet.setPosY(c.getDouble(4));
 
         c.close();
 
         return unCabinet;
+    }
+
+    public long count(){
+        long numberOfRows = DatabaseUtils.queryNumEntries(mDb, TABLE_NAME);
+        return numberOfRows;
     }
 
 

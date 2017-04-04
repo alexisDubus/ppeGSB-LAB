@@ -10,15 +10,18 @@
         android:theme="@style/AppTheme">
         <uses-permission android:name="android.permission.INTERNET" />
 
-        <activity android:name=".ui.CardViewSelector">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".ui.CardViewSelector"/>
+        <activity android:name=".ui.CreateVisite"/>
+
+
+        <activity android:name=".ui.UserConnexion">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity"/>
 
 
         <meta-data

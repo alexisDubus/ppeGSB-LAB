@@ -6,18 +6,35 @@ package com.example.leo.gsb_mobile.object;
 
 public class Medecin {
 
-
+    private String idMedecin;
     private String nom;
     private String prenom;
     private String idUtilisateur;
     private String idCabinet;
 
-    public Medecin( String nom, String prenom, String idCabinet, String idUtilisateur) {
+    public Medecin(String idMedecin, String nom, String prenom, String idCabinet, String idUtilisateur) {
         super();
+        this.idMedecin = idMedecin;
         this.nom = nom;
         this.prenom = prenom;
         this.idUtilisateur = idUtilisateur;
         this.idCabinet = idCabinet;
+    }
+
+    public Medecin( String nom, String prenom, String idCabinet, String idUtilisateur) {
+        super();
+        this.nom = nom;
+        this.prenom = prenom;
+        this.idCabinet = idCabinet;
+        this.idUtilisateur = idUtilisateur;
+    }
+
+    public String getIdMedecin() {
+        return idMedecin;
+    }
+
+    public void setIdMedecin(String idMedecin) {
+        this.idMedecin = idMedecin;
     }
 
     public Medecin(){}

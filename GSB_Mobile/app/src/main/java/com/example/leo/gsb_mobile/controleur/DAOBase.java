@@ -9,7 +9,7 @@ import com.example.leo.gsb_mobile.DataBaseHandler;
  * Created by Leo on 26/03/2017.
  */
 
-public abstract class DAOBase {
+public class DAOBase {
 
     protected final static int VERSION = 1;
     protected final static String NOM = "database.db";
@@ -37,5 +37,6 @@ public abstract class DAOBase {
     public SQLiteDatabase getDb() {
         return mDb;
     }
+
 }
 

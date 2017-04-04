@@ -12,7 +12,7 @@ import com.example.leo.gsb_mobile.object.Visite;
 public class VisiteDAO extends DAOBase {
 
     public static final String TABLE_NAME = "Visite";
-    public static final String KEY = "id";
+    public static final String KEY = "visiteId";
     public static final String DATE = "visiteDateArrive";
     private static final String RDV = "visiteRdv";
     private static final String HOUR_ARRIVE = "visiteHeureArrive";
@@ -28,11 +28,11 @@ public class VisiteDAO extends DAOBase {
 
     public void ajouter (Visite visite){
         ContentValues value = new ContentValues();
-        value.put(String.valueOf(visite.getDateVisite()), VisiteDAO.DATE);
-        value.put(VisiteDAO.RDV, visite.isRdvOrNot());
-        value.put(VisiteDAO.HOUR_ARRIVE, String.valueOf(visite.getHeureArrive()));
-        value.put(VisiteDAO.HOUR_START, String.valueOf(visite.getHeureDebut()));
-        value.put(VisiteDAO.HOUR_END, String.valueOf(visite.getHeureFin()));
+        value.put(VisiteDAO.DATE, visite.getDateVisite());
+        value.put(VisiteDAO.RDV, visite.getRdvOrNot());
+        value.put(VisiteDAO.HOUR_ARRIVE, visite.getHeureArrive());
+        value.put(VisiteDAO.HOUR_START, visite.getHeureDebut());
+        value.put(VisiteDAO.HOUR_END, visite.getHeureFin());
         value.put(VisiteDAO.USER_KEY, visite.getUserId());
         value.put(VisiteDAO.MEDECIN_KEY, visite.getMedecinId());
         mDb.insert(CabinetDAO.TABLE_NAME, null, value);

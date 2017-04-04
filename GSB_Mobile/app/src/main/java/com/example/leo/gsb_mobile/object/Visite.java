@@ -8,16 +8,16 @@ import java.util.Date;
 
 public class Visite {
 
-    private long visiteId;
-    private Date dateVisite;
-    private  boolean rdvOrNot;
-    private Date heureArrive;
-    private Date heureDebut;
-    private Date heureFin;
-    private long userId;
-    private long medecinId;
 
-    public Visite(Date dateVisite, boolean rdvOrNot, Date heureArrive, Date heureDebut, Date heureFin, long userId, long medecinId) {
+    private String dateVisite;
+    private  int rdvOrNot;
+    private String heureArrive;
+    private String heureDebut;
+    private String heureFin;
+    private String userId;
+    private String medecinId;
+
+    public Visite(String dateVisite, int rdvOrNot, String heureArrive, String heureDebut, String heureFin, String userId, String medecinId) {
         this.dateVisite = dateVisite;
         this.rdvOrNot = rdvOrNot;
         this.heureArrive = heureArrive;
@@ -29,67 +29,60 @@ public class Visite {
 
     public Visite(){}
 
-    public long getVisiteId() {
-        return visiteId;
-    }
 
-    public void setVisiteId(long visiteId) {
-        this.visiteId = visiteId;
-    }
-
-    public Date getDateVisite() {
+    public String getDateVisite() {
         return dateVisite;
     }
 
-    public void setDateVisite(Date dateVisite) {
+    public void setDateVisite(String dateVisite) {
         this.dateVisite = dateVisite;
     }
 
-    public boolean isRdvOrNot() {
+    public int getRdvOrNot() {
         return rdvOrNot;
     }
 
-    public void setRdvOrNot(boolean rdvOrNot) {
+    public void setRdvOrNot(int rdvOrNot) {
         this.rdvOrNot = rdvOrNot;
     }
 
-    public Date getHeureArrive() {
+    public String getHeureArrive() {
         return heureArrive;
     }
 
-    public void setHeureArrive(Date heureArrive) {
+    public void setHeureArrive(String heureArrive) {
         this.heureArrive = heureArrive;
     }
 
-    public Date getHeureDebut() {
+    public String getHeureDebut() {
         return heureDebut;
     }
 
-    public void setHeureDebut(Date heureDebut) {
+    public void setHeureDebut(String heureDebut) {
         this.heureDebut = heureDebut;
     }
 
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
-    public Date getHeureFin() {
+    public String getHeureFin() {
         return heureFin;
     }
 
-    public void setHeureFin(Date heureFin) {
+    public void setHeureFin(String heureFin) {
         this.heureFin = heureFin;
     }
 
-    public long getMedecinId() {
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getMedecinId() {
         return medecinId;
     }
 
-    public void setMedecinId(long medecinId) {
+    public void setMedecinId(String medecinId) {
         this.medecinId = medecinId;
     }
 }

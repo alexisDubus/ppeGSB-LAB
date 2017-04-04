@@ -3,6 +3,7 @@ package com.example.leo.gsb_mobile;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by Leo on 24/03/2017.
@@ -13,20 +14,18 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     // -------------------- Table UTILISATEUR --------------------
     private static final String USER_TABLE_NAME = "Utilisateur";
     private static final String USER_KEY = "utilisateurId";
+    private static final String USER_IDUSER = "id";
     private static final String USER_NAME = "utilisateurNom";
     private static final String USER_LASTNAME = "utilisateurPrenom";
-    //private static final String USER_LOGIN = "utilisateurLogin";
-    //private static final String USER_MDP = "utilisateurMdp";
     private static final String USER_VERSION = "utilisateurVersion";
 
     private static final String USER_TABLE_CREATE =
             "CREATE TABLE " + USER_TABLE_NAME + " (" +
                     USER_KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    USER_IDUSER + " TEXT, " +
                     USER_NAME + " TEXT, " +
                     USER_LASTNAME + " TEXT, " +
-                    //USER_LOGIN + " TEXT, " +
-                    //USER_MDP + " TEXT" +
-                    USER_VERSION + ");";
+                    USER_VERSION + " INTEGER);";
 
     public static final String USER_TABLE_DROP = "DROP TABLE IF EXISTS " + USER_TABLE_NAME + ";";
 
@@ -44,7 +43,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
             "CREATE TABLE " + CABINET_TABLE_NAME + " (" +
                     CABINET_KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     CABINET_STREET + " TEXT, " +
-                    CABINET_CP + " INTEGER, " +
+                    CABINET_CP + " TEXT, " +
                     CABINET_TOWN + " TEXT, " +
                     CABINET_POSX + " REAL, " +
                     CABINET_POSY + " REAL);";
@@ -98,7 +97,13 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL(USER_TABLE_DROP);
+        db.execSQL(CABINET_TABLE_DROP);
+        db.execSQL(MEDECIN_TABLE_DROP);
+        db.execSQL(VISITE_TABLE_DROP);
+
         db.execSQL(USER_TABLE_CREATE);
+        Log.i("TAG", USER_TABLE_CREATE);
         db.execSQL(CABINET_TABLE_CREATE);
         db.execSQL(MEDECIN_TABLE_CREATE);
         db.execSQL(VISITE_TABLE_CREATE);

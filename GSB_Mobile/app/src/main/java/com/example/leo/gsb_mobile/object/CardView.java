@@ -9,11 +9,21 @@ public class CardView {
     private String nomMedecin;
     private String prenomMedecin;
     private String adresseCabinet;
+    public String idMedecin;
 
-    public CardView(String nomMedecin, String adresseCabinet, String prenomMedecin) {
+    public CardView(String nomMedecin, String prenomMedecin, String adresseCabinet, String idMedecin) {
         this.nomMedecin = nomMedecin;
         this.adresseCabinet = adresseCabinet;
         this.prenomMedecin = prenomMedecin;
+        this.idMedecin = idMedecin;
+    }
+
+    public String getIdMedecin() {
+        return idMedecin;
+    }
+
+    public void setIdMedecin(String idMedecin) {
+        this.idMedecin = idMedecin;
     }
 
     public String getNomMedecin() {

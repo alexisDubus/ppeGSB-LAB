@@ -11,11 +11,20 @@ public class Utilisateur {
     private String prenom;
     private int numVersion;
 
-    public Utilisateur(String id, String nom, String prenom, int numVersion) {
-        this.userId = id;
+    public Utilisateur(String userId, String nom, String prenom) {
+        this.userId = userId;
         this.nom = nom;
         this.prenom = prenom;
-        this.numVersion = numVersion;
+    }
+
+    public Utilisateur(){}
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getNom() {

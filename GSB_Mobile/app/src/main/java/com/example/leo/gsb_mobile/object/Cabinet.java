@@ -8,12 +8,12 @@ public class Cabinet {
 
     private String id;
     private String rue;
-    private int codePostal;
+    private String codePostal;
     private String ville;
     private double posX;
     private double posY;
 
-    public Cabinet(String rue, int cp, String ville, double X, double Y){
+    public Cabinet(String rue, String cp, String ville, double X, double Y){
         super();
         this.rue = rue;
         this.codePostal = cp;
@@ -40,11 +40,11 @@ public class Cabinet {
         this.rue = rue;
     }
 
-    public int getCodePostal() {
+    public String getCodePostal() {
         return codePostal;
     }
 
-    public void setCodePostal(int codePostal) {
+    public void setCodePostal(String codePostal) {
         this.codePostal = codePostal;
     }
 
