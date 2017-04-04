@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxId = new System.Windows.Forms.TextBox();
+            this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.textBoxMdp = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnConnexion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBoxId
+            // textBoxLogin
             // 
-            this.textBoxId.Location = new System.Drawing.Point(315, 69);
-            this.textBoxId.Name = "textBoxId";
-            this.textBoxId.Size = new System.Drawing.Size(259, 22);
-            this.textBoxId.TabIndex = 0;
+            this.textBoxLogin.Location = new System.Drawing.Point(315, 69);
+            this.textBoxLogin.Name = "textBoxLogin";
+            this.textBoxLogin.Size = new System.Drawing.Size(259, 22);
+            this.textBoxLogin.TabIndex = 0;
             // 
             // textBoxMdp
             // 
@@ -54,9 +54,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(197, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 17);
+            this.label1.Size = new System.Drawing.Size(43, 17);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Identifiant";
+            this.label1.Text = "Login";
             // 
             // label2
             // 
@@ -75,6 +75,7 @@
             this.btnConnexion.TabIndex = 4;
             this.btnConnexion.Text = "Connexion";
             this.btnConnexion.UseVisualStyleBackColor = true;
+            this.btnConnexion.Click += new System.EventHandler(this.btnConnexion_Click);
             // 
             // FormConnexion
             // 
@@ -85,7 +86,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxMdp);
-            this.Controls.Add(this.textBoxId);
+            this.Controls.Add(this.textBoxLogin);
             this.Name = "FormConnexion";
             this.Text = "Connexion a GSB";
             this.ResumeLayout(false);
@@ -95,7 +96,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxId;
+        private System.Windows.Forms.TextBox textBoxLogin;
         private System.Windows.Forms.TextBox textBoxMdp;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

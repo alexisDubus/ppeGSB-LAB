@@ -819,31 +819,31 @@ namespace Passerelle
         /// <param name="passwd">Username's password</param>
         /// <param name="domain">Domain to connect</param>
         /// <returns>True: Username/Password OK; False: Authentication error</returns>
-        public static bool IsAuthenticated(string username, string passwd, string domain)
+        public static bool IsAuthenticated(string username, string passwd)
         {
             try
             {
-                domain = "gsb.local";
+                String domain = "gsb.local";
                 DirectoryEntry entry = new DirectoryEntry("LDAP://" + domain, username, passwd, AuthenticationTypes.Secure);
                 DirectorySearcher search = new DirectorySearcher(entry);
                 search.Filter = "(objectClass=user)";
                 search.SearchScope = SearchScope.Subtree;
                 SearchResult result = search.FindOne();
-
+                /*
                 foreach (ResultPropertyValueCollection var in result.Properties.Values)
                 {
                     foreach (object var2 in var)
                     {
                         Console.WriteLine(var2.ToString());
                     }
-
-                }
+                }*/
 
                 return (result != null);
             }
             catch (Exception ex)
             {
-                throw new Exception("Error authenticating user. " + ex.Message);
+                return false;
+                //throw new Exception("Error authenticating user. " + ex.Message);
             }
         }
 
