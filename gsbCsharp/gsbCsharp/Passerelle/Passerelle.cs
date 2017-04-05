@@ -27,7 +27,7 @@ namespace Passerelle
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
         //private static String connectionString = "SERVER=172.16.9.3; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
-        private static String connectionString = "SERVER=172.16.9.4; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
         #region commun 
@@ -75,6 +75,15 @@ namespace Passerelle
             
             listeDesVisites = getAllVisite();
             
+        }
+
+        public static String checkValueIsCorrect(String str)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(str, @"^[a-zA-Z]+$"))
+            {
+                str = "";
+            }
+            return str;
         }
 
         /// <summary>

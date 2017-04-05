@@ -38,7 +38,7 @@ namespace gsbCsharp
         {
             String rue = textBoxRueCabinet.Text.ToString();
             String CP = textBoxCPCabinet.Text.ToString();
-            String ville = textBoxVilleCabinet.Text.ToString();
+            String ville = Passerelle.Passerelle.checkValueIsCorrect(textBoxVilleCabinet.Text.ToString());
             var address = rue + CP + " , " + ville;
 
             var locationService = new GoogleLocationService();
@@ -46,9 +46,14 @@ namespace gsbCsharp
 
             var latitude = point.Latitude;
             var longitude = point.Longitude;
-
             Cabinet unCabinet = new Cabinet(rue, CP, ville, longitude, latitude);
-            Passerelle.Passerelle.addCabinet(unCabinet);
+            if (rue != "" && CP != "" && ville != "")
+            {
+                Passerelle.Passerelle.addCabinet(unCabinet);
+            } else
+            {
+                MessageBox.Show("Les valeurs ne sont pas valides");
+            }
         }
 
         private void FormCreateCabinet_Load(object sender, EventArgs e)
