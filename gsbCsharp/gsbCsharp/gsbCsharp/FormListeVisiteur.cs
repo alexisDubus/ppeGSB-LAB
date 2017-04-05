@@ -112,5 +112,10 @@ namespace gsbCsharp
                 }
             }
         }
+
+        private void textBoxDepartements_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

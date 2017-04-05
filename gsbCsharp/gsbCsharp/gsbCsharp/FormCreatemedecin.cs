@@ -61,18 +61,28 @@ namespace gsbCsharp
 
         private void btnCreateMedecin_Click(object sender, EventArgs e)
         {
-            String nom = textBoxNomMedecin.Text.ToString();
-            String prenom = textBoxPrenomMedecin.Text.ToString();
+            String nom = Passerelle.Passerelle.checkValueIsCorrect(textBoxNomMedecin.Text.ToString());
+            String prenom = Passerelle.Passerelle.checkValueIsCorrect(textBoxPrenomMedecin.Text.ToString());
             Utilisateur unUtilisateur = (Utilisateur)comboBoxMedecinVisiteur.SelectedItem;
             Cabinet unCabinet = (Cabinet)comboBoxMedecinCabinet.SelectedItem;
             Medecin unMedecin = new Medecin(nom, prenom, unCabinet, unUtilisateur);
-
-            Passerelle.Passerelle.addMedecin(unMedecin);
+            if (nom != "" && prenom != "")
+            {
+                Passerelle.Passerelle.addMedecin(unMedecin);
+            } else
+            {
+                MessageBox.Show("Les valeurs ne sont pas valides");
+            }
 
             textBoxNomMedecin.Text = "";
             textBoxPrenomMedecin.Text =  "";
             comboBoxMedecinVisiteur.SelectedItem = "";
             comboBoxMedecinCabinet.SelectedItem = "";
+        }
+
+        private void textBoxNomMedecin_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
