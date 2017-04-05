@@ -21,20 +21,17 @@ namespace gsbCsharp
         {
             InitializeComponent();
             Passerelle.Passerelle.init();
-            Passerelle.Passerelle.setTypeUtilisateur(2);
-            typeUtilisateur = Passerelle.Passerelle.getTypeUtilisateur();
-            Passerelle.Passerelle.setIdUtilisateur("a131"); //Changer valeur par id session
+            //Passerelle.Passerelle.setTypeUtilisateur(2);
+            //typeUtilisateur = Passerelle.Passerelle.getTypeUtilisateur();
+            //Passerelle.Passerelle.setIdUtilisateur("a131"); //Changer valeur par id session
 
-            FormConnexion connexion = new FormConnexion();
-            OUVRE_UNE_MDI_FILLE(connexion, this);
+            //FormConnexion connexion = new FormConnexion();
+            //OUVRE_UNE_MDI_FILLE(connexion, this);
         }
 
-        public static void checkTypeUser()
+        public static void disableMenu()
         {
-            if (typeUtilisateur != 0)
-            {
-                
-            }
+            
         }
 
         /// <summary>
@@ -55,7 +52,10 @@ namespace gsbCsharp
         }
         private void FormAcceuil_Load(object sender, EventArgs e)
         {
-            
+            if (typeUtilisateur != 2)
+            {
+                menuStrip.Items[3].Visible = false;
+            }
         }
         
 
