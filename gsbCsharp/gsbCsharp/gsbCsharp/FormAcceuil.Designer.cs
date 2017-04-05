@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-=======
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAcceuil));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
->>>>>>> 9ff85d108bcd68a2f663ad383abf2febf23935c6
+            //this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.VisiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeVisiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.medecinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,22 +88,16 @@
             // ajouterMedecinToolStripMenuItem
             // 
             this.ajouterMedecinToolStripMenuItem.Name = "ajouterMedecinToolStripMenuItem";
-<<<<<<< HEAD
             this.ajouterMedecinToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
-=======
             this.ajouterMedecinToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
->>>>>>> 9ff85d108bcd68a2f663ad383abf2febf23935c6
             this.ajouterMedecinToolStripMenuItem.Text = "Ajouter";
             this.ajouterMedecinToolStripMenuItem.Click += new System.EventHandler(this.ajouterMedecinToolStripMenuItem_Click);
             // 
             // listeToolStripMenuItem
             // 
             this.listeToolStripMenuItem.Name = "listeToolStripMenuItem";
-<<<<<<< HEAD
             this.listeToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
-=======
             this.listeToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
->>>>>>> 9ff85d108bcd68a2f663ad383abf2febf23935c6
             this.listeToolStripMenuItem.Text = "Liste";
             this.listeToolStripMenuItem.Click += new System.EventHandler(this.listeToolStripMenuItem_Click);
             // 
@@ -122,22 +113,16 @@
             // ajouterCabinetToolStripMenuItem
             // 
             this.ajouterCabinetToolStripMenuItem.Name = "ajouterCabinetToolStripMenuItem";
-<<<<<<< HEAD
             this.ajouterCabinetToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
-=======
             this.ajouterCabinetToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
->>>>>>> 9ff85d108bcd68a2f663ad383abf2febf23935c6
             this.ajouterCabinetToolStripMenuItem.Text = "Ajouter";
             this.ajouterCabinetToolStripMenuItem.Click += new System.EventHandler(this.ajouterToolStripMenuItem_Click);
             // 
             // listeToolStripMenuItem2
             // 
             this.listeToolStripMenuItem2.Name = "listeToolStripMenuItem2";
-<<<<<<< HEAD
             this.listeToolStripMenuItem2.Size = new System.Drawing.Size(133, 26);
-=======
             this.listeToolStripMenuItem2.Size = new System.Drawing.Size(113, 22);
->>>>>>> 9ff85d108bcd68a2f663ad383abf2febf23935c6
             this.listeToolStripMenuItem2.Text = "Liste";
             this.listeToolStripMenuItem2.Click += new System.EventHandler(this.listeToolStripMenuItem2_Click);
             // 
@@ -154,22 +139,16 @@
             // listeToolStripMenuItem1
             // 
             this.listeToolStripMenuItem1.Name = "listeToolStripMenuItem1";
-<<<<<<< HEAD
             this.listeToolStripMenuItem1.Size = new System.Drawing.Size(133, 26);
-=======
             this.listeToolStripMenuItem1.Size = new System.Drawing.Size(113, 22);
->>>>>>> 9ff85d108bcd68a2f663ad383abf2febf23935c6
             this.listeToolStripMenuItem1.Text = "Liste";
             this.listeToolStripMenuItem1.Click += new System.EventHandler(this.listeVisiteStripMenuItem2_Clic);
             // 
             // ajouterToolStripMenuItem
             // 
             this.ajouterToolStripMenuItem.Name = "ajouterToolStripMenuItem";
-<<<<<<< HEAD
             this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
-=======
             this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
->>>>>>> 9ff85d108bcd68a2f663ad383abf2febf23935c6
             this.ajouterToolStripMenuItem.Text = "Ajouter";
             this.ajouterToolStripMenuItem.Click += new System.EventHandler(this.ajouterVisiteToolStripMenuItem_Click);
             // 

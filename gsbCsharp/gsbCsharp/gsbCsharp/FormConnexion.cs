@@ -18,25 +18,7 @@ namespace gsbCsharp
             InitializeComponent();
         }
 
-
-        /// <summary>
-        /// ferme la feuille ouverte précdemment et ouvre la nouvelle feuille
-        /// </summary>
-        /// <param name="uneForm">la feuille à ouvrir</param>
-        /// <param name="laFeuilleMDI">la feuille mdi dans laquelle doit être ouverte la feuille</param>
-        public static void OUVRE_UNE_MDI_FILLE(Form uneForm, Form laFeuilleMDI)
-        {
-
-            foreach (Form uneFeuille in laFeuilleMDI.MdiChildren)
-                uneFeuille.Close();
-
-
-            uneForm.MdiParent = laFeuilleMDI;
-            uneForm.WindowState = FormWindowState.Maximized;
-            uneForm.Show();
-        }
-
-
+        
         private void btnConnexion_Click(object sender, EventArgs e)
         {
             string passwd = textBoxMdp.Text.ToString();
