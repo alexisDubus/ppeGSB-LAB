@@ -54,13 +54,19 @@ namespace gsbCsharp
             }
             else
             {
-                leMedecin.setNom(textBoxNomMedecin.Text);
-                leMedecin.setPrenom(textBoxPrenomMedecin.Text);
+                leMedecin.setNom(Passerelle.Passerelle.checkValueIsCorrect(textBoxNomMedecin.Text));
+                leMedecin.setPrenom(Passerelle.Passerelle.checkValueIsCorrect(textBoxPrenomMedecin.Text));
                 Cabinet unCabinet = (Cabinet)comboBoxMedecinCabinet.SelectedItem;
                 Utilisateur unVisiteur = (Utilisateur)comboBoxMedecinVisiteur.SelectedItem;
                 leMedecin.setCabinet(unCabinet);
                 leMedecin.setVisiteur(unVisiteur);
-                Passerelle.Passerelle.editMedecin(leMedecin);
+                if (leMedecin.getNom() != "" && leMedecin.getPrenom() != "")
+                {
+                    Passerelle.Passerelle.editMedecin(leMedecin);
+                } else
+                {
+                    MessageBox.Show("Les données ne sont pas valides");
+                }  
             }
         }
     }

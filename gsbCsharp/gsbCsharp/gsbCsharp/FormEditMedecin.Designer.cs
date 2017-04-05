@@ -141,7 +141,7 @@
             this.Controls.Add(this.btnEditMedecin);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormEditMedecin";
-            this.Text = "Modifier un Médecin";
+            this.Text = "gg";
             this.Load += new System.EventHandler(this.FormEditMedecin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

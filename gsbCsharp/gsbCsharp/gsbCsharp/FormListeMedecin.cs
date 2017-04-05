@@ -55,17 +55,17 @@ namespace gsbCsharp
         private void btnEditMedecin_Click(object sender, EventArgs e)
         {
             Medecin leMedecin = (Medecin)comboBoxMedecin.SelectedItem;
-            if (textBoxNomMedecin.Text == "" || textBoxNomMedecin.Text == " " || textBoxPrenomMedecin.Text == "" || textBoxPrenomMedecin.Text == " ")
+            leMedecin.setNom(Passerelle.Passerelle.checkValueIsCorrect(textBoxNomMedecin.Text));
+            leMedecin.setPrenom(Passerelle.Passerelle.checkValueIsCorrect(textBoxPrenomMedecin.Text));
+            Utilisateur unVisiteur = (Utilisateur)comboBoxMedecinVisiteur.SelectedItem;
+            leMedecin.setVisiteur(unVisiteur);
+
+            if (leMedecin.getNom() != "" && leMedecin.getPrenom() != "" && textBoxPrenomMedecin.Text != "" && textBoxPrenomMedecin.Text != "")
             {
-                MessageBox.Show("le nom/prénom ne doit pas étre vide! ");
-            }
-            else
-            {
-                leMedecin.setNom(textBoxNomMedecin.Text);
-                leMedecin.setPrenom(textBoxPrenomMedecin.Text);
-                Utilisateur unVisiteur = (Utilisateur)comboBoxMedecinVisiteur.SelectedItem;
-                leMedecin.setVisiteur(unVisiteur);
                 Passerelle.Passerelle.editMedecin(leMedecin);
+            } else
+            {
+                MessageBox.Show("Les valeurs ne sont pas valides");
             }
 
             textBoxNomMedecin.Text = "";
