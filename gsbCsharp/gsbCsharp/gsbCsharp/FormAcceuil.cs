@@ -24,6 +24,9 @@ namespace gsbCsharp
             Passerelle.Passerelle.setTypeUtilisateur(2);
             typeUtilisateur = Passerelle.Passerelle.getTypeUtilisateur();
             Passerelle.Passerelle.setIdUtilisateur("a131"); //Changer valeur par id session
+
+            FormConnexion connexion = new FormConnexion();
+            OUVRE_UNE_MDI_FILLE(connexion, this);
         }
 
         public static void checkTypeUser()

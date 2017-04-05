@@ -11,6 +11,7 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 using Metier;
 using System.ComponentModel;
+using System.DirectoryServices;
 
 namespace Passerelle
 {
@@ -27,7 +28,11 @@ namespace Passerelle
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
         //private static String connectionString = "SERVER=172.16.9.3; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+<<<<<<< HEAD
         private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+=======
+        private static String connectionString = "SERVER=172.16.8.200; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+>>>>>>> 38072fb68c9fd52e4247775849a6882111bed0ac
         private static MySqlConnection maConnection;
 
         #region commun 
@@ -791,6 +796,66 @@ namespace Passerelle
 
         #endregion
 
+        #region connexion 
+
+        /// <summary>
+        /// Try to connect Username with password
+        /// </summary>
+        /// <param name="username">Username to test</param>
+        /// <param name="passwd">Username's password</param>
+        /// <returns>True: Username/Password OK; False: Authentication error</returns>
+        public static bool connexionLDAP(string username, string passwd)
+        {
+            try
+            {
+                DirectoryEntry entry = new DirectoryEntry("LDAP://172.16.8.10" , username , passwd);
+                var test = entry.NativeObject;
+                return true;
+            }
+            catch(Exception exe)
+            {
+                return false;
+            }
+            
+        }
+
+        /// <summary>
+        /// Try to connect Username with password
+        /// </summary>
+        /// <param name="username">Username to test</param>
+        /// <param name="passwd">Username's password</param>
+        /// <returns>True: Username/Password OK; False: Authentication error</returns>
+        public static bool IsAuthenticated(string username, string passwd)
+        {
+            try
+            {
+                String domain = "gsb.local";
+                DirectoryEntry entry = new DirectoryEntry("LDAP://" + domain, username, passwd, AuthenticationTypes.Secure);
+                DirectorySearcher search = new DirectorySearcher(entry);
+                search.Filter = "(objectClass=user)";
+                search.SearchScope = SearchScope.Subtree;
+                SearchResult result = search.FindOne();
+                
+                foreach (ResultPropertyValueCollection var in result.Properties.Values)
+                {
+                    var test = result.Properties.Values;
+                    foreach (object var2 in var)
+                    {
+                        Console.WriteLine(var2.ToString());
+                    }
+                }
+
+                return (result != null);
+            }
+            catch (Exception ex)
+            {
+                return false;
+                //throw new Exception("Error authenticating user. " + ex.Message);
+            }
+        }
+
+        #endregion
+        
 
     }
 }
