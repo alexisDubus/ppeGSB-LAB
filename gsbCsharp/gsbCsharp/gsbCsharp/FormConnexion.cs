@@ -51,5 +51,10 @@ namespace gsbCsharp
                 MessageBox.Show("Mauvais mot de passe/Identifiant");
             }
         }
+
+        private void FormConnexion_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
