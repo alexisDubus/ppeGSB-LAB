@@ -19,7 +19,7 @@ namespace gsbCsharp
         public FormViewVisiteVisiteur(Utilisateur unVisiteur)
         {
             InitializeComponent();
-            Utilisateur leVisiteur = Passerelle.Passerelle.getVisiteurUnique(Passerelle.Passerelle.getIdUtilisateur());
+            Utilisateur leVisiteur = Passerelle.Passerelle.getVisiteurUnique(Passerelle.Passerelle.getIdUtilisateurSession());
             listeMedecin = Passerelle.Passerelle.getListeMedecinVisiteur2(leVisiteur);
 
 

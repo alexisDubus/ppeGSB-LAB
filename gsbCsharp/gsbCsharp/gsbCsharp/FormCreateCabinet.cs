@@ -39,16 +39,25 @@ namespace gsbCsharp
             String rue = textBoxRueCabinet.Text.ToString();
             String CP = Passerelle.Passerelle.checkValueIsCorrectNumber(textBoxCPCabinet.Text.ToString());
             String ville = Passerelle.Passerelle.checkValueIsCorrect(textBoxVilleCabinet.Text.ToString());
-            var address = rue + CP + " , " + ville;
-            var locationService = new GoogleLocationService();
-            var point = locationService.GetLatLongFromAddress(address);
-
-            var latitude = point.Latitude;
-            var longitude = point.Longitude;
-            Cabinet unCabinet = new Cabinet(rue, CP, ville, longitude, latitude);
+           
             if (rue != "" && CP != "" && ville != "")
             {
-                Passerelle.Passerelle.addCabinet(unCabinet);
+                var address = rue + CP + " , " + ville;
+                try
+                {
+                    
+                    var locationService = new GoogleLocationService();
+                    var point = locationService.GetLatLongFromAddress(address);
+
+                    var latitude = point.Latitude;
+                    var longitude = point.Longitude;
+                    Cabinet unCabinet = new Cabinet(rue, CP, ville, longitude, latitude);
+                    Passerelle.Passerelle.addCabinet(unCabinet);
+                }
+                catch(Exception exeCabinet)
+                {
+                    MessageBox.Show("Il ne n'existe pas d'adresse au : "+ address);
+                }
             } else
             {
                 MessageBox.Show("Les valeurs ne sont pas valides");

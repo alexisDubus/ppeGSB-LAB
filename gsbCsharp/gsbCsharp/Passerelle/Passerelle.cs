@@ -21,8 +21,8 @@ namespace Passerelle
     public static class Passerelle
     {
         public static String idUtilisateur;
-        public static int typeUtilisateur; 
-        public static BindingList<String> listeDepartements = new BindingList<String>();
+        public static int typeUtilisateur;
+        public static Utilisateur visiteurSession = new Utilisateur();
         private static BindingList<Medecin> listeDesMedecins = new BindingList<Medecin>();
         private static BindingList<Cabinet> listeDesCabinets = new BindingList<Cabinet>();
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
@@ -101,7 +101,7 @@ namespace Passerelle
         /// Met à jour l'idUtilisateur
         /// </summary>
         /// <param name="id"></param>
-        public static void setIdUtilisateur(String id)
+        public static void setIdUtilisateurSession(String id)
         {
             idUtilisateur = id;
         }
@@ -110,7 +110,7 @@ namespace Passerelle
         /// retourne l'idUtilisateur
         /// </summary>
         /// <returns>idUtilisateur</returns>
-        public static String getIdUtilisateur()
+        public static String getIdUtilisateurSession()
         {
             return idUtilisateur;
         }
@@ -119,7 +119,7 @@ namespace Passerelle
         /// Change le type d'utilisateur (0,1,2)
         /// </summary>
         /// <param name="type"></param>
-        public static void setTypeUtilisateur(int type)
+        public static void setTypeUtilisateurSession(int type)
         {
             typeUtilisateur = type;
         }
@@ -128,7 +128,7 @@ namespace Passerelle
         /// retourne le type d'utilisateur
         /// </summary>
         /// <returns>typeUtilisateur</returns>
-        public static int getTypeUtilisateur()
+        public static int getTypeUtilisateurSession()
         {
             return typeUtilisateur;
         }
@@ -136,32 +136,6 @@ namespace Passerelle
         
 
         #endregion 
-
-        /*
-        public static void initListeDepartements()
-        {
-            BindingList<String> listeReset = new BindingList<String>();
-            listeDepartements = listeReset;
-            for (int i = 1; i <= 9; i++)
-            {
-                listeDepartements.Add("0"+ i.ToString() +"000");
-            }
-            for (int i = 10; i <= 95; i++)
-            {
-                listeDepartements.Add(i.ToString() + "000");
-            }
-            listeDepartements.Add("97100");
-            listeDepartements.Add("97200");
-            listeDepartements.Add("97300");
-            listeDepartements.Add("97400");
-            listeDepartements.Add("97600");
-        }
-
-        public static BindingList<String> returnListeDepartements()
-        {
-            return listeDepartements;
-        }
-            */
 
         #region Utilisateur
 
@@ -814,13 +788,14 @@ namespace Passerelle
         {
             try
             {
-                DirectoryEntry entry = new DirectoryEntry("LDAP://172.16.8.10" , username , passwd);
+                DirectoryEntry entry = new DirectoryEntry("LDAP://192.168.23.142" , username , passwd);
                 var test = entry.NativeObject;
                 var personne = entry.Username;
                 var dataGUID = entry.NativeGuid;
                 var data = entry.Name;
                 var dataAutre = entry.Options;
                 var dataAutre2 = entry.Container;
+                miseEnSession(username);
                 return true;
             }
             catch(Exception exe)
@@ -865,8 +840,31 @@ namespace Passerelle
             }
         }
 
+
+        /// <summary>
+        /// met en session l'utiliseur dont le login est donné en paramétre
+        /// </summary>
+        /// <param name="login"></param>
+        public static void miseEnSession(string login)
+        {
+            foreach (Metier.Utilisateur visiteur in listeDesVisiteurs)
+            {
+                if (login == visiteur.getLogin()) //l'utilisateur est 
+                {
+                    visiteurSession = visiteur;
+                    setTypeUtilisateurSession(2);
+                    setIdUtilisateurSession(visiteurSession.getId());
+                }
+                else //l'utilisateur est un administrateur
+                {
+                    setTypeUtilisateurSession(0);
+                }
+            }
+        }
+
+
         #endregion
-        
+
 
     }
 }

@@ -50,11 +50,17 @@ namespace gsbCsharp
             uneForm.WindowState = FormWindowState.Maximized;
             uneForm.Show();
         }
+
         private void FormAcceuil_Load(object sender, EventArgs e)
         {
-            if (typeUtilisateur != 2)
+            if (typeUtilisateur == 2) //case visiteur
             {
                 menuStrip.Items[3].Visible = false;
+            }
+            if (typeUtilisateur == 0)//case admin
+            {
+                menuStrip.Items[2].Visible = false;
+                menuStrip.Items[1].Visible = false;
             }
         }
         
@@ -111,7 +117,7 @@ namespace gsbCsharp
         /// <param name="e"></param>
         private void listeVisiteStripMenuItem2_Clic(object sender, EventArgs e)
         {
-            FormViewVisiteVisiteur listeVisite = new FormViewVisiteVisiteur(Passerelle.Passerelle.getVisiteurUnique("a131"));
+            FormViewVisiteVisiteur listeVisite = new FormViewVisiteVisiteur(Passerelle.Passerelle.visiteurSession);
             OUVRE_UNE_MDI_FILLE(listeVisite, this);
         }
 
