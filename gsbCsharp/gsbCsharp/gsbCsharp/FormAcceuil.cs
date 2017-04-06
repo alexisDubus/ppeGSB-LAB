@@ -15,12 +15,11 @@ namespace gsbCsharp
     public partial class FormAcceuil : Form
     {
         List<Utilisateur> listeVisiteur = new List<Utilisateur>();
-        public static int typeUtilisateur;
 
         public FormAcceuil()
         {
             InitializeComponent();
-            Passerelle.Passerelle.init();
+            //Passerelle.Passerelle.init();
             //Passerelle.Passerelle.setTypeUtilisateur(2);
             //typeUtilisateur = Passerelle.Passerelle.getTypeUtilisateur();
             //Passerelle.Passerelle.setIdUtilisateur("a131"); //Changer valeur par id session
@@ -53,14 +52,16 @@ namespace gsbCsharp
 
         private void FormAcceuil_Load(object sender, EventArgs e)
         {
-            if (typeUtilisateur == 2) //case visiteur
-            {
-                menuStrip.Items[3].Visible = false;
-            }
-            if (typeUtilisateur == 0)//case admin
+
+            if (Passerelle.Passerelle.getTypeUtilisateurSession() == 2) //case visiteur
             {
                 menuStrip.Items[2].Visible = false;
                 menuStrip.Items[1].Visible = false;
+            }
+            if (Passerelle.Passerelle.getTypeUtilisateurSession() == 0)//case admin
+            {
+                menuStrip.Items[3].Visible = false;
+                menuStrip.Items[4].Visible = false;
             }
         }
         
@@ -125,6 +126,12 @@ namespace gsbCsharp
         {
             FormListeCabinet listeCabinet = new FormListeCabinet();
             OUVRE_UNE_MDI_FILLE(listeCabinet, this);
+        }
+
+        private void statistiquesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormStatistique stat = new FormStatistique(Passerelle.Passerelle.getVisiteurSession());
+            OUVRE_UNE_MDI_FILLE(stat, this);
         }
     }
 }

@@ -116,6 +116,24 @@ namespace Passerelle
         }
 
         /// <summary>
+        /// Met en session l'utilisateur
+        /// </summary>
+        /// <param name="visiteurEnSession"></param>
+        public static void setVisiteurSesstion(Utilisateur visiteurEnSession)
+        {
+            visiteurSession = visiteurEnSession;
+        }
+
+        /// <summary>
+        /// retourne l'utilisateur en session
+        /// </summary>
+        /// <returns></returns>
+        public static Utilisateur getVisiteurSession()
+        {
+            return visiteurSession;
+        }
+
+        /// <summary>
         /// Change le type d'utilisateur (0,1,2)
         /// </summary>
         /// <param name="type"></param>
@@ -847,13 +865,15 @@ namespace Passerelle
         /// <param name="login"></param>
         public static void miseEnSession(string login)
         {
+            init();
             foreach (Metier.Utilisateur visiteur in listeDesVisiteurs)
             {
-                if (login == visiteur.getLogin()) //l'utilisateur est 
+                if (login == visiteur.getLogin()) //l'utilisateur est un visiteur
                 {
-                    visiteurSession = visiteur;
+                    setVisiteurSesstion(visiteur);
                     setTypeUtilisateurSession(2);
                     setIdUtilisateurSession(visiteurSession.getId());
+                    break;
                 }
                 else //l'utilisateur est un administrateur
                 {

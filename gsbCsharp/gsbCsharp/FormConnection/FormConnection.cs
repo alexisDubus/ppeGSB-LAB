@@ -52,7 +52,6 @@ namespace FormConnection
             if (isAuth)
             {
                 FormAcceuil acceuil = new FormAcceuil();
-                Passerelle.Passerelle.setTypeUtilisateurSession(0); //connexion admin
                 acceuil.Show();
                 this.Hide();
             }

@@ -21,7 +21,7 @@ namespace gsbCsharp
         {
             InitializeComponent();
 
-            listeMedecin = Passerelle.Passerelle.getListeMedecinVisiteur2(Passerelle.Passerelle.getVisiteurUnique(Passerelle.Passerelle.getIdUtilisateurSession()));
+            listeMedecin = Passerelle.Passerelle.getListeMedecinVisiteur2(Passerelle.Passerelle.getVisiteurSession());
 
             foreach (Metier.Medecin leMedecin in listeMedecin)
             {
@@ -48,7 +48,7 @@ namespace gsbCsharp
             else
             {
                 Medecin unMedecin = (Medecin)comboBoxMedecin.SelectedItem;
-                Utilisateur unUtilisateur = Passerelle.Passerelle.getVisiteurUnique(Passerelle.Passerelle.getIdUtilisateurSession());
+                Utilisateur unUtilisateur = Passerelle.Passerelle.getVisiteurSession();
                 Visite uneVisite = new Visite(dateVisite, checkBoxRDV.Checked, unUtilisateur, unMedecin, heureArrivee, heureDepart, heure);
 
                 Passerelle.Passerelle.addVisite(uneVisite);
