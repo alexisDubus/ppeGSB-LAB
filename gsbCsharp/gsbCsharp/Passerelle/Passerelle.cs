@@ -28,8 +28,8 @@ namespace Passerelle
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
         //private static String connectionString = "SERVER=172.16.9.3; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
-        private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
-        //private static String connectionString = "SERVER=172.16.8.200; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        //private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        private static String connectionString = "SERVER=172.16.8.200; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
         #region commun 
@@ -816,6 +816,11 @@ namespace Passerelle
             {
                 DirectoryEntry entry = new DirectoryEntry("LDAP://172.16.8.10" , username , passwd);
                 var test = entry.NativeObject;
+                var personne = entry.Username;
+                var dataGUID = entry.NativeGuid;
+                var data = entry.Name;
+                var dataAutre = entry.Options;
+                var dataAutre2 = entry.Container;
                 return true;
             }
             catch(Exception exe)
