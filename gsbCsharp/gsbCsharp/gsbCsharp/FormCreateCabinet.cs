@@ -40,7 +40,6 @@ namespace gsbCsharp
             String CP = Passerelle.Passerelle.checkValueIsCorrectNumber(textBoxCPCabinet.Text.ToString());
             String ville = Passerelle.Passerelle.checkValueIsCorrect(textBoxVilleCabinet.Text.ToString());
             var address = rue + CP + " , " + ville;
-
             var locationService = new GoogleLocationService();
             var point = locationService.GetLatLongFromAddress(address);
 
