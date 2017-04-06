@@ -37,7 +37,7 @@ namespace gsbCsharp
         private void btnCreateCabinet_Click(object sender, EventArgs e)
         {
             String rue = textBoxRueCabinet.Text.ToString();
-            String CP = textBoxCPCabinet.Text.ToString();
+            String CP = Passerelle.Passerelle.checkValueIsCorrectNumber(textBoxCPCabinet.Text.ToString());
             String ville = Passerelle.Passerelle.checkValueIsCorrect(textBoxVilleCabinet.Text.ToString());
             var address = rue + CP + " , " + ville;
 

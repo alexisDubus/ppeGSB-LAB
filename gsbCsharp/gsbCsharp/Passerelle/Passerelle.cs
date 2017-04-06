@@ -88,6 +88,15 @@ namespace Passerelle
             return str;
         }
 
+        public static String checkValueIsCorrectNumber(String str)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(str, @"^[0-9]+$"))
+            {
+                str = "";
+            }
+            return str;
+        }
+
         /// <summary>
         /// Met à jour l'idUtilisateur
         /// </summary>
