@@ -73,6 +73,25 @@ class PdoGsb
 		return $ligne;
 	}
         
+        /**
+ * vérifie si l'utilisateur existe
+ 
+ * @param $login 
+ * @return true si l'utilisateur existe, false dans le cas contraire
+*/
+	public function utilisateurExiste($login){                
+		$req = "select utilisateur.id as id, utilisateur.nom as nom, utilisateur.prenom as prenom, utilisateur.idRole as idRole, role.profession as role from utilisateur, role 
+		where utilisateur.login='$login' and utilisateur.idRole = role.id ";
+		$rs = PdoGsb::$monPdo->query($req);
+                $ligne = $rs->fetch();
+                $_SESSION['role']= $ligne["role"];
+                if ($ligne != null) {
+                    $existe = true;
+                } else {
+                    $existe = false;
+                }
+		return $existe;
+	}
   /**
   *  Initialise la valeur $_SESSION['role'] de l'utilisateur qui est fonction de sa profession(Administrateur, comptable ou visiteur médical)
   *  la variable superglobale $_SESSION['role'] sera affichée au nivreau de la barre de navigation
@@ -511,6 +530,19 @@ class PdoGsb
             $res = PdoGsb::$monPdo->query($req);
             $laLigne = $res->fetch();
             return $laLigne['occupe'];
+        }
+        public function getAdresseMail($login) {
+            $req = "select email from utilisateur where login = '$login'";
+            $res = PdoGsb::$monPdo->query($req);
+            $laLigne = $res->fetch();
+            return $laLigne;
+        }
+        
+        public function getNouveauMDP($login) {
+            $req = "select mdp from utilisateur where login = '$login'";
+            $res = PdoGsb::$monPdo->query($req);
+            $laLigne = $res->fetch();
+            return $laLigne;
         }
 }
 ?>

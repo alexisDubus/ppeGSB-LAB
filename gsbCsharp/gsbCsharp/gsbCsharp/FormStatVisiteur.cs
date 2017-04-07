@@ -16,5 +16,10 @@ namespace gsbCsharp
         {
             InitializeComponent();
         }
+
+        private void FormStatVisiteur_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

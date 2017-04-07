@@ -62,3 +62,4 @@ C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\GoogleMaps.Loc
 C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormConnexion.resources
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormConnexion.resources
 C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormStatVisiteur.resources
+C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormStatVisiteur.resources
