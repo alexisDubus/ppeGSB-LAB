@@ -9,15 +9,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-
 import com.example.leo.gsb_mobile.R;
 import com.example.leo.gsb_mobile.controleur.CabinetDAO;
 import com.example.leo.gsb_mobile.controleur.MedecinDAO;
 import com.example.leo.gsb_mobile.controleur.UtilisateurDAO;
-import com.example.leo.gsb_mobile.object.Cabinet;
-import com.example.leo.gsb_mobile.object.Medecin;
 import com.example.leo.gsb_mobile.object.Utilisateur;
+import com.example.leo.gsb_mobile.web_services.GetUserFromBDD;
+import com.example.leo.gsb_mobile.web_services.GetUserVersionFromBDD;
+import org.json.JSONArray;
+import org.json.JSONException;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Leo on 04/04/2017.
@@ -25,49 +26,71 @@ import com.example.leo.gsb_mobile.object.Utilisateur;
 
 public class UserConnexion extends Activity {
 
-
     public EditText editT_login;
     public EditText editT_mdp;
-
     public Button btn_connexion;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_connexion);
 
+        // Récupération et associations des éléments
         editT_login = (EditText)findViewById(R.id.editText_login);
         editT_mdp = (EditText)findViewById(R.id.editText_mdp);
         btn_connexion = (Button)findViewById(R.id.btn_connexion);
 
+        // ----------------- Déroulement des différents test -----------------
+
         UtilisateurDAO utilisateurDAO = new UtilisateurDAO(this);
-        MedecinDAO medecinDAO = new MedecinDAO(this);
-        CabinetDAO cabinetDao = new CabinetDAO(this);
-
-        // ----------------------------------
-        cabinetDao.open();
-        // Vérification de si il y a des cabinet dans la BDD
-        if(cabinetDao.count() == 0){
-            addCabinetInBDD(cabinetDao);
-        }
-        cabinetDao.close();
-        // ----------------------------------
-        medecinDAO.open();
-        // Vérification de si il y a des medecin dans la BDD
-        if(medecinDAO.count() == 0){
-            addMedecinInBDD(medecinDAO);
-        }
-        medecinDAO.close();
-        // ----------------------------------
         utilisateurDAO.open();
-        // Vérification de si un utilisateur existe déja
-        if(utilisateurDAO.count() == 1){
-            goToCardViewSelector();
-        }
-        utilisateurDAO.close();
-        // ----------------------------------
 
+        // Vérification de si un utilisateur existe déja
+        // Si il n'y en a pas, on passe directement a la suite, sinon on entre dans la boucle
+        if(utilisateurDAO.count() == 1){
+
+            // Récupération de l'utilisateur dans la BDD Sqlite
+            Utilisateur unUser = utilisateurDAO.selectionner(0);
+            String nom = unUser.getNom();
+            String prenom = unUser.getPrenom();
+            int versionOfUser = unUser.getNumVersion();
+
+            // Récupération du même utilisateur dans la BDD distante
+            String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUserVersion_WS.php?nom="+nom+"&prenom=+"+prenom+"";
+            GetUserVersionFromBDD getUserVersion = new GetUserVersionFromBDD(getApplicationContext(),url);
+            getUserVersion.execute();
+            try {
+                String user = getUserVersion.get();
+                JSONArray array = new JSONArray(user);
+                Log.d("debogage ",""+array.length());
+
+                for(int i = 0 ; i < array.length() ; i++) {
+                    String id= array.getJSONObject(i).getString("id");
+                    String newNom= array.getJSONObject(i).getString("nom");
+                    String newPrenom= array.getJSONObject(i).getString("prenom");
+                    int versionFromBDD = array.getJSONObject(i).getInt("version");
+                    Utilisateur unNouveauUser = new Utilisateur(id,newNom,newPrenom,versionFromBDD);
+
+                    // On compare les numéros de version
+                    if (versionOfUser == versionFromBDD){
+                        // Si ils sont égaux, on ne change rien
+                        goToCardViewSelector();
+                    } else {
+                        // Sinon on supprime tous les cabinet et médecins
+                        deleteAllCabinetFromBDD();
+                        deleteAllMedecinsFromBDD();
+                        // On supprime l'utilisateur et on le remplace par le nouveau
+                        // (on change juste le numéro de version en soit)
+                        utilisateurDAO.open();
+                        utilisateurDAO.supprimer(0);
+                        utilisateurDAO.ajouter(unNouveauUser);
+                        goToCardViewSelector();
+                    }
+                }
+            } catch (InterruptedException | ExecutionException | JSONException e) {e.printStackTrace();}
+        }
+
+        // --------------- OnClickListener sur le bouton ------------------
 
         btn_connexion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,62 +102,70 @@ public class UserConnexion extends Activity {
                 UtilisateurDAO utilisateurDAO = new UtilisateurDAO(getApplicationContext());
                 utilisateurDAO.open();
 
+                // On vérifie si tout les champs sont remplis
                 if (login.isEmpty() || mdp.isEmpty()){
                     Toast toast = Toast.makeText(getApplicationContext(), "Tout les champs doivent être remplit", Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
                     toast.show();
                 }
                 else {
-                    // Récupération de l'utilisateur associé a ce login/mdp
-                    // If utilisateur existe
-                    Utilisateur unUser = new Utilisateur();
-                    unUser.setUserId("a131");
-                    unUser.setPrenom("Léo");
-                    unUser.setNom("Marlière");
-                    utilisateurDAO.ajouter(unUser);
-                    utilisateurDAO.close();
-
-                    //Log.i("CONNEXION", "Utilisateur créer");
-
-                    goToCardViewSelector();
+                    // On appele le web service (dans la tâche asynchrone)
+                    String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUser_WS.php?login="+login+"&mdp="+mdp+"";
+                    GetUserFromBDD getUser = new GetUserFromBDD(getApplicationContext(),url);
+                    getUser.execute();
+                    try {
+                        String user = getUser.get();
+                        // Si on ne récupère rien, c'est que les champs étaient faux
+                        if (user.equals("[]\n")){
+                            Toast toast = Toast.makeText(getApplicationContext(), "Login/MotDePasse Incorrect", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
+                            toast.show();
+                        } else{
+                            // Sinon on ajoute l'utilisateur récupéré
+                            JSONArray array = new JSONArray(user);
+                            Log.d("debogage ",""+array.length());
+                            for(int i = 0 ; i < array.length() ; i++) {
+                                String id= array.getJSONObject(i).getString("id");
+                                String nom= array.getJSONObject(i).getString("nom");
+                                String prenom= array.getJSONObject(i).getString("prenom");
+                                int version = array.getJSONObject(i).getInt("version");
+                                Utilisateur unUser = new Utilisateur(id,nom,prenom,version);
+                                utilisateurDAO.ajouter(unUser);
+                                // On change ensuite d'activité'
+                                goToCardViewSelector();
+                            }
+                        }
+                    } catch (InterruptedException | ExecutionException | JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
 
             }
         });
-
-
-
-    }
-
-    private void addCabinetInBDD(CabinetDAO cabinetDAO){
-        Cabinet cabinet1 = new Cabinet("198 rue de Lille", "59130", "Lambersart", 23.43 , 98.43);
-        Cabinet cabinet2 = new Cabinet("1 rue Jean", "59000", "Lille", 23.43 , 98.43);
-        Cabinet cabinet3 = new Cabinet("24 Rue Moulinette", "59000", "Lille", 23.43 , 98.43);
-        Log.i("INFO_TESTFORLIST", "Cabinet crée");
-        cabinetDAO.ajouter(cabinet1);
-        cabinetDAO.ajouter(cabinet2);
-        cabinetDAO.ajouter(cabinet3);
-        Log.i("INFO_TESTFORLIST", "Cabinet ajouté a la BDD");
-    }
-
-
-    private void addMedecinInBDD(MedecinDAO medecinDAO){
-        Medecin medecin1 = new Medecin("Paul", "Medecin1", "1", "a131");
-        Medecin medecin2 = new Medecin("Sam", "Medecin2", "2", "a131");
-        Medecin medecin3 = new Medecin("Max", "Medecin3", "1", "a131");
-        Medecin medecin4 = new Medecin("Paul", "Medecin4", "0", "a131");
-        Log.i("INFO_TESTFORLIST", "Médecin crée");
-        medecinDAO.ajouter(medecin1);
-        medecinDAO.ajouter(medecin2);
-        medecinDAO.ajouter(medecin3);
-        medecinDAO.ajouter(medecin4);
-        Log.i("INFO_TESTFORLIST", "Medecin ajouté a la BDD");
     }
 
 
     public void goToCardViewSelector(){
         Intent i = new Intent(getApplicationContext(), CardViewSelector.class);
         startActivity(i);
+    }
+
+    public void deleteAllMedecinsFromBDD (){
+        MedecinDAO medecinDAO = new MedecinDAO(this);
+        medecinDAO.open();
+        for (int i = 0 ; i < medecinDAO.count() ; i++ ){
+            medecinDAO.supprimer(i);
+        }
+        medecinDAO.close();
+    }
+
+    public void deleteAllCabinetFromBDD(){
+        CabinetDAO cabinetDAO = new CabinetDAO(this);
+        cabinetDAO.open();
+        for (int i = 0 ; i < cabinetDAO.count() ; i++ ){
+            cabinetDAO.supprimer(i);
+        }
+        cabinetDAO.close();
     }
 
 

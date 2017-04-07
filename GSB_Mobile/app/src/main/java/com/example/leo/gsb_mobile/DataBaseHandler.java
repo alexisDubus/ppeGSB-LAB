@@ -103,7 +103,6 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.execSQL(VISITE_TABLE_DROP);
 
         db.execSQL(USER_TABLE_CREATE);
-        Log.i("TAG", USER_TABLE_CREATE);
         db.execSQL(CABINET_TABLE_CREATE);
         db.execSQL(MEDECIN_TABLE_CREATE);
         db.execSQL(VISITE_TABLE_CREATE);

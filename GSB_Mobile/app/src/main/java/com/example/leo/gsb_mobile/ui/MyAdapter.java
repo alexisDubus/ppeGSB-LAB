@@ -10,8 +10,6 @@ import com.example.leo.gsb_mobile.object.CardView;
 
 import java.util.List;
 
-
-
 /**
  * Created by Leo on 28/03/2017.
  */

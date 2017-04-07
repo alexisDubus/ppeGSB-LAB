@@ -66,7 +66,7 @@ public class CreateVisite extends Activity {
         // Récupération de l'idUser
         UtilisateurDAO utilisateurDAO = new UtilisateurDAO(this);
         utilisateurDAO.open();
-        Utilisateur unUser = utilisateurDAO.selectionner("0");
+        Utilisateur unUser = utilisateurDAO.selectionner(0);
         idUser = unUser.getUserId();
         utilisateurDAO.close();
 
@@ -143,20 +143,7 @@ public class CreateVisite extends Activity {
                     Intent i = new Intent(getApplicationContext(), CardViewSelector.class);
                     startActivity(i);
                 }
-
-
-
-
-
-
-
-
-
-
             }
         });
-
-
-
     }
 }

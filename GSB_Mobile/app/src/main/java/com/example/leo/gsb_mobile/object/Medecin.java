@@ -12,15 +12,6 @@ public class Medecin {
     private String idUtilisateur;
     private String idCabinet;
 
-    public Medecin(String idMedecin, String nom, String prenom, String idCabinet, String idUtilisateur) {
-        super();
-        this.idMedecin = idMedecin;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.idUtilisateur = idUtilisateur;
-        this.idCabinet = idCabinet;
-    }
-
     public Medecin( String nom, String prenom, String idCabinet, String idUtilisateur) {
         super();
         this.nom = nom;

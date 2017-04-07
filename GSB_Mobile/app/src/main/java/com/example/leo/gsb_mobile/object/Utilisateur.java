@@ -11,10 +11,11 @@ public class Utilisateur {
     private String prenom;
     private int numVersion;
 
-    public Utilisateur(String userId, String nom, String prenom) {
+    public Utilisateur(String userId, String nom, String prenom, int version) {
         this.userId = userId;
         this.nom = nom;
         this.prenom = prenom;
+        this.numVersion = version;
     }
 
     public Utilisateur(){}

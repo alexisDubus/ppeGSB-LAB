@@ -32,7 +32,7 @@ public class UtilisateurDAO extends DAOBase {
         value.put(UtilisateurDAO.USERID, user.getUserId());
         value.put(UtilisateurDAO.NAME, user.getNom());
         value.put(UtilisateurDAO.LASTNAME, user.getPrenom());
-        value.put(UtilisateurDAO.VERSION, 1);
+        value.put(UtilisateurDAO.VERSION, user.getNumVersion());
         mDb.insert(UtilisateurDAO.TABLE_NAME, null, value);
 
        // String commande = "INSERT into Utilisateur(utilisateurId, utilisateurNom, utilisateurPrenom, utilisateurVersion) VALUES (\"" +user.getUserId() + "\",\"" +user.getNom() + "\" ,\"" +user.getPrenom() + "\", "+ 1 + ")";
@@ -43,7 +43,7 @@ public class UtilisateurDAO extends DAOBase {
         mDb.delete(TABLE_NAME, KEY + " = ?", new String[]{String.valueOf(id)});
     }
 
-    public Utilisateur selectionner(String id) {
+    public Utilisateur selectionner(long id) {
         Cursor c = mDb.rawQuery("select * from " + TABLE_NAME + " where utilisateurId > ?", new String[]{""+id+""});
         return cursorToUser(c);
     }

@@ -9,6 +9,7 @@ import java.util.Date;
 public class Visite {
 
 
+    private String visiteId;
     private String dateVisite;
     private  int rdvOrNot;
     private String heureArrive;
@@ -29,6 +30,13 @@ public class Visite {
 
     public Visite(){}
 
+    public String getVisiteId() {
+        return visiteId;
+    }
+
+    public void setVisiteId(String visiteId) {
+        this.visiteId = visiteId;
+    }
 
     public String getDateVisite() {
         return dateVisite;

@@ -2,7 +2,10 @@ package com.example.leo.gsb_mobile.controleur;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.DatabaseUtils;
 
+import com.example.leo.gsb_mobile.object.Utilisateur;
 import com.example.leo.gsb_mobile.object.Visite;
 
 /**
@@ -40,6 +43,39 @@ public class VisiteDAO extends DAOBase {
 
     public void supprimer(long id) {
         mDb.delete(TABLE_NAME, KEY + " = ?", new String[]{String.valueOf(id)});
+    }
+
+    public Visite selectionner(long id) {
+        Cursor c = mDb.rawQuery("select * from " + TABLE_NAME + " where visiteId > ?", new String[]{""+id+""});
+        return cursorToUser(c);
+    }
+
+    private Visite cursorToUser(Cursor c){
+        if (c.getCount() == 0)
+            return null;
+
+        //Sinon on se place sur le premier élément
+        c.moveToFirst();
+        // On crée une visite
+        Visite uneVisite = new Visite();
+
+        uneVisite.setVisiteId(c.getString(0));
+        uneVisite.setDateVisite(c.getString(1));
+        uneVisite.setRdvOrNot(c.getInt(2));
+        uneVisite.setHeureArrive(c.getString(3));
+        uneVisite.setHeureDebut(c.getString(4));
+        uneVisite.setHeureFin(c.getString(5));
+        uneVisite.setUserId(c.getString(6));
+        uneVisite.setMedecinId(c.getString(7));
+
+        c.close();
+        return uneVisite;
+    }
+
+
+    public long count(){
+        long numberOfRows = DatabaseUtils.queryNumEntries(mDb, TABLE_NAME);
+        return numberOfRows;
     }
 
 }

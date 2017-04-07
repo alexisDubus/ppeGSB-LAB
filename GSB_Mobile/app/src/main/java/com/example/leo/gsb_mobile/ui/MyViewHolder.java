@@ -1,6 +1,5 @@
 package com.example.leo.gsb_mobile.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -37,9 +36,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
                 v.getContext().startActivity(i);
             }
         });
-
     }
-
 
     // Méthode qui remplit la cellule en fonction d'un objet CardView
     public void bind(CardView object){
