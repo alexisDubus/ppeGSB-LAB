@@ -217,6 +217,18 @@ function ajouterErreur($msg){
 	} 
    $_REQUEST['erreurs'][]=$msg;
 }
+
+/**
+ * Ajoute le libellé d'un message
+ 
+ * @param $msg : le libellé du message
+ */
+function ajouterMessage($msg){
+   if (! isset($_REQUEST['message'])){
+      $_REQUEST['message']=array();
+	} 
+   $_REQUEST['message'][]=$msg;
+}
 /**
  * Retoune le nombre de lignes du tableau des erreurs 
  

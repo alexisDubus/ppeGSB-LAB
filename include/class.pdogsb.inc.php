@@ -92,6 +92,44 @@ class PdoGsb
                 }
 		return $existe;
 	}
+        
+         /**
+ * vérifie la réponse est correcte
+ 
+ * @param $login 
+ * @return true si la réponse est correcte, false dans le cas contraire
+*/
+	public function checkReponse($login, $reponse){                
+		$req = "select utilisateur.reponse as reponse from utilisateur 
+		where utilisateur.login='$login'";
+		$rs = PdoGsb::$monPdo->query($req);
+                $ligne = $rs->fetch();
+                if ($ligne["reponse"] == $reponse) {
+                    $correct = true;
+                } else {
+                    $correct = false;
+                }
+		return $correct;
+	}
+        
+        /**
+ * vérifie l email est correct
+ 
+ * @param $login 
+ * @return true si la réponse est correcte, false dans le cas contraire
+*/
+	public function checkEMail($login, $mail){                
+		$req = "select utilisateur.email as email from utilisateur 
+		where utilisateur.login='$login'";
+		$rs = PdoGsb::$monPdo->query($req);
+                $ligne = $rs->fetch();
+                if ($ligne["email"] == $mail) {
+                    $correct = true;
+                } else {
+                    $correct = false;
+                }
+		return $correct;
+	}
   /**
   *  Initialise la valeur $_SESSION['role'] de l'utilisateur qui est fonction de sa profession(Administrateur, comptable ou visiteur médical)
   *  la variable superglobale $_SESSION['role'] sera affichée au nivreau de la barre de navigation
@@ -180,6 +218,22 @@ class PdoGsb
         			where fraisforfait.id = '$idOld' ";
         	PdoGsb::$monPdo->exec($req);
         }
+        
+/**
+ * Retourne les informations d'un utilisateur
+ 
+ * @param $login 
+ * @param $mdp
+ * @param $mail
+*/
+	public function creeNouveauMDP($login, $mdp, $mail){
+                $mdpSHA = sha1($mdp);
+                
+		$req = "update utilisateur set mdpSHA = '$mdpSHA'
+		where utilisateur.login='$login' and utilisateur.email='$mail'";
+		PdoGsb::$monPdo->exec($req);
+	}
+        
 /**
  * Retourne le nombre de justificatif d'un utilisateur pour un mois donné
  

@@ -1,6 +1,5 @@
 ﻿<?php
 
-
 if(!isset($_REQUEST['action'])){
 	$_REQUEST['action'] = 'demandeConnexion';
 }
@@ -14,7 +13,7 @@ switch($action){
             include("vues/v_mdp_oublie.php");
             break;
         }
-        case 'changeMDP':{
+        /*case 'changeMDP':{
             $login = $_REQUEST['login'];
             $existe = $pdo->utilisateurExiste($login);
             if ($existe == true) {
@@ -28,6 +27,48 @@ switch($action){
 		include("vues/v_erreurs.php");
                 include("vues/v_mdp_oublie.php");
             }            
+            break;
+        }*/
+        case 'changeMDP':{
+            $reponse = $_REQUEST['reponse'];
+            $login = $_REQUEST['login'];
+            $mail = $_REQUEST['EMail'];
+            $existe = $pdo->utilisateurExiste($login);
+            if ($existe == true) {
+                $checkReponse = $pdo->checkReponse($login, $reponse);
+                $checkEMail = $pdo->checkEMail($login, $mail);
+                if ($checkReponse == true && $checkEMail == true) {
+                    $_SESSION['loginSession'] = $login;
+                    $_SESSION['mailSession'] = $mail;
+                    ajouterMessage("Réponse correcte, vous pouvez réinitialiser votre mot de passe.");
+                    include("vues/v_message.php");
+                    include("vues/v_changeMDP.php");
+                } else {
+                    ajouterErreur("Réponse ou email incorrect.");
+                    include("vues/v_erreurs.php");
+                }
+            } else {
+                ajouterErreur("Login incorrect");
+		include("vues/v_erreurs.php");
+                include("vues/v_mdp_oublie.php");
+            }
+            break;
+        }
+        case 'nouveauMDP' :{
+            $mdp = $_REQUEST['mdp'];
+            $mdp2 = $_REQUEST['mdp2'];
+            $login = $_SESSION['loginSession'];
+            $mail = $_SESSION['mailSession'];
+            if ($mdp == $mdp2) {
+                $pdo->creeNouveauMDP($login, $mdp, $mail);
+                ajouterMessage("Votre mot de passe a correctement été modifié.");
+                include("vues/v_message.php");
+                include("vues/v_connexion.php");
+            } else {
+                ajouterErreur("Les mots de passe ne correspondent pas.");
+                include("vues/v_erreurs.php");
+                include("vues/v_changeMDP");
+            }
             break;
         }
 	case 'valideConnexion':{
