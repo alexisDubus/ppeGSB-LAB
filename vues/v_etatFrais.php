@@ -63,8 +63,14 @@
 							<td><?php echo $montant ?></td>
 						</tr><?php		 }  ?>	  
 			 </table>
-	
-	
-	
+               <?php
+                $id = $_SESSION['idUtilisateur']; 
+                $nom = $_SESSION['nom'];
+                $prenom = $_SESSION['prenom'];
+                $anneeMois = $nomMois.' '. $numAnnee;
+               
+            echo '<a href="fpdf/tutorial/tuto2.php?idUtilisateur='.$id.'&nom='.$nom.'&prenom='.$prenom.'&numAnne='.$numAnnee.'&AN='.$anneeMois.'&leMois='.$leMois.'&dateModif="'.$dateModif.'>Télécharger le pdf</a>'; 
+            
+            ?>
   </div>
   </div>
