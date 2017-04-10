@@ -69,8 +69,10 @@
                 $prenom = $_SESSION['prenom'];
                 $anneeMois = $nomMois.' '. $numAnnee;
                
-            echo '<a href="fpdf/tutorial/tuto2.php?idUtilisateur='.$id.'&nom='.$nom.'&prenom='.$prenom.'&numAnne='.$numAnnee.'&AN='.$anneeMois.'&leMois='.$leMois.'&dateModif="'.$dateModif.'>Télécharger le pdf</a>'; 
+                //Envoie via l'url les données pour la génération du PDF. 
+            echo '<a class="btn btn-primary" href="fpdf/tutorial/tuto2.php?idUtilisateur='.$id.'&nom='.$nom.'&prenom='.$prenom.'&numAnne='.$numAnnee.'&AN='.$anneeMois.'&leMois='.$leMois.'">Télécharger le pdf du mois '.$anneeMois.'</a>'; 
             
             ?>
-  </div>
+               
+    </div>
   </div>
