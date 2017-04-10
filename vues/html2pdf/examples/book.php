@@ -12,6 +12,11 @@
  */
 
 ob_start();
+
+session_start();
+require_once("../../../include/fct.inc.php");
+require_once ("../../../include/class.pdogsb.inc.php");
+$pdo = PdoGsb::getPdoGsb(); 
 ?>
 <style type="text/css">
 <!--
@@ -30,36 +35,47 @@ ob_start();
 <page backtop="14mm" backbottom="14mm" backleft="10mm" backright="10mm" style="font-size: 12pt">
     <page_header>
         <table class="page_header">
+             <h1>
+            <?php 
+                $test = "testons ensembleeee";
+                echo $test;
+            ?>
+        </h1>
+        <h2>
+             <?php 
+                $test = "testons ensembleeee";
+                echo $test;
+            ?>
+        </h2>
             <tr>
                 <td style="width: 100%; text-align: left">
-                    
+                    <?php
+                        //$date = next($array)
+                        //$boutBalise = " title='Sommaire' ";
+                        $entete = "fiche de frais du mois de ";
+                        $mois = " janvier ";
+                        $annee = " 2017 ";
+                        echo $entete . $mois . $annee;
+                   ?>
                 </td>
             </tr>
+            
         </table>
     </page_header>
        
     <div class="niveau">
 
         <bookmark title="bbb" level="aa" ></bookmark>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
          <h1>
             <?php 
-                $test = "testons ensemble";
+                $test = "testons ensembleeee";
                 echo $test;
             ?>
         </h1>
         <h2>
-            <?php
-                        //$boutBalise = " title='Sommaire' ";
-                        $entete = "fiche de frais du mois de ";
-                        $mois = " janvier ";
-                        $annee = " 2015 ";
-                        echo $entete . $mois . $annee;
+             <?php 
+                $test = "testons ensembleeee";
+                echo $test;
             ?>
         </h2>
     </div>
@@ -72,8 +88,8 @@ ob_start();
     {
         $html2pdf = new HTML2PDF('P', 'A4', 'fr', true, 'UTF-8', 0);
         $html2pdf->writeHTML($content, isset($_GET['vuehtml']));
-        $html2pdf->createIndex('Vos fiches de frais', 25, 12, false, true, 1);
-        $html2pdf->Output('bookmark.pdf');
+        $html2pdf->createIndex('Vos fiches de frais du mois', 25, 12, false, true, 1);
+        $html2pdf->Output('fichesFrais.pdf');
     }
     catch(HTML2PDF_exception $e) {
         echo $e;

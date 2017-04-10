@@ -21,7 +21,7 @@ switch($action)
 		$leMois = $_REQUEST['lstMois']; 
                 if($leMois == NULL)
                 {
-                    $leMois = 0; //patch d'urgence
+                    $leMois = 0; //en cas d'erreur
                 }
 		$lesMois=$pdo->getLesMoisDisponibles($idUtilisateur);
 		$moisASelectionner = $leMois;

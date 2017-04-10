@@ -63,8 +63,16 @@
 							<td><?php echo $montant ?></td>
 						</tr><?php		 }  ?>	  
 			 </table>
-	
-	
-	
-  </div>
+               <?php
+                $id = $_SESSION['idUtilisateur']; 
+                $nom = $_SESSION['nom'];
+                $prenom = $_SESSION['prenom'];
+                $anneeMois = $nomMois.' '. $numAnnee;
+               
+                //Envoie via l'url les données pour la génération du PDF. 
+            echo '<a class="btn btn-primary" href="fpdf/tutorial/tuto2.php?idUtilisateur='.$id.'&nom='.$nom.'&prenom='.$prenom.'&numAnne='.$numAnnee.'&AN='.$anneeMois.'&leMois='.$leMois.'">Télécharger le pdf du mois '.$anneeMois.'</a>'; 
+            
+            ?>
+               
+    </div>
   </div>
