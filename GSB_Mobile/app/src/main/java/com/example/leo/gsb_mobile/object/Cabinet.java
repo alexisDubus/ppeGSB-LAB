@@ -6,15 +6,16 @@ package com.example.leo.gsb_mobile.object;
 
 public class Cabinet {
 
-    private String id;
+    private int id;
     private String rue;
     private String codePostal;
     private String ville;
     private double posX;
     private double posY;
 
-    public Cabinet(String rue, String cp, String ville, double X, double Y){
+    public Cabinet(int id, String rue, String cp, String ville, double X, double Y){
         super();
+        this.id = id;
         this.rue = rue;
         this.codePostal = cp;
         this.ville = ville;
@@ -24,11 +25,11 @@ public class Cabinet {
 
     public Cabinet(){}
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -75,7 +76,8 @@ public class Cabinet {
     @Override
     public String toString() {
         return "Cabinet{" +
-                "rue='" + rue + '\'' +
+                "id=" + id +
+                ", rue='" + rue + '\'' +
                 ", codePostal=" + codePostal +
                 ", ville='" + ville + '\'' +
                 ", posX=" + posX +

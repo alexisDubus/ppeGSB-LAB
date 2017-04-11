@@ -16,10 +16,8 @@ import com.example.leo.gsb_mobile.object.Cabinet;
 import com.example.leo.gsb_mobile.object.CardView;
 import com.example.leo.gsb_mobile.object.Medecin;
 
-import com.example.leo.gsb_mobile.object.Visite;
 import com.example.leo.gsb_mobile.web_services.GetCabinetFromBDD;
 import com.example.leo.gsb_mobile.web_services.GetMedecinFromBDD;
-import com.example.leo.gsb_mobile.web_services.SetVisiteToBDD;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -59,11 +57,6 @@ public class CardViewSelector extends AppCompatActivity{
         }
         medecinDAO.close();
 
-        visiteDAO.open();
-        if (visiteDAO.count() > 0){
-            dropAllVisiteToBDDMySQL(visiteDAO);
-        }
-        visiteDAO.close();
 
         addMedecinInList(medecinDAO, cabinetDAO);
 
@@ -75,18 +68,19 @@ public class CardViewSelector extends AppCompatActivity{
 
     private void addMedecinInList(MedecinDAO medecinDAO, CabinetDAO cabinetDAO){
         String adresse;
-        for (long x = 0; x<=3 ; x++) {
-            medecinDAO.open();
-            Medecin unMedecin = medecinDAO.selectionner(x);
-            Log.i("INFO_AJOUTERMEDECINS", "Medecin séléctionné");
+        medecinDAO.open();
+        for (int i = 0 ; i < medecinDAO.count() ;  i++) {
+            Medecin unMedecin = medecinDAO.selectionner(i);
+            Log.i("INFO_AJOUTERMEDECINS", ""+ unMedecin.getNom() + " " + unMedecin.getPrenom() +" séléctionné");
+            medecinDAO.close();
             cabinetDAO.open();
             Cabinet unCabinet = cabinetDAO.selectionner(Long.parseLong(unMedecin.getIdCabinet()));
             adresse = unCabinet.getRue()+" "+unCabinet.getCodePostal()+" "+unCabinet.getVille();
+            cabinetDAO.close();
             medecins.add(new CardView(unMedecin.getNom(), unMedecin.getPrenom(), adresse , unMedecin.getIdMedecin()));
-            Log.i("INFO_AJOUTERMEDECINS", "Medecin ajouté a la liste");
+            Log.i("INFO_AJOUTERMEDECINS", ""+ unMedecin.getNom() + " " + unMedecin.getPrenom() + " ajouté à la liste");
+            medecinDAO.open();
         }
-
-        cabinetDAO.close();
         Log.i("INFO_AJOUTERMEDECINS", "Connexion close");
     }
 
@@ -95,18 +89,21 @@ public class CardViewSelector extends AppCompatActivity{
     private void getMedecinFromBDD(MedecinDAO medecinDAO) {
         // Vérification de si il y a des medecin dans la BDD
         GetMedecinFromBDD getMedecin = new GetMedecinFromBDD(this);
+        getMedecin.execute();
         try {
             String lesMedecins = getMedecin.get();
             JSONArray array = new JSONArray(lesMedecins);
-            Log.d("debogage ",""+array.length());
+            Log.d("Mes medecins : ",""+array+"");
+            Log.d("Nombres : ",""+array.length());
 
             for(int i = 0 ; i < array.length() ; i++) {
                 String nom= array.getJSONObject(i).getString("nom");
                 String prenom= array.getJSONObject(i).getString("prenom");
                 String idCabinet= array.getJSONObject(i).getString("idcabinet");
-                String idUtilisateur= array.getJSONObject(i).getString("idtilisateur");
-                Medecin unMedecin = new Medecin(nom,prenom,idCabinet,idUtilisateur);
+                String idUtilisateur= array.getJSONObject(i).getString("idutilisateur");
+                Medecin unMedecin = new Medecin(i,nom,prenom,idCabinet,idUtilisateur);
                 medecinDAO.ajouter(unMedecin);
+                Log.i("CREATE", "Medecin "+ unMedecin.getNom() + " " + unMedecin.getPrenom() + " crée");
             }
 
         } catch (InterruptedException | ExecutionException | JSONException e) {
@@ -119,18 +116,24 @@ public class CardViewSelector extends AppCompatActivity{
         GetCabinetFromBDD getCabinet = new GetCabinetFromBDD(this);
         getCabinet.execute();
         try {
+            // On recupere un tableau JSON
             String lesCabinets = getCabinet.get();
             JSONArray array = new JSONArray(lesCabinets);
-            Log.d("debogage ",""+array.length());
+            Log.d("Mes Cabinets : ",""+array+"");
+            Log.d("Nombres : ",""+array.length());
 
-            for(int i = 0 ; i < array.length() ; i++) {
+            // On parcourt le tableau et on recupere chaque valeurs
+            for(int i = 0 ; i < array.length() ; i++){
+                int id = array.getJSONObject(i).getInt("id");
                 String rue= array.getJSONObject(i).getString("rue");
                 String CP= array.getJSONObject(i).getString("CP");
                 String ville= array.getJSONObject(i).getString("ville");
                 double longitude = array.getJSONObject(i).getDouble("longitude");
                 double latitude = array.getJSONObject(i).getDouble("longitude");
-                Cabinet unCabinet = new Cabinet(rue,CP,ville,longitude,latitude);
+                // On crée ainsi un cabinet que l'on ajoute a la BDD
+                Cabinet unCabinet = new Cabinet(id,rue,CP,ville,longitude,latitude);
                 cabinetDAO.ajouter(unCabinet);
+                Log.i("CREATE", "Cabinet crée");
                 }
 
             } catch (InterruptedException | ExecutionException | JSONException e) {
@@ -138,33 +141,6 @@ public class CardViewSelector extends AppCompatActivity{
             }
     }
 
-
-    // Ajoute chaque visite local a la BDD distante
-    // Puis les supprime de la BDD local
-    private  void dropAllVisiteToBDDMySQL(VisiteDAO visiteDAO){
-        for (int i = 0 ; i < visiteDAO.count() ; i++){
-            // Récupère chaque visite
-            Visite uneVisite = visiteDAO.selectionner(i);
-            String dateVisite = uneVisite.getDateVisite();
-            int rdvOrNot = uneVisite.getRdvOrNot();
-            String idUser = uneVisite.getUserId();
-            String idMedecin = uneVisite.getMedecinId();
-            String heureArrive = uneVisite.getHeureArrive();
-            String heureDebut = uneVisite.getHeureDebut();
-            String heureFin = uneVisite.getHeureFin();
-
-            // L'ajoute a la BDD distante grâce au WS
-            String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/setVisite_WS.php?datevisite="+dateVisite+"&rdv=+"+rdvOrNot+"&idutilisateur="+idUser+"&idmedecin="+idMedecin+"&heurearrivee="+heureArrive+"&heurefin="+heureFin+"&heuredebut="+heureDebut+"";
-            SetVisiteToBDD setVisite = new SetVisiteToBDD(getApplicationContext(), url);
-            setVisite.execute();
-        }
-
-        // Puis on supprime toutes les visites
-        for (int i = 0 ; i < visiteDAO.count() ; i++){
-            visiteDAO.supprimer(i);
-        }
-
-    }
 
 
 }

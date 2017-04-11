@@ -27,6 +27,7 @@ public class MedecinDAO extends DAOBase {
 
     public void ajouter (Medecin medecin){
         ContentValues value = new ContentValues();
+        value.put(MedecinDAO.KEY, medecin.getIdMedecin());
         value.put(MedecinDAO.NAME, medecin.getNom());
         value.put(MedecinDAO.LASTNAME, medecin.getPrenom());
         value.put(MedecinDAO.CABINET_KEY, medecin.getIdCabinet());
@@ -34,12 +35,13 @@ public class MedecinDAO extends DAOBase {
         mDb.insert(MedecinDAO.TABLE_NAME, null, value);
     }
 
-    public void supprimer(long id) {
-        mDb.delete(TABLE_NAME, KEY + " = ?", new String[]{String.valueOf(id)});
+    public void supprimer() {
+       // mDb.delete(TABLE_NAME, KEY + " = " +id,null)
+        mDb.delete(TABLE_NAME,null,null);
     }
 
     public Medecin selectionner(long id) {
-        Cursor c = mDb.rawQuery("select * from " + TABLE_NAME + " where medecinId > ?", new String[]{""+id+""});
+        Cursor c = mDb.rawQuery("select * from " + TABLE_NAME + " where medecinId >= ?", new String[]{""+id+""});
         return cursorToMedecin(c);
     }
 
@@ -52,7 +54,7 @@ public class MedecinDAO extends DAOBase {
         // On crée un Medecin
         Medecin unMedecin = new Medecin();
 
-        unMedecin.setIdMedecin(c.getString(0));
+        unMedecin.setIdMedecin(c.getInt(0));
         unMedecin.setNom(c.getString(1));
         unMedecin.setPrenom(c.getString(2));
         unMedecin.setIdCabinet(c.getString(3));

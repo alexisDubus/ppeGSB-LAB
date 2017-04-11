@@ -29,7 +29,7 @@ public class GetCabinetFromBDD extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        Toast.makeText(context, "Début du traitement", Toast.LENGTH_LONG).show();
+       // Toast.makeText(context, "Début du traitement", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -40,7 +40,7 @@ public class GetCabinetFromBDD extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 
 
@@ -58,7 +58,6 @@ public class GetCabinetFromBDD extends AsyncTask<Void, Void, String> {
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 in = httpConnection.getInputStream();
                 result = convertStreamToString(in);
-                Log.d("debogage", result);
             }
         } catch (Exception e) {
             Log.d("debogage", "erreur" + e.getMessage());
@@ -72,7 +71,6 @@ public class GetCabinetFromBDD extends AsyncTask<Void, Void, String> {
         try {
             String ligne = reader.readLine();
             while (ligne != null) {
-                Log.d("debogage", ligne);
                 sb.append(ligne + "\n");
                 ligne = reader.readLine();
             }

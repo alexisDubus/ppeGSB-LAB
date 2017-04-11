@@ -23,8 +23,8 @@ public class Visite {
         this.rdvOrNot = rdvOrNot;
         this.heureArrive = heureArrive;
         this.heureDebut = heureDebut;
-        this.userId = userId;
         this.heureFin = heureFin;
+        this.userId = userId;
         this.medecinId = medecinId;
     }
 

@@ -17,7 +17,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
     private TextView textViewNomM;
     private TextView textViewPrenomM;
     private TextView textViewAdresseC;
-    public String idMedecin;
+    public int idMedecin;
 
     //itemView est la vue correspondante à 1 cellule
     public MyViewHolder(final View itemView) {

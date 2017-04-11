@@ -14,7 +14,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     // -------------------- Table UTILISATEUR --------------------
     private static final String USER_TABLE_NAME = "Utilisateur";
     private static final String USER_KEY = "utilisateurId";
-    private static final String USER_IDUSER = "id";
+    private static final String USER_IDUSER = "realIdUser";
     private static final String USER_NAME = "utilisateurNom";
     private static final String USER_LASTNAME = "utilisateurPrenom";
     private static final String USER_VERSION = "utilisateurVersion";
@@ -41,7 +41,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     private static String CABINET_TABLE_CREATE =
             "CREATE TABLE " + CABINET_TABLE_NAME + " (" +
-                    CABINET_KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    CABINET_KEY + " INTEGER PRIMARY KEY, " +
                     CABINET_STREET + " TEXT, " +
                     CABINET_CP + " TEXT, " +
                     CABINET_TOWN + " TEXT, " +
@@ -59,7 +59,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     private static String MEDECIN_TABLE_CREATE =
             "CREATE TABLE " + MEDECIN_TABLE_NAME + "(" +
-                    MEDECIN_KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    MEDECIN_KEY + " INTEGER PRIMARY KEY , " +
                     MEDECIN_NAME + " TEXT, " +
                     MEDECIN_LASTNAME + " TEXT, " +
                     CABINET_KEY + " TEXT, " +

@@ -127,7 +127,7 @@ public class CreateVisite extends Activity {
 
                 if (dateVisite.isEmpty() || heureArrive.isEmpty() || heureDebut.isEmpty() || heureFin.isEmpty() || checkBoxChecked == 0){
                     Toast toast = Toast.makeText(getApplicationContext(), "Tout les champs doivent être remplit", Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 }else{
                     // Création et ajout de la visite

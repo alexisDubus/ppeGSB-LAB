@@ -38,21 +38,25 @@ public class VisiteDAO extends DAOBase {
         value.put(VisiteDAO.HOUR_END, visite.getHeureFin());
         value.put(VisiteDAO.USER_KEY, visite.getUserId());
         value.put(VisiteDAO.MEDECIN_KEY, visite.getMedecinId());
-        mDb.insert(CabinetDAO.TABLE_NAME, null, value);
+        mDb.insert(VisiteDAO.TABLE_NAME, null, value);
     }
 
-    public void supprimer(long id) {
-        mDb.delete(TABLE_NAME, KEY + " = ?", new String[]{String.valueOf(id)});
+    public void supprimer() {
+        //mDb.delete(TABLE_NAME, KEY + " = ?", new String[]{String.valueOf(id)});
+        mDb.delete(TABLE_NAME,null,null);
     }
 
     public Visite selectionner(long id) {
         Cursor c = mDb.rawQuery("select * from " + TABLE_NAME + " where visiteId > ?", new String[]{""+id+""});
-        return cursorToUser(c);
+        return cursorToVisite(c);
+
     }
 
-    private Visite cursorToUser(Cursor c){
+    private Visite cursorToVisite(Cursor c){
         if (c.getCount() == 0)
             return null;
+
+
 
         //Sinon on se place sur le premier élément
         c.moveToFirst();

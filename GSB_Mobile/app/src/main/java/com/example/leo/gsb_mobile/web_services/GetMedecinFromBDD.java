@@ -39,7 +39,7 @@ public class GetMedecinFromBDD extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        Toast.makeText(context, "Début du traitement", Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, "Début du traitement", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -57,7 +57,7 @@ public class GetMedecinFromBDD extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(context,result, Toast.LENGTH_LONG).show();
+        //Toast.makeText(context,result, Toast.LENGTH_LONG).show();
     }
 
 
@@ -73,7 +73,8 @@ public class GetMedecinFromBDD extends AsyncTask<Void, Void, String> {
             int responseCode = httpConnection.getResponseCode();
 
             if (responseCode == HttpURLConnection.HTTP_OK) {
-                in = httpConnection.getInputStream(); result = convertStreamToString(in); Log.d("debogage",result);
+                in = httpConnection.getInputStream();
+                result = convertStreamToString(in);
             }
         }
         catch (Exception e) {
@@ -88,7 +89,6 @@ public class GetMedecinFromBDD extends AsyncTask<Void, Void, String> {
         try {
             String ligne = reader.readLine();
             while (ligne != null) {
-                Log.d("debogage",ligne);
                 sb.append(ligne + "\n");
                 ligne = reader.readLine();
             }

@@ -28,6 +28,7 @@ public class CabinetDAO extends DAOBase {
     public void ajouter(Cabinet cabinet) {
         // Ajout d'un cabinet dans la table Cabinet
         ContentValues value = new ContentValues();
+        value.put(CabinetDAO.KEY, cabinet.getId());
         value.put(CabinetDAO.STREET, cabinet.getRue());
         value.put(CabinetDAO.CP, cabinet.getCodePostal());
         value.put(CabinetDAO.TOWN, cabinet.getVille());
@@ -36,25 +37,14 @@ public class CabinetDAO extends DAOBase {
         mDb.insert(CabinetDAO.TABLE_NAME, null, value);
     }
 
-    public void supprimer(long id) {
-        // Suppresssion d'un Cabinet
-        mDb.delete(TABLE_NAME, KEY + " = ?", new String[]{String.valueOf(id)});
+    public void supprimer() {
+       // mDb.delete(TABLE_NAME, KEY + " = "+id,null);
+        mDb.delete(TABLE_NAME,null,null);
     }
 
-
-    public int modifier(long id, Cabinet cabinet) {
-        // CODE
-        ContentValues values = new ContentValues();
-        values.put(STREET, cabinet.getRue());
-        values.put(CP, cabinet.getCodePostal());
-        values.put(TOWN, cabinet.getVille());
-        values.put(POSX, cabinet.getPosX());
-        values.put(POSY, cabinet.getPosY());
-        return mDb.update(TABLE_NAME, values, KEY + " = " +id, null);
-    }
 
     public Cabinet selectionner(long id) {
-        Cursor c = mDb.rawQuery("select cabinetRue, cabinetCP, cabinetVille, cabinetPosX, cabinetPosY from " + TABLE_NAME + " where cabinetId > ?", new String[]{""+id+""});
+        Cursor c = mDb.rawQuery("select * from " + TABLE_NAME + " where cabinetId > ?", new String[]{""+id+""});
         return cursorToCabinet(c);
     }
 
@@ -62,16 +52,17 @@ public class CabinetDAO extends DAOBase {
         if (c.getCount() == 0)
             return null;
 
+
         //Sinon on se place sur le premier élément
         c.moveToFirst();
         // On crée un Cabinet
         Cabinet unCabinet = new Cabinet();
 
-        unCabinet.setRue(c.getString(0));
-        unCabinet.setCodePostal(c.getString(1));
-        unCabinet.setVille(c.getString(2));
-        unCabinet.setPosX(c.getDouble(3));
-        unCabinet.setPosY(c.getDouble(4));
+        unCabinet.setRue(c.getString(1));
+        unCabinet.setCodePostal(c.getString(2));
+        unCabinet.setVille(c.getString(3));
+        unCabinet.setPosX(c.getDouble(4));
+        unCabinet.setPosY(c.getDouble(5));
 
         c.close();
 
