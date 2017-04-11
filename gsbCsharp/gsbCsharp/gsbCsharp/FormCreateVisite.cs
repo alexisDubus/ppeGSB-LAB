@@ -21,7 +21,7 @@ namespace gsbCsharp
         {
             InitializeComponent();
 
-            listeMedecin = Passerelle.Passerelle.getListeMedecinVisiteur2(Passerelle.Passerelle.getVisiteurUnique(Passerelle.Passerelle.getIdUtilisateur()));
+            listeMedecin = Passerelle.Passerelle.getListeMedecinVisiteur2(Passerelle.Passerelle.getVisiteurSession());
 
             foreach (Metier.Medecin leMedecin in listeMedecin)
             {
@@ -36,11 +36,10 @@ namespace gsbCsharp
 
         private void btnCreateMedecin_Click(object sender, EventArgs e)
         {
-            DateTime date = new DateTime();
             DateTime dateVisite = dateTimeViste.Value;
-            DateTime heure = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeure.Text), Int32.Parse(txtBoxMin.Text), 0);
-            DateTime heureArrivee = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeureArrivee.Text), Int32.Parse(txtBoxMinArrivee.Text), 0);
-            DateTime heureDepart = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeureDepart.Text), Int32.Parse(txtBoxMinDepart.Text), 0);
+            DateTime heure = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Int32.Parse(txtBoxHeure.Text), Int32.Parse(txtBoxMin.Text), 0);
+            DateTime heureArrivee = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Int32.Parse(txtBoxHeureArrivee.Text), Int32.Parse(txtBoxMinArrivee.Text), 0);
+            DateTime heureDepart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Int32.Parse(txtBoxHeureDepart.Text), Int32.Parse(txtBoxMinDepart.Text), 0);
 
             if (heureArrivee > heureDepart)
             {
@@ -49,7 +48,7 @@ namespace gsbCsharp
             else
             {
                 Medecin unMedecin = (Medecin)comboBoxMedecin.SelectedItem;
-                Utilisateur unUtilisateur = Passerelle.Passerelle.getVisiteurUnique(Passerelle.Passerelle.getIdUtilisateur());
+                Utilisateur unUtilisateur = Passerelle.Passerelle.getVisiteurSession();
                 Visite uneVisite = new Visite(dateVisite, checkBoxRDV.Checked, unUtilisateur, unMedecin, heureArrivee, heureDepart, heure);
 
                 Passerelle.Passerelle.addVisite(uneVisite);

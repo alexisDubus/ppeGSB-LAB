@@ -13,11 +13,3 @@ C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Metier.pdb
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.csprojResolveAssemblyReference.cache
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.dll
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.pdb
-C:\wamp\www\master\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Passerelle.dll
-C:\wamp\www\master\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Passerelle.pdb
-C:\wamp\www\master\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Metier.dll
-C:\wamp\www\master\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\MySql.Data.dll
-C:\wamp\www\master\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Metier.pdb
-C:\wamp\www\master\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.csprojResolveAssemblyReference.cache
-C:\wamp\www\master\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.dll
-C:\wamp\www\master\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.pdb

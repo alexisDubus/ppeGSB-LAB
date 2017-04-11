@@ -39,9 +39,10 @@
             // 
             // btnCreateCabinet
             // 
-            this.btnCreateCabinet.Location = new System.Drawing.Point(261, 288);
+            this.btnCreateCabinet.Location = new System.Drawing.Point(196, 234);
+            this.btnCreateCabinet.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreateCabinet.Name = "btnCreateCabinet";
-            this.btnCreateCabinet.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateCabinet.Size = new System.Drawing.Size(56, 19);
             this.btnCreateCabinet.TabIndex = 0;
             this.btnCreateCabinet.Text = "Ajouter";
             this.btnCreateCabinet.UseVisualStyleBackColor = true;
@@ -50,18 +51,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(171, 107);
+            this.label1.Location = new System.Drawing.Point(128, 87);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 17);
+            this.label1.Size = new System.Drawing.Size(22, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "rue";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(171, 168);
+            this.label2.Location = new System.Drawing.Point(128, 136);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 17);
+            this.label2.Size = new System.Drawing.Size(25, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "ville";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -69,38 +72,43 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(171, 228);
+            this.label3.Location = new System.Drawing.Point(128, 185);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 17);
+            this.label3.Size = new System.Drawing.Size(21, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "CP";
             // 
             // textBoxRueCabinet
             // 
-            this.textBoxRueCabinet.Location = new System.Drawing.Point(261, 101);
+            this.textBoxRueCabinet.Location = new System.Drawing.Point(196, 82);
+            this.textBoxRueCabinet.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxRueCabinet.Name = "textBoxRueCabinet";
-            this.textBoxRueCabinet.Size = new System.Drawing.Size(280, 22);
+            this.textBoxRueCabinet.Size = new System.Drawing.Size(211, 20);
             this.textBoxRueCabinet.TabIndex = 4;
             // 
             // textBoxVilleCabinet
             // 
-            this.textBoxVilleCabinet.Location = new System.Drawing.Point(261, 163);
+            this.textBoxVilleCabinet.Location = new System.Drawing.Point(196, 132);
+            this.textBoxVilleCabinet.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVilleCabinet.Name = "textBoxVilleCabinet";
-            this.textBoxVilleCabinet.Size = new System.Drawing.Size(280, 22);
+            this.textBoxVilleCabinet.Size = new System.Drawing.Size(211, 20);
             this.textBoxVilleCabinet.TabIndex = 5;
             // 
             // textBoxCPCabinet
             // 
-            this.textBoxCPCabinet.Location = new System.Drawing.Point(261, 228);
+            this.textBoxCPCabinet.Location = new System.Drawing.Point(196, 185);
+            this.textBoxCPCabinet.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCPCabinet.Name = "textBoxCPCabinet";
-            this.textBoxCPCabinet.Size = new System.Drawing.Size(280, 22);
+            this.textBoxCPCabinet.Size = new System.Drawing.Size(211, 20);
             this.textBoxCPCabinet.TabIndex = 6;
             // 
             // FormCreateCabinet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 416);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(497, 338);
             this.Controls.Add(this.textBoxCPCabinet);
             this.Controls.Add(this.textBoxVilleCabinet);
             this.Controls.Add(this.textBoxRueCabinet);
@@ -108,6 +116,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCreateCabinet);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormCreateCabinet";
             this.Text = "GSB : création d\'un cabinet";
             this.Load += new System.EventHandler(this.FormCreateCabinet_Load);

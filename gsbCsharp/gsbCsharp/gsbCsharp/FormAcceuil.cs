@@ -15,23 +15,22 @@ namespace gsbCsharp
     public partial class FormAcceuil : Form
     {
         List<Utilisateur> listeVisiteur = new List<Utilisateur>();
-        public static int typeUtilisateur;
 
         public FormAcceuil()
         {
             InitializeComponent();
-            Passerelle.Passerelle.init();
-            Passerelle.Passerelle.setTypeUtilisateur(2);
-            typeUtilisateur = Passerelle.Passerelle.getTypeUtilisateur();
-            Passerelle.Passerelle.setIdUtilisateur("a131"); //Changer valeur par id session
+            //Passerelle.Passerelle.init();
+            //Passerelle.Passerelle.setTypeUtilisateur(2);
+            //typeUtilisateur = Passerelle.Passerelle.getTypeUtilisateur();
+            //Passerelle.Passerelle.setIdUtilisateur("a131"); //Changer valeur par id session
+
+            //FormConnexion connexion = new FormConnexion();
+            //OUVRE_UNE_MDI_FILLE(connexion, this);
         }
 
-        public static void checkTypeUser()
+        public static void disableMenu()
         {
-            if (typeUtilisateur != 0)
-            {
-                
-            }
+            
         }
 
         /// <summary>
@@ -50,9 +49,21 @@ namespace gsbCsharp
             uneForm.WindowState = FormWindowState.Maximized;
             uneForm.Show();
         }
+
         private void FormAcceuil_Load(object sender, EventArgs e)
         {
-            
+
+            if (Passerelle.Passerelle.getTypeUtilisateurSession() == 2) //case visiteur
+            {
+                menuStrip.Items[0].Visible = false;
+                menuStrip.Items[1].Visible = false;
+                menuStrip.Items[2].Visible = false;
+            }
+            if (Passerelle.Passerelle.getTypeUtilisateurSession() == 0)//case admin
+            {
+                menuStrip.Items[3].Visible = false;
+                menuStrip.Items[4].Visible = false;
+            }
         }
         
 
@@ -108,7 +119,7 @@ namespace gsbCsharp
         /// <param name="e"></param>
         private void listeVisiteStripMenuItem2_Clic(object sender, EventArgs e)
         {
-            FormViewVisiteVisiteur listeVisite = new FormViewVisiteVisiteur(Passerelle.Passerelle.getVisiteurUnique("a131"));
+            FormViewVisiteVisiteur listeVisite = new FormViewVisiteVisiteur(Passerelle.Passerelle.visiteurSession);
             OUVRE_UNE_MDI_FILLE(listeVisite, this);
         }
 
@@ -116,6 +127,12 @@ namespace gsbCsharp
         {
             FormListeCabinet listeCabinet = new FormListeCabinet();
             OUVRE_UNE_MDI_FILLE(listeCabinet, this);
+        }
+
+        private void statistiquesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormStatistique stat = new FormStatistique(Passerelle.Passerelle.getVisiteurSession());
+            OUVRE_UNE_MDI_FILLE(stat, this);
         }
     }
 }

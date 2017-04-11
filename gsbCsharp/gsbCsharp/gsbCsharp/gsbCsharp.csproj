@@ -61,6 +61,12 @@
     <Compile Include="FormAcceuil.Designer.cs">
       <DependentUpon>FormAcceuil.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormConnexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConnexion.Designer.cs">
+      <DependentUpon>FormConnexion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCreateCabinet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,12 @@
     <Compile Include="FormStatistique.Designer.cs">
       <DependentUpon>FormStatistique.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormStatVisiteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStatVisiteur.Designer.cs">
+      <DependentUpon>FormStatVisiteur.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViewVisiteVisiteur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +131,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAcceuil.resx">
       <DependentUpon>FormAcceuil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConnexion.resx">
+      <DependentUpon>FormConnexion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreateCabinet.resx">
       <DependentUpon>FormCreateCabinet.cs</DependentUpon>
@@ -144,19 +159,16 @@
     <EmbeddedResource Include="FormStatistique.resx">
       <DependentUpon>FormStatistique.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormStatVisiteur.resx">
+      <DependentUpon>FormStatVisiteur.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormViewVisiteVisiteur.resx">
       <DependentUpon>FormViewVisiteVisiteur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Metier.Cabinet.datasource" />
     <None Include="Properties\DataSources\Metier.Medecin.datasource" />
@@ -193,6 +205,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="GoogleMaps.LocationServices.readme.txt" />
+    <None Include="Resources\ADN1.jpg" />
+    <None Include="Resources\adn.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

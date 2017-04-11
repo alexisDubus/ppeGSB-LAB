@@ -33,22 +33,25 @@ namespace gsbCsharp
             String CP = textBoxCPCabinet.Text.ToString();
             String ville = textBoxVilleCabinet.Text.ToString();
             var address = rue + CP + " , " + ville;
+            try
+            {
+                var locationService = new GoogleLocationService();
+                var point = locationService.GetLatLongFromAddress(address);
 
-            var locationService = new GoogleLocationService();
-            var point = locationService.GetLatLongFromAddress(address);
-
-            var latitude = point.Latitude;
-            var longitude = point.Longitude;
-            
-            
-            
-            Cabinet unCabinet = (Cabinet)comboBoxCabinet.SelectedItem;
-            unCabinet.setCP(CP);
-            unCabinet.setRue(rue);
-            unCabinet.setVille(ville);
-            unCabinet.setLatitude(latitude);
-            unCabinet.setLongitude(longitude);
-            Passerelle.Passerelle.editCabinet(unCabinet);
+                var latitude = point.Latitude;
+                var longitude = point.Longitude;
+                Cabinet unCabinet = (Cabinet)comboBoxCabinet.SelectedItem;
+                unCabinet.setCP(CP);
+                unCabinet.setRue(rue);
+                unCabinet.setVille(ville);
+                unCabinet.setLatitude(latitude);
+                unCabinet.setLongitude(longitude);
+                Passerelle.Passerelle.editCabinet(unCabinet);
+            }
+            catch (Exception exe)
+            {
+                MessageBox.Show("Il ne n'existe pas d'adresse au : " + address);
+            }
         }
 
         private void comboBoxCabinet_SelectedIndexChanged(object sender, EventArgs e)

@@ -44,17 +44,19 @@
             // comboBoxMedecin
             // 
             this.comboBoxMedecin.FormattingEnabled = true;
-            this.comboBoxMedecin.Location = new System.Drawing.Point(28, 70);
+            this.comboBoxMedecin.Location = new System.Drawing.Point(21, 57);
+            this.comboBoxMedecin.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxMedecin.Name = "comboBoxMedecin";
-            this.comboBoxMedecin.Size = new System.Drawing.Size(211, 24);
+            this.comboBoxMedecin.Size = new System.Drawing.Size(159, 21);
             this.comboBoxMedecin.TabIndex = 0;
             this.comboBoxMedecin.SelectedIndexChanged += new System.EventHandler(this.comboBoxMedecin_SelectedIndexChanged_1);
             // 
             // btnEditMedecin
             // 
-            this.btnEditMedecin.Location = new System.Drawing.Point(473, 262);
+            this.btnEditMedecin.Location = new System.Drawing.Point(355, 213);
+            this.btnEditMedecin.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditMedecin.Name = "btnEditMedecin";
-            this.btnEditMedecin.Size = new System.Drawing.Size(75, 25);
+            this.btnEditMedecin.Size = new System.Drawing.Size(56, 20);
             this.btnEditMedecin.TabIndex = 1;
             this.btnEditMedecin.Text = "Editer";
             this.btnEditMedecin.UseVisualStyleBackColor = true;
@@ -63,50 +65,56 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(384, 77);
+            this.label1.Location = new System.Drawing.Point(288, 63);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 17);
+            this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "nom";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(384, 118);
+            this.label2.Location = new System.Drawing.Point(288, 96);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 17);
+            this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "prenom";
             // 
             // textBoxNomMedecin
             // 
-            this.textBoxNomMedecin.Location = new System.Drawing.Point(473, 77);
+            this.textBoxNomMedecin.Location = new System.Drawing.Point(355, 63);
+            this.textBoxNomMedecin.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNomMedecin.Name = "textBoxNomMedecin";
-            this.textBoxNomMedecin.Size = new System.Drawing.Size(308, 22);
+            this.textBoxNomMedecin.Size = new System.Drawing.Size(232, 20);
             this.textBoxNomMedecin.TabIndex = 5;
             // 
             // textBoxPrenomMedecin
             // 
-            this.textBoxPrenomMedecin.Location = new System.Drawing.Point(473, 118);
+            this.textBoxPrenomMedecin.Location = new System.Drawing.Point(355, 96);
+            this.textBoxPrenomMedecin.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPrenomMedecin.Name = "textBoxPrenomMedecin";
-            this.textBoxPrenomMedecin.Size = new System.Drawing.Size(308, 22);
+            this.textBoxPrenomMedecin.Size = new System.Drawing.Size(232, 20);
             this.textBoxPrenomMedecin.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(384, 165);
+            this.label3.Location = new System.Drawing.Point(288, 134);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 17);
+            this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "cabinet";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(384, 211);
+            this.label4.Location = new System.Drawing.Point(288, 171);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 17);
+            this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "visiteur";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -114,17 +122,19 @@
             // comboBoxMedecinVisiteur
             // 
             this.comboBoxMedecinVisiteur.FormattingEnabled = true;
-            this.comboBoxMedecinVisiteur.Location = new System.Drawing.Point(473, 211);
+            this.comboBoxMedecinVisiteur.Location = new System.Drawing.Point(355, 171);
+            this.comboBoxMedecinVisiteur.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxMedecinVisiteur.Name = "comboBoxMedecinVisiteur";
-            this.comboBoxMedecinVisiteur.Size = new System.Drawing.Size(308, 24);
+            this.comboBoxMedecinVisiteur.Size = new System.Drawing.Size(232, 21);
             this.comboBoxMedecinVisiteur.TabIndex = 12;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 32);
+            this.label5.Location = new System.Drawing.Point(19, 26);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(176, 17);
+            this.label5.Size = new System.Drawing.Size(133, 13);
             this.label5.TabIndex = 13;
             this.label5.Text = "Sélectionner un médecin : ";
             // 
@@ -132,16 +142,18 @@
             // 
             this.textBoxCabinet.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.textBoxCabinet.Enabled = false;
-            this.textBoxCabinet.Location = new System.Drawing.Point(473, 165);
+            this.textBoxCabinet.Location = new System.Drawing.Point(355, 134);
+            this.textBoxCabinet.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCabinet.Name = "textBoxCabinet";
-            this.textBoxCabinet.Size = new System.Drawing.Size(308, 22);
+            this.textBoxCabinet.Size = new System.Drawing.Size(232, 20);
             this.textBoxCabinet.TabIndex = 14;
             // 
             // FormListeMedecin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 434);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(948, 353);
             this.Controls.Add(this.textBoxCabinet);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBoxMedecinVisiteur);
@@ -153,6 +165,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEditMedecin);
             this.Controls.Add(this.comboBoxMedecin);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormListeMedecin";
             this.Text = "Liste des médecins";
             this.Load += new System.EventHandler(this.FormListeMedecin_Load);

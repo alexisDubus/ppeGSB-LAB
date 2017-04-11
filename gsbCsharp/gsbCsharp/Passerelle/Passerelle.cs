@@ -11,6 +11,7 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 using Metier;
 using System.ComponentModel;
+using System.DirectoryServices;
 
 namespace Passerelle
 {
@@ -19,15 +20,18 @@ namespace Passerelle
     /// </summary>
     public static class Passerelle
     {
+        private static String ipAD_DS = "LDAP://192.168.23.142";
         public static String idUtilisateur;
-        public static int typeUtilisateur; 
-        public static BindingList<String> listeDepartements = new BindingList<String>();
+        public static int typeUtilisateur;
+        public static Utilisateur visiteurSession = new Utilisateur();
         private static BindingList<Medecin> listeDesMedecins = new BindingList<Medecin>();
         private static BindingList<Cabinet> listeDesCabinets = new BindingList<Cabinet>();
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
-        private static String connectionString = "SERVER=172.16.8.200; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        private static BindingList<Utilisateur> listeDesAdmins = new BindingList<Utilisateur>();
+        private static String connectionString = "SERVER=172.16.9.4; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         //private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        //private static String connectionString = "SERVER=172.16.8.200; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
         #region commun 
@@ -71,17 +75,37 @@ namespace Passerelle
 
             listeDesVisiteurs = getAllVisiteur();
 
+            selectAllAdmin();
+
             listeDesMedecins = getAllMedecin();
             
             listeDesVisites = getAllVisite();
             
         }
 
+        public static String checkValueIsCorrect(String str)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(str, @"^[a-zA-Z]+$"))
+            {
+                str = "";
+            }
+            return str;
+        }
+
+        public static String checkValueIsCorrectNumber(String str)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(str, @"^[0-9]+$"))
+            {
+                str = "";
+            }
+            return str;
+        }
+
         /// <summary>
         /// Met à jour l'idUtilisateur
         /// </summary>
         /// <param name="id"></param>
-        public static void setIdUtilisateur(String id)
+        public static void setIdUtilisateurSession(String id)
         {
             idUtilisateur = id;
         }
@@ -90,16 +114,34 @@ namespace Passerelle
         /// retourne l'idUtilisateur
         /// </summary>
         /// <returns>idUtilisateur</returns>
-        public static String getIdUtilisateur()
+        public static String getIdUtilisateurSession()
         {
             return idUtilisateur;
+        }
+
+        /// <summary>
+        /// Met en session l'utilisateur
+        /// </summary>
+        /// <param name="visiteurEnSession"></param>
+        public static void setVisiteurSession(Utilisateur visiteurEnSession)
+        {
+            visiteurSession = visiteurEnSession;
+        }
+
+        /// <summary>
+        /// retourne l'utilisateur en session
+        /// </summary>
+        /// <returns></returns>
+        public static Utilisateur getVisiteurSession()
+        {
+            return visiteurSession;
         }
 
         /// <summary>
         /// Change le type d'utilisateur (0,1,2)
         /// </summary>
         /// <param name="type"></param>
-        public static void setTypeUtilisateur(int type)
+        public static void setTypeUtilisateurSession(int type)
         {
             typeUtilisateur = type;
         }
@@ -108,7 +150,7 @@ namespace Passerelle
         /// retourne le type d'utilisateur
         /// </summary>
         /// <returns>typeUtilisateur</returns>
-        public static int getTypeUtilisateur()
+        public static int getTypeUtilisateurSession()
         {
             return typeUtilisateur;
         }
@@ -116,32 +158,6 @@ namespace Passerelle
         
 
         #endregion 
-
-        /*
-        public static void initListeDepartements()
-        {
-            BindingList<String> listeReset = new BindingList<String>();
-            listeDepartements = listeReset;
-            for (int i = 1; i <= 9; i++)
-            {
-                listeDepartements.Add("0"+ i.ToString() +"000");
-            }
-            for (int i = 10; i <= 95; i++)
-            {
-                listeDepartements.Add(i.ToString() + "000");
-            }
-            listeDepartements.Add("97100");
-            listeDepartements.Add("97200");
-            listeDepartements.Add("97300");
-            listeDepartements.Add("97400");
-            listeDepartements.Add("97600");
-        }
-
-        public static BindingList<String> returnListeDepartements()
-        {
-            return listeDepartements;
-        }
-            */
 
         #region Utilisateur
 
@@ -256,6 +272,27 @@ namespace Passerelle
             return listeDesVisiteurs;
         }
 
+
+        /// <summary>
+        /// Selectionne tout les Admins et les met dans la liste
+        /// </summary>
+        public static void selectAllAdmin()
+        {
+            connexion();
+            MySqlCommand maCommande = maConnection.CreateCommand();
+            String requeteSelect = "Select * from utilisateur where idRole = 0;";
+            maCommande.CommandText = requeteSelect;
+            MySqlDataReader unJeuResultat = maCommande.ExecuteReader();
+            //return unJeuResultat;
+
+            while (unJeuResultat.Read())
+            {
+                getAAdmin(unJeuResultat);
+            }
+
+            unJeuResultat.Close();
+        }
+
         /// <summary>
         /// Selectionne tout les visiteurs et les met dans la liste
         /// </summary>
@@ -277,7 +314,11 @@ namespace Passerelle
         }
 
 
-        public static void getAVisiteur(MySqlDataReader unJeuResultat)
+        /// <summary>
+        /// Permet de rajouter un admin a la liste
+        /// </summary>
+        /// <param name="unJeuResultat"></param>
+        public static void getAAdmin(MySqlDataReader unJeuResultat)
         {
 
             String id = (String)unJeuResultat.GetString("id");
@@ -294,6 +335,32 @@ namespace Passerelle
             int version = (int)unJeuResultat.GetInt16("version");
             try
             {
+                Utilisateur unAdmin = new Utilisateur(id, nom, prenom, login, mdp, adresse, cp, ville, dateEmbauche, idRole, email, version);
+                listeDesAdmins.Add(unAdmin); //on rajoute l'admin a la liste
+            }
+            catch (Exception exeAdmin)
+            {
+
+            }
+        }
+
+        public static void getAVisiteur(MySqlDataReader unJeuResultat)
+        {
+
+            String id = (String)unJeuResultat.GetString("id");
+            String nom = (String)unJeuResultat.GetString("nom");
+            String prenom = (String)unJeuResultat.GetString("prenom");
+            String login = (String)unJeuResultat.GetString("login");
+            String adresse = (String)unJeuResultat.GetString("adresse");
+            String cp = (String)unJeuResultat.GetString("cp");
+            String ville = (String)unJeuResultat.GetString("ville");
+            DateTime dateEmbauche = (DateTime)unJeuResultat.GetMySqlDateTime("dateEmbauche");
+            String idRole = (String)unJeuResultat.GetString("idRole");
+            String email = (String)unJeuResultat.GetString("email");
+            String mdp = (String)unJeuResultat.GetString("mdp");
+            int version = (int)unJeuResultat.GetInt16("version");
+            try
+           {
                 Utilisateur unUtilisateur = new Utilisateur(id, nom, prenom, login, mdp, adresse, cp, ville, dateEmbauche, idRole, email, version);
                 listeDesVisiteurs.Add(unUtilisateur); //on rajoute l'utilisateur a la liste
 
@@ -301,7 +368,7 @@ namespace Passerelle
             catch (Exception exeUtilisateur)
             {
 
-            }
+            } 
 
         }
 
@@ -428,18 +495,18 @@ namespace Passerelle
         /// <summary>
         /// Retourne une liste de visiteurs en fonction de leur code postal (CP)
         /// </summary>
-        /// <param name="region"></param>
+        /// <param name="cp"></param>
         /// <returns></returns>
-        public static BindingList<Utilisateur> getVisiteurByRegion(String region)
+        public static BindingList<Utilisateur> getVisiteurByCp(String cp)
         {
             BindingList<Utilisateur> liste = new BindingList<Utilisateur>();
             foreach (Metier.Utilisateur unVisiteur in listeDesVisiteurs)
             {
-                if(region.Length == 5)
+                if(cp.Length == 5)
                 {
-                    region = region.Substring(0, 2);
+                    cp = cp.Substring(0, 2);
                 }
-                if (unVisiteur.getCp().StartsWith(region))
+                if (unVisiteur.getCp().StartsWith(cp))
                     liste.Add(unVisiteur);
             }
             return liste;
@@ -777,6 +844,123 @@ namespace Passerelle
 
             maCommande.ExecuteNonQuery();
             init();
+        }
+
+
+        #endregion
+
+        #region connexion 
+
+        /// <summary>
+        /// Try to connect Username with password
+        /// </summary>
+        /// <param name="username">Username to test</param>
+        /// <param name="passwd">Username's password</param>
+        /// <returns>True: Username/Password OK; False: Authentication error</returns>
+        public static bool connexionLDAP(string username, string passwd)
+        {
+            try
+            {
+                DirectoryEntry entry = new DirectoryEntry(ipAD_DS , username , passwd);
+                var test = entry.NativeObject;
+                var personne = entry.Username;
+              /*  var dataGUID = entry.NativeGuid;
+                var data = entry.Name;
+                var dataAutre = entry.Options;
+                var dataAutre2 = entry.Container; */
+                bool mitEnSession =  miseEnSession(username);
+                return true;
+            }
+            catch(Exception exe)
+            {
+                return false;
+            }
+            
+        }
+
+        /// <summary>
+        /// Try to connect Username with password
+        /// </summary>
+        /// <param name="username">Username to test</param>
+        /// <param name="passwd">Username's password</param>
+        /// <returns>True: Username/Password OK; False: Authentication error</returns>
+        public static bool IsAuthenticated(string username, string passwd)
+        {
+            try
+            {
+                String domain = "gsb.local";
+                DirectoryEntry entry = new DirectoryEntry("LDAP://" + domain, username, passwd, AuthenticationTypes.Secure);
+                DirectorySearcher search = new DirectorySearcher(entry);
+                search.Filter = "(objectClass=user)";
+                search.SearchScope = SearchScope.Subtree;
+                SearchResult result = search.FindOne();
+                
+                foreach (ResultPropertyValueCollection var in result.Properties.Values)
+                {
+                    var test = result.Properties.Values;
+                    foreach (object var2 in var)
+                    {
+                        Console.WriteLine(var2.ToString());
+                    }
+                }
+
+                return (result != null);
+            }
+            catch (Exception ex)
+            {
+                return false;
+                //throw new Exception("Error authenticating user. " + ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// met en session l'utiliseur dont le login est donné en paramétre
+        /// </summary>
+        /// <param name="login"></param>
+        public static bool miseEnSession(string login)
+        {
+            init();
+            foreach (Metier.Utilisateur visiteur in listeDesVisiteurs)
+            {
+                if (login == visiteur.getLogin()) //l'utilisateur est un visiteur
+                {
+                    setVisiteurSession(visiteur);
+                    setTypeUtilisateurSession(2);
+                    setIdUtilisateurSession(visiteurSession.getId());
+                    return true;
+                }
+                else //l'utilisateur est un administrateur
+                {
+                    if (miseEnSessionAdmin( login)) //l'utilisateur est un visiteur
+                    {
+                        setTypeUtilisateurSession(0);
+                        return true;
+                    }
+                }
+            }
+            return true;
+        }
+        
+        /// <summary>
+        /// met en session l'utiliseur dont le login est donné en paramétre
+        /// </summary>
+        /// <param name="login"></param>
+        public static bool miseEnSessionAdmin(string login)
+        {
+            foreach (Metier.Utilisateur admin in listeDesAdmins)
+            {
+                if (login == admin.getLogin())
+                {
+                    setTypeUtilisateurSession(0);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
 

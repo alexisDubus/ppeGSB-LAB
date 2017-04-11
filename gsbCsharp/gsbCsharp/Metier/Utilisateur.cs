@@ -119,6 +119,11 @@ namespace Metier
             return this.prenom;
         }
 
+        public string getLogin()
+        {
+            return this.login;
+        }
+
         public String getMdp()
         {
             return this.mdp;

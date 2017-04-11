@@ -41,57 +41,64 @@
             // 
             // textBoxCPCabinet
             // 
-            this.textBoxCPCabinet.Location = new System.Drawing.Point(527, 136);
+            this.textBoxCPCabinet.Location = new System.Drawing.Point(395, 110);
+            this.textBoxCPCabinet.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCPCabinet.Name = "textBoxCPCabinet";
-            this.textBoxCPCabinet.Size = new System.Drawing.Size(253, 22);
+            this.textBoxCPCabinet.Size = new System.Drawing.Size(191, 20);
             this.textBoxCPCabinet.TabIndex = 13;
             // 
             // textBoxVilleCabinet
             // 
-            this.textBoxVilleCabinet.Location = new System.Drawing.Point(527, 96);
+            this.textBoxVilleCabinet.Location = new System.Drawing.Point(395, 78);
+            this.textBoxVilleCabinet.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVilleCabinet.Name = "textBoxVilleCabinet";
-            this.textBoxVilleCabinet.Size = new System.Drawing.Size(253, 22);
+            this.textBoxVilleCabinet.Size = new System.Drawing.Size(191, 20);
             this.textBoxVilleCabinet.TabIndex = 12;
             // 
             // textBoxRueCabinet
             // 
-            this.textBoxRueCabinet.Location = new System.Drawing.Point(527, 56);
+            this.textBoxRueCabinet.Location = new System.Drawing.Point(395, 46);
+            this.textBoxRueCabinet.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxRueCabinet.Name = "textBoxRueCabinet";
-            this.textBoxRueCabinet.Size = new System.Drawing.Size(253, 22);
+            this.textBoxRueCabinet.Size = new System.Drawing.Size(191, 20);
             this.textBoxRueCabinet.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(453, 135);
+            this.label3.Location = new System.Drawing.Point(340, 110);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 17);
+            this.label3.Size = new System.Drawing.Size(21, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "CP";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(453, 93);
+            this.label2.Location = new System.Drawing.Point(340, 76);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 17);
+            this.label2.Size = new System.Drawing.Size(25, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "ville";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(453, 55);
+            this.label1.Location = new System.Drawing.Point(340, 45);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 17);
+            this.label1.Size = new System.Drawing.Size(22, 13);
             this.label1.TabIndex = 8;
             this.label1.Text = "rue";
             // 
             // btnEditCabinet
             // 
-            this.btnEditCabinet.Location = new System.Drawing.Point(500, 202);
+            this.btnEditCabinet.Location = new System.Drawing.Point(375, 164);
+            this.btnEditCabinet.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditCabinet.Name = "btnEditCabinet";
-            this.btnEditCabinet.Size = new System.Drawing.Size(75, 23);
+            this.btnEditCabinet.Size = new System.Drawing.Size(56, 19);
             this.btnEditCabinet.TabIndex = 7;
             this.btnEditCabinet.Text = "Editer";
             this.btnEditCabinet.UseVisualStyleBackColor = true;
@@ -100,26 +107,29 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 52);
+            this.label5.Location = new System.Drawing.Point(18, 42);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(171, 17);
+            this.label5.Size = new System.Drawing.Size(129, 13);
             this.label5.TabIndex = 15;
             this.label5.Text = "Sélectionner un Cabinet : ";
             // 
             // comboBoxCabinet
             // 
             this.comboBoxCabinet.FormattingEnabled = true;
-            this.comboBoxCabinet.Location = new System.Drawing.Point(27, 90);
+            this.comboBoxCabinet.Location = new System.Drawing.Point(20, 73);
+            this.comboBoxCabinet.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCabinet.Name = "comboBoxCabinet";
-            this.comboBoxCabinet.Size = new System.Drawing.Size(369, 24);
+            this.comboBoxCabinet.Size = new System.Drawing.Size(278, 21);
             this.comboBoxCabinet.TabIndex = 14;
             this.comboBoxCabinet.SelectedIndexChanged += new System.EventHandler(this.comboBoxCabinet_SelectedIndexChanged);
             // 
             // FormListeCabinet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 363);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(631, 295);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBoxCabinet);
             this.Controls.Add(this.textBoxCPCabinet);
@@ -129,6 +139,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEditCabinet);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormListeCabinet";
             this.Text = "Liste des Cabinet";
             this.ResumeLayout(false);
