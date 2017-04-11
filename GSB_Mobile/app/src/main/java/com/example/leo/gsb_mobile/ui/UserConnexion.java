@@ -57,7 +57,9 @@ public class UserConnexion extends Activity {
 
             VisiteDAO visiteDAO = new VisiteDAO(this);
             visiteDAO.open();
+            Log.i("VISITE", "" + visiteDAO.count() +"" );
             if (visiteDAO.count() > 0){
+
                 dropAllVisiteToBDDMySQL(visiteDAO);
             }
             visiteDAO.close();

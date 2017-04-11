@@ -69,7 +69,7 @@ public class CardViewSelector extends AppCompatActivity{
     private void addMedecinInList(MedecinDAO medecinDAO, CabinetDAO cabinetDAO){
         String adresse;
         medecinDAO.open();
-        for (int i = 0 ; i < medecinDAO.count() ;  i++) {
+        for (int i = 1 ; i <= medecinDAO.count() ;  i++) {
             Medecin unMedecin = medecinDAO.selectionner(i);
             Log.i("INFO_AJOUTERMEDECINS", ""+ unMedecin.getNom() + " " + unMedecin.getPrenom() +" séléctionné");
             medecinDAO.close();
@@ -97,11 +97,12 @@ public class CardViewSelector extends AppCompatActivity{
             Log.d("Nombres : ",""+array.length());
 
             for(int i = 0 ; i < array.length() ; i++) {
+                int id = i+1;
                 String nom= array.getJSONObject(i).getString("nom");
                 String prenom= array.getJSONObject(i).getString("prenom");
                 String idCabinet= array.getJSONObject(i).getString("idcabinet");
                 String idUtilisateur= array.getJSONObject(i).getString("idutilisateur");
-                Medecin unMedecin = new Medecin(i,nom,prenom,idCabinet,idUtilisateur);
+                Medecin unMedecin = new Medecin(id,nom,prenom,idCabinet,idUtilisateur);
                 medecinDAO.ajouter(unMedecin);
                 Log.i("CREATE", "Medecin "+ unMedecin.getNom() + " " + unMedecin.getPrenom() + " crée");
             }

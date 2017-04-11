@@ -32,7 +32,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
                 Intent i = new Intent(v.getContext(), CreateVisite.class);
                 i.putExtra("NOMMEDECIN", textViewNomM.getText().toString());
                 i.putExtra("PRENOMMEDECIN", textViewPrenomM.getText().toString());
-                i.putExtra("IDMEDECIN", idMedecin);
+                i.putExtra("IDMEDECIN", ""+idMedecin+"");
                 v.getContext().startActivity(i);
             }
         });

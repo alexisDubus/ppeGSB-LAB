@@ -47,7 +47,7 @@ public class VisiteDAO extends DAOBase {
     }
 
     public Visite selectionner(long id) {
-        Cursor c = mDb.rawQuery("select * from " + TABLE_NAME + " where visiteId > ?", new String[]{""+id+""});
+        Cursor c = mDb.rawQuery("select * from " + TABLE_NAME + " where visiteId >= ?", new String[]{""+id+""});
         return cursorToVisite(c);
 
     }
@@ -55,8 +55,6 @@ public class VisiteDAO extends DAOBase {
     private Visite cursorToVisite(Cursor c){
         if (c.getCount() == 0)
             return null;
-
-
 
         //Sinon on se place sur le premier élément
         c.moveToFirst();
@@ -69,8 +67,8 @@ public class VisiteDAO extends DAOBase {
         uneVisite.setHeureArrive(c.getString(3));
         uneVisite.setHeureDebut(c.getString(4));
         uneVisite.setHeureFin(c.getString(5));
-        uneVisite.setUserId(c.getString(6));
-        uneVisite.setMedecinId(c.getString(7));
+        uneVisite.setMedecinId(c.getString(6));
+        uneVisite.setUserId(c.getString(7));
 
         c.close();
         return uneVisite;
