@@ -43,7 +43,7 @@
                                 ?>
 			 </table>
   	<table class="table">
-  	   <caption>Descriptif des éléments hors forfait, <?php echo $nbJustificatifs ?> justificatifs reçus 
+  	   <caption>Descriptif des éléments hors forfait, <?php echo $nbJustificatifs ?> éléments reçus 
        <table class="table">
 			  <thead>
 				<tr>
