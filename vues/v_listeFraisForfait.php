@@ -36,7 +36,7 @@
                 </div>
             <div class="panel-body">
                 <h3>Eléments forfaitisés (synthèse du mois)</h3>
-                <table class="table">
+                    <table class="table">
 			  <thead>
 				<tr>
                                     <th class="quantiteTotale"></th>
@@ -52,7 +52,7 @@
                                  
                                  <?php    
                                     echo '<tr>
-                                        . <td>';
+                                        <td>';
                                     echo "Quantité Totale";
                                     echo '</td>';
                                     foreach ($lesLibelleFrais as $unLibelleFrais) {
@@ -62,7 +62,7 @@
                                         echo '</td>';
                                     }
                                     echo '<tr>
-                                        . <td>';
+                                        <td>';
                                     echo "Montant Total";
                                     echo '</td>';
                                     foreach ($lesLibelleFrais as $unLibelleFrais) {

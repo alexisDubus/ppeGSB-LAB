@@ -75,7 +75,7 @@ function Footer()
 	// Police Arial italique 8
 	$this->SetFont('Arial','I',8);
         
-        $this->Cell(0,10, utf8_decode('Edité par Galaxy Swiss Bourdin (GSB)'),0,0,'C');
+        $this->Cell(0,10, utf8_decode('Créé par Galaxy Swiss Bourdin (GSB)'),0,0,'C');
 	// Num�ro de page
 	$this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
 }
@@ -89,7 +89,7 @@ $pdf->AddPage();
 $pdf->SetFont('Arial','',12);
 $pdf->Cell(0,10,utf8_decode('Fiche de frais de '.$nom.' '.$prenom. ' pour le mois ').$an,0,1);
 $pdf->Cell(0,10,utf8_decode(''),0,1);
-$pdf->Cell(0,10,utf8_decode('Identifiant utilisateur: ').$idUtilisateur,0,1);
+$pdf->Cell(0,10,utf8_decode('Identifiant utilisateur : ').$idUtilisateur,0,1);
 $pdf->Cell(0,10,utf8_decode(''),0,1);
 //$pdf->Write(5,'Pour d�couvrir les nouveaut�s de ce tutoriel, cliquez ');
 
@@ -101,7 +101,7 @@ foreach ($lesLibelleFrais as $unLibelleFrais) {
       $quantiteFraisForfait = donneQuantiteTypeFrais($unLibelleFrais['libelle'], $lesFraisForfait);
       $leLibelle = utf8_decode($leLibelle);
       
-      $pdf->Cell(0,10,$leLibelle. ' : ' .$quantiteFraisForfait. ' euros ',0,1);
+      $pdf->Cell(0,10,$leLibelle. ' : ' .$quantiteFraisForfait. ' frais ',0,1);
  }
 
  $header = array('Pays', 'Capitale', 'Superficie (km�)', 'Pop. (milliers)');
