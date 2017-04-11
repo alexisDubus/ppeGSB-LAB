@@ -67,7 +67,7 @@ switch($action){
             } else {
                 ajouterErreur("Les mots de passe ne correspondent pas.");
                 include("vues/v_erreurs.php");
-                include("vues/v_changeMDP");
+                include("vues/v_changeMDP.php");
             }
             break;
         }

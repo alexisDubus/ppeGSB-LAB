@@ -524,21 +524,21 @@ class PdoGsb
  * @return un tableau associatif de clé un mois -aaaamm- et de valeurs l'année et le mois correspondant 
 */
 	public function getLesMoisDisponibles($idUtilisateur){
-		$req = "select fichefrais.mois as mois from  fichefrais where fichefrais.idutilisateur ='$idUtilisateur' and fichefrais.idEtat in ('CR', 'VA')
-		order by fichefrais.mois desc ";
+                    $req = "select fichefrais.mois as mois from fichefrais where fichefrais.idutilisateur ='$idUtilisateur' "
+                            . " and YEAR(dateModif) = YEAR(CURDATE()) order by fichefrais.mois desc";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesMois =array();
 		$laLigne = $res->fetch();
 		while($laLigne != null)	{
-			$mois = $laLigne['mois'];
-			$numAnnee =substr( $mois,0,4);
-			$numMois =substr( $mois,4,2);
-			$lesMois["$mois"]=array(
-		    "mois"=>"$mois",
-		    "numAnnee"  => "$numAnnee",
-			"numMois"  => "$numMois"
-             );
-			$laLigne = $res->fetch(); 		
+                    $mois = $laLigne['mois'];
+                    $numAnnee = substr($mois,0,4);
+                    $numMois = substr($mois,4,2);
+                    $lesMois["$mois"] = array(
+                        "mois" => "$mois",
+                        "numAnnee" => "$numAnnee",
+			"numMois" => "$numMois"
+                    );
+                    $laLigne = $res->fetch(); 		
 		}
 		return $lesMois;
 	}
