@@ -273,10 +273,10 @@ class PdoGsb
          * @param type $idUtilisateur
          * @return type
          */
-        public function getLesInfosFrais($idUtilisateur){
+        public function getLesInfosFrais($idUtilisateur,$mois){
 		$req = "select fraisforfait.id as idfrais, fraisforfait.libelle as libelle, 
 		lignefraisforfait.id as id, lignefraisforfait.quantite as quantite, lignefraisforfait.dateFrais as dateFrais, lignefraisforfait.description as description from lignefraisforfait inner join fraisforfait 
-		on fraisforfait.id = lignefraisforfait.idfraisforfait where lignefraisforfait.idutilisateur = '$idUtilisateur'";	
+		on fraisforfait.id = lignefraisforfait.idfraisforfait where lignefraisforfait.idutilisateur = '$idUtilisateur' and lignefraisforfait.mois = '$mois'";	
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes; 
@@ -504,9 +504,10 @@ class PdoGsb
          * @param $mois sous la forme aaaamm
          * @param $typeFrais
          */
-        public function supprimerFraisForfait($idUtilisateur,$mois,$typeFrais)
+        public function supprimerFraisForfait($id)
         {
-		$req = "delete from lignefraisforfait where lignefraisforfait.idutilisateur ='$idUtilisateur' and lignefraisforfait.mois ='$mois' and lignefraisforfait.typeFrais ='$typeFrais';";
+		$req = "delete from lignefraisforfait where lignefraisforfait.id ='$id';";
+                PdoGsb::$monPdo->exec($req);
         }
         
 /**

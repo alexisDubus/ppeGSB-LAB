@@ -36,7 +36,7 @@
                 </div>
             <div class="panel-body">
                 <h3>Eléments forfaitisés (synthèse du mois)</h3>
-                    <table class="table">
+                <table class="table">
 			  <thead>
 				<tr>
                                     <th class="quantiteTotale"></th>
@@ -52,7 +52,7 @@
                                  
                                  <?php    
                                     echo '<tr>
-                                        <td>';
+                                        . <td>';
                                     echo "Quantité Totale";
                                     echo '</td>';
                                     foreach ($lesLibelleFrais as $unLibelleFrais) {
@@ -62,7 +62,7 @@
                                         echo '</td>';
                                     }
                                     echo '<tr>
-                                        <td>';
+                                        . <td>';
                                     echo "Montant Total";
                                     echo '</td>';
                                     foreach ($lesLibelleFrais as $unLibelleFrais) {
@@ -92,10 +92,15 @@
 					{
 						$typeFrais = $unFraisForfait['libelle'];
 						$date = $unFraisForfait['dateFrais'];
+                                                $date = dateAnglaisVersFrancais($date);
 						$descriptiont=$unFraisForfait['description'];
 						$quantite = $unFraisForfait['quantite'];
                                                 $id = $unFraisForfait['id'];
-						
+                                                $mois = getMois(date("d/m/Y"));
+                                                
+						if (getMois($date) == $mois) {
+                                                    
+                                                
 				?>		
 						<tr>
 							<td> <?php echo $date ?></td>
@@ -106,7 +111,7 @@
 									echo '<a href="index.php?uc=gererFrais&action=supprimerFrais&id='.$id.'"
 								onclick="return confirm(\'Voulez-vous vraiment supprimer ce frais?\');">Supprimer ce frais</a></td>';
 								
-						?></tr><?php		 }  ?>	  
+                                                ?></tr><?php		} }  ?>	 
 			 </table>
             </div>
         </div>

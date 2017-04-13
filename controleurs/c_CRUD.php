@@ -30,6 +30,8 @@ switch($action)
     }
     else{
           $pdo->creerNouveauTypeFraisForfait($id,$libelle,$montant);
+          $lesfraisforfaits =$pdo->getFraisForfaitOnly();
+          include("vues/v_voirfraisforfait.php");
         }              
     break;
   
@@ -61,6 +63,8 @@ switch($action)
           }
           else{
               $pdo->updateOneFraisForfait($idOld,$id,$libelle,$montant);
+              $lesfraisforfaits =$pdo->getFraisForfaitOnly();
+              include("vues/v_modifFraisforfait.php");
             }          
           break;        
       }
@@ -72,6 +76,8 @@ switch($action)
   
       $id = $_REQUEST['idFrais'];
       $pdo->supprimerUnFraisForfait($id);
+      $lesfraisforfaits =$pdo->getFraisForfaitOnly();
+      include("vues/v_voirfraisforfait.php");
       break;
   
   			

@@ -26,18 +26,20 @@ switch($action){
 			include("vues/v_erreurs.php");
 		}
 		else{
-			$pdo->creeNouveauFraisForfait($idUtilisateur,$mois,$typeFrais,$description,$date,$quantite,$idFraisForfait[0]);
+                    $date = dateFrancaisVersAnglais($date);
+                    $mois = getMois($date);
+                    $pdo->creeNouveauFraisForfait($idUtilisateur,$mois,$typeFrais,$description,$date,$quantite,$idFraisForfait[0]);
 		}
 		break;
 	}
         case 'supprimerFrais':{
             $id = $_REQUEST['id'];
-                $pdo->supprimerFraisForfait($id);
-		break;
+            $pdo->supprimerFraisForfait($id);
+            break;
 	}
 }
 $lesFraisForfait= $pdo->getLesFraisForfait($idUtilisateur,$mois);
-$lesInfosFrais = $pdo->getLesInfosFrais($idUtilisateur);
+$lesInfosFrais = $pdo->getLesInfosFrais($idUtilisateur,$mois);
 $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idUtilisateur,$mois);
 $lesLibelleFrais = $pdo->getLibelleFraisForfait();
 $nombreFrais = $pdo->getNombreFraisForfait();
