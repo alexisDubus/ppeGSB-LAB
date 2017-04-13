@@ -28,16 +28,13 @@
 			<div class="login-wrapper">
 				<div class="box">
 					<div class="content-wrap">
-						<legend>Répondez à votre question privée</legend>
-							<form method="post" action="index.php?uc=connexion&action=changeMDP" role='form'>
-                                                            <p>Entrez votre login :</p>
-                                                            <input name="login" class="form-control" type="text" placeholder="Login">
+						<legend>Création du nouveau mot de passe</legend>
+							<form method="post" action="index.php?uc=connexion&action=nouveauMDP" role='form'>
+                                                            <p>Entrez votre nouveau mot de passe :</p>
+                                                            <input name="mdp" class="form-control" type="password" placeholder="Mot de passe">
                                                             </br>
-                                                            <p>Entrez votre adresse eMail :</p>
-                                                            <input name="EMail" class="form-control" type="text" placeholder="EMail">
-                                                            </br>
-                                                            <p>Quel est le nom de votre premier animal de compagnie ?</p>
-                                                            <input name="reponse" class="form-control" type="text" placeholder="Réponse">
+                                                            <p>Entrez de nouveau votre mot de passe :</p>
+                                                            <input name="mdp2" class="form-control" type="password" placeholder="Confirmation mot de passe">
                                                             </br>
                                                             <input type="submit" class="btn btn-primary signup" value="Valider">
                                                             </br>

@@ -35,15 +35,16 @@
                                         echo $quantiteFraisForfait;
                                         echo '</td>';
                                     }
-                                    
-                                    foreach( $lesFraisHorsForfait as $unFraisHorsForfait) 
-                                    {
-                                        $nbJustificatifs++; //on compte le nombre de forfait
-                                    }
                                 ?>
 			 </table>
   	<table class="table">
-  	   <caption>Descriptif des éléments hors forfait, <?php echo $nbJustificatifs ?> éléments reçus 
+            <?php
+                foreach($lesFraisHorsForfait as $unFraisHorsForfait) 
+                {
+                    $nbJustificatifs++;
+                }    
+                    ?>
+  	   <caption>Descriptif des éléments hors forfait <?php echo $nbJustificatifs ?> justificatifs reçus 
        <table class="table">
 			  <thead>
 				<tr>
@@ -68,16 +69,17 @@
 							<td><?php echo $montant ?></td>
 						</tr><?php		 }  ?>	  
 			 </table>
-               <?php
-                $id = $_SESSION['idUtilisateur']; 
-                $nom = $_SESSION['nom'];
-                $prenom = $_SESSION['prenom'];
-                $anneeMois = $nomMois.' '. $numAnnee;
-               
-                //Envoie via l'url les données pour la génération du PDF. 
-            echo '<a class="btn btn-primary" href="fpdf/tutorial/genePdf.php?idUtilisateur='.$id.'&nom='.$nom.'&prenom='.$prenom.'&numAnne='.$numAnnee.'&AN='.$anneeMois.'&leMois='.$leMois.'">Télécharger le pdf du mois '.$anneeMois.'</a>'; 
-            
-            ?>
-               
-    </div>
+                        <?php
+                               $id = $_SESSION['idUtilisateur']; 
+                               $nom = $_SESSION['nom'];
+                               $prenom = $_SESSION['prenom'];
+                               $anneeMois = $nomMois.' '. $numAnnee;
+
+                               //Envoie via l'url les données pour la génération du PDF. 
+                           echo '<a class="btn btn-primary" href="fpdf/tutorial/genePdf.php?idUtilisateur='.$id.'&nom='.$nom.'&prenom='.$prenom.'&numAnne='.$numAnnee.'&AN='.$anneeMois.'&leMois='.$leMois.'">Télécharger le pdf du mois '.$anneeMois.'</a>'; 
+
+                           ?>
+	
+	
+  </div>
   </div>

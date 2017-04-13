@@ -73,14 +73,15 @@ class PdoGsb
 		return $ligne;
 	}
         
-	/**
+        /**
  * vérifie si l'utilisateur existe
  
  * @param $login 
  * @return true si l'utilisateur existe, false dans le cas contraire
 */
 	public function utilisateurExiste($login){                
-		$req = "select utilisateur.id as id, utilisateur.nom as nom, utilisateur.prenom as prenom, utilisateur.idRole as idRole, role.profession as role from utilisateur, role 
+		$req = "select utilisateur.id as id, utilisateur.nom as nom, utilisateur.prenom as prenom, 
+                    utilisateur.idRole as idRole, role.profession as role from utilisateur, role 
 		where utilisateur.login='$login' and utilisateur.idRole = role.id ";
 		$rs = PdoGsb::$monPdo->query($req);
                 $ligne = $rs->fetch();
@@ -93,6 +94,43 @@ class PdoGsb
 		return $existe;
 	}
         
+         /**
+ * vérifie la réponse est correcte
+ 
+ * @param $login 
+ * @return true si la réponse est correcte, false dans le cas contraire
+*/
+	public function checkReponse($login, $reponse){                
+		$req = "select utilisateur.reponse as reponse from utilisateur 
+		where utilisateur.login='$login'";
+		$rs = PdoGsb::$monPdo->query($req);
+                $ligne = $rs->fetch();
+                if ($ligne["reponse"] == $reponse) {
+                    $correct = true;
+                } else {
+                    $correct = false;
+                }
+		return $correct;
+	}
+        
+        /**
+ * vérifie l email est correct
+ 
+ * @param $login 
+ * @return true si la réponse est correcte, false dans le cas contraire
+*/
+	public function checkEMail($login, $mail){                
+		$req = "select utilisateur.email as email from utilisateur 
+		where utilisateur.login='$login'";
+		$rs = PdoGsb::$monPdo->query($req);
+                $ligne = $rs->fetch();
+                if ($ligne["email"] == $mail) {
+                    $correct = true;
+                } else {
+                    $correct = false;
+                }
+		return $correct;
+	}
   /**
   *  Initialise la valeur $_SESSION['role'] de l'utilisateur qui est fonction de sa profession(Administrateur, comptable ou visiteur médical)
   *  la variable superglobale $_SESSION['role'] sera affichée au nivreau de la barre de navigation
@@ -181,6 +219,22 @@ class PdoGsb
         			where fraisforfait.id = '$idOld' ";
         	PdoGsb::$monPdo->exec($req);
         }
+        
+/**
+ * Retourne les informations d'un utilisateur
+ 
+ * @param $login 
+ * @param $mdp
+ * @param $mail
+*/
+	public function creeNouveauMDP($login, $mdp, $mail){
+                $mdpSHA = sha1($mdp);
+                
+		$req = "update utilisateur set mdpSHA = '$mdpSHA'
+		where utilisateur.login='$login' and utilisateur.email='$mail'";
+		PdoGsb::$monPdo->exec($req);
+	}
+        
 /**
  * Retourne le nombre de justificatif d'un utilisateur pour un mois donné
  
@@ -471,21 +525,21 @@ class PdoGsb
  * @return un tableau associatif de clé un mois -aaaamm- et de valeurs l'année et le mois correspondant 
 */
 	public function getLesMoisDisponibles($idUtilisateur){
-		$req = "select fichefrais.mois as mois from  fichefrais where fichefrais.idutilisateur ='$idUtilisateur' and fichefrais.idEtat in ('CR', 'VA')
-		order by fichefrais.mois desc ";
+                    $req = "select fichefrais.mois as mois from fichefrais where fichefrais.idutilisateur ='$idUtilisateur' "
+                            . " and YEAR(dateModif) = YEAR(CURDATE()) order by fichefrais.mois desc";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesMois =array();
 		$laLigne = $res->fetch();
 		while($laLigne != null)	{
-			$mois = $laLigne['mois'];
-			$numAnnee =substr( $mois,0,4);
-			$numMois =substr( $mois,4,2);
-			$lesMois["$mois"]=array(
-		    "mois"=>"$mois",
-		    "numAnnee"  => "$numAnnee",
-			"numMois"  => "$numMois"
-             );
-			$laLigne = $res->fetch(); 		
+                    $mois = $laLigne['mois'];
+                    $numAnnee = substr($mois,0,4);
+                    $numMois = substr($mois,4,2);
+                    $lesMois["$mois"] = array(
+                        "mois" => "$mois",
+                        "numAnnee" => "$numAnnee",
+			"numMois" => "$numMois"
+                    );
+                    $laLigne = $res->fetch(); 		
 		}
 		return $lesMois;
 	}
@@ -532,8 +586,7 @@ class PdoGsb
             $laLigne = $res->fetch();
             return $laLigne['occupe'];
         }
-		
-		        public function getAdresseMail($login) {
+        public function getAdresseMail($login) {
             $req = "select email from utilisateur where login = '$login'";
             $res = PdoGsb::$monPdo->query($req);
             $laLigne = $res->fetch();
