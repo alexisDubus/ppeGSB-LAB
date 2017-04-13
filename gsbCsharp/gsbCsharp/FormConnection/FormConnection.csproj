@@ -93,6 +93,13 @@
       <Name>Passerelle</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Ressources\ADN1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ADN2.jpg" />
+    <Content Include="Ressources\ADN2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

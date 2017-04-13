@@ -420,7 +420,10 @@ namespace Passerelle
         }
 
         
-
+        /// <summary>
+        /// rajoute un médecin a la liste
+        /// </summary>
+        /// <param name="unJeuResultat"></param>
         public static void getAMedecin(MySqlDataReader unJeuResultat)
         {
 
@@ -476,6 +479,10 @@ namespace Passerelle
             listeDesMedecins.Add(medecin);
         }
 
+        /// <summary>
+        /// Edite un médecin en BDD
+        /// </summary>
+        /// <param name="medecin"></param>
         public static void editMedecin(Medecin medecin)
         {
             connexion();
@@ -649,6 +656,11 @@ namespace Passerelle
             unJeuResultat.Close();
         }
 
+        /// <summary>
+        /// Donne la liste des visite de l'utilisateur
+        /// </summary>
+        /// <param name="unVisiteur"></param>
+        /// <returns></returns>
         public static BindingList<Medecin> getListeVisite(Utilisateur unVisiteur)
         {
             BindingList<Medecin> liste = new BindingList<Medecin>();
@@ -663,6 +675,10 @@ namespace Passerelle
             return liste;
         }
 
+        /// <summary>
+        /// Met une visite dans la liste
+        /// </summary>
+        /// <param name="unJeuResultat"></param>
         public static void getAVisite(MySqlDataReader unJeuResultat)
         {
 
@@ -786,6 +802,10 @@ namespace Passerelle
             unJeuResultat.Close();
         }
 
+        /// <summary>
+        /// Rajoute un Cabinet dans la lsite des cabinets
+        /// </summary>
+        /// <param name="unJeuResultat"></param>
         public static void getACabinet(MySqlDataReader unJeuResultat)
         {
             int id = (int)unJeuResultat.GetInt16("id");
@@ -806,7 +826,10 @@ namespace Passerelle
             }
         }
 
-
+        /// <summary>
+        /// Rajoute un cabinet en BDD
+        /// </summary>
+        /// <param name="cabinet"></param>
         public static void addCabinet(Cabinet cabinet)
         {
             connexion();

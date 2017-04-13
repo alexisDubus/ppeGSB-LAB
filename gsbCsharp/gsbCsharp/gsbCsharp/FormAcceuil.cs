@@ -14,24 +14,13 @@ namespace gsbCsharp
 {
     public partial class FormAcceuil : Form
     {
-        List<Utilisateur> listeVisiteur = new List<Utilisateur>();
+
 
         public FormAcceuil()
         {
             InitializeComponent();
-            //Passerelle.Passerelle.init();
-            //Passerelle.Passerelle.setTypeUtilisateur(2);
-            //typeUtilisateur = Passerelle.Passerelle.getTypeUtilisateur();
-            //Passerelle.Passerelle.setIdUtilisateur("a131"); //Changer valeur par id session
-
-            //FormConnexion connexion = new FormConnexion();
-            //OUVRE_UNE_MDI_FILLE(connexion, this);
         }
-
-        public static void disableMenu()
-        {
-            
-        }
+        
 
         /// <summary>
         /// ferme la feuille ouverte précdemment et ouvre la nouvelle feuille
@@ -66,6 +55,7 @@ namespace gsbCsharp
             }
         }
         
+        //Méthode de click généré automatiquement
 
         private void listeVisiteurToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -73,9 +63,6 @@ namespace gsbCsharp
             OUVRE_UNE_MDI_FILLE(voirVisiteur, this);
         }
         
-
-        //Méthode de click généré automatiquement
-
             
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {

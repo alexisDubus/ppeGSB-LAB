@@ -82,6 +82,7 @@ namespace gsbCsharp
             else
             {
                 String uneRegion = (String)textBoxDepartements.Text;
+                textBoxNom.Text = "";
                 listeVisiteur = Passerelle.Passerelle.getVisiteurByCp(uneRegion);
 
                 comboBoxVisiteur.Items.Clear();
@@ -103,6 +104,7 @@ namespace gsbCsharp
             else
             {
                 String nom = (String)textBoxNom.Text;
+                textBoxDepartements.Text = "";
                 listeVisiteur = Passerelle.Passerelle.getVisiteurByNom(nom);
 
                 comboBoxVisiteur.Items.Clear();
