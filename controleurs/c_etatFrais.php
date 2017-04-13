@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ﻿<?php
 
 include("vues/v_sommaire.php");
@@ -42,8 +42,6 @@ switch($action)
 		include("vues/v_etatFrais.php");
 	}
 }
-=======
-﻿<?php
 
 include("vues/v_sommaire.php");
 $action = $_REQUEST['action'];
@@ -86,5 +84,4 @@ switch($action)
 		include("vues/v_etatFrais.php");
 	}
 }
->>>>>>> master
 ?>
