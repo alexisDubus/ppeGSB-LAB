@@ -28,9 +28,14 @@ namespace Passerelle
         private static BindingList<Cabinet> listeDesCabinets = new BindingList<Cabinet>();
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
+<<<<<<< HEAD
+        //private static String connectionString = "SERVER=172.16.9.3; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+=======
         private static BindingList<Utilisateur> listeDesAdmins = new BindingList<Utilisateur>();
         private static String connectionString = "SERVER=172.16.9.4; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         //private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+>>>>>>> master
         //private static String connectionString = "SERVER=172.16.8.200; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
@@ -123,7 +128,11 @@ namespace Passerelle
         /// Met en session l'utilisateur
         /// </summary>
         /// <param name="visiteurEnSession"></param>
+<<<<<<< HEAD
+        public static void setVisiteurSesstion(Utilisateur visiteurEnSession)
+=======
         public static void setVisiteurSession(Utilisateur visiteurEnSession)
+>>>>>>> master
         {
             visiteurSession = visiteurEnSession;
         }
@@ -884,6 +893,16 @@ namespace Passerelle
         {
             try
             {
+<<<<<<< HEAD
+                DirectoryEntry entry = new DirectoryEntry("LDAP://192.168.23.142" , username , passwd);
+                var test = entry.NativeObject;
+                var personne = entry.Username;
+                var dataGUID = entry.NativeGuid;
+                var data = entry.Name;
+                var dataAutre = entry.Options;
+                var dataAutre2 = entry.Container;
+                miseEnSession(username);
+=======
                 DirectoryEntry entry = new DirectoryEntry(ipAD_DS , username , passwd);
                 var test = entry.NativeObject;
                 var personne = entry.Username;
@@ -892,6 +911,7 @@ namespace Passerelle
                 var dataAutre = entry.Options;
                 var dataAutre2 = entry.Container; */
                 bool mitEnSession =  miseEnSession(username);
+>>>>>>> master
                 return true;
             }
             catch(Exception exe)
@@ -941,13 +961,29 @@ namespace Passerelle
         /// met en session l'utiliseur dont le login est donné en paramétre
         /// </summary>
         /// <param name="login"></param>
+<<<<<<< HEAD
+        public static void miseEnSession(string login)
+=======
         public static bool miseEnSession(string login)
+>>>>>>> master
         {
             init();
             foreach (Metier.Utilisateur visiteur in listeDesVisiteurs)
             {
                 if (login == visiteur.getLogin()) //l'utilisateur est un visiteur
                 {
+<<<<<<< HEAD
+                    setVisiteurSesstion(visiteur);
+                    setTypeUtilisateurSession(2);
+                    setIdUtilisateurSession(visiteurSession.getId());
+                    break;
+                }
+                else //l'utilisateur est un administrateur
+                {
+                    setTypeUtilisateurSession(0);
+                }
+            }
+=======
                     setVisiteurSession(visiteur);
                     setTypeUtilisateurSession(2);
                     setIdUtilisateurSession(visiteurSession.getId());
@@ -984,6 +1020,7 @@ namespace Passerelle
                 }
             }
             return true;
+>>>>>>> master
         }
 
 

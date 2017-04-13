@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
+=======
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConnection));
+>>>>>>> master
             this.btnConnexion = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -82,7 +85,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
+=======
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+>>>>>>> master
             this.ClientSize = new System.Drawing.Size(1100, 380);
             this.Controls.Add(this.btnConnexion);
             this.Controls.Add(this.label2);

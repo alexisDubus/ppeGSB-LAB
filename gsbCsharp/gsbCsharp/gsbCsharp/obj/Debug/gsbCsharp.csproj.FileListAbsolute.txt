@@ -63,6 +63,8 @@ C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormC
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormConnexion.resources
 C:\wamp\www\dev4.0Csharp\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormStatVisiteur.resources
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormStatVisiteur.resources
+<<<<<<< HEAD
+=======
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\gsbCsharp.exe.config
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\gsbCsharp.exe
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\gsbCsharp.pdb
@@ -90,3 +92,4 @@ C:\wamp\www\GSB\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.csproj.Generat
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.exe
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.pdb
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.FormViewVisiteVisiteur.resources
+>>>>>>> master

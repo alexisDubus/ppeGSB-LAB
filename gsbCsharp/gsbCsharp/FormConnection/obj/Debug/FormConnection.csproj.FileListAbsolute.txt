@@ -37,6 +37,8 @@ C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConne
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.csproj.GenerateResource.Cache
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.exe
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.pdb
+<<<<<<< HEAD
+=======
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\FormConnection.exe.config
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.exe
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.pdb
@@ -56,3 +58,4 @@ C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.cspr
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.FormConnection.resources
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.Properties.Resources.resources
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.csproj.GenerateResource.Cache
+>>>>>>> master

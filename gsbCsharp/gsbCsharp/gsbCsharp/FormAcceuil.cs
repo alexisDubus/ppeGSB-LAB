@@ -14,11 +14,30 @@ namespace gsbCsharp
 {
     public partial class FormAcceuil : Form
     {
+<<<<<<< HEAD
+        List<Utilisateur> listeVisiteur = new List<Utilisateur>();
+=======
 
+>>>>>>> master
 
         public FormAcceuil()
         {
             InitializeComponent();
+<<<<<<< HEAD
+            //Passerelle.Passerelle.init();
+            //Passerelle.Passerelle.setTypeUtilisateur(2);
+            //typeUtilisateur = Passerelle.Passerelle.getTypeUtilisateur();
+            //Passerelle.Passerelle.setIdUtilisateur("a131"); //Changer valeur par id session
+
+            //FormConnexion connexion = new FormConnexion();
+            //OUVRE_UNE_MDI_FILLE(connexion, this);
+        }
+
+        public static void disableMenu()
+        {
+            
+=======
+>>>>>>> master
         }
         
 
@@ -44,9 +63,14 @@ namespace gsbCsharp
 
             if (Passerelle.Passerelle.getTypeUtilisateurSession() == 2) //case visiteur
             {
+<<<<<<< HEAD
+                menuStrip.Items[2].Visible = false;
+                menuStrip.Items[1].Visible = false;
+=======
                 menuStrip.Items[0].Visible = false;
                 menuStrip.Items[1].Visible = false;
                 menuStrip.Items[2].Visible = false;
+>>>>>>> master
             }
             if (Passerelle.Passerelle.getTypeUtilisateurSession() == 0)//case admin
             {
