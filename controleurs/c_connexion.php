@@ -96,9 +96,6 @@ switch($action){
 		break;
 	}
 }
-?>
-=======
-﻿﻿<?php
 
 
 if(!isset($_REQUEST['action'])){
@@ -156,4 +153,3 @@ switch($action){
 	}
 }
 ?>
->>>>>>> master
