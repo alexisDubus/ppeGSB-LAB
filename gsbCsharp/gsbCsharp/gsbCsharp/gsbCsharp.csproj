@@ -124,7 +124,7 @@
     <Compile Include="FormViewVisiteVisiteur.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormViewVisiteVisiteur.Designer.cs">
+    <Compile Include="FormViewVisiteVisiteur.designer.cs">
       <DependentUpon>FormViewVisiteVisiteur.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />

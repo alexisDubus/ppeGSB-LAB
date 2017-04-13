@@ -23,6 +23,7 @@ namespace FormConnection
         {
 
         }
+<<<<<<< HEAD
 
 
         /// <summary>
@@ -44,12 +45,24 @@ namespace FormConnection
 
         
 
+=======
+        
+        /// <summary>
+        /// Appelé quand on clique sur le bouton de connexion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+>>>>>>> master
         private void btnConnexion_Click_1(object sender, EventArgs e)
         {
             string passwd = textBoxMdp.Text.ToString();
             string username = textBoxLogin.Text.ToString();
             bool isAuth = Passerelle.Passerelle.connexionLDAP(username, passwd);
+<<<<<<< HEAD
             if (isAuth)
+=======
+            if (isAuth) //si l'utilisateur est authentifié
+>>>>>>> master
             {
                 FormAcceuil acceuil = new FormAcceuil();
                 acceuil.Show();
@@ -58,6 +71,11 @@ namespace FormConnection
             else
             {
                 MessageBox.Show("Mauvais mot de passe/Identifiant");
+<<<<<<< HEAD
+=======
+                textBoxLogin.Text = "";
+                textBoxMdp.Text = "";
+>>>>>>> master
             }
         }
     }

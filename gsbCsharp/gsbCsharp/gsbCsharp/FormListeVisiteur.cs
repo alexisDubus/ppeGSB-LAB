@@ -82,7 +82,8 @@ namespace gsbCsharp
             else
             {
                 String uneRegion = (String)textBoxDepartements.Text;
-                listeVisiteur = Passerelle.Passerelle.getVisiteurByRegion(uneRegion);
+                textBoxNom.Text = "";
+                listeVisiteur = Passerelle.Passerelle.getVisiteurByCp(uneRegion);
 
                 comboBoxVisiteur.Items.Clear();
                 foreach (Metier.Utilisateur visiteur in listeVisiteur)
@@ -103,6 +104,7 @@ namespace gsbCsharp
             else
             {
                 String nom = (String)textBoxNom.Text;
+                textBoxDepartements.Text = "";
                 listeVisiteur = Passerelle.Passerelle.getVisiteurByNom(nom);
 
                 comboBoxVisiteur.Items.Clear();

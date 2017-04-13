@@ -14,11 +14,16 @@ namespace gsbCsharp
 {
     public partial class FormAcceuil : Form
     {
+<<<<<<< HEAD
         List<Utilisateur> listeVisiteur = new List<Utilisateur>();
+=======
+
+>>>>>>> master
 
         public FormAcceuil()
         {
             InitializeComponent();
+<<<<<<< HEAD
             //Passerelle.Passerelle.init();
             //Passerelle.Passerelle.setTypeUtilisateur(2);
             //typeUtilisateur = Passerelle.Passerelle.getTypeUtilisateur();
@@ -31,7 +36,10 @@ namespace gsbCsharp
         public static void disableMenu()
         {
             
+=======
+>>>>>>> master
         }
+        
 
         /// <summary>
         /// ferme la feuille ouverte précdemment et ouvre la nouvelle feuille
@@ -55,8 +63,14 @@ namespace gsbCsharp
 
             if (Passerelle.Passerelle.getTypeUtilisateurSession() == 2) //case visiteur
             {
+<<<<<<< HEAD
                 menuStrip.Items[2].Visible = false;
                 menuStrip.Items[1].Visible = false;
+=======
+                menuStrip.Items[0].Visible = false;
+                menuStrip.Items[1].Visible = false;
+                menuStrip.Items[2].Visible = false;
+>>>>>>> master
             }
             if (Passerelle.Passerelle.getTypeUtilisateurSession() == 0)//case admin
             {
@@ -65,6 +79,7 @@ namespace gsbCsharp
             }
         }
         
+        //Méthode de click généré automatiquement
 
         private void listeVisiteurToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -72,9 +87,6 @@ namespace gsbCsharp
             OUVRE_UNE_MDI_FILLE(voirVisiteur, this);
         }
         
-
-        //Méthode de click généré automatiquement
-
             
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {

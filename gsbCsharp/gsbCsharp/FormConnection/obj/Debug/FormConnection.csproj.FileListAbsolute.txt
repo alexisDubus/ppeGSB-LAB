@@ -37,3 +37,25 @@ C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConne
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.csproj.GenerateResource.Cache
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.exe
 C:\wamp\www\ppeGSB-LAB4.0\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.pdb
+<<<<<<< HEAD
+=======
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\FormConnection.exe.config
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.exe
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.pdb
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\FormConnection.exe
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\FormConnection.pdb
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\gsbCsharp.exe
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\Metier.dll
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\Passerelle.dll
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\GoogleMaps.LocationServices.dll
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\Newtonsoft.Json.dll
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\MySql.Data.dll
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\gsbCsharp.pdb
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\Metier.pdb
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\Passerelle.pdb
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\Newtonsoft.Json.xml
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.csprojResolveAssemblyReference.cache
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.FormConnection.resources
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.Properties.Resources.resources
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.csproj.GenerateResource.Cache
+>>>>>>> master
