@@ -16,7 +16,13 @@ switch($action){
 	}
 	case 'validerCreationFrais':{
                 $typeFrais = $_REQUEST['typeFrais'];
-		$date = $_REQUEST['date'];
+                $date = $_REQUEST['date'];
+                var_dump($date);
+                if (substr($date, 5, 2) != date('m')) {
+                    ajouterErreur("Date invalide.");
+                    include("vues/v_erreurs.php");
+                    break;
+                }
 		$description = $_REQUEST['description'];
 		$quantite = $_REQUEST['quantite'];
                 $date = dateAnglaisVersFrancais($date);
@@ -26,10 +32,7 @@ switch($action){
                     include("vues/v_erreurs.php");
 		}
 		else{
-<<<<<<< HEAD
-=======
-                    //$date = dateFrancaisVersAnglais($date);
->>>>>>> 0eb51176b33ec175202c3e87dcbccc37282f0ad5
+                    //$date2 = dateFrancaisVersAnglais($date2);
                     $mois = getMois($date);
                     $pdo->creeNouveauFraisForfait($idUtilisateur,$mois,$typeFrais,$description,$date,$quantite,$idFraisForfait[0]);
 		}
