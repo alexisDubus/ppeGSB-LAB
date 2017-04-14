@@ -26,7 +26,7 @@ switch($action){
 			include("vues/v_erreurs.php");
 		}
 		else{
-                    $date = dateFrancaisVersAnglais($date);
+                    //$date = dateFrancaisVersAnglais($date);
                     $mois = getMois($date);
                     $pdo->creeNouveauFraisForfait($idUtilisateur,$mois,$typeFrais,$description,$date,$quantite,$idFraisForfait[0]);
 		}
