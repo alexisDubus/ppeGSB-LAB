@@ -30,10 +30,10 @@
 					<div class="content-wrap">
 						<legend>Se connecter</legend>
 							<form method="post" action="index.php?uc=connexion&action=valideConnexion">
-								<input name="login" class="form-control" type="text" placeholder="Login">
-								<input name="mdp" class="form-control" type="password" placeholder="Password">
+								<input name="login" class="form-control" type="text" placeholder="Identifiant">
+								<input name="mdp" class="form-control" type="password" placeholder="Mot de passe">
 								</br>
-								<input type="submit" class="btn btn-primary signup" value="Login">
+								<input type="submit" class="btn btn-primary signup" value="Connexion">
 							</form>
 							</br>
                                                 <a href="index.php?uc=connexion&action=motDePasseOublie">Mot de passe oublié ?</a>

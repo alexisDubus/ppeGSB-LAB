@@ -23,10 +23,9 @@ switch($action){
 		valideInfosFrais($date,$description,$quantite);
                 $idFraisForfait = $pdo->getIdFraisForfait($typeFrais);
 		if (nbErreurs() != 0 ){
-			include("vues/v_erreurs.php");
+                    include("vues/v_erreurs.php");
 		}
 		else{
-                    $date = dateFrancaisVersAnglais($date);
                     $mois = getMois($date);
                     $pdo->creeNouveauFraisForfait($idUtilisateur,$mois,$typeFrais,$description,$date,$quantite,$idFraisForfait[0]);
 		}

@@ -30,9 +30,10 @@ switch($action){
                 } else {
                     ajouterErreur("Réponse ou email incorrect.");
                     include("vues/v_erreurs.php");
+                    include("vues/v_mdp_oublie.php");
                 }
             } else {
-                ajouterErreur("Login incorrect");
+                ajouterErreur("Identifiant incorrect");
 		include("vues/v_erreurs.php");
                 include("vues/v_mdp_oublie.php");
             }
@@ -60,7 +61,7 @@ switch($action){
 		$mdp = $_REQUEST ['mdp'];
 		$utilisateur = $pdo->getInfosUtilisateur($login,$mdp);
 		if(!is_array( $utilisateur)){
-			ajouterErreur("Login ou mot de passe incorrect");
+			ajouterErreur("Identifiant ou mot de passe incorrect");
 			include("vues/v_erreurs.php");
 			include("vues/v_connexion.php");
 		}

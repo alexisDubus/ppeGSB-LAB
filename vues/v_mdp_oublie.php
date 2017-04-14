@@ -31,7 +31,7 @@
 						<legend>Répondez à votre question privée</legend>
 							<form method="post" action="index.php?uc=connexion&action=changeMDP" role='form'>
                                                             <p>Entrez votre login :</p>
-                                                            <input name="login" class="form-control" type="text" placeholder="Login">
+                                                            <input name="login" class="form-control" type="text" placeholder="Identifiant">
                                                             </br>
                                                             <p>Entrez votre adresse eMail :</p>
                                                             <input name="EMail" class="form-control" type="text" placeholder="EMail">
