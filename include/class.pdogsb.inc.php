@@ -162,9 +162,9 @@ class PdoGsb
  * @param $mois sous la forme aaaamm
  * @return tous les champs des lignes de frais hors forfait sous la forme d'un tableau associatif 
 */
-	public function getLesFraisHorsForfait($idUtilisateur,$mois){
+	public function getLesFraisHorsForfait($idUtilisateur,$year,$month){
 	    $req = "select * from lignefraishorsforfait where lignefraishorsforfait.idUtilisateur ='$idUtilisateur' 
-		and lignefraishorsforfait.mois = '$mois' ";	
+		and YEAR(lignefraishorsforfait.date) = '$year' and MONTH(lignefraishorsforfait.date) = '$month'";	
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		$nbLignes = count($lesLignes);
@@ -172,8 +172,7 @@ class PdoGsb
 			$date = $lesLignes[$i]['date'];
 			$lesLignes[$i]['date'] =  dateAnglaisVersFrancais($date);
 		}
-		return $lesLignes; 
-                
+		return $lesLignes;
 	}
 
 	/**

@@ -6,6 +6,7 @@ $mois = getMois(date("d/m/Y"));
 $numAnnee =substr( $mois,0,4);
 $numMois =substr( $mois,4,2);
 $action = $_REQUEST['action'];
+$date = date("d/m/Y");
 switch($action){
 	case 'validerCreationFrais':
 	{
@@ -27,7 +28,7 @@ switch($action){
 		break;
 	}
 }
-$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idUtilisateur,$mois);
+$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idUtilisateur,  substr($date, 6, 4),  substr($date, 3, 2));
 $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idUtilisateur,$mois);
 include("vues/v_listeFraisHorsForfait.php");
 
