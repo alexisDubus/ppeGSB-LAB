@@ -17,6 +17,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
     private TextView textViewNomM;
     private TextView textViewPrenomM;
     private TextView textViewAdresseC;
+    private TextView textViewDistance;
     public int idMedecin;
 
     //itemView est la vue correspondante à 1 cellule
@@ -25,6 +26,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
         textViewNomM = (TextView) itemView.findViewById(R.id.nomMedecin);
         textViewPrenomM = (TextView) itemView.findViewById(R.id.prenomMedecin);
         textViewAdresseC = (TextView) itemView.findViewById(R.id.adresseCabinet);
+        textViewDistance = (TextView) itemView.findViewById(R.id.distanceCabinet);
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +45,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
         textViewNomM.setText(object.getNomMedecin());
         textViewPrenomM.setText(object.getPrenomMedecin());
         textViewAdresseC.setText(object.getAdresseCabinet());
+        textViewDistance.setText((int) object.getDistance());
         idMedecin = object.getIdMedecin();
     }
 }

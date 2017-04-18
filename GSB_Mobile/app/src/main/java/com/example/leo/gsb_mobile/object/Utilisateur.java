@@ -10,12 +10,23 @@ public class Utilisateur {
     private String nom;
     private String prenom;
     private int numVersion;
+    private double posX;
+    private double posY;
 
     public Utilisateur(String userId, String nom, String prenom, int version) {
         this.userId = userId;
         this.nom = nom;
         this.prenom = prenom;
         this.numVersion = version;
+    }
+
+    public Utilisateur(String userId, String nom, String prenom, int version, double posX, double posY) {
+        this.userId = userId;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.numVersion = version;
+        this.posX = posX;
+        this.posY = posY;
     }
 
     public Utilisateur(){}
@@ -51,4 +62,12 @@ public class Utilisateur {
     public void setNumVersion(int numVersion) {
         this.numVersion = numVersion;
     }
+
+    public double getPosX() {return posX;}
+
+    public void setPosX(double posX) {this.posX = posX;}
+
+    public double getPosY() {return posY;}
+
+    public void setPosY(double posY) {this.posY = posY;}
 }

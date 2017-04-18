@@ -18,6 +18,9 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     private static final String USER_NAME = "utilisateurNom";
     private static final String USER_LASTNAME = "utilisateurPrenom";
     private static final String USER_VERSION = "utilisateurVersion";
+    private static final String USER_POSX = "utilisateurPosX";
+    private static final String USER_POSY = "utilisateurPosY";
+
 
     private static final String USER_TABLE_CREATE =
             "CREATE TABLE " + USER_TABLE_NAME + " (" +
@@ -25,7 +28,9 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                     USER_IDUSER + " TEXT, " +
                     USER_NAME + " TEXT, " +
                     USER_LASTNAME + " TEXT, " +
-                    USER_VERSION + " INTEGER);";
+                    USER_VERSION + " INTEGER, " +
+                    USER_POSX + " REAL, " +
+                    USER_POSY  + " REAL);";
 
     public static final String USER_TABLE_DROP = "DROP TABLE IF EXISTS " + USER_TABLE_NAME + ";";
 

@@ -21,6 +21,8 @@ public class UtilisateurDAO extends DAOBase {
     public static final String NAME = "utilisateurNom";
     public static final String LASTNAME = "utilisateurPrenom";
     public static final String VERSION = "utilisateurVersion";
+    private static final String POSX = "utilisateurPosX";
+    private static final String POSY = "utilisateurPosY";
 
 
     public UtilisateurDAO(Context pContext) {
@@ -34,6 +36,8 @@ public class UtilisateurDAO extends DAOBase {
         value.put(UtilisateurDAO.NAME, user.getNom());
         value.put(UtilisateurDAO.LASTNAME, user.getPrenom());
         value.put(UtilisateurDAO.VERSION, user.getNumVersion());
+        value.put(UtilisateurDAO.POSX, user.getPosX());
+        value.put(UtilisateurDAO.POSY, user.getPosY());
 
         mDb.insert(UtilisateurDAO.TABLE_NAME, null, value);
 
@@ -54,8 +58,6 @@ public class UtilisateurDAO extends DAOBase {
         if (c.getCount() == 0)
             return null;
 
-
-
         //Sinon on se place sur le premier élément
         c.moveToFirst();
         // On crée un Utilisateur
@@ -65,6 +67,8 @@ public class UtilisateurDAO extends DAOBase {
         unUtilisateur.setNom(c.getString(2));
         unUtilisateur.setPrenom(c.getString(3));
         unUtilisateur.setNumVersion(c.getInt(4));
+        unUtilisateur.setPosX(c.getDouble(5));
+        unUtilisateur.setPosY(c.getDouble(6));
 
         c.close();
         return unUtilisateur;

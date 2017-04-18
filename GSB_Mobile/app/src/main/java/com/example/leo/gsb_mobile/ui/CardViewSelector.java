@@ -11,11 +11,12 @@ import com.example.leo.gsb_mobile.R;
 import com.example.leo.gsb_mobile.controleur.CabinetDAO;
 import com.example.leo.gsb_mobile.controleur.MedecinDAO;
 
-import com.example.leo.gsb_mobile.controleur.VisiteDAO;
+import com.example.leo.gsb_mobile.controleur.UtilisateurDAO;
 import com.example.leo.gsb_mobile.object.Cabinet;
 import com.example.leo.gsb_mobile.object.CardView;
 import com.example.leo.gsb_mobile.object.Medecin;
 
+import com.example.leo.gsb_mobile.object.Utilisateur;
 import com.example.leo.gsb_mobile.web_services.GetCabinetFromBDD;
 import com.example.leo.gsb_mobile.web_services.GetMedecinFromBDD;
 
@@ -43,7 +44,8 @@ public class CardViewSelector extends AppCompatActivity{
 
         MedecinDAO medecinDAO = new MedecinDAO(this);
         CabinetDAO cabinetDAO = new CabinetDAO(this);
-        VisiteDAO visiteDAO = new VisiteDAO(this);
+        UtilisateurDAO utilisateurDAO = new UtilisateurDAO(this);
+
 
         cabinetDAO.open();
         if (cabinetDAO.count() == 0){
@@ -58,7 +60,7 @@ public class CardViewSelector extends AppCompatActivity{
         medecinDAO.close();
 
 
-        addMedecinInList(medecinDAO, cabinetDAO);
+        addMedecinInList(medecinDAO, cabinetDAO, utilisateurDAO);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -66,7 +68,7 @@ public class CardViewSelector extends AppCompatActivity{
 
     }
 
-    private void addMedecinInList(MedecinDAO medecinDAO, CabinetDAO cabinetDAO){
+    private void addMedecinInList(MedecinDAO medecinDAO, CabinetDAO cabinetDAO, UtilisateurDAO utilisateurDAO){
         String adresse;
         medecinDAO.open();
         for (int i = 1 ; i <= medecinDAO.count() ;  i++) {
@@ -77,7 +79,13 @@ public class CardViewSelector extends AppCompatActivity{
             Cabinet unCabinet = cabinetDAO.selectionner(Long.parseLong(unMedecin.getIdCabinet()));
             adresse = unCabinet.getRue()+" "+unCabinet.getCodePostal()+" "+unCabinet.getVille();
             cabinetDAO.close();
-            medecins.add(new CardView(unMedecin.getNom(), unMedecin.getPrenom(), adresse , unMedecin.getIdMedecin()));
+            utilisateurDAO.open();
+            Utilisateur unUser = utilisateurDAO.selectionner(0);
+            double longitude = unUser.getPosX();
+            double latitude = unUser.getPosY();
+            utilisateurDAO.close();
+            double distance = getDistance(longitude, latitude, unCabinet.getPosX(), unCabinet.getPosY());
+            medecins.add(new CardView(unMedecin.getNom(), unMedecin.getPrenom(), adresse , unMedecin.getIdMedecin(), distance));
             Log.i("INFO_AJOUTERMEDECINS", ""+ unMedecin.getNom() + " " + unMedecin.getPrenom() + " ajouté à la liste");
             medecinDAO.open();
         }
@@ -113,7 +121,7 @@ public class CardViewSelector extends AppCompatActivity{
     }
 
     private void getCabinetFromBdd(CabinetDAO cabinetDAO){
-        // Vérification de si il y a des cabinet dans la BDD
+        // Vérification de si il y a des cabinets dans la BDD
         GetCabinetFromBDD getCabinet = new GetCabinetFromBDD(this);
         getCabinet.execute();
         try {
@@ -140,6 +148,27 @@ public class CardViewSelector extends AppCompatActivity{
             } catch (InterruptedException | ExecutionException | JSONException e) {
                 e.printStackTrace();
             }
+    }
+
+
+    private double getDistance(double lat1, double lng1, double lat2, double lng2) {
+
+        double earthRadius = 6371; // kilometer output
+
+        double dLat = Math.toRadians(lat2-lat1);
+        double dLng = Math.toRadians(lng2-lng1);
+
+        double sindLat = Math.sin(dLat / 2);
+        double sindLng = Math.sin(dLng / 2);
+
+        double a = Math.pow(sindLat, 2) + Math.pow(sindLng, 2)
+                * Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2));
+
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+        double dist = earthRadius * c;
+
+        return dist; // output distance
     }
 
 

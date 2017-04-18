@@ -1,14 +1,27 @@
 package com.example.leo.gsb_mobile.ui;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Criteria;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.location.LocationProvider;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.example.leo.gsb_mobile.R;
 import com.example.leo.gsb_mobile.controleur.CabinetDAO;
 import com.example.leo.gsb_mobile.controleur.MedecinDAO;
@@ -22,6 +35,10 @@ import com.example.leo.gsb_mobile.web_services.SetVisiteToBDD;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -39,12 +56,12 @@ public class UserConnexion extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_connexion);
 
-        Log.i("INFO","Application Démarré");
+        Log.i("INFO", "Application Démarré");
 
         // Récupération et associations des éléments
-        editT_login = (EditText)findViewById(R.id.editText_login);
-        editT_mdp = (EditText)findViewById(R.id.editText_mdp);
-        btn_connexion = (Button)findViewById(R.id.btn_connexion);
+        editT_login = (EditText) findViewById(R.id.editText_login);
+        editT_mdp = (EditText) findViewById(R.id.editText_mdp);
+        btn_connexion = (Button) findViewById(R.id.btn_connexion);
 
         // ----------------- Déroulement des différents test -----------------
 
@@ -53,12 +70,13 @@ public class UserConnexion extends Activity {
 
         // Vérification de si un utilisateur existe déja
         // Si il n'y en a pas, on passe directement a la suite, sinon on entre dans la boucle
-        if(utilisateurDAO.count() >= 1){
+        if (utilisateurDAO.count() >= 1) {
+
 
             VisiteDAO visiteDAO = new VisiteDAO(this);
             visiteDAO.open();
-            Log.i("VISITE", "" + visiteDAO.count() +"" );
-            if (visiteDAO.count() > 0){
+            Log.i("VISITE", "" + visiteDAO.count() + "");
+            if (visiteDAO.count() > 0) {
 
                 dropAllVisiteToBDDMySQL(visiteDAO);
             }
@@ -69,27 +87,39 @@ public class UserConnexion extends Activity {
             String nom = unUser.getNom();
             String prenom = unUser.getPrenom();
             int versionOfUser = unUser.getNumVersion();
+            double longitudeOld = unUser.getPosX();
+            double latitudeOld = unUser.getPosY();
             Log.i("User From local", nom + " " + prenom);
 
             // Récupération du même utilisateur dans la BDD distante
-            String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUserVersion_WS.php?nom="+nom+"&prenom="+prenom+"";
-            GetUserVersionFromBDD getUserVersion = new GetUserVersionFromBDD(getApplicationContext(),url);
+            String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUserVersion_WS.php?nom=" + nom + "&prenom=" + prenom + "";
+            GetUserVersionFromBDD getUserVersion = new GetUserVersionFromBDD(getApplicationContext(), url);
             getUserVersion.execute();
             try {
                 String user = getUserVersion.get();
                 JSONArray array = new JSONArray(user);
-                Log.d("User From BDD : ",""+array+"");
+                Log.d("User From BDD : ", "" + array + "");
 
                 int i = 0;
-                String id= array.getJSONObject(i).getString("id");
-                String newNom= array.getJSONObject(i).getString("nom");
-                String newPrenom= array.getJSONObject(i).getString("prenom");
+                String id = array.getJSONObject(i).getString("id");
+                String newNom = array.getJSONObject(i).getString("nom");
+                String newPrenom = array.getJSONObject(i).getString("prenom");
                 int versionFromBDD = array.getJSONObject(i).getInt("version");
-                Utilisateur unNouveauUser = new Utilisateur(id,newNom,newPrenom,versionFromBDD);
+                Utilisateur unNouveauUser = new Utilisateur(id, newNom, newPrenom, versionFromBDD);
 
                 // On compare les numéros de version
-                if (versionOfUser == versionFromBDD){
-                    // Si ils sont égaux, on ne change rien
+                if (versionOfUser == versionFromBDD) {
+                    // Si ils sont égaux, on verifie les coordonnées
+                    Location laPosition = getLocalisation();
+                    if (laPosition != null){
+                        double longitude = laPosition.getLongitude();
+                        double latitude = laPosition.getLatitude();
+                        if (latitude != latitudeOld || longitude != longitudeOld){
+                            Utilisateur userWithNewPOS = new Utilisateur(id, nom, prenom, versionFromBDD, longitude, latitude);
+                            changeUserInBDD(userWithNewPOS);
+                            Log.i("USER_POSITION", "Coordonnées modifiées");
+                        }
+                    }
                     goToCardViewSelector();
                     Log.i("USER_VERSION", "Identique");
                 } else {
@@ -103,7 +133,9 @@ public class UserConnexion extends Activity {
                     goToCardViewSelector();
                 }
 
-            } catch (InterruptedException | ExecutionException | JSONException e) {e.printStackTrace();}
+            } catch (InterruptedException | ExecutionException | JSONException e) {
+                e.printStackTrace();
+            }
         }
 
         // --------------- OnClickListener sur le bouton ------------------
@@ -119,35 +151,44 @@ public class UserConnexion extends Activity {
                 utilisateurDAO.open();
 
                 // On vérifie si tout les champs sont remplis
-                if (login.isEmpty() || mdp.isEmpty()){
+                if (login.isEmpty() || mdp.isEmpty()) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Tout les champs doivent être remplit", Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
-                }
-                else {
+                } else {
                     // On appele le web service (dans la tâche asynchrone)
-                    String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUser_WS.php?login="+login+"&mdp="+mdp+"";
-                    GetUserFromBDD getUser = new GetUserFromBDD(getApplicationContext(),url);
+                    String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
+                    GetUserFromBDD getUser = new GetUserFromBDD(getApplicationContext(), url);
                     getUser.execute();
                     try {
                         String user = getUser.get();
                         // Si on ne récupère rien, c'est que les champs étaient faux
-                        if (user.equals("[]\n")){
+                        if (user.equals("[]\n")) {
                             Toast toast = Toast.makeText(getApplicationContext(), "Login/MotDePasse Incorrect", Toast.LENGTH_LONG);
                             toast.setGravity(Gravity.CENTER, 0, 0);
                             toast.show();
-                        } else{
+                        } else {
                             // Sinon on ajoute l'utilisateur récupéré
                             JSONArray array = new JSONArray(user);
-                            Log.d("utilisateur : ",""+array+"");
+                            Log.d("utilisateur : ", "" + array + "");
 
                             int i = 0;
-                            String id= array.getJSONObject(i).getString("id");
-                            String nom= array.getJSONObject(i).getString("nom");
-                            String prenom= array.getJSONObject(i).getString("prenom");
+                            String id = array.getJSONObject(i).getString("id");
+                            String nom = array.getJSONObject(i).getString("nom");
+                            String prenom = array.getJSONObject(i).getString("prenom");
                             int version = array.getJSONObject(i).getInt("version");
-                            Utilisateur unUser = new Utilisateur(id,nom,prenom,version);
-                            utilisateurDAO.ajouter(unUser);
+
+                            Location laPosition = getLocalisation();
+                            if (laPosition != null) {
+                                double longitude = laPosition.getLongitude();
+                                double latitude = laPosition.getLatitude();
+
+                                Utilisateur unUser = new Utilisateur(id, nom, prenom, version, longitude, latitude);
+                                utilisateurDAO.ajouter(unUser);
+                            } else {
+                                Utilisateur unUser = new Utilisateur(id, nom, prenom, version);
+                                utilisateurDAO.ajouter(unUser);
+                            }
 
                             // On change ensuite d'activité'
                             goToCardViewSelector();
@@ -162,12 +203,12 @@ public class UserConnexion extends Activity {
     }
 
 
-    public void goToCardViewSelector(){
+    public void goToCardViewSelector() {
         Intent i = new Intent(getApplicationContext(), CardViewSelector.class);
         startActivity(i);
     }
 
-    public void deleteAllMedecinsFromBDD (){
+    public void deleteAllMedecinsFromBDD() {
         MedecinDAO medecinDAO = new MedecinDAO(this);
         medecinDAO.open();
         medecinDAO.supprimer();
@@ -175,7 +216,7 @@ public class UserConnexion extends Activity {
         medecinDAO.close();
     }
 
-    public void deleteAllCabinetFromBDD(){
+    public void deleteAllCabinetFromBDD() {
         CabinetDAO cabinetDAO = new CabinetDAO(this);
         cabinetDAO.open();
         cabinetDAO.supprimer();
@@ -183,7 +224,7 @@ public class UserConnexion extends Activity {
         cabinetDAO.close();
     }
 
-    public void changeUserInBDD(Utilisateur unUser){
+    public void changeUserInBDD(Utilisateur unUser) {
         UtilisateurDAO utilisateurDAO = new UtilisateurDAO(this);
         utilisateurDAO.open();
         utilisateurDAO.supprimer();
@@ -194,8 +235,8 @@ public class UserConnexion extends Activity {
 
     // Ajoute chaque visite local a la BDD distante
     // Puis les supprime de la BDD local
-    private  void dropAllVisiteToBDDMySQL(VisiteDAO visiteDAO){
-        for (int i = 0 ; i < visiteDAO.count() ; i++){
+    private void dropAllVisiteToBDDMySQL(VisiteDAO visiteDAO) {
+        for (int i = 0; i < visiteDAO.count(); i++) {
             // Récupère chaque visite
             Visite uneVisite = visiteDAO.selectionner(i);
             String dateVisite = uneVisite.getDateVisite();
@@ -207,7 +248,7 @@ public class UserConnexion extends Activity {
             String heureFin = uneVisite.getHeureFin();
 
             // L'ajoute a la BDD distante grâce au WS
-            String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/setVisite_WS.php?datevisite="+dateVisite+"&rdv="+rdvOrNot+"&idutilisateur="+idUser+"&idmedecin="+idMedecin+"&heurearrivee="+heureArrive+"&heurefin="+heureFin+"&heuredebut="+heureDebut+"";
+            String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heurefin=" + heureFin + "&heuredebut=" + heureDebut + "";
             SetVisiteToBDD setVisite = new SetVisiteToBDD(getApplicationContext(), url);
             setVisite.execute();
         }
@@ -216,8 +257,51 @@ public class UserConnexion extends Activity {
         visiteDAO.supprimer();
     }
 
+    @Nullable
+    private Location getLocalisation() {
+
+        LocationManager locationManager;
+        String svcName = Context.LOCATION_SERVICE;
+        locationManager = (LocationManager) getSystemService(svcName);
+        Log.i("LOCATION", "locationManager" + locationManager + "");
+
+        // Critère pour selectionner le meilleur fournisseur de position
+        Criteria critere = new Criteria();
+        critere.setAccuracy(Criteria.ACCURACY_COARSE);
+        critere.setAltitudeRequired(false);
+        critere.setBearingRequired(true);
+        critere.setCostAllowed(false);
+        critere.setPowerRequirement(Criteria.POWER_MEDIUM);
+        critere.setSpeedRequired(false);
+        Log.i("LOCATION", "Critere ok");
+
+        // On obtient ainsi le meilleur fournisseur de position, en fonction des critères
+        String provider = locationManager.getBestProvider(critere, true);
+        Log.i("LOCATION", "provider" + provider + "");
 
 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            Location l = locationManager.getLastKnownLocation(provider);locationManager.requestLocationUpdates(provider, 2000, 10, locationListener);
+            Log.i("LOCATION", "Location = " + l + "");
+            return l;
+       } else { return null; }
+
+
+
+    }
+
+    private final LocationListener locationListener = new LocationListener() {
+        public void onLocationChanged(Location location) {}
+        public void onProviderDisabled(String provider) {}
+        public void onProviderEnabled(String provider) {}
+        public void onStatusChanged(String provider, int Status, Bundle extras) {}
+    };
 
 
 }
+
+
+
+
+
+
