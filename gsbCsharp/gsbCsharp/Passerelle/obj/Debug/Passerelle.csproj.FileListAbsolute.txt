@@ -21,3 +21,10 @@ C:\wamp\www\GSB\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Metier.pdb
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.csprojResolveAssemblyReference.cache
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.dll
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.pdb
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Passerelle.dll
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Passerelle.pdb
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Metier.dll
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Metier.pdb
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.csprojResolveAssemblyReference.cache
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.dll
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.pdb
