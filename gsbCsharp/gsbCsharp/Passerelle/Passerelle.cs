@@ -29,7 +29,7 @@ namespace Passerelle
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
         private static BindingList<Utilisateur> listeDesAdmins = new BindingList<Utilisateur>();
-        private static String connectionString = "SERVER=172.16.9.4; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        private static String connectionString = "SERVER=172.16.9.3; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         //private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         //private static String connectionString = "SERVER=172.16.8.200; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
@@ -472,6 +472,26 @@ namespace Passerelle
             maCommande.Parameters.AddWithValue("@prenom", medecin.getPrenom());
             maCommande.Parameters.AddWithValue("@idCabinet", medecin.getCabinet().getId());
             maCommande.Parameters.AddWithValue("@idUtilisateur", medecin.getVisiteur().getId());
+
+            maCommande.ExecuteNonQuery();
+            int lastId = (int)maCommande.LastInsertedId;
+            medecin.setId(lastId);
+            listeDesMedecins.Add(medecin);
+        }
+
+
+        /// <summary>
+        /// Insére le médecin donné en paramétre dans la BDD
+        /// </summary>
+        /// <param name="medecin"></param>
+        public static void addMedecinSansVisiteur(Medecin medecin)
+        {
+            connexion();
+            MySqlCommand maCommande = maConnection.CreateCommand();
+            maCommande.CommandText = "INSERT INTO medecin(nom, prenom, idCabinet, idUtilisateur) VALUES(@nom, @prenom, @idcabinet, @idutilisateur);";
+            maCommande.Parameters.AddWithValue("@nom", medecin.getNom());
+            maCommande.Parameters.AddWithValue("@prenom", medecin.getPrenom());
+            maCommande.Parameters.AddWithValue("@idCabinet", medecin.getCabinet().getId());
 
             maCommande.ExecuteNonQuery();
             int lastId = (int)maCommande.LastInsertedId;

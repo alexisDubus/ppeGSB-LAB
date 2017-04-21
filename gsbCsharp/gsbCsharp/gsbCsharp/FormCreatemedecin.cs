@@ -68,7 +68,14 @@ namespace gsbCsharp
             Medecin unMedecin = new Medecin(nom, prenom, unCabinet, unUtilisateur);
             if (nom != "" && prenom != "")
             {
-                Passerelle.Passerelle.addMedecin(unMedecin);
+                if(unUtilisateur == null)
+                {
+                    Passerelle.Passerelle.addMedecinSansVisiteur(unMedecin);
+                }
+                else
+                {
+                    Passerelle.Passerelle.addMedecin(unMedecin);
+                }
             } else
             {
                 MessageBox.Show("Les valeurs ne sont pas valides");
