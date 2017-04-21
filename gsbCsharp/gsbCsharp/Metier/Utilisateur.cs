@@ -243,7 +243,6 @@ namespace Metier
         {
             this.version++;
             return this.version;
-            //faire liaison BBD
         }
 
         /// <summary>

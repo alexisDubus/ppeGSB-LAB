@@ -12,3 +12,8 @@ C:\wamp\www\GSB\gsbCsharp\gsbCsharp\Metier\bin\Debug\Metier.pdb
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\Metier\obj\Debug\Metier.csprojResolveAssemblyReference.cache
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\Metier\obj\Debug\Metier.dll
 C:\wamp\www\GSB\gsbCsharp\gsbCsharp\Metier\obj\Debug\Metier.pdb
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Metier\bin\Debug\Metier.dll
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Metier\bin\Debug\Metier.pdb
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Metier\obj\Debug\Metier.csprojResolveAssemblyReference.cache
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Metier\obj\Debug\Metier.dll
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Metier\obj\Debug\Metier.pdb
