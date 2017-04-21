@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
+import android.support.annotation.Nullable;
 
 import com.example.leo.gsb_mobile.object.Cabinet;
 
@@ -38,7 +39,6 @@ public class CabinetDAO extends DAOBase {
     }
 
     public void supprimer() {
-       // mDb.delete(TABLE_NAME, KEY + " = "+id,null);
         mDb.delete(TABLE_NAME,null,null);
     }
 
@@ -48,6 +48,7 @@ public class CabinetDAO extends DAOBase {
         return cursorToCabinet(c);
     }
 
+    @Nullable
     private Cabinet cursorToCabinet(Cursor c){
         if (c.getCount() == 0)
             return null;

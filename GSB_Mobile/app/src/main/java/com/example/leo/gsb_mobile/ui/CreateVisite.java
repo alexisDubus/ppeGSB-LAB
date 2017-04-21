@@ -19,6 +19,10 @@ import com.example.leo.gsb_mobile.controleur.VisiteDAO;
 import com.example.leo.gsb_mobile.object.Utilisateur;
 import com.example.leo.gsb_mobile.object.Visite;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class CreateVisite extends Activity {
 
     public EditText editT_dateVisite;
@@ -125,25 +129,90 @@ public class CreateVisite extends Activity {
                 if (chkBox_non.isChecked()){rdvOrNot = 0;checkBoxChecked = 1;}
                 if (chkBox_oui.isChecked()){rdvOrNot = 1;checkBoxChecked = 1;}
 
-                if (dateVisite.isEmpty() || heureArrive.isEmpty() || heureDebut.isEmpty() || heureFin.isEmpty() || checkBoxChecked == 0){
-                    Toast toast = Toast.makeText(getApplicationContext(), "Tout les champs doivent être remplit", Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.CENTER, 0, 0);
-                    toast.show();
-                }else{
-                    // Création et ajout de la visite
-                    VisiteDAO visiteDAO = new VisiteDAO(context);
-                    visiteDAO.open();
-                    Visite uneVisite = new Visite(dateVisite, rdvOrNot, heureArrive, heureDebut, heureFin, idUser, idMedecin);
-                    Log.i("CREATEVISITE", "Visite créer");
-                    visiteDAO.ajouter(uneVisite);
-                    Log.i("CREATEVISITE", "Visite ajouté");
-                    visiteDAO.close();
 
-                    // Retour sur l'activity List
-                    Intent i = new Intent(getApplicationContext(), CardViewSelector.class);
-                    startActivity(i);
+                // On vérifie si les champs entrés correspondent au bon format
+                boolean dateOk = isValidDate(dateVisite);
+                boolean hourArriveOk = isValidHour(heureArrive);
+                boolean hourDebutOk = isValidHour(heureDebut);
+                boolean hourFinOk = isValidHour(heureFin);
+
+                // On transforme les heure du format HH:MM vers le format AAAA/MM/JJ HH:MM:SS
+                heureArrive = dateVisite + " " + heureArrive + ":00";
+                heureDebut = dateVisite + " " + heureDebut + ":00";
+                heureFin = dateVisite + " " + heureFin + ":00";
+
+                try {
+                    // On converti les heures en format Date
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    Date heureArriveDate = formatter.parse(heureArrive);
+                    Date heureDebutDate = formatter.parse(heureDebut);
+                    Date heureFinDate = formatter.parse(heureFin);
+
+                    if (dateVisite.isEmpty() || heureArrive.isEmpty() || heureDebut.isEmpty() || heureFin.isEmpty() || checkBoxChecked == 0)
+                    {showToast("Tout les champs doivent être remplit");}
+
+                    // On peut ainsi les comparer les heures
+                    else if (heureDebutDate.compareTo(heureArriveDate)<0)
+                    {showToast("L'heure de début ne peut être supérieure a l'heure d'arrivé");}
+                    else if (heureFinDate.compareTo(heureDebutDate)<0)
+                    {showToast("L'heure de fin ne peut être supérieure a l'heure de début");}
+
+                    else if (dateOk && hourArriveOk && hourDebutOk && hourFinOk){
+                        // Création et ajout de la visite
+                        VisiteDAO visiteDAO = new VisiteDAO(context);
+                        visiteDAO.open();
+                        Visite uneVisite = new Visite(dateVisite, rdvOrNot, heureArrive, heureDebut, heureFin, idUser, idMedecin);
+                        Log.i("CREATEVISITE", "Visite créer");
+                        Log.i("VISITE", uneVisite.getDateVisite()+ " " + uneVisite.getHeureArrive() + " " + uneVisite.getHeureDebut() + " ");
+                        visiteDAO.ajouter(uneVisite);
+                        Log.i("CREATEVISITE", "Visite ajouté");
+                        visiteDAO.close();
+
+                        // Retour sur l'activity List
+                        Intent i = new Intent(getApplicationContext(), CardViewSelector.class);
+                        startActivity(i);
+                    }
+                    else{
+                        showToast("Un des champs est incorrect");
+                    }
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
                 }
+
+
+
+
+
             }
         });
     }
+
+    public void showToast( String message){
+        Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+    }
+
+    public boolean isValidDate(String dateString) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            df.parse(dateString);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
+
+    public boolean isValidHour(String dateString) {
+        SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+        try {
+            df.parse(dateString);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
 }
+
+

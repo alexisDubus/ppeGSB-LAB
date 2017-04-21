@@ -10,14 +10,21 @@ public class CardView {
     private String prenomMedecin;
     private String adresseCabinet;
     public int idMedecin;
-    private double distance;
+    private String distance;
 
-    public CardView(String nomMedecin, String prenomMedecin, String adresseCabinet, int idMedecin, double distance) {
+    public CardView(String nomMedecin, String prenomMedecin, String adresseCabinet, int idMedecin, String distance) {
         this.nomMedecin = nomMedecin;
         this.adresseCabinet = adresseCabinet;
         this.prenomMedecin = prenomMedecin;
         this.idMedecin = idMedecin;
         this.distance = distance;
+    }
+
+    public CardView(String nomMedecin, String prenomMedecin, String adresseCabinet, int idMedecin) {
+        this.nomMedecin = nomMedecin;
+        this.adresseCabinet = adresseCabinet;
+        this.prenomMedecin = prenomMedecin;
+        this.idMedecin = idMedecin;
     }
 
     public int getIdMedecin() {
@@ -52,7 +59,7 @@ public class CardView {
         this.adresseCabinet = adresseCabinet;
     }
 
-    public double getDistance() {return distance;}
+    public String getDistance() {return distance;}
 
-    public void setDistance(double distance) {this.distance = distance;}
+    public void setDistance(String distance) {this.distance = distance;}
 }

@@ -1,0 +1,31 @@
+</pre>
+<?php
+
+function getAllCabinetOfMedecin($idcabinet) {
+	$conn=mysqli_connect('localhost','root','','soap');
+	$query = "SELECT rue, CP, ville , longitude, latitude FROM cabinet "
+	. "WHERE id = '$idcabinet'";
+
+	$result = mysqli_query($conn,$query);
+	$row = mysqli_fetch_assoc($result);
+
+	return $row['cabinet'];
+}
+
+require('lib/nusoap.php');
+$server = new soap_server();
+$server->configureWSDL('stockserver', 'urn:stockquote');
+
+$server->register("getAllCabinetOfMedecin",
+array('iduser' => 'xsd:string'),
+array('return' => 'xsd:decimal'),
+
+'urn:stockquote',
+'urn:stockquote#getAllCabinetOfMedecin');
+
+$HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA)
+? $HTTP_RAW_POST_DATA : '';
+$server->service($HTTP_RAW_POST_DATA);
+
+?>
+<pre>

@@ -71,6 +71,7 @@ public class CardViewSelector extends AppCompatActivity{
     private void addMedecinInList(MedecinDAO medecinDAO, CabinetDAO cabinetDAO, UtilisateurDAO utilisateurDAO){
         String adresse;
         medecinDAO.open();
+        double distance = 0;
         for (int i = 1 ; i <= medecinDAO.count() ;  i++) {
             Medecin unMedecin = medecinDAO.selectionner(i);
             Log.i("INFO_AJOUTERMEDECINS", ""+ unMedecin.getNom() + " " + unMedecin.getPrenom() +" séléctionné");
@@ -83,9 +84,15 @@ public class CardViewSelector extends AppCompatActivity{
             Utilisateur unUser = utilisateurDAO.selectionner(0);
             double longitude = unUser.getPosX();
             double latitude = unUser.getPosY();
+            if (longitude == 0 || latitude == 0){
+                Log.i("Coordonnées GPS", "Longitude et latitude = 0");
+            } else{
+                distance = getDistance(longitude, latitude, unCabinet.getPosX(), unCabinet.getPosY());
+            }
             utilisateurDAO.close();
-            double distance = getDistance(longitude, latitude, unCabinet.getPosX(), unCabinet.getPosY());
-            medecins.add(new CardView(unMedecin.getNom(), unMedecin.getPrenom(), adresse , unMedecin.getIdMedecin(), distance));
+
+            String sDistance = ""+distance+"";
+            medecins.add(new CardView(unMedecin.getNom(), unMedecin.getPrenom(), adresse , unMedecin.getIdMedecin(), sDistance));
             Log.i("INFO_AJOUTERMEDECINS", ""+ unMedecin.getNom() + " " + unMedecin.getPrenom() + " ajouté à la liste");
             medecinDAO.open();
         }

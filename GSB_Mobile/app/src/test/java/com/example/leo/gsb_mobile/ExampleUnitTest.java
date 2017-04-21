@@ -1,5 +1,7 @@
 package com.example.leo.gsb_mobile;
 
+import com.example.leo.gsb_mobile.controleur.UtilisateurDAO;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,5 +15,7 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
+        
     }
+
 }

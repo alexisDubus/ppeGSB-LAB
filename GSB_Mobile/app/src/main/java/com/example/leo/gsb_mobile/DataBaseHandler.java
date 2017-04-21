@@ -115,10 +115,6 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(USER_TABLE_DROP);
-        db.execSQL(CABINET_TABLE_DROP);
-        db.execSQL(MEDECIN_TABLE_DROP);
-        db.execSQL(VISITE_TABLE_DROP);
         onCreate(db);
     }
 }

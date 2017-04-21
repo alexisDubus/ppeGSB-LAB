@@ -36,7 +36,15 @@ import com.example.leo.gsb_mobile.web_services.SetVisiteToBDD;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.InetAddress;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
@@ -68,6 +76,7 @@ public class UserConnexion extends Activity {
         UtilisateurDAO utilisateurDAO = new UtilisateurDAO(this);
         utilisateurDAO.open();
 
+
         // Vérification de si un utilisateur existe déja
         // Si il n'y en a pas, on passe directement a la suite, sinon on entre dans la boucle
         if (utilisateurDAO.count() >= 1) {
@@ -77,22 +86,22 @@ public class UserConnexion extends Activity {
             visiteDAO.open();
             Log.i("VISITE", "" + visiteDAO.count() + "");
             if (visiteDAO.count() > 0) {
-
                 dropAllVisiteToBDDMySQL(visiteDAO);
             }
             visiteDAO.close();
 
             // Récupération de l'utilisateur dans la BDD Sqlite
             Utilisateur unUser = utilisateurDAO.selectionner(0);
+            String idUser = unUser.getUserId();
             String nom = unUser.getNom();
             String prenom = unUser.getPrenom();
             int versionOfUser = unUser.getNumVersion();
             double longitudeOld = unUser.getPosX();
             double latitudeOld = unUser.getPosY();
-            Log.i("User From local", nom + " " + prenom);
+            Log.i("User From local", nom + " " + prenom + " : " + idUser);
 
             // Récupération du même utilisateur dans la BDD distante
-            String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUserVersion_WS.php?nom=" + nom + "&prenom=" + prenom + "";
+            String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUserVersion_WS.php?id=" + idUser + "";
             GetUserVersionFromBDD getUserVersion = new GetUserVersionFromBDD(getApplicationContext(), url);
             getUserVersion.execute();
             try {
@@ -109,17 +118,34 @@ public class UserConnexion extends Activity {
 
                 // On compare les numéros de version
                 if (versionOfUser == versionFromBDD) {
+
                     // Si ils sont égaux, on verifie les coordonnées
                     Location laPosition = getLocalisation();
-                    if (laPosition != null){
+                    if (laPosition != null) {
                         double longitude = laPosition.getLongitude();
                         double latitude = laPosition.getLatitude();
-                        if (latitude != latitudeOld || longitude != longitudeOld){
+                        if (latitude != latitudeOld || longitude != longitudeOld) {
                             Utilisateur userWithNewPOS = new Utilisateur(id, nom, prenom, versionFromBDD, longitude, latitude);
                             changeUserInBDD(userWithNewPOS);
                             Log.i("USER_POSITION", "Coordonnées modifiées");
                         }
                     }
+
+                    /*
+                    if (mGPS.canGetLocation) {
+                        mGPS.getLocation();
+                        double longitude = mGPS.getLongitude();
+                        double latitude = mGPS.getLatitude();
+                        if (latitude != latitudeOld || longitude != longitudeOld) {
+                            Utilisateur userWithNewPOS = new Utilisateur(id, nom, prenom, versionFromBDD, longitude, latitude);
+                            changeUserInBDD(userWithNewPOS);
+                            Log.i("USER_POSITION", "Coordonnées modifiées");
+                        } else {
+                            Log.i("GPS Connexion", "Unable");
+                        }
+                        */
+
+
                     goToCardViewSelector();
                     Log.i("USER_VERSION", "Identique");
                 } else {
@@ -137,6 +163,7 @@ public class UserConnexion extends Activity {
                 e.printStackTrace();
             }
         }
+
 
         // --------------- OnClickListener sur le bouton ------------------
 
@@ -179,20 +206,26 @@ public class UserConnexion extends Activity {
                             int version = array.getJSONObject(i).getInt("version");
 
                             Location laPosition = getLocalisation();
+
                             if (laPosition != null) {
                                 double longitude = laPosition.getLongitude();
                                 double latitude = laPosition.getLatitude();
 
                                 Utilisateur unUser = new Utilisateur(id, nom, prenom, version, longitude, latitude);
                                 utilisateurDAO.ajouter(unUser);
+
+                                // On change ensuite d'activité'
+                                goToCardViewSelector();
                             } else {
                                 Utilisateur unUser = new Utilisateur(id, nom, prenom, version);
                                 utilisateurDAO.ajouter(unUser);
-                            }
 
-                            // On change ensuite d'activité'
-                            goToCardViewSelector();
+                                // On change ensuite d'activité'
+                                goToCardViewSelector();
+
+                            }
                         }
+
                     } catch (InterruptedException | ExecutionException | JSONException e) {
                         e.printStackTrace();
                     }
@@ -201,6 +234,7 @@ public class UserConnexion extends Activity {
             }
         });
     }
+
 
 
     public void goToCardViewSelector() {
@@ -248,9 +282,11 @@ public class UserConnexion extends Activity {
             String heureFin = uneVisite.getHeureFin();
 
             // L'ajoute a la BDD distante grâce au WS
-            String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heurefin=" + heureFin + "&heuredebut=" + heureDebut + "";
+            String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
             SetVisiteToBDD setVisite = new SetVisiteToBDD(getApplicationContext(), url);
             setVisite.execute();
+            Log.i("VISITE", "Visite du " + dateVisite + " crée");
+
         }
 
         // Puis on supprime toutes les visites
@@ -279,16 +315,20 @@ public class UserConnexion extends Activity {
         String provider = locationManager.getBestProvider(critere, true);
         Log.i("LOCATION", "provider" + provider + "");
 
-
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            Location l = locationManager.getLastKnownLocation(provider);locationManager.requestLocationUpdates(provider, 2000, 10, locationListener);
+            // Impossible de recuperer la position
+            // TODO Trouver comment récupérer une localisation
+            return null;
+        }
+        else {
+            Location l = locationManager.getLastKnownLocation(provider);
+            locationManager.requestLocationUpdates(provider, 2000, 10, locationListener);
             Log.i("LOCATION", "Location = " + l + "");
             return l;
-       } else { return null; }
-
-
-
+        }
     }
+
+
 
     private final LocationListener locationListener = new LocationListener() {
         public void onLocationChanged(Location location) {}
@@ -296,6 +336,32 @@ public class UserConnexion extends Activity {
         public void onProviderEnabled(String provider) {}
         public void onStatusChanged(String provider, int Status, Bundle extras) {}
     };
+
+
+
+
+    private static boolean netIsAvailable() {
+        try {
+            //make a URL to a known source
+            URL url = new URL("http://www.google.com");
+
+            //open a connection to that source
+            HttpURLConnection urlConnect = (HttpURLConnection)url.openConnection();
+
+            //trying to retrieve data from the source. If there
+            //is no connection, this line will fail
+            Object objData = urlConnect.getContent();
+
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+            return false;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
 
 
 }

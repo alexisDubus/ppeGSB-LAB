@@ -45,7 +45,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
         textViewNomM.setText(object.getNomMedecin());
         textViewPrenomM.setText(object.getPrenomMedecin());
         textViewAdresseC.setText(object.getAdresseCabinet());
-        textViewDistance.setText((int) object.getDistance());
+        textViewDistance.setText(object.getDistance());
         idMedecin = object.getIdMedecin();
     }
 }

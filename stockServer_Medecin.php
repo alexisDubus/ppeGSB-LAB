@@ -1,16 +1,30 @@
 
 <?php
+ 
+include'ConnexionBd.php';
 
-$servername = "localhost";
-$username = "lamp";
-$password = "AzertY!59";
+$id = $_REQUEST['id'];
 
-// Create connection
-$conn = new mysqli($servername, $username, $password);
+ 
+$sql = "SELECT * FROM medecin WHERE idutilisateur = '" . $id . "'";
 
-$query = "SELECT nom, , prenom , idCabinet, idUtilisateur FROM medecin "
-		. "WHERE idUtilisateur = $_GET["var"]";
 
-print(json_encode($query));	
+//echo $sql;
+$result = $bd->query($sql);
+ 
+
+$resultArray = array();
+$tempArray = array();
+ 
+while($row = $result->fetch(PDO::FETCH_ASSOC))
+{
+	$tempArray = $row;
+    array_push($resultArray, $tempArray);
+}
+ 
+echo json_encode($resultArray);
+//var_dump($resultArray);
+
+$bd = null;
 
 ?>

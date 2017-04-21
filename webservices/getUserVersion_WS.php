@@ -2,10 +2,10 @@
  
 include'ConnexionBd.php';
 
-$nom= $_REQUEST['nom'];
-$prenom= $_REQUEST['prenom'];
+$id= $_REQUEST['id'];
+
  
-$sql = "SELECT * FROM utilisateur WHERE nom = '" . $nom . "' AND prenom = '" . $prenom . "' ";
+$sql = "SELECT * FROM utilisateur WHERE id = '" . $id . "'";
 
 
 //echo $sql;

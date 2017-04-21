@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">GSB_Mobile</string>
+    <string name="visiteCreation">Création d\'une visite</string>
+    <string name="medecinNameLastname">NomEtPrenom</string>
+    <string name="visiteDate">Date de la visite :</string>
+    <string name="formatDate">Format : AAAA-MM-JJ</string>
+    <string name="visiteIsRdvOrNot">La visite est elle sur rendez-vous ? :</string>
+    <string name="yes">OUI</string>
+    <string name="non">NON</string>
+    <string name="arriveTime">Heure de votre arrivé au Cabinet :</string>
+    <string name="formatHour">Format : HH:MM</string>
+    <string name="createVisite">Créer la visite</string>
+    <string name="startHour">Heure de début de l\'entretien :</string>
+    <string name="endHour">Heure de fin de l\'entretien :</string>
 </resources>
