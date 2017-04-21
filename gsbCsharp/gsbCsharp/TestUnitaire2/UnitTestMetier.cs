@@ -3,10 +3,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Metier;
 using Passerelle;
 
-namespace testUnitaires
+namespace TestUnitaire2
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestMetier
     {
         [TestMethod]
         public void testConstructeurUtilisateur()
@@ -134,15 +134,5 @@ namespace testUnitaires
             Assert.AreEqual("philipe.dupaté@gsb.com", medecinObtenu.getVisiteur().getEmail());
         }
 
-        [TestMethod]
-        public void testPasserelleCheckValueIsCorrect()
-        {
-            String strAttendu = "correct";
-            String strObtenu = Passerelle.Passerelle.checkValueIsCorrect("correct");
-            Assert.AreEqual(strAttendu, strObtenu.ToString());
-            strAttendu = "";
-            strObtenu = Passerelle.Passerelle.checkValueIsCorrect("2cor2rect");
-            Assert.AreEqual(strAttendu, strObtenu.ToString());
-        }
     }
 }

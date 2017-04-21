@@ -42,13 +42,13 @@ namespace gsbCsharp
         private void FormAcceuil_Load(object sender, EventArgs e)
         {
 
-            if (Passerelle.Passerelle.getTypeUtilisateurSession() == 2) //case visiteur
+            if (Passerelle.Passerelle.getIdRoleUtilisateurSession() == 2) //case visiteur
             {
                 menuStrip.Items[0].Visible = false;
                 menuStrip.Items[1].Visible = false;
                 menuStrip.Items[2].Visible = false;
             }
-            if (Passerelle.Passerelle.getTypeUtilisateurSession() == 0)//case admin
+            if (Passerelle.Passerelle.getIdRoleUtilisateurSession() == 0)//case admin
             {
                 menuStrip.Items[3].Visible = false;
                 menuStrip.Items[4].Visible = false;
