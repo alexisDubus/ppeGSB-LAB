@@ -2,8 +2,8 @@
  
 include'ConnexionBd.php';
 
-
-$sql = "SELECT * FROM cabinet";
+$id = $_REQUEST['id'];
+$sql = "SELECT * FROM cabinet WHERE id > '" . $id . "'";
 
 $result = $bd->query($sql);
 $resultArray = array();
