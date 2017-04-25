@@ -24,7 +24,8 @@ namespace testUnitaires
             String idRole = "2";
             int version = 9;
             DateTime dateAttendu = new DateTime(2017, 02, 02);
-            Utilisateur utilisateurObtenu = new Utilisateur("1", "david", "andre", "dandre", "oppg5", "106 rue victor hugo", "59000", "Lille", date, "2", "david.andre@gsb.com", 8);
+            Utilisateur utilisateurObtenu = new Utilisateur("1", "david", "andre", "dandre", 
+                "oppg5", "106 rue victor hugo", "59000", "Lille", date, "2", "david.andre@gsb.com", 8);
             Assert.AreEqual(nom, utilisateurObtenu.getNom());
             Assert.AreEqual(prenom, utilisateurObtenu.getPrenom());
             Assert.AreEqual(id, utilisateurObtenu.getId());
@@ -143,6 +144,40 @@ namespace testUnitaires
             strAttendu = "";
             strObtenu = Passerelle.Passerelle.checkValueIsCorrect("2cor2rect");
             Assert.AreEqual(strAttendu, strObtenu.ToString());
+        }
+
+        [TestMethod]
+        public void testPasserelleCheckValueIsCorrectNumber()
+        {
+            String strAttendu = "976";
+            String strObtenu = Passerelle.Passerelle.checkValueIsCorrectNumber("976");
+            Assert.AreEqual(strAttendu, strObtenu.ToString());
+            strAttendu = "";
+            strObtenu = Passerelle.Passerelle.checkValueIsCorrectNumber("2cor2rect");
+            Assert.AreEqual(strAttendu, strObtenu.ToString());
+        }
+
+        [TestMethod]
+        public void testPasserelleGet()
+        {
+            DateTime date = new DateTime(2017, 02, 02);
+            String nom = "david";
+            String prenom = "andre";
+            String id = "3";
+            String ville = "Lille";
+            String email = "david.andre@gsb.com";
+            String login = "dandre";
+            String mdp = "oppg5";
+            String adresse = "106 rue victor hugo";
+            String cp = "59000";
+            String idRole = "0";
+            Boolean adminAttendu = true;
+            int version = 9;
+            Utilisateur utilisateurObtenu = new Utilisateur("2", "david", "andre", "dandre", "oppg5", "106 rue victor hugo", "59000", "Lille", date, "0", "david.andre@gsb.com", 8);
+            String strObtenu = Passerelle.Passerelle.checkValueIsCorrectNumber("976");
+            Passerelle.Passerelle.setVisiteurSession(utilisateurObtenu);
+            Passerelle.Passerelle.setIdUtilisateurSession("3");
+            Assert.AreEqual(id, Passerelle.Passerelle.getIdUtilisateurSession());
         }
     }
 }
