@@ -31,7 +31,6 @@ public class GetUserFromBDD extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        //Toast.makeText(context, "Début du traitement", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -42,7 +41,6 @@ public class GetUserFromBDD extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-       // Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 
 

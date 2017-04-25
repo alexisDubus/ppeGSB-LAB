@@ -39,7 +39,6 @@ public class GetMedecinFromBDD extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        //Toast.makeText(context, "Début du traitement", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -50,7 +49,6 @@ public class GetMedecinFromBDD extends AsyncTask<Void, Void, String> {
         Utilisateur unUser = utilisateurDAO.selectionner(0);
         String idUser = unUser.getUserId();
         utilisateurDAO.close();
-        //String result = appelWS("http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getMedecin_WS.php?id="+idUser);
         String result = appelWS("http://172.16.223.129/PPEGSB4.0_Mobile/webservices/getMedecin_WS.php?id="+idUser);
         return result;
     }
@@ -58,7 +56,6 @@ public class GetMedecinFromBDD extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        //Toast.makeText(context,result, Toast.LENGTH_LONG).show();
     }
 
 

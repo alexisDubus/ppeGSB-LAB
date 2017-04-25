@@ -3,15 +3,9 @@
 include'ConnexionBd.php';
 
 $id= $_REQUEST['id'];
-
- 
 $sql = "SELECT * FROM utilisateur WHERE id = '" . $id . "'";
 
-
-//echo $sql;
 $result = $bd->query($sql);
- 
-
 $resultArray = array();
 $tempArray = array();
  
@@ -22,8 +16,6 @@ while($row = $result->fetch(PDO::FETCH_ASSOC))
 }
  
 echo json_encode($resultArray);
-//var_dump($resultArray);
-
 $bd = null;
 
 ?>

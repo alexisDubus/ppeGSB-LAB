@@ -128,7 +128,7 @@ public class CardViewSelector extends AppCompatActivity{
 
     private void getCabinetFromBdd(CabinetDAO cabinetDAO){
         // Vérification de si il y a des cabinets dans la BDD
-        GetCabinetFromBDD getCabinet = new GetCabinetFromBDD(this);
+        GetCabinetFromBDD getCabinet = new GetCabinetFromBDD(getApplicationContext());
         getCabinet.execute();
         try {
             // On recupere un tableau JSON
