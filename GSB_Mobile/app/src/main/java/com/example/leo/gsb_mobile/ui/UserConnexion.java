@@ -102,7 +102,7 @@ public class UserConnexion extends Activity {
 
             // Récupération du même utilisateur dans la BDD distante
             //String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUserVersion_WS.php?id=" + idUser + "";
-            String url = "https://172.16.9.3:8888/var/www/html/PPEGSB4.0_Mobile/webservices/getUserVersion_WS.php?id=" + idUser + "";
+            String url = "http://172.16.223.129/PPEGSB4.0_Mobile/webservices/getUserVersion_WS.php?id=" + idUser + "";
 
             GetUserVersionFromBDD getUserVersion = new GetUserVersionFromBDD(getApplicationContext(), url);
             getUserVersion.execute();
@@ -174,7 +174,7 @@ public class UserConnexion extends Activity {
                     // On appele le web service (dans la tâche asynchrone)
 
                     //String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
-                    String url = "http://172.16.9.3:8080/var/www/html/PPEGSB4.0_Mobile/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
+                    String url = "http://172.16.223.129/PPEGSB4.0_Mobile/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
                     GetUserFromBDD getUser = new GetUserFromBDD(getApplicationContext(), url);
                     getUser.execute();
                     try {
@@ -272,7 +272,7 @@ public class UserConnexion extends Activity {
 
             // L'ajoute a la BDD distante grâce au WS
             //String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
-            String url = "http://172.16.9.3/var/www/html/PPEGSB4.0_Mobile/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
+            String url = "http://172.16.223.129/PPEGSB4.0_Mobile/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
             SetVisiteToBDD setVisite = new SetVisiteToBDD(getApplicationContext(), url);
             setVisite.execute();
             Log.i("VISITE", "Visite du " + dateVisite + " crée");
