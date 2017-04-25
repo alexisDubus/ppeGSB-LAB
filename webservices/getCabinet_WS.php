@@ -20,5 +20,7 @@ while($row = $result->fetch(PDO::FETCH_ASSOC))
 
 echo json_encode($resultArray);
 
+$bd = null;
+
 
 ?>

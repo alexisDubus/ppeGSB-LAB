@@ -144,6 +144,7 @@ public class UserConnexion extends Activity {
                     // On supprime l'utilisateur et on le remplace par le nouveau
                     // (on change juste le numéro de version en soit)
                     changeUserInBDD(unNouveauUser);
+                    Log.i("USER_VERSION", "User re-créer");
                     goToCardViewSelector();
                 }
 
