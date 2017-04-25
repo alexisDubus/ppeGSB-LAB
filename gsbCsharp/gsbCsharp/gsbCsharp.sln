@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gsbCsharp", "gsbCsharp\gsbCsharp.csproj", "{A254A5D2-3911-4431-945A-FF179E74F1E3}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormConnection", "FormConnection\FormConnection.csproj", "{4D477B79-8BA9-49F0-881B-E6532594CA35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testUnitaires", "testUnitaires\testUnitaires.csproj", "{851B2B4B-E17C-4B67-98D2-C744911B8C4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUnitaire2", "TestUnitaire2\TestUnitaire2.csproj", "{3FD9F247-E9F3-4BA7-870C-CE529F23D578}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{851B2B4B-E17C-4B67-98D2-C744911B8C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{851B2B4B-E17C-4B67-98D2-C744911B8C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{851B2B4B-E17C-4B67-98D2-C744911B8C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FD9F247-E9F3-4BA7-870C-CE529F23D578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FD9F247-E9F3-4BA7-870C-CE529F23D578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FD9F247-E9F3-4BA7-870C-CE529F23D578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FD9F247-E9F3-4BA7-870C-CE529F23D578}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

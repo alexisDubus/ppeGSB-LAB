@@ -3,10 +3,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Metier;
 using Passerelle;
 
-namespace testUnitaires
+namespace TestUnitaire2
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestMetier
     {
         [TestMethod]
         public void testConstructeurUtilisateur()
@@ -135,6 +135,7 @@ namespace testUnitaires
             Assert.AreEqual("philipe.dupaté@gsb.com", medecinObtenu.getVisiteur().getEmail());
         }
 
+<<<<<<< HEAD:gsbCsharp/gsbCsharp/testUnitaires/UnitTest1.cs
         [TestMethod]
         public void testPasserelleCheckValueIsCorrect()
         {
@@ -179,5 +180,7 @@ namespace testUnitaires
             Passerelle.Passerelle.setIdUtilisateurSession("3");
             Assert.AreEqual(id, Passerelle.Passerelle.getIdUtilisateurSession());
         }
+=======
+>>>>>>> 587bc828495511881bf412f9c91af35839a85db6:gsbCsharp/gsbCsharp/TestUnitaire2/UnitTestMetier.cs
     }
 }

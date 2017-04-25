@@ -150,7 +150,7 @@ namespace Passerelle
         /// retourne le type d'utilisateur
         /// </summary>
         /// <returns>typeUtilisateur</returns>
-        public static int getTypeUtilisateurSession()
+        public static int getIdRoleUtilisateurSession()
         {
             return typeUtilisateur;
         }
@@ -197,6 +197,8 @@ namespace Passerelle
             return liste;
         }
 
+
+        /*
         /// <summary>
         /// Inutilisé
         /// </summary>
@@ -248,6 +250,7 @@ namespace Passerelle
             unJeuResultat.Close();
             return listeMedecin;
         }
+        */
 
 
         /// <summary>
