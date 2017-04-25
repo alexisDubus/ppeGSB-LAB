@@ -50,6 +50,7 @@ namespace gsbCsharp
         private void comboBoxVisite_SelectedIndexChanged(object sender, EventArgs e)
         {
             Visite uneVisite = (Visite)comboBoxVisite.SelectedItem;
+            dateTimeVisite.Text = uneVisite.getDateVisite().ToString();
             comboBoxMedecin.SelectedItem = uneVisite.getmedecin();
             txtBoxHeure.Text = uneVisite.getHeureDebut().Hour.ToString();
             txtBoxHeureArrivee.Text = uneVisite.getHeureArrivee().Hour.ToString();
@@ -62,6 +63,15 @@ namespace gsbCsharp
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             Passerelle.Passerelle.supprimeVisite((Visite)comboBoxVisite.SelectedItem);
+
+            Utilisateur leVisiteur = Passerelle.Passerelle.getVisiteurSession();
+            
+            listeVisite = Passerelle.Passerelle.getListeVisiteVisiteur(leVisiteur);
+
+            foreach (Metier.Visite laVisite in listeVisite)
+            {
+                comboBoxVisite.Items.Add(laVisite);
+            }
         }
 
         private void btnEditVisite_Click(object sender, EventArgs e)
@@ -77,13 +87,23 @@ namespace gsbCsharp
                 DateTime heure = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeure.Text), Int32.Parse(txtBoxMin.Text), 0);
                 DateTime heureArrivee = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeureArrivee.Text), Int32.Parse(txtBoxMinArrivee.Text), 0);
                 DateTime heureDepart = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeureDepart.Text), Int32.Parse(txtBoxMinDepart.Text), 0);
-                laVisite.setDateVisite(dateTimeViste.Value);
+                laVisite.setDateVisite(dateTimeVisite.Value);
                 laVisite.setHeureDebut(heure);
                 laVisite.setHeureArrivee(heureArrivee);
                 laVisite.setHeureDepart(heureDepart);
                 Medecin unMedecin = (Medecin)comboBoxMedecin.SelectedItem;
                 laVisite.setMedecin(unMedecin);
                 Passerelle.Passerelle.editVisite(laVisite);
+
+                //modifie la liste des visites
+                Utilisateur leVisiteur = Passerelle.Passerelle.getVisiteurSession();
+
+                listeVisite = Passerelle.Passerelle.getListeVisiteVisiteur(leVisiteur);
+
+                foreach (Metier.Visite laVisite2 in listeVisite)
+                {
+                    comboBoxVisite.Items.Add(laVisite2);
+                }
             }
 
             txtBoxHeure.Text = "";
@@ -107,7 +127,7 @@ namespace gsbCsharp
                 DateTime heure = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeure.Text), Int32.Parse(txtBoxMin.Text), 0);
                 DateTime heureArrivee = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeureArrivee.Text), Int32.Parse(txtBoxMinArrivee.Text), 0);
                 DateTime heureDepart = new DateTime(date.Year, date.Month, date.Day, Int32.Parse(txtBoxHeureDepart.Text), Int32.Parse(txtBoxMinDepart.Text), 0);
-                laVisite.setDateVisite(dateTimeViste.Value);
+                laVisite.setDateVisite(dateTimeVisite.Value);
                 laVisite.setHeureDebut(heure);
                 laVisite.setHeureArrivee(heureArrivee);
                 laVisite.setHeureDepart(heureDepart);
