@@ -2,7 +2,6 @@
  
 include'ConnexionBd.php';
 
-$id = $_REQUEST['id'];
 $sql = "SELECT * FROM cabinet";
 
 $result = $bd->query($sql);
