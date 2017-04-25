@@ -34,8 +34,7 @@ import java.util.concurrent.ExecutionException;
 
 public class CardViewSelector extends AppCompatActivity{
 
-    private RecyclerView recyclerView;
-    private List<CardView> medecins = new ArrayList<CardView>();
+    private List<CardView> medecins = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +61,7 @@ public class CardViewSelector extends AppCompatActivity{
 
         addMedecinInList(medecinDAO, cabinetDAO, utilisateurDAO);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyAdapter(medecins));
 
@@ -96,7 +95,7 @@ public class CardViewSelector extends AppCompatActivity{
             Log.i("INFO_AJOUTERMEDECINS", ""+ unMedecin.getNom() + " " + unMedecin.getPrenom() + " ajouté à la liste");
             medecinDAO.open();
         }
-        Log.i("INFO_AJOUTERMEDECINS", "Connexion close");
+        Log.i("INFO_AJOUTERMEDECINS", "Tous les médecins ont été ajoutés");
     }
 
 

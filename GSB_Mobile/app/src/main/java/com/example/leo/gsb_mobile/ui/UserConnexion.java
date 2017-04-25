@@ -101,7 +101,9 @@ public class UserConnexion extends Activity {
             Log.i("User From local", nom + " " + prenom + " : " + idUser);
 
             // Récupération du même utilisateur dans la BDD distante
-            String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUserVersion_WS.php?id=" + idUser + "";
+            //String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUserVersion_WS.php?id=" + idUser + "";
+            String url = "https://172.16.9.3:8888/var/www/html/PPEGSB4.0_Mobile/webservices/getUserVersion_WS.php?id=" + idUser + "";
+
             GetUserVersionFromBDD getUserVersion = new GetUserVersionFromBDD(getApplicationContext(), url);
             getUserVersion.execute();
             try {
@@ -119,7 +121,7 @@ public class UserConnexion extends Activity {
                 // On compare les numéros de version
                 if (versionOfUser == versionFromBDD) {
 
-                    // Si ils sont égaux, on verifie les coordonnées
+                    // Si ils sont égaux, on vérifie les coordonnées
                     Location laPosition = getLocalisation();
                     if (laPosition != null) {
                         double longitude = laPosition.getLongitude();
@@ -130,20 +132,6 @@ public class UserConnexion extends Activity {
                             Log.i("USER_POSITION", "Coordonnées modifiées");
                         }
                     }
-
-                    /*
-                    if (mGPS.canGetLocation) {
-                        mGPS.getLocation();
-                        double longitude = mGPS.getLongitude();
-                        double latitude = mGPS.getLatitude();
-                        if (latitude != latitudeOld || longitude != longitudeOld) {
-                            Utilisateur userWithNewPOS = new Utilisateur(id, nom, prenom, versionFromBDD, longitude, latitude);
-                            changeUserInBDD(userWithNewPOS);
-                            Log.i("USER_POSITION", "Coordonnées modifiées");
-                        } else {
-                            Log.i("GPS Connexion", "Unable");
-                        }
-                        */
 
 
                     goToCardViewSelector();
@@ -184,7 +172,9 @@ public class UserConnexion extends Activity {
                     toast.show();
                 } else {
                     // On appele le web service (dans la tâche asynchrone)
-                    String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
+
+                    //String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
+                    String url = "http://172.16.9.3:8080/var/www/html/PPEGSB4.0_Mobile/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
                     GetUserFromBDD getUser = new GetUserFromBDD(getApplicationContext(), url);
                     getUser.execute();
                     try {
@@ -236,7 +226,6 @@ public class UserConnexion extends Activity {
     }
 
 
-
     public void goToCardViewSelector() {
         Intent i = new Intent(getApplicationContext(), CardViewSelector.class);
         startActivity(i);
@@ -282,7 +271,8 @@ public class UserConnexion extends Activity {
             String heureFin = uneVisite.getHeureFin();
 
             // L'ajoute a la BDD distante grâce au WS
-            String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
+            //String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
+            String url = "http://172.16.9.3/var/www/html/PPEGSB4.0_Mobile/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
             SetVisiteToBDD setVisite = new SetVisiteToBDD(getApplicationContext(), url);
             setVisite.execute();
             Log.i("VISITE", "Visite du " + dateVisite + " crée");
@@ -309,7 +299,7 @@ public class UserConnexion extends Activity {
         critere.setCostAllowed(false);
         critere.setPowerRequirement(Criteria.POWER_MEDIUM);
         critere.setSpeedRequired(false);
-        Log.i("LOCATION", "Critere ok");
+        Log.i("LOCATION", "Critère ok");
 
         // On obtient ainsi le meilleur fournisseur de position, en fonction des critères
         String provider = locationManager.getBestProvider(critere, true);
@@ -318,6 +308,7 @@ public class UserConnexion extends Activity {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // Impossible de recuperer la position
             // TODO Trouver comment récupérer une localisation
+            Toast.makeText(this, "First enable LOCATION ACCESS in settings.", Toast.LENGTH_LONG).show();
             return null;
         }
         else {
@@ -338,7 +329,7 @@ public class UserConnexion extends Activity {
     };
 
 
-
+/*
 
     private static boolean netIsAvailable() {
         try {
@@ -362,7 +353,7 @@ public class UserConnexion extends Activity {
         }
         return true;
     }
-
+*/
 
 }
 
