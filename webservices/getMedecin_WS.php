@@ -18,6 +18,7 @@ $tempArray = array();
 while($row = $result->fetch(PDO::FETCH_ASSOC))
 {
 	$tempArray = $row;
+	$tempArray = array_map('utf8_encode',$tempArray);
     array_push($resultArray, $tempArray);
 }
  

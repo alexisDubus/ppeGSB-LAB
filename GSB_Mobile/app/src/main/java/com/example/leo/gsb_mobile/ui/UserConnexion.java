@@ -5,13 +5,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
 import android.location.Criteria;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.location.LocationProvider;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -36,17 +33,6 @@ import com.example.leo.gsb_mobile.web_services.SetVisiteToBDD;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.InetAddress;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -101,7 +87,6 @@ public class UserConnexion extends Activity {
             Log.i("User From local", nom + " " + prenom + " : " + idUser);
 
             // Récupération du même utilisateur dans la BDD distante
-            //String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUserVersion_WS.php?id=" + idUser + "";
             String url = "http://172.16.223.129/PPEGSB4.0_Mobile/webservices/getUserVersion_WS.php?id=" + idUser + "";
 
             GetUserVersionFromBDD getUserVersion = new GetUserVersionFromBDD(getApplicationContext(), url);
@@ -174,7 +159,6 @@ public class UserConnexion extends Activity {
                 } else {
                     // On appele le web service (dans la tâche asynchrone)
 
-                    //String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
                     String url = "http://172.16.223.129/PPEGSB4.0_Mobile/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
                     GetUserFromBDD getUser = new GetUserFromBDD(getApplicationContext(), url);
                     getUser.execute();
@@ -272,7 +256,6 @@ public class UserConnexion extends Activity {
             String heureFin = uneVisite.getHeureFin();
 
             // L'ajoute a la BDD distante grâce au WS
-            //String url = "http://10.0.2.2:8888/PPEGSB_4.0_Mobile/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
             String url = "http://172.16.223.129/PPEGSB4.0_Mobile/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
             SetVisiteToBDD setVisite = new SetVisiteToBDD(getApplicationContext(), url);
             setVisite.execute();
@@ -308,7 +291,6 @@ public class UserConnexion extends Activity {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // Impossible de recuperer la position
-            // TODO Trouver comment récupérer une localisation
             Toast.makeText(this, "First enable LOCATION ACCESS in settings.", Toast.LENGTH_LONG).show();
             return null;
         }
@@ -331,7 +313,6 @@ public class UserConnexion extends Activity {
 
 
 /*
-
     private static boolean netIsAvailable() {
         try {
             //make a URL to a known source
