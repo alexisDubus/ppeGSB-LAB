@@ -36,7 +36,7 @@
 								<input type="submit" class="btn btn-primary signup" value="Login">
 							</form>
 							</br>
-                                                <a href="index.php?uc=connexion&action=motDePasseOublie">Mot de passe oublié ?</a>
+              <a href="index.php?uc=connexion&action=motDePasseOublie">Mot de passe oublié ?</a>
 					</div>							
 				</div>
 			</div>
