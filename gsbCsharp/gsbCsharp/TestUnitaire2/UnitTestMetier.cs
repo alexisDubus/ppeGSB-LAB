@@ -135,7 +135,7 @@ namespace TestUnitaire2
             Assert.AreEqual("philipe.dupaté@gsb.com", medecinObtenu.getVisiteur().getEmail());
         }
 
-<<<<<<< HEAD:gsbCsharp/gsbCsharp/testUnitaires/UnitTest1.cs
+
         [TestMethod]
         public void testPasserelleCheckValueIsCorrect()
         {
@@ -180,7 +180,5 @@ namespace TestUnitaire2
             Passerelle.Passerelle.setIdUtilisateurSession("3");
             Assert.AreEqual(id, Passerelle.Passerelle.getIdUtilisateurSession());
         }
-=======
->>>>>>> 587bc828495511881bf412f9c91af35839a85db6:gsbCsharp/gsbCsharp/TestUnitaire2/UnitTestMetier.cs
     }
 }
