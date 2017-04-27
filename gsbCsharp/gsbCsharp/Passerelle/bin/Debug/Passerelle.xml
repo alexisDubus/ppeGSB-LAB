@@ -126,12 +126,6 @@
             </summary>
             <param name="medecin"></param>
         </member>
-        <member name="M:Passerelle.Passerelle.addMedecinSansVisiteur(Metier.Medecin)">
-            <summary>
-            Insére le médecin donné en paramétre dans la BDD
-            </summary>
-            <param name="medecin"></param>
-        </member>
         <member name="M:Passerelle.Passerelle.editMedecin(Metier.Medecin)">
             <summary>
             Edite un médecin en BDD

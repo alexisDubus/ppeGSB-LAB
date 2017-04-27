@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.1.28.0" projectFile="C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\DocumentationPPE-GSB.shfbproj" started="27/04/2017 11:07:49">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.1.28.0" projectFile="C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\DocumentationPPE-GSB.shfbproj" started="27/04/2017 16:04:25">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -15,6 +15,9 @@ Loading and initializing plug-ins...
 Lightweight Website Style Version 2017.1.28.0
 Copyright &#169; 2006-2017, Eric Woodruff, All Rights Reserved
 Portions Copyright &#169; 2014, Sam Harwell, All Rights Reserved
+</buildStep>
+<buildStep step="ClearWorkFolder">
+Clearing working folder...
 </buildStep>
 <buildStep step="ValidatingDocumentationSources">
 Validating and copying documentation source information
@@ -38,16 +41,16 @@ Copying XML comments files
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
-</plugIn>    Last step completed in 00:00:00,0060
+</plugIn>    Last step completed in 00:00:00,0240
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00,0070
+    Last step completed in 00:00:00,0100
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe - GenerateRefInfo.proj]
-Build started 27/04/2017 11:07:50.
+Build started 27/04/2017 16:04:27.
 Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\GenerateRefInfo.proj&quot; on node 1 (default targets).
 PrepareForBuild:
   Creating directory &quot;obj\Debug\&quot;.
@@ -57,7 +60,7 @@ GenerateRefInfo:
   Portions Copyright &#184; 2006-2016, Eric Woodruff, All Rights Reserved.
   No source code context base path specified.  Source context information is unavailable.
   Loaded 2 assemblies for reflection and 1 dependency assemblies.
-  Wrote information on 2 namespaces, 5 types, and 135 members
+  Wrote information on 2 namespaces, 5 types, and 134 members
   Copying file from &quot;reflection.org&quot; to &quot;reflection.all&quot;.
   XslTransform (v2017.1.28.0)
   Copyright &#184; 2006-2017, Microsoft Corporation, All Rights Reserved.
@@ -67,13 +70,13 @@ Done Building Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Doc
 
 Build succeeded.
 
-Time Elapsed 00:00:00.80
-    Last step completed in 00:00:01,0011
+Time Elapsed 00:00:01.23
+    Last step completed in 00:00:01,4891
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe - TransformManifest.proj]
-Build started 27/04/2017 11:07:51.
+Build started 27/04/2017 16:04:28.
 Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2017.1.28.0)
@@ -93,12 +96,12 @@ Done Building Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Doc
 
 Build succeeded.
 
-Time Elapsed 00:00:00.37
-    Last step completed in 00:00:00,4980
+Time Elapsed 00:00:00.66
+    Last step completed in 00:00:00,9141
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00,0080
+    Last step completed in 00:00:00,0370
 </buildStep>
 <buildStep step="CopyConceptualContent">
 Copying conceptual content...
@@ -113,28 +116,28 @@ Generating conceptual topic files
     C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Content\VersionHistory\VersionHistory.aml -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\ddueXml\cbefdcc0-a6d2-408e-b927-ee5fea7f9e68.xml
     Parsing topic file &#39;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Content\VersionHistory\v1.0.0.0.aml&#39;
     C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Content\VersionHistory\v1.0.0.0.aml -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\ddueXml\1ec3c5c4-476d-4c62-8995-d7faa9493a41.xml
-    Last step completed in 00:00:00,0340
+    Last step completed in 00:00:00,0940
 </buildStep>
 <buildStep step="CreateConceptualTopicConfigs">
 Creating conceptual topic configuration files...
     Companion files
     _ContentMetadata_.xml
     Merging topic IDs into manifest.xml
-    Last step completed in 00:00:00,0130
+    Last step completed in 00:00:00,0340
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\icons\Help.png -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\Help.png
-    Last step completed in 00:00:00,0040
+    Last step completed in 00:00:00,0130
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
-    Last step completed in 00:00:00,0000
+    Last step completed in 00:00:00,0070
 </buildStep>
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe - GenerateIntermediateTOC.proj]
-Build started 27/04/2017 11:07:52.
+Build started 27/04/2017 16:04:29.
 Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2017.1.28.0)
@@ -145,14 +148,14 @@ Done Building Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Doc
 
 Build succeeded.
 
-Time Elapsed 00:00:00.10
+Time Elapsed 00:00:00.17
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00,2560
+    Last step completed in 00:00:00,4070
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00,0670
+    Last step completed in 00:00:00,1390
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
@@ -160,12 +163,12 @@ C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Worki
   Updating reference topic configurations.
   Updating conceptual topic configurations.
     Removing unused ExampleComponent.
-    Last step completed in 00:00:00,0030
+    Last step completed in 00:00:00,0130
 </buildStep>
 <buildStep step="BuildTopics">
 Building help topics...
 [C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe - BuildTopics.proj]
-Build started 27/04/2017 11:07:52.
+Build started 27/04/2017 16:04:30.
 Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj&quot; on node 1 (default targets).
 BuildTopics:
   BuildAssembler (v2017.1.28.0)
@@ -382,7 +385,6 @@ BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.ToString] Miss
 BuildAssembler : warning : ShowMissingComponent: [N:Passerelle] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.addCabinet(Metier.Cabinet)] Missing &lt;param name=&quot;cabinet&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.addMedecin(Metier.Medecin)] Missing &lt;param name=&quot;medecin&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.addMedecinSansVisiteur(Metier.Medecin)] Missing &lt;param name=&quot;medecin&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.addVisite(Metier.Visite)] Missing &lt;param name=&quot;visite&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.checkValueIsCorrect(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.checkValueIsCorrect(System.String)] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
@@ -438,8 +440,8 @@ BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.setVis
 BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.supprimeVisite(Metier.Visite)] Missing &lt;param name=&quot;visite&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:Passerelle.Passerelle.typeUtilisateur] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:Passerelle.Passerelle.visiteurSession] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
-  Processed 157 topic(s)
-  265 warning(s)
+  Processed 156 topic(s)
+  264 warning(s)
   CopyFromIndexComponent: &quot;metadata&quot; in-memory cache entries used: 1 of 15.
   ResolveArtLinksComponent: Copying media files...
   CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 3 of 15.
@@ -448,12 +450,12 @@ Done Building Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Doc
 
 Build succeeded.
 
-Time Elapsed 00:00:03.69
-    Last step completed in 00:00:03,8574
+Time Elapsed 00:00:06.13
+    Last step completed in 00:00:06,3754
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
-    Last step completed in 00:00:00,0030
+    Last step completed in 00:00:00,0040
 </buildStep>
 <buildStep step="ExtractingHtmlInfo">
 Extracting HTML info for HTML Help 1 and/or website...
@@ -465,11 +467,11 @@ E-Mail: Eric@EWoodruff.us
 Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
 
 Processing Help 1 files in C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1
-Processed 157 HTML files
+Processed 156 HTML files
 Sorting keywords and generating See Also indices
 Saving HTML Help 1 keyword index to C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\DocumentationPPE_GSB.hhk
 Saving HTML Help 1 table of contents to C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\DocumentationPPE_GSB.hhc
-    Last step completed in 00:00:00,5341
+    Last step completed in 00:00:00,9421
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -535,7 +537,7 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyle
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-zh-CN.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-zh-CN.css
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-zh-TW.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-zh-TW.css
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding.css
-    Last step completed in 00:00:00,4770
+    Last step completed in 00:00:00,6680
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating HTML Help 1 table of contents file...
@@ -547,7 +549,7 @@ Generating HTML Help 1 index file...
 </buildStep>
 <buildStep step="GenerateHelpProject">
 Generating HTML Help 1 project file...
-    Last step completed in 00:00:00,0050
+    Last step completed in 00:00:00,0300
 </buildStep>
 <buildStep step="CompilingHelpFile">
 Compiling HTML Help 1 file...
@@ -562,11 +564,11 @@ Compiling HTML Help 1 file...
   
   
   
-  Compile time: 0 minutes, 4 seconds
+  Compile time: 0 minutes, 5 seconds
   
-  159	Topics
+  158	Topics
   
-  1,658	Local links
+  1,646	Local links
   
   248	Internet links
   
@@ -576,19 +578,19 @@ Compiling HTML Help 1 file...
   
   
   
-  Created c:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\DocumentationPPE_GSB.chm, 206,956 bytes
+  Created c:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\DocumentationPPE_GSB.chm, 205,782 bytes
   
-  Compression decreased file by 1,123,846 bytes.
+  Compression decreased file by 1,116,468 bytes.
   
-    Last step completed in 00:00:06,1896
+    Last step completed in 00:00:07,0894
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00,3370
+    Last step completed in 00:00:00,1670
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 27/04/2017 11:08:03.  Total time: 00:00:14,3014
+Build completed successfully at 27/04/2017 16:04:45.  Total time: 00:00:20,1672
 
 </buildStep>
 </shfbBuild>

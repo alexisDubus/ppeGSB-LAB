@@ -482,26 +482,6 @@ namespace Passerelle
             listeDesMedecins.Add(medecin);
         }
 
-
-        /// <summary>
-        /// Insére le médecin donné en paramétre dans la BDD
-        /// </summary>
-        /// <param name="medecin"></param>
-        public static void addMedecinSansVisiteur(Medecin medecin)
-        {
-            connexion();
-            MySqlCommand maCommande = maConnection.CreateCommand();
-            maCommande.CommandText = "INSERT INTO medecin(nom, prenom, idCabinet, idUtilisateur) VALUES(@nom, @prenom, @idcabinet, @idutilisateur);";
-            maCommande.Parameters.AddWithValue("@nom", medecin.getNom());
-            maCommande.Parameters.AddWithValue("@prenom", medecin.getPrenom());
-            maCommande.Parameters.AddWithValue("@idCabinet", medecin.getCabinet().getId());
-
-            maCommande.ExecuteNonQuery();
-            int lastId = (int)maCommande.LastInsertedId;
-            medecin.setId(lastId);
-            listeDesMedecins.Add(medecin);
-        }
-
         /// <summary>
         /// Edite un médecin en BDD
         /// </summary>
