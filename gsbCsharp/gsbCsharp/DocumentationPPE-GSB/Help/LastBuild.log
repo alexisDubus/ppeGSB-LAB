@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.1.28.0" projectFile="C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\DocumentationPPE-GSB.shfbproj" started="27/04/2017 10:04:57">
+<buildStep step="Initializing">
+Finding tools...
+The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
+Searching for HTML Help 1 compiler...
+Found HTML Help 1 compiler in &#39;C:\Program Files (x86)\HTML Help Workshop\&#39;
+Locating components in the following folder(s):
+    C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB
+    C:\ProgramData\EWSoftware\Sandcastle Help File Builder\Components and Plug-Ins\
+    C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\
+Using framework reflection data for &#39;.NET Framework 4.5&#39; located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Data\.NETFramework&#39;
+Using presentation style &#39;VS2013&#39; located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013&#39;
+Loading and initializing plug-ins...
+Lightweight Website Style Version 2017.1.28.0
+Copyright &#169; 2006-2017, Eric Woodruff, All Rights Reserved
+Portions Copyright &#169; 2014, Sam Harwell, All Rights Reserved
+</buildStep>
+<buildStep step="ValidatingDocumentationSources">
+Validating and copying documentation source information
+Source: C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Metier\Metier.csproj
+    Found project &#39;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Metier\Metier.csproj&#39;
+Source: C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\Passerelle.csproj
+    Found project &#39;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\Passerelle.csproj&#39;
+
+Parsing project files
+    Found assembly &#39;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Metier\bin\Debug\Metier.dll&#39;
+    Found assembly &#39;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Passerelle.dll&#39;
+SHFB: Warning BE0007: A project with a different or higher framework version was found.  Changing project FrameworkVersion property from &#39;.NET Framework 4.5&#39; to &#39;.NET Framework 4.6.1&#39; for the build.
+
+References to include (excluding framework assemblies):
+    MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL
+
+Copying XML comments files
+    C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Metier\bin\Debug\Metier.xml -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Metier.xml
+    C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Passerelle.xml -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Passerelle.xml
+</buildStep>
+<buildStep step="GenerateSharedContent">
+Generating shared content files (en-US, English (United States))...
+<plugIn name="Lightweight Website Style" behavior="After" priority="1000">
+</plugIn>    Last step completed in 00:00:00,0530
+</buildStep>
+<buildStep step="GenerateApiFilter">
+Generating API filter for MRefBuilder...
+    Last step completed in 00:00:00,0040
+</buildStep>
+<buildStep step="GenerateReflectionInfo">
+Generating reflection information...
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe - GenerateRefInfo.proj]
+Build started 27/04/2017 10:04:58.
+Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\GenerateRefInfo.proj&quot; on node 1 (default targets).
+PrepareForBuild:
+  Creating directory &quot;obj\Debug\&quot;.
+GenerateRefInfo:
+  MRefBuilder (v2017.1.28.0)
+  Copyright &#184; 2006-2017, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2016, Eric Woodruff, All Rights Reserved.
+  No source code context base path specified.  Source context information is unavailable.
+  Loaded 2 assemblies for reflection and 1 dependency assemblies.
+  Wrote information on 2 namespaces, 5 types, and 135 members
+  Copying file from &quot;reflection.org&quot; to &quot;reflection.all&quot;.
+  XslTransform (v2017.1.28.0)
+  Copyright &#184; 2006-2017, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2016, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\MergeDuplicates.xsl&#39;.
+Done Building Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\GenerateRefInfo.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.78
+    Last step completed in 00:00:00,9971
+</buildStep>
+<buildStep step="TransformReflectionInfo">
+Transforming reflection output...
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe - TransformManifest.proj]
+Build started 27/04/2017 10:04:59.
+Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\TransformManifest.proj&quot; on node 1 (default targets).
+TransformManifest:
+  XslTransform (v2017.1.28.0)
+  Copyright &#184; 2006-2017, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2016, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\ProductionTransforms\ApplyVSDocModel.xsl&#39;.
+  Copying file from &quot;reflection.xml&quot; to &quot;reflection.nofilenames&quot;.
+  XslTransform (v2017.1.28.0)
+  Copyright &#184; 2006-2017, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2016, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\AddFilenames.xsl&#39;.
+  XslTransform (v2017.1.28.0)
+  Copyright &#184; 2006-2017, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2016, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\ReflectionToManifest.xsl&#39;.
+Done Building Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\TransformManifest.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.34
+    Last step completed in 00:00:00,5161
+</buildStep>
+<buildStep step="GenerateNamespaceSummaries">
+Generating namespace summary information...
+    Last step completed in 00:00:00,0050
+</buildStep>
+<buildStep step="CopyConceptualContent">
+Copying conceptual content...
+Copying standard token shared content file...
+Checking for other token files...
+Checking for code snippets files...
+Copying images and creating the media map file...
+Generating conceptual topic files
+    Parsing topic file &#39;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Content\Welcome.aml&#39;
+    C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Content\Welcome.aml -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\ddueXml\309846c6-73f7-4566-80aa-e4e82e7b0991.xml
+    Parsing topic file &#39;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Content\VersionHistory\VersionHistory.aml&#39;
+    C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Content\VersionHistory\VersionHistory.aml -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\ddueXml\cbefdcc0-a6d2-408e-b927-ee5fea7f9e68.xml
+    Parsing topic file &#39;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Content\VersionHistory\v1.0.0.0.aml&#39;
+    C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Content\VersionHistory\v1.0.0.0.aml -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\ddueXml\1ec3c5c4-476d-4c62-8995-d7faa9493a41.xml
+    Last step completed in 00:00:00,0300
+</buildStep>
+<buildStep step="CreateConceptualTopicConfigs">
+Creating conceptual topic configuration files...
+    Companion files
+    _ContentMetadata_.xml
+    Merging topic IDs into manifest.xml
+    Last step completed in 00:00:00,0110
+</buildStep>
+<buildStep step="CopyAdditionalContent">
+Copying additional content files...
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\icons\Help.png -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\Help.png
+    Last step completed in 00:00:00,0060
+</buildStep>
+<buildStep step="MergeTablesOfContents">
+Merging conceptual and additional tables of contents...
+    Last step completed in 00:00:00,0000
+</buildStep>
+<buildStep step="GenerateIntermediateTableOfContents">
+Generating intermediate table of contents file...
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe - GenerateIntermediateTOC.proj]
+Build started 27/04/2017 10:04:59.
+Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
+GenerateIntermediateTOC:
+  XslTransform (v2017.1.28.0)
+  Copyright &#184; 2006-2017, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2016, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\ProductionTransforms\CreateVSToc.xsl&#39;.
+Done Building Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\GenerateIntermediateTOC.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.20
+Generating conceptual content intermediate TOC file...
+    Last step completed in 00:00:00,3450
+</buildStep>
+<buildStep step="CreateBuildAssemblerConfigs">
+Creating Sandcastle configuration files...
+    sandcastle.config
+    Last step completed in 00:00:00,0800
+</buildStep>
+<buildStep step="MergeCustomConfigs">
+Merging custom build component configurations
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\sandcastle.config
+  Updating reference topic configurations.
+  Updating conceptual topic configurations.
+    Removing unused ExampleComponent.
+    Last step completed in 00:00:00,0050
+</buildStep>
+<buildStep step="BuildTopics">
+Building help topics...
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe - BuildTopics.proj]
+Build started 27/04/2017 10:05:00.
+Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj&quot; on node 1 (default targets).
+BuildTopics:
+  BuildAssembler (v2017.1.28.0)
+  Copyright &#184; 2006-2017, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2016, Eric Woodruff, All Rights Reserved.
+  Loading configuration...
+  Processing topics...
+BuildAssembler : warning : ShowMissingComponent: [N:Metier] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:Metier.Cabinet] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.#ctor(System.Int32,System.String,System.String,System.String,System.Double,System.Double)] Missing &lt;param name=&quot;id&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.#ctor(System.Int32,System.String,System.String,System.String,System.Double,System.Double)] Missing &lt;param name=&quot;rue&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.#ctor(System.Int32,System.String,System.String,System.String,System.Double,System.Double)] Missing &lt;param name=&quot;CP&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.#ctor(System.Int32,System.String,System.String,System.String,System.Double,System.Double)] Missing &lt;param name=&quot;ville&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.#ctor(System.Int32,System.String,System.String,System.String,System.Double,System.Double)] Missing &lt;param name=&quot;longitude&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.#ctor(System.Int32,System.String,System.String,System.String,System.Double,System.Double)] Missing &lt;param name=&quot;latitude&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.#ctor(System.String,System.String,System.String,System.Double,System.Double)] Missing &lt;param name=&quot;rue&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.#ctor(System.String,System.String,System.String,System.Double,System.Double)] Missing &lt;param name=&quot;CP&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.#ctor(System.String,System.String,System.String,System.Double,System.Double)] Missing &lt;param name=&quot;ville&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.#ctor(System.String,System.String,System.String,System.Double,System.Double)] Missing &lt;param name=&quot;longitude&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.#ctor(System.String,System.String,System.String,System.Double,System.Double)] Missing &lt;param name=&quot;latitude&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.getCP] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.getCP] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.getId] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.getId] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.getLatitude] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.getLatitude] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.getLongitude] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.getLongitude] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.getRue] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.getRue] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.getVille] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.getVille] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.setCP(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.setCP(System.String)] Missing &lt;param name=&quot;cp&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.setId(System.Int32)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.setId(System.Int32)] Missing &lt;param name=&quot;id&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.setLatitude(System.Double)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.setLatitude(System.Double)] Missing &lt;param name=&quot;latitude&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.setLongitude(System.Double)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.setLongitude(System.Double)] Missing &lt;param name=&quot;longitude&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.setRue(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.setRue(System.String)] Missing &lt;param name=&quot;rue&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.setVille(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.setVille(System.String)] Missing &lt;param name=&quot;ville&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.ToString] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Cabinet.ToString] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:Metier.Medecin] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.Int32,System.String,System.String,Metier.Cabinet)] Missing &lt;param name=&quot;id&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.Int32,System.String,System.String,Metier.Cabinet)] Missing &lt;param name=&quot;nom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.Int32,System.String,System.String,Metier.Cabinet)] Missing &lt;param name=&quot;prenom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.Int32,System.String,System.String,Metier.Cabinet)] Missing &lt;param name=&quot;cabinet&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.Int32,System.String,System.String,Metier.Cabinet,Metier.Utilisateur)] Missing &lt;param name=&quot;id&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.Int32,System.String,System.String,Metier.Cabinet,Metier.Utilisateur)] Missing &lt;param name=&quot;nom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.Int32,System.String,System.String,Metier.Cabinet,Metier.Utilisateur)] Missing &lt;param name=&quot;prenom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.Int32,System.String,System.String,Metier.Cabinet,Metier.Utilisateur)] Missing &lt;param name=&quot;cabinet&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.Int32,System.String,System.String,Metier.Cabinet,Metier.Utilisateur)] Missing &lt;param name=&quot;utilisateur&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.String,System.String,Metier.Cabinet)] Missing &lt;param name=&quot;nom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.String,System.String,Metier.Cabinet)] Missing &lt;param name=&quot;prenom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.String,System.String,Metier.Cabinet)] Missing &lt;param name=&quot;cabinet&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.String,System.String,Metier.Cabinet,Metier.Utilisateur)] Missing &lt;param name=&quot;nom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.String,System.String,Metier.Cabinet,Metier.Utilisateur)] Missing &lt;param name=&quot;prenom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.String,System.String,Metier.Cabinet,Metier.Utilisateur)] Missing &lt;param name=&quot;cabinet&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.#ctor(System.String,System.String,Metier.Cabinet,Metier.Utilisateur)] Missing &lt;param name=&quot;utilisateur&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.getCabinet] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.getCabinet] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.getId] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.getId] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.getNom] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.getNom] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.getPrenom] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.getPrenom] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.getVisiteur] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.getVisiteur] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:Metier.Medecin.Nom] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:Metier.Medecin.Prenom] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.setCabinet(Metier.Cabinet)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.setCabinet(Metier.Cabinet)] Missing &lt;param name=&quot;cabinet&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.setId(System.Int32)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.setId(System.Int32)] Missing &lt;param name=&quot;id&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.setNom(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.setNom(System.String)] Missing &lt;param name=&quot;nom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.setPrenom(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.setPrenom(System.String)] Missing &lt;param name=&quot;prenom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.setVisiteur(Metier.Utilisateur)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.setVisiteur(Metier.Utilisateur)] Missing &lt;param name=&quot;utilisateur&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.ToString] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Medecin.ToString] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;nom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;prenom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;login&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;mdp&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;adresse&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;cp&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;ville&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;dateEmbauche&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;idRole&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;email&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;version&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;id&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;nom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;prenom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;login&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;mdp&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;adresse&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;cp&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;ville&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;dateEmbauche&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;idRole&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;email&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Int32)] Missing &lt;param name=&quot;version&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.estUnAdmin] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getAdresse] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getAdresse] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getCp] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getCp] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getDateEmbauche] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getDateEmbauche] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getEmail] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getEmail] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getId] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getId] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getIdRole] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getIdRole] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getLogin] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getLogin] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getMdp] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getMdp] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getNom] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getNom] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getPrenom] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getPrenom] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getVersion] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getVersion] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getVille] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.getVille] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.incrementeVersion] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setAdresse(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setAdresse(System.String)] Missing &lt;param name=&quot;adresse&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setCP(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setCP(System.String)] Missing &lt;param name=&quot;cp&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setDateEmbauche(System.DateTime)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setDateEmbauche(System.DateTime)] Missing &lt;param name=&quot;dateEmbauche&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setEmail(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setEmail(System.String)] Missing &lt;param name=&quot;email&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setId(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setId(System.String)] Missing &lt;param name=&quot;id&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setIdRole(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setIdRole(System.String)] Missing &lt;param name=&quot;idRole&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setLogin(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setLogin(System.String)] Missing &lt;param name=&quot;login&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setMdp(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setMdp(System.String)] Missing &lt;param name=&quot;mdp&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setNom(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setNom(System.String)] Missing &lt;param name=&quot;nom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setPrenom(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setPrenom(System.String)] Missing &lt;param name=&quot;prenom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setVersion(System.Int32)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setVersion(System.Int32)] Missing &lt;param name=&quot;version&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setVille(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.setVille(System.String)] Missing &lt;param name=&quot;ville&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.ToString] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Utilisateur.ToString] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:Metier.Visite] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;dateVisite&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;rdv&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;visiteur&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;medecin&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;heureArrivee&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;heureDepart&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;heureDebut&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.Int32,System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;id&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.Int32,System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;dateVisite&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.Int32,System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;rdv&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.Int32,System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;visiteur&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.Int32,System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;medecin&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.Int32,System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;heureArrivee&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.Int32,System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;heureDepart&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.#ctor(System.Int32,System.DateTime,System.Boolean,Metier.Utilisateur,Metier.Medecin,System.DateTime,System.DateTime,System.DateTime)] Missing &lt;param name=&quot;heureDebut&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getDateVisite] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getDateVisite] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getHeureArrivee] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getHeureArrivee] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getHeureDebut] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getHeureDebut] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getHeureDepart] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getHeureDepart] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getId] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getId] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getmedecin] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getmedecin] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getRdv] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getRdv] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getVisiteur] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.getVisiteur] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:Metier.Visite.Id] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setDateVisite(System.DateTime)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setDateVisite(System.DateTime)] Missing &lt;param name=&quot;dateVisite&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setHeureArrivee(System.DateTime)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setHeureArrivee(System.DateTime)] Missing &lt;param name=&quot;heureArrivee&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setHeureDebut(System.DateTime)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setHeureDebut(System.DateTime)] Missing &lt;param name=&quot;heureDebut&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setHeureDepart(System.DateTime)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setHeureDepart(System.DateTime)] Missing &lt;param name=&quot;heureDepart&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setId(System.Int32)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setId(System.Int32)] Missing &lt;param name=&quot;id&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setMedecin(Metier.Medecin)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setMedecin(Metier.Medecin)] Missing &lt;param name=&quot;medecin&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setRdv(System.Boolean)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setRdv(System.Boolean)] Missing &lt;param name=&quot;rdv&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setUtilisateur(Metier.Utilisateur)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.setUtilisateur(Metier.Utilisateur)] Missing &lt;param name=&quot;utilisateur&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.ToString] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Metier.Visite.ToString] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [N:Passerelle] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.addCabinet(Metier.Cabinet)] Missing &lt;param name=&quot;cabinet&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.addMedecin(Metier.Medecin)] Missing &lt;param name=&quot;medecin&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.addMedecinSansVisiteur(Metier.Medecin)] Missing &lt;param name=&quot;medecin&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.addVisite(Metier.Visite)] Missing &lt;param name=&quot;visite&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.checkValueIsCorrect(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.checkValueIsCorrect(System.String)] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.checkValueIsCorrect(System.String)] Missing &lt;param name=&quot;str&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.checkValueIsCorrectNumber(System.String)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.checkValueIsCorrectNumber(System.String)] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.checkValueIsCorrectNumber(System.String)] Missing &lt;param name=&quot;str&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.editCabinet(Metier.Cabinet)] Missing &lt;param name=&quot;cabinet&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.editMedecin(Metier.Medecin)] Missing &lt;param name=&quot;medecin&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.editVisite(Metier.Visite)] Missing &lt;param name=&quot;visite&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getAAdmin(MySql.Data.MySqlClient.MySqlDataReader)] Missing &lt;param name=&quot;unJeuResultat&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Passerelle.Passerelle.getAAdmin(MySql.Data.MySqlClient.MySqlDataReader)] Unknown reference link target &#39;T:MySql.Data.MySqlClient.MySqlDataReader&#39;. [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getACabinet(MySql.Data.MySqlClient.MySqlDataReader)] Missing &lt;param name=&quot;unJeuResultat&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Passerelle.Passerelle.getACabinet(MySql.Data.MySqlClient.MySqlDataReader)] Unknown reference link target &#39;T:MySql.Data.MySqlClient.MySqlDataReader&#39;. [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getAllCabinets] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getAllMedecin] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getAllVisite] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getAllVisiteur] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getAMedecin(MySql.Data.MySqlClient.MySqlDataReader)] Missing &lt;param name=&quot;unJeuResultat&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Passerelle.Passerelle.getAMedecin(MySql.Data.MySqlClient.MySqlDataReader)] Unknown reference link target &#39;T:MySql.Data.MySqlClient.MySqlDataReader&#39;. [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getAVisite(MySql.Data.MySqlClient.MySqlDataReader)] Missing &lt;param name=&quot;unJeuResultat&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Passerelle.Passerelle.getAVisite(MySql.Data.MySqlClient.MySqlDataReader)] Unknown reference link target &#39;T:MySql.Data.MySqlClient.MySqlDataReader&#39;. [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getAVisiteur(MySql.Data.MySqlClient.MySqlDataReader)] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getAVisiteur(MySql.Data.MySqlClient.MySqlDataReader)] Missing &lt;param name=&quot;unJeuResultat&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Passerelle.Passerelle.getAVisiteur(MySql.Data.MySqlClient.MySqlDataReader)] Unknown reference link target &#39;T:MySql.Data.MySqlClient.MySqlDataReader&#39;. [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getListeMedecinVisiteur2(Metier.Utilisateur)] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getListeMedecinVisiteur2(Metier.Utilisateur)] Missing &lt;param name=&quot;unVisiteur&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getListeVisite(Metier.Utilisateur)] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getListeVisite(Metier.Utilisateur)] Missing &lt;param name=&quot;unVisiteur&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getListeVisites(Metier.Utilisateur)] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getListeVisites(Metier.Utilisateur)] Missing &lt;param name=&quot;unVisiteur&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getListeVisiteVisiteur(Metier.Utilisateur)] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getListeVisiteVisiteur(Metier.Utilisateur)] Missing &lt;param name=&quot;unVisiteur&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getVisiteurByCp(System.String)] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getVisiteurByCp(System.String)] Missing &lt;param name=&quot;cp&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getVisiteurByNom(System.String)] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getVisiteurByNom(System.String)] Missing &lt;param name=&quot;nom&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getVisiteurSession] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getVisiteurUnique(System.String)] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.getVisiteurUnique(System.String)] Missing &lt;param name=&quot;id&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [F:Passerelle.Passerelle.idUtilisateur] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.miseEnSession(System.String)] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.miseEnSession(System.String)] Missing &lt;param name=&quot;login&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.miseEnSessionAdmin(System.String)] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.miseEnSessionAdmin(System.String)] Missing &lt;param name=&quot;login&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.returnAllCabinets] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.returnAllMedecin] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.returnAllVisite] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.returnAllvisiteur] Missing &lt;returns&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.setIdUtilisateurSession(System.String)] Missing &lt;param name=&quot;id&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.setTypeUtilisateurSession(System.Int32)] Missing &lt;param name=&quot;type&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.setVisiteurSession(Metier.Utilisateur)] Missing &lt;param name=&quot;visiteurEnSession&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Passerelle.Passerelle.supprimeVisite(Metier.Visite)] Missing &lt;param name=&quot;visite&quot;/&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [F:Passerelle.Passerelle.typeUtilisateur] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [F:Passerelle.Passerelle.visiteurSession] Missing &lt;summary&gt; documentation [C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj]
+  Processed 157 topic(s)
+  265 warning(s)
+  CopyFromIndexComponent: &quot;metadata&quot; in-memory cache entries used: 1 of 15.
+  ResolveArtLinksComponent: Copying media files...
+  CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 3 of 15.
+  CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 2 of 30.
+Done Building Project &quot;C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\BuildTopics.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.41
+    Last step completed in 00:00:04,6255
+</buildStep>
+<buildStep step="CombiningIntermediateTocFiles">
+Combining conceptual and API intermediate TOC files...
+    Last step completed in 00:00:00,0030
+</buildStep>
+<buildStep step="ExtractingHtmlInfo">
+Extracting HTML info for HTML Help 1 and/or website...
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe - ExtractHtmlInfo.proj]
+Sandcastle Help File Builder and Tools, version 2017.1.28.0
+Copyright &#184; 2006-2017, Eric Woodruff, All Rights Reserved
+E-Mail: Eric@EWoodruff.us
+
+Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
+
+Processing Help 1 files in C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1
+Processed 157 HTML files
+Sorting keywords and generating See Also indices
+Saving HTML Help 1 keyword index to C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\DocumentationPPE_GSB.hhk
+Saving HTML Help 1 table of contents to C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\DocumentationPPE_GSB.hhc
+    Last step completed in 00:00:00,8581
+</buildStep>
+<buildStep step="CopyStandardHelpContent">
+Copying standard help content...
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertCaution.png -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\AlertCaution.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertNote.png -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\AlertNote.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertSecurity.png -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\AlertSecurity.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\CFW.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\CFW.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\CodeExample.png -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\CodeExample.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\favicon.ico -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\favicon.ico
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privclass.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\privclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privdelegate.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\privdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privenumeration.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\privenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privevent.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\privevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privextension.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\privextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privfield.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\privfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privinterface.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\privinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privmethod.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\privmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privproperty.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\privproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privstructure.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\privstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protclass.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\protclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protdelegate.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\protdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protenumeration.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\protenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protevent.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\protevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protextension.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\protextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protfield.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\protfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protinterface.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\protinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protmethod.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\protmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protoperator.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\protoperator.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protproperty.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\protproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protstructure.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\protstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubclass.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\pubclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubdelegate.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\pubdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubenumeration.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\pubenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubevent.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\pubevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubextension.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\pubextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubfield.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\pubfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubinterface.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\pubinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubmethod.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\pubmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\puboperator.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\puboperator.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubproperty.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\pubproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubstructure.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\pubstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\SectionCollapsed.png -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\SectionCollapsed.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\SectionExpanded.png -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\SectionExpanded.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\slMobile.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\slMobile.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\static.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\static.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\xna.gif -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\icons\xna.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\scripts\branding.js -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\scripts\branding.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-cs-CZ.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-cs-CZ.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-de-DE.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-de-DE.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-en-US.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-en-US.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-es-ES.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-es-ES.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-fr-FR.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-fr-FR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-Help1.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-Help1.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-HelpViewer.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-HelpViewer.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-it-IT.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-it-IT.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-ja-JP.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-ja-JP.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-ko-KR.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-ko-KR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-pl-PL.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-pl-PL.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-pt-BR.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-pt-BR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-ru-RU.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-ru-RU.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-tr-TR.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-tr-TR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-Website.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-Website.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-zh-CN.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-zh-CN.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-zh-TW.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding-zh-TW.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding.css -&gt; C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\styles\branding.css
+    Last step completed in 00:00:00,4990
+</buildStep>
+<buildStep step="GenerateHelpFormatTableOfContents">
+Generating HTML Help 1 table of contents file...
+    Last step completed in 00:00:00,0000
+</buildStep>
+<buildStep step="GenerateHelpFileIndex">
+Generating HTML Help 1 index file...
+    Last step completed in 00:00:00,0000
+</buildStep>
+<buildStep step="GenerateHelpProject">
+Generating HTML Help 1 project file...
+    Last step completed in 00:00:00,0030
+</buildStep>
+<buildStep step="CompilingHelpFile">
+Compiling HTML Help 1 file...
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe - Build1xHelpFile.proj]
+  Microsoft HTML Help Compiler 4.74.8702
+  
+  
+  
+  Compiling c:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\DocumentationPPE_GSB.chm
+  
+  
+  
+  
+  
+  Compile time: 0 minutes, 9 seconds
+  
+  159	Topics
+  
+  1,658	Local links
+  
+  248	Internet links
+  
+  0	Graphics
+  
+  
+  
+  
+  
+  Created c:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\DocumentationPPE-GSB\Help\Working\Output\HtmlHelp1\DocumentationPPE_GSB.chm, 206,958 bytes
+  
+  Compression decreased file by 1,123,844 bytes.
+  
+    Last step completed in 00:00:10,4810
+</buildStep>
+<buildStep step="CleanIntermediates">
+Removing intermediate files...
+    Last step completed in 00:00:00,1940
+</buildStep>
+<buildStep step="Completed">
+
+Build completed successfully at 27/04/2017 10:05:16.  Total time: 00:00:19,3589
+
+</buildStep>
+</shfbBuild>

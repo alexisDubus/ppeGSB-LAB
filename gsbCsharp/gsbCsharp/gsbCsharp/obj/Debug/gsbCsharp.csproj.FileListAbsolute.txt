@@ -117,3 +117,6 @@ C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.P
 C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.csproj.GenerateResource.Cache
 C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.exe
 C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\gsbCsharp\obj\Debug\gsbCsharp.pdb
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\gsbCsharp.xml
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\Metier.xml
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\gsbCsharp\bin\Debug\Passerelle.xml

@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Passerelle</name>
+    </assembly>
+    <members>
+        <member name="T:Passerelle.Passerelle">
+            <summary>
+            sert a la connexion a la BDD et a faire le lien entre Métier et vue
+            </summary>
+        </member>
+        <member name="M:Passerelle.Passerelle.connexion">
+            <summary>
+            fonction de connexion a la base de données
+            </summary>
+        </member>
+        <member name="M:Passerelle.Passerelle.init">
+            <summary>
+            Initialise les 4 listes d'éléments
+            </summary>
+        </member>
+        <member name="M:Passerelle.Passerelle.setIdUtilisateurSession(System.String)">
+            <summary>
+            Met à jour l'idUtilisateur
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Passerelle.Passerelle.getIdUtilisateurSession">
+            <summary>
+            retourne l'idUtilisateur
+            </summary>
+            <returns>idUtilisateur</returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.setVisiteurSession(Metier.Utilisateur)">
+            <summary>
+            Met en session l'utilisateur
+            </summary>
+            <param name="visiteurEnSession"></param>
+        </member>
+        <member name="M:Passerelle.Passerelle.getVisiteurSession">
+            <summary>
+            retourne l'utilisateur en session
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.setTypeUtilisateurSession(System.Int32)">
+            <summary>
+            Change le type d'utilisateur (0,1,2)
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="M:Passerelle.Passerelle.getIdRoleUtilisateurSession">
+            <summary>
+            retourne le type d'utilisateur
+            </summary>
+            <returns>typeUtilisateur</returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.getListeMedecinVisiteur2(Metier.Utilisateur)">
+            <summary>
+            Utilisé pour renvoyer les médecins d'un visiteur
+            </summary>
+            <param name="unVisiteur"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.getListeVisiteVisiteur(Metier.Utilisateur)">
+            <summary>
+            Utilisé pour renvoyer les médecins d'un visiteur
+            </summary>
+            <param name="unVisiteur"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.returnAllvisiteur">
+            <summary>
+            Retourne la liste des Visiteur, aucune requéte
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.getAllVisiteur">
+            <summary>
+            renvoi tout les utilisateurs aprés les avoir récupéré de la BDD
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.selectAllAdmin">
+            <summary>
+            Selectionne tout les Admins et les met dans la liste
+            </summary>
+        </member>
+        <member name="M:Passerelle.Passerelle.selectAllVisiteur">
+            <summary>
+            Selectionne tout les visiteurs et les met dans la liste
+            </summary>
+        </member>
+        <member name="M:Passerelle.Passerelle.getAAdmin(MySql.Data.MySqlClient.MySqlDataReader)">
+            <summary>
+            Permet de rajouter un admin a la liste
+            </summary>
+            <param name="unJeuResultat"></param>
+        </member>
+        <member name="M:Passerelle.Passerelle.returnAllMedecin">
+            <summary>
+            Retourne la liste des Medecin, aucune requéte
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.getAllMedecin">
+            <summary>
+            renvoi tout les Medecin  aprés les avoir récupéré de la BDD
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.selectAllMedecin">
+            <summary>
+            Selectionne tout les medecin et les met dans la liste
+            </summary>
+        </member>
+        <member name="M:Passerelle.Passerelle.getAMedecin(MySql.Data.MySqlClient.MySqlDataReader)">
+            <summary>
+            rajoute un médecin a la liste
+            </summary>
+            <param name="unJeuResultat"></param>
+        </member>
+        <member name="M:Passerelle.Passerelle.addMedecin(Metier.Medecin)">
+            <summary>
+            Insére le médecin donné en paramétre dans la BDD
+            </summary>
+            <param name="medecin"></param>
+        </member>
+        <member name="M:Passerelle.Passerelle.addMedecinSansVisiteur(Metier.Medecin)">
+            <summary>
+            Insére le médecin donné en paramétre dans la BDD
+            </summary>
+            <param name="medecin"></param>
+        </member>
+        <member name="M:Passerelle.Passerelle.editMedecin(Metier.Medecin)">
+            <summary>
+            Edite un médecin en BDD
+            </summary>
+            <param name="medecin"></param>
+        </member>
+        <member name="M:Passerelle.Passerelle.getVisiteurByCp(System.String)">
+            <summary>
+            Retourne une liste de visiteurs en fonction de leur code postal (CP)
+            </summary>
+            <param name="cp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.getVisiteurByNom(System.String)">
+            <summary>
+            Retourne une liste de visiteurs en fonction de leur code postal (CP)
+            </summary>
+            <param name="nom"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.addVisite(Metier.Visite)">
+            <summary>
+            Ajoute une visite à la liste
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.editVisite(Metier.Visite)">
+            <summary>
+            Modifie la Visite sur la BDD
+            </summary>
+            <param name="visite"></param>
+        </member>
+        <member name="M:Passerelle.Passerelle.supprimeVisite(Metier.Visite)">
+            <summary>
+            Supprime une visite à la liste
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.returnAllVisite">
+            <summary>
+            Retourne la liste des Visite, aucune requéte
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.getAllVisite">
+            <summary>
+            renvoi tout les Visites aprés les avoir récupéré de la BDD
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.selectAllVisite">
+            <summary>
+            Selectionne tout les Visites et les met dans la liste
+            </summary>
+        </member>
+        <member name="M:Passerelle.Passerelle.getListeVisite(Metier.Utilisateur)">
+            <summary>
+            Donne la liste des visite de l'utilisateur
+            </summary>
+            <param name="unVisiteur"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.getAVisite(MySql.Data.MySqlClient.MySqlDataReader)">
+            <summary>
+            Met une visite dans la liste
+            </summary>
+            <param name="unJeuResultat"></param>
+        </member>
+        <member name="M:Passerelle.Passerelle.getVisiteurUnique(System.String)">
+            <summary>
+            Utilisé pour renvoyer les médecins d'un visiteur
+            A TESTER
+            </summary>
+            <param name="unVisiteur"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.getListeVisites(Metier.Utilisateur)">
+            <summary>
+            Utilisé pour renvoyer les médecins d'un visiteur
+            </summary>
+            <param name="unVisiteur"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.returnAllCabinets">
+            <summary>
+            Retourne la liste des Cabinets, aucune requéte
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.getAllCabinets">
+            <summary>
+            renvoi tout les cabinets aprés les avoir récupéré de la BDD
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.selectAllCabinets">
+            <summary>
+            Selectionne tout les cabinets et les met dans la liste
+            </summary>
+        </member>
+        <member name="M:Passerelle.Passerelle.getACabinet(MySql.Data.MySqlClient.MySqlDataReader)">
+            <summary>
+            Rajoute un Cabinet dans la lsite des cabinets
+            </summary>
+            <param name="unJeuResultat"></param>
+        </member>
+        <member name="M:Passerelle.Passerelle.addCabinet(Metier.Cabinet)">
+            <summary>
+            Rajoute un cabinet en BDD
+            </summary>
+            <param name="cabinet"></param>
+        </member>
+        <member name="M:Passerelle.Passerelle.editCabinet(Metier.Cabinet)">
+            <summary>
+            Modifie le Cabinet sur la BDD
+            </summary>
+            <param name="cabinet"></param>
+        </member>
+        <member name="M:Passerelle.Passerelle.connexionLDAP(System.String,System.String)">
+            <summary>
+            Try to connect Username with password
+            </summary>
+            <param name="username">Username to test</param>
+            <param name="passwd">Username's password</param>
+            <returns>True: Username/Password OK; False: Authentication error</returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.IsAuthenticated(System.String,System.String)">
+            <summary>
+            Try to connect Username with password
+            </summary>
+            <param name="username">Username to test</param>
+            <param name="passwd">Username's password</param>
+            <returns>True: Username/Password OK; False: Authentication error</returns>
+        </member>
+        <member name="M:Passerelle.Passerelle.miseEnSession(System.String)">
+            <summary>
+            met en session l'utiliseur dont le login est donné en paramétre
+            </summary>
+            <param name="login"></param>
+        </member>
+        <member name="M:Passerelle.Passerelle.miseEnSessionAdmin(System.String)">
+            <summary>
+            met en session l'utiliseur dont le login est donné en paramétre
+            </summary>
+            <param name="login"></param>
+        </member>
+    </members>
+</doc>

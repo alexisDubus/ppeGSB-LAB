@@ -11,3 +11,12 @@ C:\wamp\www\GSB\gsbCsharp\gsbCsharp\TestUnitaire2\obj\Debug\TestUnitaire2.pdb
 C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\TestUnitaire2\obj\Debug\TestUnitaire2.csprojResolveAssemblyReference.cache
 C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\TestUnitaire2\obj\Debug\TestUnitaire2.dll
 C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\TestUnitaire2\obj\Debug\TestUnitaire2.pdb
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\TestUnitaire2\bin\Debug\TestUnitaire2.dll
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\TestUnitaire2\bin\Debug\TestUnitaire2.pdb
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\TestUnitaire2\bin\Debug\Metier.dll
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\TestUnitaire2\bin\Debug\Passerelle.dll
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\TestUnitaire2\bin\Debug\MySql.Data.dll
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\TestUnitaire2\bin\Debug\Metier.pdb
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\TestUnitaire2\bin\Debug\Metier.xml
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\TestUnitaire2\bin\Debug\Passerelle.pdb
+C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\TestUnitaire2\bin\Debug\Passerelle.xml

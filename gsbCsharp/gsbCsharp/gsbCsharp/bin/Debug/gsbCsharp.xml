@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>gsbCsharp</name>
+    </assembly>
+    <members>
+        <member name="M:gsbCsharp.FormAcceuil.OUVRE_UNE_MDI_FILLE(System.Windows.Forms.Form,System.Windows.Forms.Form)">
+            <summary>
+            ferme la feuille ouverte précdemment et ouvre la nouvelle feuille
+            </summary>
+            <param name="uneForm">la feuille à ouvrir</param>
+            <param name="laFeuilleMDI">la feuille mdi dans laquelle doit être ouverte la feuille</param>
+        </member>
+        <member name="M:gsbCsharp.FormAcceuil.listeVisiteStripMenuItem2_Clic(System.Object,System.EventArgs)">
+            <summary>
+            Liste des visites du visiteur
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:gsbCsharp.FormAcceuil.components">
+            <summary>
+            Variable nécessaire au concepteur.
+            </summary>
+        </member>
+        <member name="M:gsbCsharp.FormAcceuil.Dispose(System.Boolean)">
+            <summary>
+            Nettoyage des ressources utilisées.
+            </summary>
+            <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        </member>
+        <member name="M:gsbCsharp.FormAcceuil.InitializeComponent">
+            <summary>
+            Méthode requise pour la prise en charge du concepteur - ne modifiez pas
+            le contenu de cette méthode avec l'éditeur de code.
+            </summary>
+        </member>
+        <member name="F:gsbCsharp.FormCreateCabinet.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:gsbCsharp.FormCreateCabinet.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:gsbCsharp.FormCreateCabinet.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:gsbCsharp.FormCreateMedecin.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:gsbCsharp.FormCreateMedecin.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:gsbCsharp.FormCreateMedecin.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:gsbCsharp.FormCreateVisite.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:gsbCsharp.FormCreateVisite.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:gsbCsharp.FormCreateVisite.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:gsbCsharp.FormEditMedecin.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:gsbCsharp.FormEditMedecin.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:gsbCsharp.FormEditMedecin.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:gsbCsharp.FormListeCabinet.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:gsbCsharp.FormListeCabinet.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:gsbCsharp.FormListeCabinet.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:gsbCsharp.FormListeMedecin.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:gsbCsharp.FormListeMedecin.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:gsbCsharp.FormListeMedecin.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:gsbCsharp.FormListeVisiteur.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:gsbCsharp.FormListeVisiteur.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:gsbCsharp.FormListeVisiteur.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:gsbCsharp.FormStatistique.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:gsbCsharp.FormStatistique.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:gsbCsharp.FormStatistique.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:gsbCsharp.FormStatVisiteur.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:gsbCsharp.FormStatVisiteur.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:gsbCsharp.FormStatVisiteur.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:gsbCsharp.FormViewVisiteVisiteur.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:gsbCsharp.FormViewVisiteVisiteur.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:gsbCsharp.FormViewVisiteVisiteur.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:gsbCsharp.Program.Main">
+            <summary>
+            Point d'entrée principal de l'application.
+            </summary>
+        </member>
+    </members>
+</doc>
