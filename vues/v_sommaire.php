@@ -43,7 +43,7 @@
         <li class="active"><a href="index.php?uc=gererFrais&action=saisirFraisForfaitisés">Fiches de frais forfaitisés</a></li>
         <li class="active"><a href="index.php?uc=gererFraisHorsForfaits&action=saisirFraisHorsForfait">Fiches de frais hors forfait</a></li>
         <li class="active"><a href="index.php?uc=etatFrais&action=selectionnerMois">Mes fiches de frais</a></li>    
-	      <li class="active"><a href="../glpi" target="_blank">Signaler un probléme</a></li> 
+	      <li class="active"><a href="http://172.16.8.12/glpi" target="_blank">Signaler un probléme</a></li> 
         <?php if ($_SESSION['role'] == 'Administrateur') { ?> 
         <li class="active"><a href="index.php?uc=menuCRUD&action=read">Menu CRUD</a></li> 
         <?php } ?>
