@@ -63,6 +63,36 @@ namespace TestUnitaire2
         }
 
         [TestMethod]
+        public void testConstructeurVisite()
+        {
+            
+            DateTime dateAttendu = new DateTime(2017, 02, 02);
+            Utilisateur utilisateurObtenu = new Utilisateur("1", "david", "andre", "dandre", "oppg5", "106 rue victor hugo", "59000", "Lille", dateAttendu, "0", "david.andre@gsb.com", 8);
+            Cabinet cabinetObtenu = new Cabinet(1, "20 rue Jean Bono", "59000", "Lille", 25.78, 34.24);
+            Medecin medecinObtenu = new Medecin(1, "Bernard", "Jean", cabinetObtenu, utilisateurObtenu);
+            Visite visite1 = new Visite(1, dateAttendu, true, utilisateurObtenu, medecinObtenu, new DateTime(2017, 02, 02, 10, 20, 43), new DateTime(2017, 02, 02, 10, 30, 45), new DateTime(2017, 02, 02, 10, 42, 05));
+
+            Visite visite2 = new Visite( dateAttendu, false, utilisateurObtenu, medecinObtenu, new DateTime(2017, 02, 02, 10, 20, 43), new DateTime(2017, 02, 02, 15, 30, 45), new DateTime(2017, 02, 02, 10, 42, 05));
+
+            Assert.AreEqual(visite1.getDateVisite(), new DateTime(2017, 02, 02));
+            Assert.AreEqual(visite1.getHeureArrivee(), new DateTime(2017, 02, 02, 10, 20, 43));
+
+            Assert.AreEqual(visite1.getmedecin(), medecinObtenu);
+            Assert.AreEqual(visite1.getVisiteur(), utilisateurObtenu);
+            Assert.AreEqual(visite1.getId(), 1);
+            Assert.AreEqual(visite1.getRdv(), true);
+            //Assert.AreEqual(visite1.ToString(), "");
+            //String leString = this.getDateVisite().Day + "/" + this.getDateVisite().Month + "/" + getDateVisite().Year + ", " + this.getmedecin().ToString() + ", " + this.getVisiteur().ToString();
+
+            Assert.AreEqual(visite2.getDateVisite(), new DateTime(2017, 02, 02));
+            Assert.AreEqual(visite2.getHeureArrivee(), new DateTime(2017, 02, 02, 10, 20, 43));
+            Assert.AreEqual(visite2.getHeureDebut(), new DateTime(2017, 02, 02, 10, 42, 05));
+
+        }
+
+        
+
+        [TestMethod]
         public void testConstructeurUtilisateur3()
         {
             String toStringAttendu = "david andre, 59000, Lille";
@@ -134,12 +164,7 @@ namespace TestUnitaire2
             Assert.AreEqual("jambon", medecinObtenu.getVisiteur().getMdp());
             Assert.AreEqual("philipe.dupaté@gsb.com", medecinObtenu.getVisiteur().getEmail());
         }
-<<<<<<< HEAD
         
-=======
-
-
->>>>>>> 46e951bcabf6f8eed4718bb990abedca2efa1baa
         [TestMethod]
         public void testPasserelleCheckValueIsCorrect()
         {

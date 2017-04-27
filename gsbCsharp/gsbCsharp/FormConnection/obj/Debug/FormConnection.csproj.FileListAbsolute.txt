@@ -76,3 +76,6 @@ C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormCo
 C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.csproj.GenerateResource.Cache
 C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.exe
 C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\FormConnection\obj\Debug\FormConnection.pdb
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\gsbCsharp.xml
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\Metier.xml
+C:\wamp\www\GSB\gsbCsharp\gsbCsharp\FormConnection\bin\Debug\Passerelle.xml
