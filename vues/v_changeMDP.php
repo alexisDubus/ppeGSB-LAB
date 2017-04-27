@@ -28,15 +28,18 @@
 			<div class="login-wrapper">
 				<div class="box">
 					<div class="content-wrap">
-						<legend>Se connecter</legend>
-							<form method="post" action="index.php?uc=connexion&action=valideConnexion">
-								<input name="login" class="form-control" type="text" placeholder="Identifiant">
-								<input name="mdp" class="form-control" type="password" placeholder="Mot de passe">
-								</br>
-								<input type="submit" class="btn btn-primary signup" value="Connexion">
+						<legend>Création du nouveau mot de passe</legend>
+							<form method="post" action="index.php?uc=connexion&action=nouveauMDP" role='form'>
+                                                            <p>Entrez votre nouveau mot de passe :</p>
+                                                            <input name="mdp" class="form-control" type="password" placeholder="Mot de passe">
+                                                            </br>
+                                                            <p>Entrez de nouveau votre mot de passe :</p>
+                                                            <input name="mdp2" class="form-control" type="password" placeholder="Confirmation mot de passe">
+                                                            </br>
+                                                            <input type="submit" class="btn btn-primary signup" value="Valider">
+                                                            </br>
 							</form>
 							</br>
-                                                <a href="index.php?uc=connexion&action=motDePasseOublie">Mot de passe oublié ?</a>
 					</div>							
 				</div>
 			</div>

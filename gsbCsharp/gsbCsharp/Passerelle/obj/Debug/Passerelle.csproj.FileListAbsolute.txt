@@ -28,5 +28,3 @@ C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Metier.pdb
 C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.csprojResolveAssemblyReference.cache
 C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.dll
 C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\obj\Debug\Passerelle.pdb
-C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Passerelle.xml
-C:\wamp\www\ppeGSB-LABMaster\gsbCsharp\gsbCsharp\Passerelle\bin\Debug\Metier.xml
