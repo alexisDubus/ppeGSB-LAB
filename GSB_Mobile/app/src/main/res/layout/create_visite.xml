@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtV_Titre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/visiteCreation"
+        android:textSize="30sp"
+        android:layout_marginTop="10dp"
+        android:textStyle="normal|bold"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/txt_NomEtPrenomMedecin"
+        android:text="@string/medecinNameLastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:layout_below="@+id/txtV_Titre"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/txtV_infoDateVisite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/visiteDate"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:textStyle="normal|italic"
+        android:textColor="@android:color/holo_red_dark" />
+
+    <EditText
+        android:id="@+id/editText_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/formatDate"
+        android:ems="14"
+        android:layout_below="@+id/txtV_infoDateVisite"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/txtV_infoRDV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/visiteIsRdvOrNot"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textStyle="normal|italic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="190dp"
+        android:textColor="@android:color/holo_red_dark"/>
+
+    <CheckBox
+        android:id="@+id/chkBox_oui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yes"
+        android:layout_alignBaseline="@+id/chkBox_non"
+        android:layout_alignBottom="@+id/chkBox_non"
+        android:layout_alignStart="@+id/txtV_Titre"
+        android:checked="false" />
+
+    <CheckBox
+        android:id="@+id/chkBox_non"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/non"
+        android:layout_below="@+id/txtV_infoRDV"
+        android:layout_alignStart="@+id/txtV_Titre"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="170dp"/>
+
+    <TextView
+        android:id="@+id/txtV_infoHeureArrive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/arriveTime"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textStyle="normal|italic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="270dp"
+        android:textColor="@android:color/holo_red_dark"/>
+
+    <EditText
+        android:id="@+id/editText_heureArrive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/formatHour"
+        android:ems="14"
+        android:layout_below="@+id/txtV_infoHeureArrive"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/txtV_infoHeureDebut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/startHour"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textStyle="normal|italic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="360dp"
+        android:textColor="@android:color/holo_red_dark"/>
+
+    <EditText
+        android:id="@+id/editText_heureDebut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/formatHour"
+        android:ems="14"
+        android:layout_below="@+id/txtV_infoHeureDebut"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/txtV_infoHeureFin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/endHour"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textStyle="normal|italic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="450dp"
+        android:textColor="@android:color/holo_red_dark"/>
+
+    <EditText
+        android:id="@+id/editText_heureFin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/formatHour"
+        android:ems="14"
+        android:layout_below="@+id/txtV_infoHeureFin"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btn_create"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="@string/createVisite"
+        android:textAlignment="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/txtV_infoDateVisite"
+        android:layout_marginBottom="30dp" />
+
+</RelativeLayout>

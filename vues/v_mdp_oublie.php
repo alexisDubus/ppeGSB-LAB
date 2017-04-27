@@ -28,19 +28,11 @@
 			<div class="login-wrapper">
 				<div class="box">
 					<div class="content-wrap">
-						<legend>Répondez à votre question privée</legend>
+						<legend>Entrez votre login</legend>
 							<form method="post" action="index.php?uc=connexion&action=changeMDP" role='form'>
-                                                            <p>Entrez votre login :</p>
-                                                            <input name="login" class="form-control" type="text" placeholder="Identifiant">
-                                                            </br>
-                                                            <p>Entrez votre adresse eMail :</p>
-                                                            <input name="EMail" class="form-control" type="text" placeholder="EMail">
-                                                            </br>
-                                                            <p>Quel est le nom de votre premier animal de compagnie ?</p>
-                                                            <input name="reponse" class="form-control" type="text" placeholder="Réponse">
-                                                            </br>
-                                                            <input type="submit" class="btn btn-primary signup" value="Valider">
-                                                            </br>
+								<input name="login" class="form-control" type="text" placeholder="Login">
+								</br>
+								<input type="submit" class="btn btn-primary signup" value="Login">
 							</form>
 							</br>
 					</div>							
