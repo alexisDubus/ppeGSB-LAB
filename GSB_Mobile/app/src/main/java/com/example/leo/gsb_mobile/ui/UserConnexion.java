@@ -87,7 +87,7 @@ public class UserConnexion extends Activity {
             Log.i("User From local", nom + " " + prenom + " : " + idUser);
 
             // Récupération du même utilisateur dans la BDD distante
-            String url = "http://172.16.223.129/PPEGSB4.0_Mobile/webservices/getUserVersion_WS.php?id=" + idUser + "";
+            String url = "http://172.16.8.15/PPEGSB4.0_Mobile/webservices/getUserVersion_WS.php?id=" + idUser + "";
 
             GetUserVersionFromBDD getUserVersion = new GetUserVersionFromBDD(getApplicationContext(), url);
             getUserVersion.execute();
@@ -159,7 +159,7 @@ public class UserConnexion extends Activity {
                 } else {
                     // On appele le web service (dans la tâche asynchrone)
 
-                    String url = "http://172.16.223.129/PPEGSB4.0_Mobile/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
+                    String url = "http://172.16.8.15/PPEGSB4.0_Mobile/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
                     GetUserFromBDD getUser = new GetUserFromBDD(getApplicationContext(), url);
                     getUser.execute();
                     try {
@@ -256,7 +256,7 @@ public class UserConnexion extends Activity {
             String heureFin = uneVisite.getHeureFin();
 
             // L'ajoute a la BDD distante grâce au WS
-            String url = "http://172.16.223.129/PPEGSB4.0_Mobile/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
+            String url = "http://172.16.8.15/PPEGSB4.0_Mobile/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
             SetVisiteToBDD setVisite = new SetVisiteToBDD(getApplicationContext(), url);
             setVisite.execute();
             Log.i("VISITE", "Visite du " + dateVisite + " crée");
@@ -311,31 +311,6 @@ public class UserConnexion extends Activity {
         public void onStatusChanged(String provider, int Status, Bundle extras) {}
     };
 
-
-/*
-    private static boolean netIsAvailable() {
-        try {
-            //make a URL to a known source
-            URL url = new URL("http://www.google.com");
-
-            //open a connection to that source
-            HttpURLConnection urlConnect = (HttpURLConnection)url.openConnection();
-
-            //trying to retrieve data from the source. If there
-            //is no connection, this line will fail
-            Object objData = urlConnect.getContent();
-
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-            return false;
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
-*/
 
 }
 

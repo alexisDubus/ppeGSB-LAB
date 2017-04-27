@@ -323,7 +323,11 @@ INSERT INTO `cabinet` (`id`, `rue`, `CP`, `ville`, `longitude`, `latitude`) VALU
 INSERT INTO `medecin` (`id`, `nom`, `prenom`, `idcabinet`, `idutilisateur`) VALUES
 (1, 'Pierre', 'Duparc', 1, 'a131'),
 (2, 'Benoît', 'Lapoutre', 2, 'a55'),
-(3, 'Alexis', 'Fjord', 3, 'a93');
+(3, 'Alexis', 'Fjord', 3, 'a93'),
+(4, 'Léo', 'Marlière', 1, 'a131'),
+(5, 'Benoit', 'Leblond', 2, 'a131'),
+(6, 'Alexis', 'Legrand', 3, 'a131'),
+(7, 'Vianney', 'Leresoteux', 1, 'a131');
 
 
 INSERT INTO `visite` (`id`, `dateVisite`, `rdv`, `idutilisateur`, `idmedecin`, `heureArrivee`, `heureDepart`, `heureDebut`) VALUES
