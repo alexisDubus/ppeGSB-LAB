@@ -134,7 +134,12 @@ namespace TestUnitaire2
             Assert.AreEqual("jambon", medecinObtenu.getVisiteur().getMdp());
             Assert.AreEqual("philipe.dupaté@gsb.com", medecinObtenu.getVisiteur().getEmail());
         }
+<<<<<<< HEAD
         
+=======
+
+
+>>>>>>> 46e951bcabf6f8eed4718bb990abedca2efa1baa
         [TestMethod]
         public void testPasserelleCheckValueIsCorrect()
         {

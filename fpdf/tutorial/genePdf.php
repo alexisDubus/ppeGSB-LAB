@@ -17,7 +17,7 @@ if($leMois == NULL)
 }
 $lesMois=$pdo->getLesMoisDisponibles($idUtilisateur);
 $moisASelectionner = $leMois;
-$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idUtilisateur,$leMois);
+$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idUtilisateur,date("Y"),$leMois);
 $lesFraisForfait= $pdo->getLesFraisForfait($idUtilisateur,$leMois);
 $lesLibelleFrais = $pdo->getLibelleFraisForfait();
 $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idUtilisateur,$leMois);
