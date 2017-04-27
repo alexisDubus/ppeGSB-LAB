@@ -131,20 +131,38 @@ namespace TestUnitaire2
 
         }
 
-        /*[TestMethod]
+        [TestMethod]
         public void TestPasserelleAdd()
         {
             Cabinet cabinet1 = new Cabinet(2, "rue Dupont", "59000", "Lille", 928.22, 222.22);
             Passerelle.Passerelle.addCabinet(cabinet1);
             DateTime date = new DateTime(2017, 02, 02);
-            Utilisateur utilisateur1 = new Utilisateur("1", "david", "andre", "dandre",
+            Utilisateur utilisateur1 = new Utilisateur("a17", "david", "andre", "dandre",
                 "oppg5", "106 rue victor hugo", "59000", "Lille", date, "2", "david.andre@gsb.com", 8);
             Medecin medecin1 = new Medecin("Bernard", "Jean", cabinet1, utilisateur1);
+            Passerelle.Passerelle.addMedecin(medecin1);
             DateTime heureArrivee = new DateTime(2017, 02, 02, 10, 30, 0, 0);
             DateTime heureDepart = new DateTime(2017, 02, 02, 12, 30, 0, 0);
             DateTime heureDebut = new DateTime(2017, 02, 02, 11, 30, 0, 0);
             Visite visite1 = new Visite(date, true, utilisateur1, medecin1, heureArrivee, heureDepart, heureDebut);
             Passerelle.Passerelle.addVisite(visite1);
-        }*/
+        }
+
+        [TestMethod]
+        public void TestPasserelleEdit()
+        {
+            Cabinet cabinet1 = new Cabinet(2, "rue Dupont", "59000", "Lille", 928.22, 222.22);
+            Passerelle.Passerelle.editCabinet(cabinet1);
+            DateTime date = new DateTime(2017, 02, 02);
+            Utilisateur utilisateur1 = new Utilisateur("a17", "david", "andre", "dandre",
+                "oppg5", "106 rue victor hugo", "59000", "Lille", date, "2", "david.andre@gsb.com", 8);
+            Medecin medecin1 = new Medecin("Bernard", "Jean", cabinet1, utilisateur1);
+            Passerelle.Passerelle.editMedecin(medecin1);
+            DateTime heureArrivee = new DateTime(2017, 02, 02, 10, 30, 0, 0);
+            DateTime heureDepart = new DateTime(2017, 02, 02, 12, 30, 0, 0);
+            DateTime heureDebut = new DateTime(2017, 02, 02, 11, 30, 0, 0);
+            Visite visite1 = new Visite(date, true, utilisateur1, medecin1, heureArrivee, heureDepart, heureDebut);
+            Passerelle.Passerelle.editVisite(visite1);
+        }
     }
 }
