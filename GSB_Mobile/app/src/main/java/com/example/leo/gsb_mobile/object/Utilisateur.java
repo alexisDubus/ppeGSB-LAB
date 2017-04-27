@@ -2,8 +2,8 @@ package com.example.leo.gsb_mobile.object;
 
 /**
  * Created by Leo on 24/03/2017.
+ * Objet Utilisateur
  */
-
 public class Utilisateur {
 
     private String userId;
@@ -70,4 +70,16 @@ public class Utilisateur {
     public double getPosY() {return posY;}
 
     public void setPosY(double posY) {this.posY = posY;}
+
+    @Override
+    public String toString() {
+        return "Utilisateur{" +
+                "userId='" + userId + '\'' +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", numVersion=" + numVersion +
+                ", posX=" + posX +
+                ", posY=" + posY +
+                '}';
+    }
 }

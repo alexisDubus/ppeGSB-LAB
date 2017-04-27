@@ -15,6 +15,7 @@ import java.net.URLConnection;
 
 /**
  * Created by Leo on 05/04/2017.
+ * Tâche Asynchrone éxecutant le webservice getUser
  */
 
 public class GetUserFromBDD extends AsyncTask<Void, Void, String> {

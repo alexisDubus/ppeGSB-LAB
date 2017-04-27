@@ -21,7 +21,6 @@
         <activity android:name=".ui.CardViewSelector"/>
         <activity android:name=".ui.CreateVisite"/>
 
-
         <activity android:name=".ui.UserConnexion">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />

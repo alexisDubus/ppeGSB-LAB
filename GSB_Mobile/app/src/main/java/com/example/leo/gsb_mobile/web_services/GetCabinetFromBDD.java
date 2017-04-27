@@ -15,6 +15,7 @@ import java.net.URLConnection;
 
 /**
  * Created by Leo on 05/04/2017.
+ * Tâche Asynchrone éxecutant le webservice getCabinet
  */
 
 public class GetCabinetFromBDD extends AsyncTask<Void, Void, String> {

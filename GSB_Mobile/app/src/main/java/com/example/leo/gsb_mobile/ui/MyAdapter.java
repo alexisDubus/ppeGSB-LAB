@@ -12,14 +12,16 @@ import java.util.List;
 
 /**
  * Created by Leo on 28/03/2017.
+ * Cette classe est nécessaire a la gestion de notre RecyclerView
+ * Elle fonctionne de pair avec la classe myViewHolder
  */
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
-
     List<CardView> myList;
 
-    public MyAdapter(List<CardView> myList) {
+    public MyAdapter(List<CardView> myList)
+    {
         this.myList = myList;
     }
 
@@ -31,10 +33,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         return new MyViewHolder(view);
     }
 
-    //c'est ici que nous allons remplir notre cellule avec le texte de chaque MyObject
+
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+        // On recupère chaque CardView de la liste
         CardView myCardView = myList.get(position);
+        // On récupère ensuite les informations de la CardView pour les afficher (voir MyViewHolder)
         holder.bind(myCardView);
     }
 

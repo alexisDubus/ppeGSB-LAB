@@ -23,12 +23,18 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Created by Leo on 29/03/2017.
+ * Classe permettant de gérer notre activité createVisite
+ * C'est cette activité qui va nous permettre de créer une visite
+ */
 public class CreateVisite extends Activity {
 
     public EditText editT_dateVisite;
     public EditText editT_heureDebut;
     public EditText editT_heureFin;
     public EditText editT_heureArrive;
+
     public CheckBox chkBox_oui;
     public CheckBox chkBox_non;
 
@@ -49,7 +55,7 @@ public class CreateVisite extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_visite);
 
-        // Association des éléments
+        // Association des éléments de notre layout
         editT_dateVisite = (EditText)findViewById(R.id.editText_date);
         editT_heureDebut = (EditText)findViewById(R.id.editText_heureDebut);
         editT_heureFin = (EditText)findViewById(R.id.editText_heureFin);
@@ -60,8 +66,9 @@ public class CreateVisite extends Activity {
         btn_create= (Button)findViewById(R.id.btn_create);
         Log.i("CREATEVISITE", "Element associe");
 
-        // Récupération des données dans l'Intent
+        // Récupération de l'Intent
         Intent i = getIntent();
+        // Récupération des extras
         String nomMedecin = i.getStringExtra("NOMMEDECIN");
         String prenomMedecin = i.getStringExtra("PRENOMMEDECIN");
         idMedecin = i.getStringExtra("IDMEDECIN");
@@ -69,16 +76,19 @@ public class CreateVisite extends Activity {
 
         // Récupération de l'idUser
         UtilisateurDAO utilisateurDAO = new UtilisateurDAO(this);
+        // On ouvre la connexion a la table Utilisateur
         utilisateurDAO.open();
         Utilisateur unUser = utilisateurDAO.selectionner(0);
         idUser = unUser.getUserId();
         utilisateurDAO.close();
+        // On ferme la connexion a la table Utilisateur
 
+        // On affiche le nom et le prénom du médecin
         txtV_nomEtPrenomMedecin.setText(""+nomMedecin+" "+prenomMedecin+"");
 
         // ------------------------ OnClickListener -------------------------------
 
-        // CheckBox
+        // Lorsque on check la box NON, la box OUI se dé-check, et inversement
         chkBox_oui.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -92,7 +102,7 @@ public class CreateVisite extends Activity {
             }
         });
 
-        // editText
+        // Lorsque on clique sur un editText, il se vide de son contenu
         editT_heureDebut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {editT_heureDebut.getText().clear();
@@ -114,6 +124,7 @@ public class CreateVisite extends Activity {
             }
         });
 
+
         // Bouton ---------- Création de la Visite --------------
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,10 +136,9 @@ public class CreateVisite extends Activity {
                 String heureDebut = editT_heureDebut.getText().toString();
                 String heureFin = editT_heureFin.getText().toString();
 
-                // Vérifications
+                // On vérifie si au moins une checkBox est check
                 if (chkBox_non.isChecked()){rdvOrNot = 0;checkBoxChecked = 1;}
                 if (chkBox_oui.isChecked()){rdvOrNot = 1;checkBoxChecked = 1;}
-
 
                 // On vérifie si les champs entrés correspondent au bon format
                 boolean dateOk = isValidDate(dateVisite);
@@ -148,27 +158,33 @@ public class CreateVisite extends Activity {
                     Date heureDebutDate = formatter.parse(heureDebut);
                     Date heureFinDate = formatter.parse(heureFin);
 
+                    // On vérifie que tout les champs sont remplis
                     if (dateVisite.isEmpty() || heureArrive.isEmpty() || heureDebut.isEmpty() || heureFin.isEmpty() || checkBoxChecked == 0)
                     {showToast("Tout les champs doivent être remplit");}
 
-                    // On peut ainsi les comparer les heures
+                    // On compare les heures (raison pour laquelle on les transforme en format Date
                     else if (heureDebutDate.compareTo(heureArriveDate)<0)
                     {showToast("L'heure de début ne peut être supérieure a l'heure d'arrivé");}
                     else if (heureFinDate.compareTo(heureDebutDate)<0)
                     {showToast("L'heure de fin ne peut être supérieure a l'heure de début");}
 
+                    // Si les valeurs entré correspondent au format voulu, on peut ensuite créer la viste
                     else if (dateOk && hourArriveOk && hourDebutOk && hourFinOk){
                         // Création et ajout de la visite
                         VisiteDAO visiteDAO = new VisiteDAO(context);
+                        // On ouvre la connexion a la table visite
                         visiteDAO.open();
+                        // On crée la visite
                         Visite uneVisite = new Visite(dateVisite, rdvOrNot, heureArrive, heureDebut, heureFin, idUser, idMedecin);
                         Log.i("CREATEVISITE", "Visite créer");
                         Log.i("VISITE", uneVisite.getDateVisite()+ " " + uneVisite.getHeureArrive() + " " + uneVisite.getHeureDebut() + " ");
+                        // On ajoute la visite à la BDD locale
                         visiteDAO.ajouter(uneVisite);
                         Log.i("CREATEVISITE", "Visite ajouté");
                         visiteDAO.close();
+                        // On ouvre la connexion a la table visite
 
-                        // Retour sur l'activity List
+                        // Retour sur l'activity CardViewSelector
                         Intent i = new Intent(getApplicationContext(), CardViewSelector.class);
                         startActivity(i);
                     }
@@ -188,12 +204,25 @@ public class CreateVisite extends Activity {
         });
     }
 
+    /**
+     * Méthode permettant d'afficher un Toast avec le message entré
+     * @param message
+     */
     public void showToast( String message){
+        // Crée le Toast
         Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
+        // Positionne le Toast au centre de l'écran
         toast.setGravity(Gravity.CENTER, 0, 0);
+        // Affiche le Toast
         toast.show();
     }
 
+    /**
+     * Vérifie si un String correspond au format voulu
+     * Ici, le format voulu est une date en yyyy-MM-dd
+     * @param dateString
+     * @return vrai si le format correspond, faux dans le cas contraire
+     */
     public boolean isValidDate(String dateString) {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         try {
@@ -204,6 +233,12 @@ public class CreateVisite extends Activity {
         }
     }
 
+    /**
+     * Vérifie si un String correspond au format voulu
+     * Ici, le format voulu est une heure en HH:mm
+     * @param dateString
+     * @return vrai si le format correspond, faux dans le cas contraire
+     */
     public boolean isValidHour(String dateString) {
         SimpleDateFormat df = new SimpleDateFormat("HH:mm");
         try {

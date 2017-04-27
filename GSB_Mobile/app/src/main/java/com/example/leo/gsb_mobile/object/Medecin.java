@@ -2,8 +2,8 @@ package com.example.leo.gsb_mobile.object;
 
 /**
  * Created by Leo on 24/03/2017.
+ * Objet Medecin
  */
-
 public class Medecin {
 
     private int idMedecin;
@@ -21,6 +21,8 @@ public class Medecin {
         this.idUtilisateur = idUtilisateur;
     }
 
+    public Medecin(){}
+
     public int getIdMedecin() {
         return idMedecin;
     }
@@ -29,11 +31,7 @@ public class Medecin {
         this.idMedecin = idMedecin;
     }
 
-    public Medecin(){}
-
-    public String getNom() {
-        return nom;
-    }
+    public String getNom() {return nom;}
 
     public void setNom(String nom) {
         this.nom = nom;
@@ -61,5 +59,16 @@ public class Medecin {
 
     public void setIdCabinet(String idCabinet) {
         this.idCabinet = idCabinet;
+    }
+
+    @Override
+    public String toString() {
+        return "Medecin{" +
+                "idMedecin=" + idMedecin +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", idUtilisateur='" + idUtilisateur + '\'' +
+                ", idCabinet='" + idCabinet + '\'' +
+                '}';
     }
 }

@@ -27,6 +27,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Leo on 28/03/2017.
+ * Tâche Asynchrone éxecutant le webservice getMedecin
  */
 
 public class GetMedecinFromBDD extends AsyncTask<Void, Void, String> {

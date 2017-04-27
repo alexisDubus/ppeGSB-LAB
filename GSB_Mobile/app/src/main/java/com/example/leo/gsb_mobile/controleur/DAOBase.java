@@ -7,28 +7,28 @@ import com.example.leo.gsb_mobile.DataBaseHandler;
 
 /**
  * Created by Leo on 26/03/2017.
+ * Objet controlleur qui permet de se connecter a la BDD local
+ * Les différents controlleur vont ensuite hériter de cette classe afin d'agir sur une table en particulier
  */
+class DAOBase {
 
-public class DAOBase {
+    private final static int VERSION = 1;
+    private final static String NOM = "database.db";
 
-    protected final static int VERSION = 1;
-    protected final static String NOM = "database.db";
+    SQLiteDatabase mDb = null;
+    private DataBaseHandler mHandler = null;
 
-    protected SQLiteDatabase mDb = null;
-    protected DataBaseHandler mHandler = null;
-
-    public DAOBase(Context pContext) {
+    DAOBase(Context pContext) {
         this.mHandler = new DataBaseHandler(pContext, NOM, null, VERSION);
     }
 
-    // Open connexion to BDD
+    // Ouvre la connexion a la base de donnée locale
     public SQLiteDatabase open() {
-        // Pas besoin de fermer la dernière base puisque getWritableDatabase s'en charge
         mDb = mHandler.getWritableDatabase();
         return mDb;
     }
 
-    // Close connexion to BDD
+    // Ferme la connexion a la base de donnée locale
     public void close() {
         mDb.close();
     }

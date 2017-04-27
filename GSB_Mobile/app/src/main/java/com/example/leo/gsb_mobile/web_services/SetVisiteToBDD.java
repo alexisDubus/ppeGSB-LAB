@@ -15,6 +15,7 @@ import java.net.URLConnection;
 
 /**
  * Created by Leo on 07/04/2017.
+ * Tâche Asynchrone éxecutant le webservice setVisite
  */
 
 public class SetVisiteToBDD extends AsyncTask<Void, Void, String> {
@@ -31,7 +32,6 @@ public class SetVisiteToBDD extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-       // Toast.makeText(context, "Début du traitement", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -42,7 +42,6 @@ public class SetVisiteToBDD extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-       // Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 
 

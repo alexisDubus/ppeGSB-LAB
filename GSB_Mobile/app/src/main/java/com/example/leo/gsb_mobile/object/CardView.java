@@ -2,14 +2,14 @@ package com.example.leo.gsb_mobile.object;
 
 /**
  * Created by Leo on 28/03/2017.
+ * Objet CardView
  */
-
 public class CardView {
 
     private String nomMedecin;
     private String prenomMedecin;
     private String adresseCabinet;
-    public int idMedecin;
+    private int idMedecin;
     private String distance;
 
     public CardView(String nomMedecin, String prenomMedecin, String adresseCabinet, int idMedecin, String distance) {
@@ -31,25 +31,19 @@ public class CardView {
         return idMedecin;
     }
 
-    public void setIdMedecin(int idMedecin) {
-        this.idMedecin = idMedecin;
-    }
+    public void setIdMedecin(int idMedecin) {this.idMedecin = idMedecin;}
 
     public String getNomMedecin() {
         return nomMedecin;
     }
 
-    public void setNomMedecin(String nomMedecin) {
-        this.nomMedecin = nomMedecin;
-    }
+    public void setNomMedecin(String nomMedecin) {this.nomMedecin = nomMedecin;}
 
     public String getPrenomMedecin() {
         return prenomMedecin;
     }
 
-    public void setPrenomMedecin(String prenomMedecin) {
-        this.prenomMedecin = prenomMedecin;
-    }
+    public void setPrenomMedecin(String prenomMedecin) {this.prenomMedecin = prenomMedecin;}
 
     public String getAdresseCabinet() {
         return adresseCabinet;
@@ -62,4 +56,15 @@ public class CardView {
     public String getDistance() {return distance;}
 
     public void setDistance(String distance) {this.distance = distance;}
+
+    @Override
+    public String toString() {
+        return "CardView{" +
+                "nomMedecin='" + nomMedecin + '\'' +
+                ", prenomMedecin='" + prenomMedecin + '\'' +
+                ", adresseCabinet='" + adresseCabinet + '\'' +
+                ", idMedecin=" + idMedecin +
+                ", distance='" + distance + '\'' +
+                '}';
+    }
 }

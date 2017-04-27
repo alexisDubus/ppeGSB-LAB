@@ -1,17 +1,16 @@
 package com.example.leo.gsb_mobile.object;
 
-import java.util.Date;
 
 /**
  * Created by Leo on 24/03/2017.
+ * Objet Visite
  */
-
 public class Visite {
 
 
     private String visiteId;
     private String dateVisite;
-    private  int rdvOrNot;
+    private int rdvOrNot;
     private String heureArrive;
     private String heureDebut;
     private String heureFin;
@@ -28,7 +27,8 @@ public class Visite {
         this.medecinId = medecinId;
     }
 
-    public Visite(){}
+    public Visite() {
+    }
 
     public String getVisiteId() {
         return visiteId;
@@ -92,5 +92,19 @@ public class Visite {
 
     public void setMedecinId(String medecinId) {
         this.medecinId = medecinId;
+    }
+
+    @Override
+    public String toString() {
+        return "Visite{" +
+                "visiteId='" + visiteId + '\'' +
+                ", dateVisite='" + dateVisite + '\'' +
+                ", rdvOrNot=" + rdvOrNot +
+                ", heureArrive='" + heureArrive + '\'' +
+                ", heureDebut='" + heureDebut + '\'' +
+                ", heureFin='" + heureFin + '\'' +
+                ", userId='" + userId + '\'' +
+                ", medecinId='" + medecinId + '\'' +
+                '}';
     }
 }

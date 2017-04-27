@@ -7,6 +7,8 @@ import android.util.Log;
 
 /**
  * Created by Leo on 24/03/2017.
+ * Classe permettant de créer la BDD SQLite
+ * S'éxecute au premier lancement de l'application
  */
 
 public class DataBaseHandler extends SQLiteOpenHelper {
@@ -32,7 +34,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                     USER_POSX + " REAL, " +
                     USER_POSY  + " REAL);";
 
-    public static final String USER_TABLE_DROP = "DROP TABLE IF EXISTS " + USER_TABLE_NAME + ";";
+    private static final String USER_TABLE_DROP = "DROP TABLE IF EXISTS " + USER_TABLE_NAME + ";";
 
 
     // -------------------- Table CABINET --------------------
@@ -44,7 +46,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     private static final String CABINET_POSX = "cabinetPosX";
     private static final String CABINET_POSY = "cabinetPosY";
 
-    private static String CABINET_TABLE_CREATE =
+    private static final String CABINET_TABLE_CREATE =
             "CREATE TABLE " + CABINET_TABLE_NAME + " (" +
                     CABINET_KEY + " INTEGER PRIMARY KEY, " +
                     CABINET_STREET + " TEXT, " +
@@ -53,7 +55,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                     CABINET_POSX + " REAL, " +
                     CABINET_POSY + " REAL);";
 
-    public static final String CABINET_TABLE_DROP = "DROP TABLE IF EXISTS " + CABINET_TABLE_NAME + ";";
+    private static final String CABINET_TABLE_DROP = "DROP TABLE IF EXISTS " + CABINET_TABLE_NAME + ";";
 
 
     // -------------------- Table MEDECIN --------------------
@@ -62,7 +64,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     private static final String MEDECIN_NAME = "medecinNom";
     private static final String MEDECIN_LASTNAME = "medecinPrenom";
 
-    private static String MEDECIN_TABLE_CREATE =
+    private static final String MEDECIN_TABLE_CREATE =
             "CREATE TABLE " + MEDECIN_TABLE_NAME + "(" +
                     MEDECIN_KEY + " INTEGER PRIMARY KEY , " +
                     MEDECIN_NAME + " TEXT, " +
@@ -70,7 +72,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                     CABINET_KEY + " TEXT, " +
                     USER_KEY + " TEXT);";
 
-    public static final String MEDECIN_TABLE_DROP = "DROP TABLE IF EXISTS " + MEDECIN_TABLE_NAME + ";";
+    private static final String MEDECIN_TABLE_DROP = "DROP TABLE IF EXISTS " + MEDECIN_TABLE_NAME + ";";
 
     // -------------------- Table VISITE --------------------
     private static final String VISITE_TABLE_NAME = "Visite";
@@ -81,7 +83,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     private static final String VISITE_HOUR_START= "visiteHeureDebut";
     private static final String VISITE_HOUR_END = "visiteHeureFin";
 
-    private static String VISITE_TABLE_CREATE =
+    private static final String VISITE_TABLE_CREATE =
             "CREATE TABLE " + VISITE_TABLE_NAME + "(" +
                     VISITE_KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     VISITE_DATE + " TEXT, " +
@@ -92,7 +94,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                     MEDECIN_KEY + " TEXT, " +
                     USER_KEY + " TEXT);";
 
-    public static final String VISITE_TABLE_DROP = "DROP TABLE IF EXISTS " + VISITE_TABLE_NAME + ";";
+    private static final String VISITE_TABLE_DROP = "DROP TABLE IF EXISTS " + VISITE_TABLE_NAME + ";";
 
     // ----------------- Méthodes ---------------------
 
@@ -100,6 +102,10 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         super(context, name, factory, version);
     }
 
+    /**
+     * Méthode éxecutant les commandes DROP et CREATE de chaque table
+     * @param db
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(USER_TABLE_DROP);
@@ -113,6 +119,12 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.execSQL(VISITE_TABLE_CREATE);
     }
 
+    /**
+     * Méthode recreant la BDD lors d'un changement de version
+     * @param db
+     * @param oldVersion
+     * @param newVersion
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onCreate(db);
