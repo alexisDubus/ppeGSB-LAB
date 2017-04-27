@@ -68,23 +68,31 @@ namespace gsbCsharp
             Medecin unMedecin = new Medecin(nom, prenom, unCabinet, unUtilisateur);
             if (nom != "" && prenom != "")
             {
-                if(unUtilisateur == null)
+                if(unUtilisateur != null)
                 {
-                    Passerelle.Passerelle.addMedecinSansVisiteur(unMedecin);
+                    if (unCabinet != null)
+                    {
+                        Passerelle.Passerelle.addMedecin(unMedecin);
+                        textBoxNomMedecin.Text = "";
+                        textBoxPrenomMedecin.Text = "";
+                        comboBoxMedecinVisiteur.SelectedItem = "";
+                        comboBoxMedecinCabinet.SelectedItem = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Il faut sélectionner un cabinet");
+                    }
                 }
                 else
                 {
-                    Passerelle.Passerelle.addMedecin(unMedecin);
+                    MessageBox.Show("Il faut sélectionner un utilisateur");
                 }
             } else
             {
                 MessageBox.Show("Les valeurs ne sont pas valides");
             }
 
-            textBoxNomMedecin.Text = "";
-            textBoxPrenomMedecin.Text =  "";
-            comboBoxMedecinVisiteur.SelectedItem = "";
-            comboBoxMedecinCabinet.SelectedItem = "";
+            
         }
 
         private void textBoxNomMedecin_TextChanged(object sender, EventArgs e)

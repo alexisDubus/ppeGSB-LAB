@@ -20,7 +20,8 @@ namespace Passerelle
     /// </summary>
     public static class Passerelle
     {
-        private static String ipAD_DS = "LDAP://192.168.23.142";
+        //private static String ipAD_DS = "LDAP://192.168.23.142";
+        private static String ipAD_DS = "LDAP://172.16.8.10";
         public static String idUtilisateur;
         public static int typeUtilisateur;
         public static Utilisateur visiteurSession = new Utilisateur();
@@ -29,9 +30,8 @@ namespace Passerelle
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
         private static BindingList<Utilisateur> listeDesAdmins = new BindingList<Utilisateur>();
-        private static String connectionString = "SERVER=172.16.9.3; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
+        private static String connectionString = "SERVER=172.16.8.15; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         //private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
-        //private static String connectionString = "SERVER=172.16.8.200; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
         #region commun 
@@ -85,7 +85,7 @@ namespace Passerelle
 
         public static String checkValueIsCorrect(String str)
         {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(str, @"^[a-zA-Z]+$"))
+            if (!System.Text.RegularExpressions.Regex.IsMatch(str, @"^[a-zA-Zéàèêâ]+$"))
             {
                 str = "";
             }
@@ -908,8 +908,8 @@ namespace Passerelle
             try
             {
                 DirectoryEntry entry = new DirectoryEntry(ipAD_DS , username , passwd);
-                var test = entry.NativeObject;
-                var personne = entry.Username;
+                //var test = entry.NativeObject;
+                //var personne = entry.Username;
               /*  var dataGUID = entry.NativeGuid;
                 var data = entry.Name;
                 var dataAutre = entry.Options;

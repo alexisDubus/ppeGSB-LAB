@@ -27,6 +27,21 @@ namespace TestUnitaire2
             strObtenu = Passerelle.Passerelle.checkValueIsCorrect("2cor2rect");
             Assert.AreEqual(strAttendu, strObtenu.ToString());
 
+            strAttendu = "azertyuiopqsdfghjklmwxcvbn";
+            strObtenu = Passerelle.Passerelle.checkValueIsCorrect("azertyuiopqsdfghjklmwxcvbn");
+            Assert.AreEqual(strAttendu, strObtenu.ToString());
+
+            strAttendu = "tàtâ";
+            strObtenu = Passerelle.Passerelle.checkValueIsCorrect("tàtâ");
+            Assert.AreEqual(strAttendu, strObtenu.ToString());
+
+            strAttendu = "";
+            strObtenu = Passerelle.Passerelle.checkValueIsCorrect("%*");
+            Assert.AreEqual(strAttendu, strObtenu.ToString());
+
+            strAttendu = "";
+            strObtenu = Passerelle.Passerelle.checkValueIsCorrect("2");
+            Assert.AreEqual(strAttendu, strObtenu.ToString());
         }
 
 
