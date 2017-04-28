@@ -11,7 +11,7 @@ $heuredepart= $_REQUEST['heuredepart'];
 $heuredebut= $_REQUEST['heuredebut'];
 
 
-$sql = 'INSERT INTO visite (datevisite, rdv, idutilisateur, idmedecin, heureArrivee, heureDepart, heureDebut) VALUES (' . $dateVisite . ', ' . $rdv . ', ' . $idutilisateur . ' ,' . $idmedecin . ' , ' . $heurearrivee . ' , ' . $heuredepart . ',' . $heuredebut . ')';
+$sql = "INSERT INTO visite (datevisite, rdv, idutilisateur, idmedecin, heureArrivee, heureDepart, heureDebut) VALUES ('" . $dateVisite . ', ' . $rdv . ', ' . $idutilisateur . ' ,' . $idmedecin . ' , ' . $heurearrivee . ' , ' . $heuredepart . ',' . $heuredebut . "')";
 
 echo $sql;
 $result = $bd->query($sql);
