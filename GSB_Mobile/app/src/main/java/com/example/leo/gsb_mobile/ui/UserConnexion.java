@@ -87,7 +87,7 @@ public class UserConnexion extends Activity {
 
             // On récupère l'utilisateur de la BDD distante ayant le même idUser grâce à notre webservice
             // TODO Changer IP (3)
-            String url = "http://172.16.8.24/GSB/GSB_Mobile/webservices/getUserVersion_WS.php?id=" + idUser + "";
+            String url = "http://172.16.8.24/GSB/webservices/getUserVersion_WS.php?id=" + idUser + "";
             // On execute notre tâche Asynchrone éxecutant le webservice getUserVersion
             GetUserVersionFromBDD getUserVersion = new GetUserVersionFromBDD(getApplicationContext(), url);
             getUserVersion.execute();
@@ -174,7 +174,7 @@ public class UserConnexion extends Activity {
                     toast.show();
                 } else {
                     // TODO Changer IP (4)
-                    String url = "http://172.16.8.24/GSB/GSB_Mobile/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
+                    String url = "http://172.16.8.24/GSB/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
                     // On execute notre tâche Asynchrone éxecutant le webservice getUser
                     GetUserFromBDD getUser = new GetUserFromBDD(getApplicationContext(), url);
                     getUser.execute();
