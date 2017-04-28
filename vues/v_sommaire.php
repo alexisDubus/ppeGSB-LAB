@@ -44,7 +44,7 @@
         <li class="active"><a href="index.php?uc=gererFraisHorsForfaits&action=saisirFraisHorsForfait">Fiches de frais hors forfait</a></li>
         <li class="active"><a href="index.php?uc=etatFrais&action=selectionnerMois">Mes fiches de frais</a></li>    
 	      <li class="active"><a href="../glpi" target="_blank">Signaler un probléme</a></li>
-        <li class="active"><a href='GSB_Mobile/app-debug.apk' >Télécharger l'application</a></li>
+        <li class="active"><a href='GSB_Mobile/app-release.apk' >Télécharger l'application</a></li>
         <?php if ($_SESSION['role'] == 'Administrateur') { ?> 
         <li class="active"><a href="index.php?uc=menuCRUD&action=read">Menu CRUD</a></li> 
         <?php } ?>
