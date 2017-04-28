@@ -16,6 +16,7 @@ public class VisiteDAO extends DAOBase {
 
     // Création des constantes du nom des champs de la BDD
     private static final String TABLE_NAME = "Visite";
+    private static final String KEY = "visiteId";
     private static final String DATE = "visiteDateArrive";
     private static final String RDV = "visiteRdv";
     private static final String HOUR_ARRIVE = "visiteHeureArrive";
@@ -50,8 +51,9 @@ public class VisiteDAO extends DAOBase {
     /**
      * Supprime tous les champs de la table Visite
      */
-    public void supprimer() {
-        mDb.delete(TABLE_NAME,null,null);
+    public void supprimer(long id) {
+        //mDb.delete(TABLE_NAME,null,null);
+        mDb.delete(TABLE_NAME, KEY + " = ?", new String[] {String.valueOf(id)});
     }
 
 

@@ -301,10 +301,9 @@ public class CardViewSelector extends AppCompatActivity{
             setVisite.execute();
             Log.i("VISITE", "Visite du " + dateVisite + " crée");
             showToast("Visite du "+ dateVisite + " envoyé à la BDD");
-
+            // Puis on supprime la visite
+            visiteDAO.supprimer(i);
         }
-        // Puis on supprime toutes les visites
-        visiteDAO.supprimer();
     }
 
     /**
