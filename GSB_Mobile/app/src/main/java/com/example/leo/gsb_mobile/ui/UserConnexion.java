@@ -23,12 +23,9 @@ import com.example.leo.gsb_mobile.R;
 import com.example.leo.gsb_mobile.controleur.CabinetDAO;
 import com.example.leo.gsb_mobile.controleur.MedecinDAO;
 import com.example.leo.gsb_mobile.controleur.UtilisateurDAO;
-import com.example.leo.gsb_mobile.controleur.VisiteDAO;
 import com.example.leo.gsb_mobile.object.Utilisateur;
-import com.example.leo.gsb_mobile.object.Visite;
 import com.example.leo.gsb_mobile.web_services.GetUserFromBDD;
 import com.example.leo.gsb_mobile.web_services.GetUserVersionFromBDD;
-import com.example.leo.gsb_mobile.web_services.SetVisiteToBDD;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -89,7 +86,8 @@ public class UserConnexion extends Activity {
             utilisateurDAO.close();
 
             // On récupère l'utilisateur de la BDD distante ayant le même idUser grâce à notre webservice
-            String url = "http://172.16.8.15/PPEGSB4.0_Mobile/webservices/getUserVersion_WS.php?id=" + idUser + "";
+            // TODO Changer IP (3)
+            String url = "http://172.16.8.24/GSB/webservices/getUserVersion_WS.php?id=" + idUser + "";
             // On execute notre tâche Asynchrone éxecutant le webservice getUserVersion
             GetUserVersionFromBDD getUserVersion = new GetUserVersionFromBDD(getApplicationContext(), url);
             getUserVersion.execute();
@@ -175,7 +173,8 @@ public class UserConnexion extends Activity {
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 } else {
-                    String url = "http://172.16.8.15/PPEGSB4.0_Mobile/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
+                    // TODO Changer IP (4)
+                    String url = "http://172.16.8.24/GSB/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
                     // On execute notre tâche Asynchrone éxecutant le webservice getUser
                     GetUserFromBDD getUser = new GetUserFromBDD(getApplicationContext(), url);
                     getUser.execute();

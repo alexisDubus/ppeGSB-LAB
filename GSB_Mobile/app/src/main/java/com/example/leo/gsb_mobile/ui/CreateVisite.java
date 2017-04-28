@@ -102,6 +102,7 @@ public class CreateVisite extends Activity {
             }
         });
 
+        /*
         // Lorsque on clique sur un editText, il se vide de son contenu
         editT_heureDebut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +124,7 @@ public class CreateVisite extends Activity {
             public void onClick(View v) {editT_dateVisite.getText().clear();
             }
         });
-
+*/
 
         // Bouton ---------- Création de la Visite --------------
         btn_create.setOnClickListener(new View.OnClickListener() {
@@ -195,9 +196,6 @@ public class CreateVisite extends Activity {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-
-
-
 
 
             }

@@ -105,11 +105,7 @@ public class CardViewSelector extends AppCompatActivity{
                     dropAllVisiteToBDDMySQL(visiteDAO);
                 } else{
                     // Crée le Toast
-                    Toast toast = Toast.makeText(getApplicationContext(), "Aucune visite dans la BDD locale", Toast.LENGTH_LONG);
-                    // Positionne le Toast au centre de l'écran
-                    toast.setGravity(Gravity.CENTER, 0, 0);
-                    // Affiche le Toast
-                    toast.show();
+                    showToast("Aucune visite dans la BDD locale");
                 }
                 // On ferme la connexion à la table Visite
                 visiteDAO.close();
@@ -126,7 +122,7 @@ public class CardViewSelector extends AppCompatActivity{
      */
     private void addMedecinInList(MedecinDAO medecinDAO, CabinetDAO cabinetDAO, UtilisateurDAO utilisateurDAO){
         String adresse;
-        double distance = 0;
+        int distance = 0;
 
         // On ouvre la connexion à la table medecin
         medecinDAO.open();
@@ -167,7 +163,7 @@ public class CardViewSelector extends AppCompatActivity{
             utilisateurDAO.close();
             // On ferme la connexion à la table utilisateur
 
-            String sDistance = ""+distance+"";
+            String sDistance = ""+distance+" KM";
             // On crée une objet CardView avec le nom, le prenom et l'id du médecin, l'adresse du cabinet et la distance
             // On ajout ensuite la CardView crée à la liste medecins
             medecins.add(new CardView(unMedecin.getNom(), unMedecin.getPrenom(), adresse , unMedecin.getIdMedecin(), sDistance));
@@ -262,7 +258,7 @@ public class CardViewSelector extends AppCompatActivity{
      * @param lng2 longitude du cabinet
      * @return une distance
      */
-    private double getDistance(double lat1, double lng1, double lat2, double lng2) {
+    private int getDistance(double lat1, double lng1, double lat2, double lng2) {
 
         double earthRadius = 6371; // kilometer output
         double dLat = Math.toRadians(lat2-lat1);
@@ -275,7 +271,8 @@ public class CardViewSelector extends AppCompatActivity{
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
         double dist = earthRadius * c;
 
-        return dist; // output distance
+        int distance = (int)dist; // output distance
+        return distance;
     }
 
     /**
@@ -298,14 +295,29 @@ public class CardViewSelector extends AppCompatActivity{
             String heureFin = uneVisite.getHeureFin();
 
             // L'ajoute à la BDD distante grâce à la tâche Asynchrone du webservice setVisite
-            String url = "http://172.16.8.15/PPEGSB4.0_Mobile/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
+            // TODO Changer IP (5)
+            String url = "http://172.16.8.24/GSB/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
             SetVisiteToBDD setVisite = new SetVisiteToBDD(getApplicationContext(), url);
             setVisite.execute();
             Log.i("VISITE", "Visite du " + dateVisite + " crée");
+            showToast("Visite du "+ dateVisite + " envoyé à la BDD");
 
         }
         // Puis on supprime toutes les visites
         visiteDAO.supprimer();
+    }
+
+    /**
+     * Méthode permettant d'afficher un Toast avec le message entré
+     * @param message
+     */
+    public void showToast( String message){
+        // Crée le Toast
+        Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
+        // Positionne le Toast au centre de l'écran
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        // Affiche le Toast
+        toast.show();
     }
 
 
