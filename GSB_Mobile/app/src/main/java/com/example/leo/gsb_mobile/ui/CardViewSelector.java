@@ -296,7 +296,7 @@ public class CardViewSelector extends AppCompatActivity{
 
             // L'ajoute à la BDD distante grâce à la tâche Asynchrone du webservice setVisite
             // TODO Changer IP (5)
-            String url = "http://172.16.8.24/GSB/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
+            String url = "http://172.16.8.24/GSB/webservices/setVisite_WS.php?datevisite='" + dateVisite + "'&rdv='" + rdvOrNot + "'&idutilisateur='" + idUser + "'&idmedecin='" + idMedecin + "'&heurearrivee='" + heureArrive + "'&heuredepart='" + heureFin + "'&heuredebut='" + heureDebut + "'";
             SetVisiteToBDD setVisite = new SetVisiteToBDD(getApplicationContext(), url);
             setVisite.execute();
             Log.i("VISITE", "Visite du " + dateVisite + " crée");
