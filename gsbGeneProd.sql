@@ -350,7 +350,6 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `idRole` varchar(25) DEFAULT NULL,
   `email` varchar(500) DEFAULT NULL,
   `version` int(5) NOT NULL,
-  `mdpSHA` char(255) DEFAULT NULL,
   `reponse` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `role_ibfk_1` (`idRole`)
@@ -389,6 +388,14 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp
 ('f39', 'Frémont', 'Fernande', 'ffremont', 'xs5tq', '4 route de la mer', '13012', 'Allauh', '1998-10-01', '1', 'fremont.fernande@gsb.fr', 2, 'aa45efe9ecbf37db0089beeedea62ceb57db7f17', NULL),
 ('f4', 'Gest', 'Alain', 'agest', 'dywvt', '30 avenue de la mer', '13025', 'Berre', '1985-11-01', '0', 'gest.alain@gsb.fr', 2, '1af7dedacbbe8ce324e316429a816daeff4c542f', NULL),
 ('z44', 'Administrateur', 'Un', 'admin', 'admin', '198 rue de lille', '59130', 'Lammbersart', '1985-11-01', '0', 'admin.asmin@gsb.fr', 2, 'd033e22ae348aeb5660fc2140aec35850c4da997', NULL);
+
+
+ALTER TABLE `utilisateur`
+ADD `mdpSHA` char(255);
+UPDATE `utilisateur` SET `mdpSHA` = sha1(`mdp`);
+/*UPDATE `utilisateur` SET `mdpSHA` = sha2(`mdp`, 224);*/
+/*ALTER TABLE `utilisateur`
+DROP COLUMN `mdp`; */
 
 -- --------------------------------------------------------
 
