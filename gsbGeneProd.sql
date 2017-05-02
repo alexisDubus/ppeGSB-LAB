@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `lignefraisforfait` (
 --
 
 INSERT INTO `lignefraisforfait` (`id`, `idutilisateur`, `mois`, `idFraisForfait`, `quantite`, `montant`, `dateFrais`, `typeFrais`, `description`) VALUES
-(68, 'a17', '201704', 'REP', 345, '8625.00', '2016-06-09', 'Repas Restaurant', 'maaaaanger'),
+(68, 'a17', '201704', 'REP', 345, '8625.00', '2016-06-09', 'Repas Restaurant', 'Repas professionnel'),
 (69, 'a17', '201704', 'ETP', 2, '20.00', '2017-01-05', 'Forfait Etape', 'Réunion'),
 (73, 'a17', '201704', 'ETP', 2, '20.00', '2017-04-13', 'Forfait Etape', 'RDV medecin'),
 (74, 'a17', '201704', 'REP', 8, '200.00', '2017-04-01', 'Repas Restaurant', 'Repas professionnel'),
