@@ -16,5 +16,7 @@ $sql = "INSERT INTO visite (datevisite, rdv, idutilisateur, idmedecin, heureArri
 echo $sql;
 $result = $bd->query($sql);
 
+//var_dump($result);
+
 
 ?>
