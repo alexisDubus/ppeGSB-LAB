@@ -32,6 +32,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtV_Login"
+        android:textAllCaps="false"
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
@@ -53,6 +54,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtV_Mdp"
+        android:textAllCaps="false"
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />

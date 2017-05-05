@@ -70,7 +70,6 @@ public class UserConnexion extends Activity {
         if (utilisateurDAO.count() >= 1) {
 
 
-
             // On ouvre la connexion à la table Utilisateur
             utilisateurDAO.open();
             // Récupération de l'utilisateur dans la BDD Sqlite
@@ -87,7 +86,7 @@ public class UserConnexion extends Activity {
 
             // On récupère l'utilisateur de la BDD distante ayant le même idUser grâce à notre webservice
             // TODO Changer IP (3)
-            String url = "http://172.16.8.24/GSB/webservices/getUserVersion_WS.php?id=" + idUser + "";
+            String url = "http://172.16.8.25/GSB/webservices/getUserVersion_WS.php?id=" + idUser + "";
             // On execute notre tâche Asynchrone éxecutant le webservice getUserVersion
             GetUserVersionFromBDD getUserVersion = new GetUserVersionFromBDD(getApplicationContext(), url);
             getUserVersion.execute();
@@ -174,7 +173,7 @@ public class UserConnexion extends Activity {
                     toast.show();
                 } else {
                     // TODO Changer IP (4)
-                    String url = "http://172.16.8.24/GSB/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
+                    String url = "http://172.16.8.25/GSB/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
                     // On execute notre tâche Asynchrone éxecutant le webservice getUser
                     GetUserFromBDD getUser = new GetUserFromBDD(getApplicationContext(), url);
                     getUser.execute();
@@ -316,7 +315,7 @@ public class UserConnexion extends Activity {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // Impossible de récuperer la position
-            Toast.makeText(this, "First enable LOCATION ACCESS in settings.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Merci d'autoriser la localisation dans les paramètres de votre téléphone.", Toast.LENGTH_LONG).show();
             return null;
         }
         else {

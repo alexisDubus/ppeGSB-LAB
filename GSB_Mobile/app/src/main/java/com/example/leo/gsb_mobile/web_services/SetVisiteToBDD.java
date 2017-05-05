@@ -3,6 +3,7 @@ package com.example.leo.gsb_mobile.web_services;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.Gravity;
 import android.widget.Toast;
 
 import java.io.BufferedReader;

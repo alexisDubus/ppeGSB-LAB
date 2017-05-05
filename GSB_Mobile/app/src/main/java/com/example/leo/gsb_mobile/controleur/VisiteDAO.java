@@ -51,9 +51,9 @@ public class VisiteDAO extends DAOBase {
     /**
      * Supprime tous les champs de la table Visite
      */
-    public void supprimer(long id) {
-        //mDb.delete(TABLE_NAME,null,null);
-        mDb.delete(TABLE_NAME, KEY + " = ?", new String[] {String.valueOf(id)});
+    public void supprimer() {
+        mDb.delete(TABLE_NAME,null,null);
+        //mDb.delete(TABLE_NAME, KEY + " = ?", new String[] {String.valueOf(id)});
     }
 
 

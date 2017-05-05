@@ -147,14 +147,9 @@ public class CreateVisite extends Activity {
                 boolean hourDebutOk = isValidHour(heureDebut);
                 boolean hourFinOk = isValidHour(heureFin);
 
-                // On transforme les heure du format HH:MM vers le format AAAA/MM/JJ HH:MM:SS
-                heureArrive = dateVisite + " " + heureArrive + ":00";
-                heureDebut = dateVisite + " " + heureDebut + ":00";
-                heureFin = dateVisite + " " + heureFin + ":00";
-
                 try {
                     // On converti les heures en format Date
-                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
                     Date heureArriveDate = formatter.parse(heureArrive);
                     Date heureDebutDate = formatter.parse(heureDebut);
                     Date heureFinDate = formatter.parse(heureFin);
@@ -175,6 +170,13 @@ public class CreateVisite extends Activity {
                         VisiteDAO visiteDAO = new VisiteDAO(context);
                         // On ouvre la connexion a la table visite
                         visiteDAO.open();
+
+                        // On transforme les heure du format HH:MM vers le format AAAA/MM/JJ HH:MM:
+                        // Ici, le "%20" correspond a un espace dans une requete URL
+                        heureArrive = dateVisite + "%20" + heureArrive + ":00";
+                        heureDebut = dateVisite + "%20" + heureDebut + ":00";
+                        heureFin = dateVisite + "%20" + heureFin + ":00";
+
                         // On crée la visite
                         Visite uneVisite = new Visite(dateVisite, rdvOrNot, heureArrive, heureDebut, heureFin, idUser, idMedecin);
                         Log.i("CREATEVISITE", "Visite créer");

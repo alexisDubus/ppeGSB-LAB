@@ -28,6 +28,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
 
@@ -50,11 +51,13 @@ public class CardViewSelector extends AppCompatActivity{
 
         btn_dropVisite=(Button)findViewById(R.id.btn_dropVisite);
 
+
         // On créer des instance de nos controlleurs
         // On les utilisera ensuite pour agir sur nos tables
         MedecinDAO medecinDAO = new MedecinDAO(this);
         CabinetDAO cabinetDAO = new CabinetDAO(this);
         UtilisateurDAO utilisateurDAO = new UtilisateurDAO(this);
+        VisiteDAO visiteDAO = new VisiteDAO(getApplicationContext());
 
         // Il est possible que les tables Cabinet et Medecin soient vide
         // Cela arrive dans le cas on il y a un changement de version d'utilisateur (voir UserConnexion)
@@ -75,6 +78,15 @@ public class CardViewSelector extends AppCompatActivity{
             getMedecinFromBDD(medecinDAO);
         }
         medecinDAO.close();
+
+        visiteDAO.open();
+        if (visiteDAO.count() == 0){
+            btn_dropVisite.setVisibility(View.GONE);
+        } else {
+            btn_dropVisite.setVisibility(View.VISIBLE);
+        }
+        visiteDAO.close();
+
 
         // On ajoute ensuite notre liste medecins des objects CardView
         // Ces objets sont créer en fonction des médecins et des cabinets présent dans la BDD locale
@@ -107,8 +119,11 @@ public class CardViewSelector extends AppCompatActivity{
                     // Crée le Toast
                     showToast("Aucune visite dans la BDD locale");
                 }
+
                 // On ferme la connexion à la table Visite
                 visiteDAO.close();
+
+
             }
         });
     }
@@ -282,27 +297,45 @@ public class CardViewSelector extends AppCompatActivity{
      * @param visiteDAO
      */
     private void dropAllVisiteToBDDMySQL(VisiteDAO visiteDAO) {
+        String result = null;
         // Pour chaque visite de la BDD locale
         for (int i = 0; i < visiteDAO.count(); i++) {
             // Récupère la visite
             Visite uneVisite = visiteDAO.selectionner(i);
-            String dateVisite = uneVisite.getDateVisite();
-            int rdvOrNot = uneVisite.getRdvOrNot();
-            String idUser = uneVisite.getUserId();
-            String idMedecin = uneVisite.getMedecinId();
-            String heureArrive = uneVisite.getHeureArrive();
-            String heureDebut = uneVisite.getHeureDebut();
-            String heureFin = uneVisite.getHeureFin();
+            if (uneVisite != null){
+                String dateVisite = uneVisite.getDateVisite();
+                int rdvOrNot = uneVisite.getRdvOrNot();
+                String idUser = uneVisite.getUserId();
+                String idMedecin = uneVisite.getMedecinId();
+                String heureArrive = uneVisite.getHeureArrive();
+                String heureDebut = uneVisite.getHeureDebut();
+                String heureFin = uneVisite.getHeureFin();
 
-            // L'ajoute à la BDD distante grâce à la tâche Asynchrone du webservice setVisite
-            // TODO Changer IP (5)
-            String url = "http://172.16.8.24/GSB/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut + "";
-            SetVisiteToBDD setVisite = new SetVisiteToBDD(getApplicationContext(), url);
-            setVisite.execute();
-            Log.i("VISITE", "Visite du " + dateVisite + " crée");
-            showToast("Visite du "+ dateVisite + " envoyé à la BDD");
-            // Puis on supprime la visite
-            visiteDAO.supprimer(i);
+                // L'ajoute à la BDD distante grâce à la tâche Asynchrone du webservice setVisite
+                // TODO Changer IP (5)
+                String url = "http://172.16.8.25/GSB/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut;
+                Log.i("URL",url);
+                SetVisiteToBDD setVisite = new SetVisiteToBDD(getApplicationContext(), url);
+                setVisite.execute();
+                try {
+                    result = setVisite.get();
+                    if (!Objects.equals(result, "")){
+                        Log.i("VISITE", "Visite du " + dateVisite + " crée");
+                        showToast("Visite du "+ dateVisite + " envoyé à la BDD");
+                        // Puis on supprime la visite
+                        //visiteDAO.supprimer(i);
+                    } else{
+                        showToast("Aucune connexion Internet");
+                    }
+                } catch (InterruptedException | ExecutionException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        if ( result != ""){
+            visiteDAO.supprimer();
+            // Il n'y a plus de visite dans la BDD, on peut donc masquer le bouton
+            btn_dropVisite.setVisibility(View.GONE);
         }
     }
 
