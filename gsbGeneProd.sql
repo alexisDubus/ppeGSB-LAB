@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2017 at 09:58 AM
+-- Generation Time: Apr 28, 2017 at 11:03 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `cabinet` (
   `longitude` double NOT NULL,
   `latitude` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `cabinet`
@@ -105,8 +105,7 @@ INSERT INTO `fichefrais` (`idutilisateur`, `mois`, `nbJustificatifs`, `montantVa
 ('a17', '201611', 0, '0.00', '2016-12-03', 'CL'),
 ('a17', '201701', 0, '0.00', '2017-04-04', 'CL'),
 ('a17', '201702', 0, '0.00', '2017-04-03', 'CL'),
-('a17', '201704', 0, '0.00', '2017-05-03', 'CL'),
-('a17', '201705', 0, '0.00', '2017-05-03', 'CR'),
+('a17', '201704', 0, '0.00', '2017-04-04', 'CR'),
 ('c3', '201612', 0, '0.00', '2016-12-07', 'CR'),
 ('f39', '201612', 0, '0.00', '2016-12-03', 'CR'),
 ('z44', '201704', 0, '0.00', '2017-04-07', 'CR');
@@ -153,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `lignefraisforfait` (
   PRIMARY KEY (`id`),
   KEY `lignefraisforfait_ibfk_1` (`idutilisateur`,`mois`),
   KEY `idFraisForfait` (`idFraisForfait`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=102 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=95 ;
 
 --
 -- Dumping data for table `lignefraisforfait`
@@ -169,14 +168,7 @@ INSERT INTO `lignefraisforfait` (`id`, `idutilisateur`, `mois`, `idFraisForfait`
 (80, 'a17', '201611', 'ETP', 2, '20.00', '2016-11-03', 'Forfait Etape', 'RDV medecin'),
 (82, 'a17', '201704', 'NUI', 4, '320.00', '2017-04-15', 'Nuitée Hôtel', 'Hotel'),
 (91, 'a17', '201704', 'ETP', 2, '20.00', '2017-04-16', 'Forfait Etape', 'Réunion'),
-(94, 'a17', '201704', 'KM', 4, '2.48', '2017-04-01', 'Frais Kilométrique', 'Trajet'),
-(95, 'a17', '201705', 'ETP', 0, '0.00', NULL, NULL, NULL),
-(96, 'a17', '201705', 'KM', 0, '0.00', NULL, NULL, NULL),
-(97, 'a17', '201705', 'NUI', 0, '0.00', NULL, NULL, NULL),
-(98, 'a17', '201705', 'REP', 0, '0.00', NULL, NULL, NULL),
-(99, 'a17', '201705', 'NUI', 100, '8000.00', '2017-05-18', 'Nuitée Hôtel', 'Trajet'),
-(100, 'a17', '201705', 'NUI', 20, '1600.00', '2017-05-20', 'Nuitée Hôtel', 'Hotel'),
-(101, 'a17', '201705', 'ETP', 9, '90.00', '2017-05-06', 'Forfait Etape', 'Forfait');
+(94, 'a17', '201704', 'KM', 4, '2.48', '2017-04-01', 'Frais Kilométrique', 'Trajet');
 
 --
 -- Triggers `lignefraisforfait`
@@ -257,18 +249,18 @@ INSERT INTO `medecin` (`id`, `nom`, `prenom`, `idcabinet`, `idutilisateur`) VALU
 (15, 'Gilbert', 'Francis', 1, 'a131'),
 (16, 'Patrick', 'Pierre', 2, 'a131'),
 (19, 'Bernard', 'Jean', 12, 'a17'),
-(29, 'Dupuit', 'Didier', 15, 'b4'),
-(30, 'Souls', 'Jean-marc', 14, 'b34'),
-(31, 'Poutau', 'Fabrice', 13, 'b25'),
-(32, 'Gigot', 'Paul', 12, 'b28'),
+(29, 'Dupuit', 'Didier', 10, 'b4'),
+(30, 'Souls', 'Jean-marc', 11, 'b34'),
+(31, 'Poutau', 'Fabrice', 12, 'b25'),
+(32, 'Gigot', 'Paul', 7, 'b28'),
 (33, 'Guili', 'Robert', 11, 'b50'),
-(34, 'Johnson', 'Marc', 10, 'b59'),
-(35, 'Lapeche', 'Marine', 9, 'c14'),
-(36, 'detour', 'Flore', 8, 'c54'),
-(37, 'Grand', 'Julie', 7, 'd13'),
-(38, 'Pilier', 'Babette', 6, 'e24'),
+(34, 'Johnson', 'Marc', 8, 'b59'),
+(35, 'Lapeche', 'Marine', 6, 'c14'),
+(36, 'detour', 'Flore', 5, 'c54'),
+(37, 'Grand', 'Julie', 4, 'd13'),
+(38, 'Pilier', 'Babette', 3, 'e24'),
 (39, 'Potue', 'Lydia', 5, 'e39'),
-(40, 'Clear', 'Jean', 4, 'e49');
+(40, 'Clear', 'Jean', 9, 'e49');
 
 --
 -- Triggers `medecin`
@@ -364,9 +356,9 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 -- Dumping data for table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `ville`, `dateEmbauche`, `idRole`, `email`, `version`, `reponse`, `mdpSHA`) VALUES
+INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `ville`, `dateEmbauche`, `idRole`, `email`, `version`, `reponse`) VALUES
 ('a131', 'Villechalane', 'Louis', 'lvillachane', 'jux7g', '8 rue des Charmes', '46000', 'Cahors', '2005-12-21', '2', 'villachane.louis@gsb.fr', 29, 'rex'),
-('a17', 'Andre', 'David', 'dandre', 'oppg5', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23', '2', 'andre.david@gsb.fr', 39, 'rex'),
+('a17', 'Andre', 'David', 'dandre', 'oppg5', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23', '2', 'andre.david@gsb.fr', 39, 'tigrou'),
 ('a55', 'Bedos', 'Christian', 'cbedos', 'gmhxd', '1 rue Peranud', '46250', 'Montcuq', '1995-01-12', '2', 'bedos@christian@gsb.fr', 8, 'rex'),
 ('a93', 'Tusseau', 'Louis', 'ltusseau', 'ktp3s', '22 rue des Ternes', '46123', 'Gramat', '2000-05-01', '2', 'tusseau.louis@gsb.fr', 6, 'rex'),
 ('b13', 'Bentot', 'Pascal', 'pbentot', 'doyw1', '11 allée des Cerises', '46512', 'Bessines', '1992-07-09', '2', 'bentot.pascal@gsb.fr', 3, 'rex'),
@@ -394,8 +386,6 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp
 ('f4', 'Gest', 'Alain', 'agest', 'dywvt', '30 avenue de la mer', '13025', 'Berre', '1985-11-01', '0', 'gest.alain@gsb.fr', 2, 'rex'),
 ('z44', 'Administrateur', 'Un', 'admin', 'admin', '198 rue de lille', '59130', 'Lammbersart', '1985-11-01', '0', 'admin.asmin@gsb.fr', 2, 'rex');
 
--- --------------------------------------------------------
-
 
 ALTER TABLE `utilisateur`
 ADD `mdpSHA` char(255);
@@ -403,6 +393,8 @@ UPDATE `utilisateur` SET `mdpSHA` = sha1(`mdp`);
 /*UPDATE `utilisateur` SET `mdpSHA` = sha2(`mdp`, 224);*/
 /*ALTER TABLE `utilisateur`
 DROP COLUMN `mdp`; */
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `visite`
