@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2017 at 11:03 PM
+-- Generation Time: May 05, 2017 at 09:58 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -34,28 +34,25 @@ CREATE TABLE IF NOT EXISTS `cabinet` (
   `longitude` double NOT NULL,
   `latitude` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `cabinet`
 --
 
 INSERT INTO `cabinet` (`id`, `rue`, `CP`, `ville`, `longitude`, `latitude`) VALUES
-(1, '91, rue nationale', '59000', 'Lille', 1205815.584, 56214556.5969),
-(2, 'rue Dupont', '59000', 'Lille', 928.22, 222.22),
-(3, '51, boulevard de la liberté', '59000', 'Lille', 1555815.584, 5621875556.5969),
-(4, '155 rue de Paris', '59000', 'Lille', 3.0683173, 50.6331888),
-(5, '5 rue Dupont', '59000', 'Lille', 928.22, 222.22),
-(6, '12 rue Dupuit', '59000', 'Lille', 998.22, 322.22),
-(7, '120 Avenue Fosh', '59000', 'Lille', 228.22, 292.22),
-(8, '78 Boulevard De Gaule', '59000', 'Lille', 718.12, 456.12),
-(9, '34 rue Pagnol', '59000', 'Lille', 58.22, 22.22),
-(10, '28 rue Hugo', '59000', 'Lille', 108.22, 2.22),
-(11, '10 Avenue Bjorn', '59000', 'Lille', 92128.22, 2022.22),
-(12, '39 Boulevard de Paris', '59000', 'Lille', 128.22, 982.22),
-(13, '111 Avenue Fosh', '59000', 'Lille', 2008.22, 2299.29),
-(14, '20 Boulevard de la liberté', '59000', 'Lille', 1010.1, 2817),
-(15, '39 rue nationale', '59000', 'Lille', 7168, 838.118);
+(1, '91, rue nationale', '59000', 'Lille', 3.0582114, 50.6347666),
+(2, '108, boulevard de la liberte', '59000', 'Lille', 3.0655001, 50.629413),
+(3, '51, boulevard de la liberte', '59000', 'Lille', 3.0557126, 50.6353533),
+(4, '81 rue nationale', '59000', 'lille', 3.0455384, 50.6297968),
+(5, '5 rue nationale', '95000', 'Paris', 2.0614565, 49.034538),
+(6, '5 rue de la paix', '95000', 'Paris', 2.3301829, 48.8689845),
+(7, '2 Avenue du Général de Gaulle', '51100', 'Reims', 4.0209051, 49.2484884),
+(8, '3 rue Gambetta', '51100', 'Reims', 4.0355698, 49.2507635),
+(9, '1 rue Magellan', '76600', 'LeHavre', 0.1255419, 49.493072),
+(10, '9 rue Saint-Pierre', '13000', 'Marseille', 5.3873545, 43.2938706),
+(11, '10 Boulevard Jeanne d\'Arc', '13000', 'Marseille', 5.3992056, 43.2939033),
+(12, '2 rue de Maubeuge', '75001', 'paris', 2.3402949, 48.876043);
 
 -- --------------------------------------------------------
 
@@ -108,7 +105,8 @@ INSERT INTO `fichefrais` (`idutilisateur`, `mois`, `nbJustificatifs`, `montantVa
 ('a17', '201611', 0, '0.00', '2016-12-03', 'CL'),
 ('a17', '201701', 0, '0.00', '2017-04-04', 'CL'),
 ('a17', '201702', 0, '0.00', '2017-04-03', 'CL'),
-('a17', '201704', 0, '0.00', '2017-04-04', 'CR'),
+('a17', '201704', 0, '0.00', '2017-05-03', 'CL'),
+('a17', '201705', 0, '0.00', '2017-05-03', 'CR'),
 ('c3', '201612', 0, '0.00', '2016-12-07', 'CR'),
 ('f39', '201612', 0, '0.00', '2016-12-03', 'CR'),
 ('z44', '201704', 0, '0.00', '2017-04-07', 'CR');
@@ -155,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `lignefraisforfait` (
   PRIMARY KEY (`id`),
   KEY `lignefraisforfait_ibfk_1` (`idutilisateur`,`mois`),
   KEY `idFraisForfait` (`idFraisForfait`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=95 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=102 ;
 
 --
 -- Dumping data for table `lignefraisforfait`
@@ -171,7 +169,14 @@ INSERT INTO `lignefraisforfait` (`id`, `idutilisateur`, `mois`, `idFraisForfait`
 (80, 'a17', '201611', 'ETP', 2, '20.00', '2016-11-03', 'Forfait Etape', 'RDV medecin'),
 (82, 'a17', '201704', 'NUI', 4, '320.00', '2017-04-15', 'Nuitée Hôtel', 'Hotel'),
 (91, 'a17', '201704', 'ETP', 2, '20.00', '2017-04-16', 'Forfait Etape', 'Réunion'),
-(94, 'a17', '201704', 'KM', 4, '2.48', '2017-04-01', 'Frais Kilométrique', 'Trajet');
+(94, 'a17', '201704', 'KM', 4, '2.48', '2017-04-01', 'Frais Kilométrique', 'Trajet'),
+(95, 'a17', '201705', 'ETP', 0, '0.00', NULL, NULL, NULL),
+(96, 'a17', '201705', 'KM', 0, '0.00', NULL, NULL, NULL),
+(97, 'a17', '201705', 'NUI', 0, '0.00', NULL, NULL, NULL),
+(98, 'a17', '201705', 'REP', 0, '0.00', NULL, NULL, NULL),
+(99, 'a17', '201705', 'NUI', 100, '8000.00', '2017-05-18', 'Nuitée Hôtel', 'Trajet'),
+(100, 'a17', '201705', 'NUI', 20, '1600.00', '2017-05-20', 'Nuitée Hôtel', 'Hotel'),
+(101, 'a17', '201705', 'ETP', 9, '90.00', '2017-05-06', 'Forfait Etape', 'Forfait');
 
 --
 -- Triggers `lignefraisforfait`
@@ -359,35 +364,37 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 -- Dumping data for table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `ville`, `dateEmbauche`, `idRole`, `email`, `version`, `reponse`) VALUES
+INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `ville`, `dateEmbauche`, `idRole`, `email`, `version`, `reponse`, `mdpSHA`) VALUES
 ('a131', 'Villechalane', 'Louis', 'lvillachane', 'jux7g', '8 rue des Charmes', '46000', 'Cahors', '2005-12-21', '2', 'villachane.louis@gsb.fr', 29, 'rex'),
-('a17', 'Andre', 'David', 'dandre', 'oppg5', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23', '2', 'andre.david@gsb.fr', 39, 'tigrou'),
-('a55', 'Bedos', 'Christian', 'cbedos', 'gmhxd', '1 rue Peranud', '46250', 'Montcuq', '1995-01-12', '2', 'bedos@christian@gsb.fr', 8, NULL),
-('a93', 'Tusseau', 'Louis', 'ltusseau', 'ktp3s', '22 rue des Ternes', '46123', 'Gramat', '2000-05-01', '2', 'tusseau.louis@gsb.fr', 6, NULL),
-('b13', 'Bentot', 'Pascal', 'pbentot', 'doyw1', '11 allée des Cerises', '46512', 'Bessines', '1992-07-09', '2', 'bentot.pascal@gsb.fr', 3, NULL),
-('b16', 'Bioret', 'Luc', 'lbioret', 'hrjfs', '1 Avenue gambetta', '46000', 'Cahors', '1998-05-11', '2', 'bioret.luc@gsb.fr', 5, NULL),
-('b19', 'Bunisset', 'Francis', 'fbunisset', '4vbnd', '10 rue des Perles', '93100', 'Montreuil', '1987-10-21', '2', 'buisset.francis@gsb.fr', 4, NULL),
-('b25', 'Bunisset', 'Denise', 'dbunisset', 's1y1r', '23 rue Manin', '75019', 'paris', '2010-12-05', '2', 'bunisset.denise@gsb.fr', 5, NULL),
-('b28', 'Cacheux', 'Bernard', 'bcacheux', 'uf7r3', '114 rue Blanche', '75017', 'Paris', '2009-11-12', '2', 'cachez.bernard@gsb.fr', 5, NULL),
-('b34', 'Cadic', 'Eric', 'ecadic', '6u8dc', '123 avenue de la République', '75011', 'Paris', '2008-09-23', '2', 'cadic.eric@gsb.fr', 8, NULL),
-('b4', 'Charoze', 'Catherine', 'ccharoze', 'u817o', '100 rue Petit', '75019', 'Paris', '2005-11-12', '2', 'charoze.catherine@gsb.fr', 5, NULL),
-('b50', 'Clepkens', 'Christophe', 'cclepkens', 'bw1us', '12 allée des Anges', '93230', 'Romainville', '2003-08-11', '2', 'clepkens.christophe@gsb.fr', 3, NULL),
-('b59', 'Cottin', 'Vincenne', 'vcottin', '2hoh9', '36 rue Des Roches', '93100', 'Monteuil', '2001-11-18', '2', 'cottin.vincenne@gsb.fr', 3, NULL),
-('c14', 'Daburon', 'François', 'fdaburon', '7oqpv', '13 rue de Chanzy', '94000', 'Créteil', '2002-02-11', '2', 'daburon.francois@gsb.fr', 3, NULL),
-('c3', 'De', 'Philippe', 'pde', 'gk9kx', '13 rue Barthes', '94000', 'Créteil', '2010-12-14', '2', 'de.phillipe@gsb.fr', 2, NULL),
-('c54', 'Debelle', 'Michel', 'mdebelle', 'od5rt', '181 avenue Barbusse', '93210', 'Rosny', '2006-11-23', '2', 'debelle.phillipe@gsb.fr', 5, NULL),
-('d13', 'Debelle', 'Jeanne', 'jdebelle', 'nvwqq', '134 allée des Joncs', '44000', 'Nantes', '2000-05-11', '2', 'debelle.jeanne@gsb.fr', 3, NULL),
-('d51', 'Debroise', 'Michel', 'mdebroise', 'sghkb', '2 Bld Jourdain', '44000', 'Nantes', '2001-04-17', '2', 'debroise.michel@gsb.fr', 2, NULL),
-('e22', 'Desmarquest', 'Nathalie', 'ndesmarquest', 'f1fob', '14 Place d Arc', '45000', 'Orléans', '2005-11-12', '2', 'desmarquet.nathalie@gsb.fr', 2, NULL),
-('e24', 'Desnost', 'Pierre', 'pdesnost', '4k2o5', '16 avenue des Cèdres', '23200', 'Guéret', '2001-02-05', '2', 'desnot.pierre@gsb.fr', 3, NULL),
-('e39', 'Dudouit', 'Frédéric', 'fdudouit', '44im8', '18 rue de l église', '23120', 'GrandBourg', '2000-08-01', '2', 'dudouit.frederic@gsb.fr', 3, NULL),
-('e49', 'Duncombe', 'Claude', 'cduncombe', 'qf77j', '19 rue de la tour', '23100', 'La souteraine', '1987-10-10', '2', 'duncombe.claude@gsb.fr', 3, NULL),
-('e5', 'Enault-Pascreau', 'Céline', 'cenault', 'y2qdu', '25 place de la gare', '23200', 'Gueret', '1995-09-01', '2', 'enault-pascreau.celine@gsb.fr', 2, NULL),
-('e52', 'Eynde', 'Valérie', 'veynde', 'i7sn3', '3 Grand Place', '13015', 'Marseille', '1999-11-01', '2', 'eynde.valerie@gsb.fr', 2, NULL),
-('f21', 'Finck', 'Jacques', 'jfinck', 'mpb3t', '10 avenue du Prado', '13002', 'Marseille', '2001-11-10', '2', 'finck.jacques@gsb.fr', 2, NULL),
-('f39', 'Frémont', 'Fernande', 'ffremont', 'xs5tq', '4 route de la mer', '13012', 'Allauh', '1998-10-01', '1', 'fremont.fernande@gsb.fr', 2, NULL),
-('f4', 'Gest', 'Alain', 'agest', 'dywvt', '30 avenue de la mer', '13025', 'Berre', '1985-11-01', '0', 'gest.alain@gsb.fr', 2, NULL),
-('z44', 'Administrateur', 'Un', 'admin', 'admin', '198 rue de lille', '59130', 'Lammbersart', '1985-11-01', '0', 'admin.asmin@gsb.fr', 2, NULL);
+('a17', 'Andre', 'David', 'dandre', 'oppg5', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23', '2', 'andre.david@gsb.fr', 39, 'rex'),
+('a55', 'Bedos', 'Christian', 'cbedos', 'gmhxd', '1 rue Peranud', '46250', 'Montcuq', '1995-01-12', '2', 'bedos@christian@gsb.fr', 8, 'rex'),
+('a93', 'Tusseau', 'Louis', 'ltusseau', 'ktp3s', '22 rue des Ternes', '46123', 'Gramat', '2000-05-01', '2', 'tusseau.louis@gsb.fr', 6, 'rex'),
+('b13', 'Bentot', 'Pascal', 'pbentot', 'doyw1', '11 allée des Cerises', '46512', 'Bessines', '1992-07-09', '2', 'bentot.pascal@gsb.fr', 3, 'rex'),
+('b16', 'Bioret', 'Luc', 'lbioret', 'hrjfs', '1 Avenue gambetta', '46000', 'Cahors', '1998-05-11', '2', 'bioret.luc@gsb.fr', 5, 'rex'),
+('b19', 'Bunisset', 'Francis', 'fbunisset', '4vbnd', '10 rue des Perles', '93100', 'Montreuil', '1987-10-21', '2', 'buisset.francis@gsb.fr', 4, 'rex'),
+('b25', 'Bunisset', 'Denise', 'dbunisset', 's1y1r', '23 rue Manin', '75019', 'paris', '2010-12-05', '2', 'bunisset.denise@gsb.fr', 5, 'rex'),
+('b28', 'Cacheux', 'Bernard', 'bcacheux', 'uf7r3', '114 rue Blanche', '75017', 'Paris', '2009-11-12', '2', 'cachez.bernard@gsb.fr', 5, 'rex'),
+('b34', 'Cadic', 'Eric', 'ecadic', '6u8dc', '123 avenue de la République', '75011', 'Paris', '2008-09-23', '2', 'cadic.eric@gsb.fr', 8, 'rex'),
+('b4', 'Charoze', 'Catherine', 'ccharoze', 'u817o', '100 rue Petit', '75019', 'Paris', '2005-11-12', '2', 'charoze.catherine@gsb.fr', 5, 'rex'),
+('b50', 'Clepkens', 'Christophe', 'cclepkens', 'bw1us', '12 allée des Anges', '93230', 'Romainville', '2003-08-11', '2', 'clepkens.christophe@gsb.fr', 3, 'rex'),
+('b59', 'Cottin', 'Vincenne', 'vcottin', '2hoh9', '36 rue Des Roches', '93100', 'Monteuil', '2001-11-18', '2', 'cottin.vincenne@gsb.fr', 3, 'rex'),
+('c14', 'Daburon', 'François', 'fdaburon', '7oqpv', '13 rue de Chanzy', '94000', 'Créteil', '2002-02-11', '2', 'daburon.francois@gsb.fr', 3, 'rex'),
+('c3', 'De', 'Philippe', 'pde', 'gk9kx', '13 rue Barthes', '94000', 'Créteil', '2010-12-14', '2', 'de.phillipe@gsb.fr', 2, 'rex'),
+('c54', 'Debelle', 'Michel', 'mdebelle', 'od5rt', '181 avenue Barbusse', '93210', 'Rosny', '2006-11-23', '2', 'debelle.phillipe@gsb.fr', 5, 'rex'),
+('d13', 'Debelle', 'Jeanne', 'jdebelle', 'nvwqq', '134 allée des Joncs', '44000', 'Nantes', '2000-05-11', '2', 'debelle.jeanne@gsb.fr', 3, 'rex'),
+('d51', 'Debroise', 'Michel', 'mdebroise', 'sghkb', '2 Bld Jourdain', '44000', 'Nantes', '2001-04-17', '2', 'debroise.michel@gsb.fr', 2, 'rex'),
+('e22', 'Desmarquest', 'Nathalie', 'ndesmarquest', 'f1fob', '14 Place d Arc', '45000', 'Orléans', '2005-11-12', '2', 'desmarquet.nathalie@gsb.fr', 2, 'rex'),
+('e24', 'Desnost', 'Pierre', 'pdesnost', '4k2o5', '16 avenue des Cèdres', '23200', 'Guéret', '2001-02-05', '2', 'desnot.pierre@gsb.fr', 3, 'rex'),
+('e39', 'Dudouit', 'Frédéric', 'fdudouit', '44im8', '18 rue de l église', '23120', 'GrandBourg', '2000-08-01', '2', 'dudouit.frederic@gsb.fr', 3, 'rex'),
+('e49', 'Duncombe', 'Claude', 'cduncombe', 'qf77j', '19 rue de la tour', '23100', 'La souteraine', '1987-10-10', '2', 'duncombe.claude@gsb.fr', 3, 'rex'),
+('e5', 'Enault-Pascreau', 'Céline', 'cenault', 'y2qdu', '25 place de la gare', '23200', 'Gueret', '1995-09-01', '2', 'enault-pascreau.celine@gsb.fr', 2, 'rex'),
+('e52', 'Eynde', 'Valérie', 'veynde', 'i7sn3', '3 Grand Place', '13015', 'Marseille', '1999-11-01', '2', 'eynde.valerie@gsb.fr', 2, 'rex'),
+('f21', 'Finck', 'Jacques', 'jfinck', 'mpb3t', '10 avenue du Prado', '13002', 'Marseille', '2001-11-10', '2', 'finck.jacques@gsb.fr', 2, 'rex'),
+('f39', 'Frémont', 'Fernande', 'ffremont', 'xs5tq', '4 route de la mer', '13012', 'Allauh', '1998-10-01', '1', 'fremont.fernande@gsb.fr', 2, 'rex'),
+('f4', 'Gest', 'Alain', 'agest', 'dywvt', '30 avenue de la mer', '13025', 'Berre', '1985-11-01', '0', 'gest.alain@gsb.fr', 2, 'rex'),
+('z44', 'Administrateur', 'Un', 'admin', 'admin', '198 rue de lille', '59130', 'Lammbersart', '1985-11-01', '0', 'admin.asmin@gsb.fr', 2, 'rex');
+
+-- --------------------------------------------------------
 
 
 ALTER TABLE `utilisateur`
@@ -396,8 +403,6 @@ UPDATE `utilisateur` SET `mdpSHA` = sha1(`mdp`);
 /*UPDATE `utilisateur` SET `mdpSHA` = sha2(`mdp`, 224);*/
 /*ALTER TABLE `utilisateur`
 DROP COLUMN `mdp`; */
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `visite`
