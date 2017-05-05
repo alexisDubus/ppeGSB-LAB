@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.leo.gsb_mobile.Constant;
 import com.example.leo.gsb_mobile.R;
 import com.example.leo.gsb_mobile.controleur.CabinetDAO;
 import com.example.leo.gsb_mobile.controleur.MedecinDAO;
@@ -312,8 +313,7 @@ public class CardViewSelector extends AppCompatActivity{
                 String heureFin = uneVisite.getHeureFin();
 
                 // L'ajoute à la BDD distante grâce à la tâche Asynchrone du webservice setVisite
-                // TODO Changer IP (5)
-                String url = "http://172.16.8.25/GSB/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut;
+                String url = "http://"+Constant.ADRESS_IP_SERVER+ "/GSB/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut;
                 Log.i("URL",url);
                 SetVisiteToBDD setVisite = new SetVisiteToBDD(getApplicationContext(), url);
                 setVisite.execute();

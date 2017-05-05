@@ -5,6 +5,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.leo.gsb_mobile.Constant;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,8 +36,7 @@ public class GetCabinetFromBDD extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
-        // TODO Changer IP (1)
-        String result = appelWS("http://172.16.8.25/GSB/webservices/getCabinet_WS.php");
+        String result = appelWS("http://"+ Constant.ADRESS_IP_SERVER+"/GSB/webservices/getCabinet_WS.php");
         return result;
     }
 
