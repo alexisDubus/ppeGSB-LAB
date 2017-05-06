@@ -2,6 +2,7 @@
  
 include'ConnexionBd.php';
 
+
 $dateVisite= $_REQUEST['datevisite'];
 $rdv= $_REQUEST['rdv'];
 $idutilisateur= $_REQUEST['idutilisateur'];
@@ -16,7 +17,7 @@ $sql = "INSERT INTO visite (datevisite, rdv, idutilisateur, idmedecin, heureArri
 echo $sql;
 $result = $bd->query($sql);
 
-//var_dump($result);
-
+//echo mysql_insert_id();
+var_dump($result);
 
 ?>

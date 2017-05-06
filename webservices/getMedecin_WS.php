@@ -5,7 +5,7 @@ include'ConnexionBd.php';
 $id = $_REQUEST['id'];
 
  
-$sql = "SELECT * FROM medecin WHERE idutilisateur = '" . $id . "'";
+$sql = "SELECT * FROM medecin WHERE idutilisateur = '" . $id . "' ORDER BY nom";
 
 
 //echo $sql;
