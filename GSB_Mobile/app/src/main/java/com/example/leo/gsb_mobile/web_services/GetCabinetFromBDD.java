@@ -36,7 +36,7 @@ public class GetCabinetFromBDD extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
-        String result = appelWS("http://"+ Constant.ADRESS_IP_SERVER+"/GSB/webservices/getCabinet_WS.php");
+        String result = appelWS("http://"+ Constant.ADRESS_IP_SERVER+"/webservices/getCabinet_WS.php");
         return result;
     }
 

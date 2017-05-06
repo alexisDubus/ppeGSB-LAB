@@ -90,7 +90,7 @@ public class UserConnexion extends Activity implements LocationListener{
             utilisateurDAO.close();
 
             // On récupère l'utilisateur de la BDD distante ayant le même idUser grâce à notre webservice
-            String url = "http://"+ Constant.ADRESS_IP_SERVER+"/GSB/webservices/getUserVersion_WS.php?id=" + idUser + "";
+            String url = "http://"+ Constant.ADRESS_IP_SERVER+"/webservices/getUserVersion_WS.php?id=" + idUser + "";
             // On execute notre tâche Asynchrone éxecutant le webservice getUserVersion
             GetUserVersionFromBDD getUserVersion = new GetUserVersionFromBDD(getApplicationContext(), url);
             getUserVersion.execute();
@@ -177,7 +177,7 @@ public class UserConnexion extends Activity implements LocationListener{
                     toast.show();
                 } else {
 
-                    String url = "http://"+Constant.ADRESS_IP_SERVER+"/GSB/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
+                    String url = "http://"+Constant.ADRESS_IP_SERVER+"/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
                     // On execute notre tâche Asynchrone éxecutant le webservice getUser
                     GetUserFromBDD getUser = new GetUserFromBDD(getApplicationContext(), url);
                     getUser.execute();

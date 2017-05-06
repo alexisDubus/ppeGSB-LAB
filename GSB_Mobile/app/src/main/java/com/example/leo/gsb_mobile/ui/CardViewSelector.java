@@ -287,7 +287,7 @@ public class CardViewSelector extends AppCompatActivity{
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
         double dist = earthRadius * c;
 
-        int distance = (int)dist; // output distance
+        int distance = (int)dist / 20; // output distance
         return distance;
     }
 
@@ -313,7 +313,7 @@ public class CardViewSelector extends AppCompatActivity{
                 String heureFin = uneVisite.getHeureFin();
 
                 // L'ajoute à la BDD distante grâce à la tâche Asynchrone du webservice setVisite
-                String url = "http://"+Constant.ADRESS_IP_SERVER+ "/GSB/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut;
+                String url = "http://"+Constant.ADRESS_IP_SERVER+ "/webservices/setVisite_WS.php?datevisite=" + dateVisite + "&rdv=" + rdvOrNot + "&idutilisateur=" + idUser + "&idmedecin=" + idMedecin + "&heurearrivee=" + heureArrive + "&heuredepart=" + heureFin + "&heuredebut=" + heureDebut;
                 Log.i("URL",url);
                 SetVisiteToBDD setVisite = new SetVisiteToBDD(getApplicationContext(), url);
                 setVisite.execute();
