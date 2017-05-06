@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.leo.gsb_mobile.Constant;
 import com.example.leo.gsb_mobile.controleur.UtilisateurDAO;
 import com.example.leo.gsb_mobile.object.Medecin;
 import com.example.leo.gsb_mobile.object.Utilisateur;
@@ -50,8 +51,7 @@ public class GetMedecinFromBDD extends AsyncTask<Void, Void, String> {
         Utilisateur unUser = utilisateurDAO.selectionner(0);
         String idUser = unUser.getUserId();
         utilisateurDAO.close();
-        // TODO Changer IP (2)
-        String result = appelWS("http://172.16.8.25/GSB/webservices/getMedecin_WS.php?id="+idUser);
+        String result = appelWS("http://"+ Constant.ADRESS_IP_SERVER+"/GSB/webservices/getMedecin_WS.php?id="+idUser);
         return result;
     }
 

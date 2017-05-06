@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.leo.gsb_mobile.Constant;
 import com.example.leo.gsb_mobile.R;
 import com.example.leo.gsb_mobile.controleur.CabinetDAO;
 import com.example.leo.gsb_mobile.controleur.MedecinDAO;
@@ -40,11 +41,15 @@ import java.util.concurrent.ExecutionException;
  * C'est aussi elle qui va effectuer les différentes vérifications nécessaire (version/localisation...)
  */
 
-public class UserConnexion extends Activity {
+public class UserConnexion extends Activity implements LocationListener{
 
     public EditText editT_login;
     public EditText editT_mdp;
     public Button btn_connexion;
+
+    public static int MY_PERMISSION_LOCATION;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +90,7 @@ public class UserConnexion extends Activity {
             utilisateurDAO.close();
 
             // On récupère l'utilisateur de la BDD distante ayant le même idUser grâce à notre webservice
-            // TODO Changer IP (3)
-            String url = "http://172.16.8.25/GSB/webservices/getUserVersion_WS.php?id=" + idUser + "";
+            String url = "http://"+ Constant.ADRESS_IP_SERVER+"/GSB/webservices/getUserVersion_WS.php?id=" + idUser + "";
             // On execute notre tâche Asynchrone éxecutant le webservice getUserVersion
             GetUserVersionFromBDD getUserVersion = new GetUserVersionFromBDD(getApplicationContext(), url);
             getUserVersion.execute();
@@ -172,8 +176,8 @@ public class UserConnexion extends Activity {
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 } else {
-                    // TODO Changer IP (4)
-                    String url = "http://172.16.8.25/GSB/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
+
+                    String url = "http://"+Constant.ADRESS_IP_SERVER+"/GSB/webservices/getUser_WS.php?login=" + login + "&mdp=" + mdp + "";
                     // On execute notre tâche Asynchrone éxecutant le webservice getUser
                     GetUserFromBDD getUser = new GetUserFromBDD(getApplicationContext(), url);
                     getUser.execute();
@@ -211,7 +215,7 @@ public class UserConnexion extends Activity {
                             } else {
                                 // Si on arrive pas a récupérer de localisation
                                 // On crée et ajoute un utilisateur avec les différentes valeurs + position GPS de la TourEiffel
-                                Utilisateur unUser = new Utilisateur(id, nom, prenom, version,  2.2945, 48.8584);
+                                Utilisateur unUser = new Utilisateur(id, nom, prenom, version, 2.2945, 48.8584);
                                 utilisateurDAO.ajouter(unUser);
                             }
 
@@ -267,6 +271,7 @@ public class UserConnexion extends Activity {
 
     /**
      * Méthode permettant de supprimer le contenu de la table utilisateur pour ensuite ajouter un nouveau utilisateur
+     *
      * @param unUser
      */
     public void changeUserInBDD(Utilisateur unUser) {
@@ -286,6 +291,7 @@ public class UserConnexion extends Activity {
     /**
      * Permet d'obtenir la localisation
      * On pourra ensuite récupérer la longitude/latitude
+     *
      * @return Location
      */
     @Nullable
@@ -310,31 +316,47 @@ public class UserConnexion extends Activity {
         Log.i("LOCATION", "Critère ok");
 
         // On obtient ainsi le meilleur fournisseur de position, en fonction des critères
-        String provider = locationManager.getBestProvider(critere, true);
+        // String provider = locationManager.getBestProvider(critere, true);
+        String provider = LocationManager.NETWORK_PROVIDER;
+        //String provider =
         Log.i("LOCATION", "provider" + provider + "");
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // Impossible de récuperer la position
-            Toast.makeText(this, "Merci d'autoriser la localisation dans les paramètres de votre téléphone.", Toast.LENGTH_LONG).show();
-            return null;
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSION_LOCATION);
         }
-        else {
-            // Sinon on récupère bien un objet Location
-            Location l = locationManager.getLastKnownLocation(provider);
-            locationManager.requestLocationUpdates(provider, 2000, 10, locationListener);
-            Log.i("LOCATION", "Location = " + l + "");
+        // Sinon on récupère bien un objet Location
+        Location l = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        //locationManager.requestLocationUpdates(provider, 2000, 10, locationListener);
+        Log.i("LOCATION", "Location = " + l + "");
+        if (l == null) {
+            return null;
+        } else {
             return l;
         }
     }
 
-    private final LocationListener locationListener = new LocationListener() {
-        public void onLocationChanged(Location location) {}
-        public void onProviderDisabled(String provider) {}
-        public void onProviderEnabled(String provider) {}
-        public void onStatusChanged(String provider, int Status, Bundle extras) {}
-    };
+    @Override
+    public void onLocationChanged(Location location) {
+        final double longitude = location.getLongitude();
+        final double latitude = location.getLatitude();
+        Log.i("Longitude", ""+longitude);
+        Log.i("Latitude", ""+latitude);
+    }
 
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
 
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+
+    }
 }
 
 

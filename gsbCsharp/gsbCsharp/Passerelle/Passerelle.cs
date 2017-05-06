@@ -30,7 +30,11 @@ namespace Passerelle
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
         private static BindingList<Utilisateur> listeDesAdmins = new BindingList<Utilisateur>();
+<<<<<<< HEAD
         private static String connectionString = "SERVER=172.16.8.24; DATABASE=gsb_frais; UID=admin; PASSWORD=AzertY!59000";
+=======
+        private static String connectionString = "SERVER=172.16.8.15; DATABASE=gsb_frais; UID=admin; PASSWORD=AzertY!59000";
+>>>>>>> c765e2e966c35c12a62859db78a404aff2bc3a36
         //private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
