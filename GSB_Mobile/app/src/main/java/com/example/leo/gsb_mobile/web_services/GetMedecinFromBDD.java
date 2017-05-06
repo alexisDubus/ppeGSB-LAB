@@ -51,7 +51,7 @@ public class GetMedecinFromBDD extends AsyncTask<Void, Void, String> {
         Utilisateur unUser = utilisateurDAO.selectionner(0);
         String idUser = unUser.getUserId();
         utilisateurDAO.close();
-        String result = appelWS("http://"+ Constant.ADRESS_IP_SERVER+"/GSB/webservices/getMedecin_WS.php?id="+idUser);
+        String result = appelWS("http://"+ Constant.ADRESS_IP_SERVER+"/webservices/getMedecin_WS.php?id="+idUser);
         return result;
     }
 
