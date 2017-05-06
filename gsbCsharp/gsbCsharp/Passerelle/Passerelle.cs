@@ -30,7 +30,7 @@ namespace Passerelle
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
         private static BindingList<Utilisateur> listeDesAdmins = new BindingList<Utilisateur>();
-        private static String connectionString = "SERVER=172.16.8.15; DATABASE=gsb_frais; UID=admin; PASSWORD=AzertY!59000";
+        private static String connectionString = "SERVER=172.16.8.24; DATABASE=gsb_frais; UID=admin; PASSWORD=AzertY!59000";
         //private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
@@ -343,7 +343,7 @@ namespace Passerelle
             }
             catch (Exception exeAdmin)
             {
-
+                throw new Exception("impossible de créer un admin, erreur : " + exeAdmin.ToString());
             }
         }
 
@@ -370,7 +370,7 @@ namespace Passerelle
             }
             catch (Exception exeUtilisateur)
             {
-
+                throw new Exception("impossible de créer un utilisateur, erreur : " + exeUtilisateur.ToString());
             } 
 
         }
@@ -457,7 +457,7 @@ namespace Passerelle
             }
             catch (Exception exeMedecin)
             {
-
+                throw new Exception("impossible de créer un médecin, erreur : " + exeMedecin.ToString());
             }
 
         }
@@ -735,7 +735,7 @@ namespace Passerelle
             }
             catch (Exception exeVisite)
             {
-
+                throw new Exception("impossible de créer une visite, erreur : " + exeVisite.ToString());
             }
 
         }
@@ -845,7 +845,7 @@ namespace Passerelle
             }
             catch (Exception exeCabinet)
             {
-
+                throw new Exception("impossible de créer un cabinet, erreur : " + exeCabinet.ToString());
             }
         }
 
