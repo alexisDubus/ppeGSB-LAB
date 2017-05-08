@@ -6,6 +6,6 @@ package com.example.leo.gsb_mobile;
 
 public class Constant {
 
-    public static final String ADRESS_IP_SERVER = "172.16.8.26/GSB";
+    public static final String ADRESS_IP_SERVER = "172.16.8.89/GSB";
 
 }
