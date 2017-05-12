@@ -1,1 +1,1 @@
-include ':app', ':moduleconstant'
+include ':app'
