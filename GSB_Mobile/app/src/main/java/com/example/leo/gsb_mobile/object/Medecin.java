@@ -6,15 +6,17 @@ package com.example.leo.gsb_mobile.object;
  */
 public class Medecin {
 
+    private int key;
     private int idMedecin;
     private String nom;
     private String prenom;
     private String idUtilisateur;
     private String idCabinet;
 
-    public Medecin(int id, String nom, String prenom, String idCabinet, String idUtilisateur) {
+    public Medecin(int key, int id, String nom, String prenom, String idCabinet, String idUtilisateur) {
         super();
-        idMedecin = id;
+        this.key = key;
+        this.idMedecin = id;
         this.nom = nom;
         this.prenom = prenom;
         this.idCabinet = idCabinet;
@@ -23,11 +25,19 @@ public class Medecin {
 
     public Medecin(){}
 
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
+    }
+
     public int getIdMedecin() {
         return idMedecin;
     }
 
-    public void setIdMedecin(int  idMedecin) {
+    public void setIdMedecin(int idMedecin) {
         this.idMedecin = idMedecin;
     }
 
