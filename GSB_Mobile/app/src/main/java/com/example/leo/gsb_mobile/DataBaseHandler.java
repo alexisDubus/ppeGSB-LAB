@@ -60,13 +60,15 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     // -------------------- Table MEDECIN --------------------
     private static final String MEDECIN_TABLE_NAME = "Medecin";
-    private static final String MEDECIN_KEY = "medecinId";
+    private static final String MEDECIN_KEY = "key";
+    private static final String MEDECIN_ID = "medecinId";
     private static final String MEDECIN_NAME = "medecinNom";
     private static final String MEDECIN_LASTNAME = "medecinPrenom";
 
     private static final String MEDECIN_TABLE_CREATE =
             "CREATE TABLE " + MEDECIN_TABLE_NAME + "(" +
                     MEDECIN_KEY + " INTEGER PRIMARY KEY , " +
+                    MEDECIN_ID + " INTEGER, " +
                     MEDECIN_NAME + " TEXT, " +
                     MEDECIN_LASTNAME + " TEXT, " +
                     CABINET_KEY + " TEXT, " +
@@ -91,7 +93,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                     VISITE_HOUR_ARRIVE + " TEXT, " +
                     VISITE_HOUR_START + " TEXT, " +
                     VISITE_HOUR_END + " TEXT, " +
-                    MEDECIN_KEY + " TEXT, " +
+                    MEDECIN_ID + " TEXT, " +
                     USER_KEY + " TEXT);";
 
     private static final String VISITE_TABLE_DROP = "DROP TABLE IF EXISTS " + VISITE_TABLE_NAME + ";";
