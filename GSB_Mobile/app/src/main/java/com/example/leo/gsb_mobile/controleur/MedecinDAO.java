@@ -16,7 +16,8 @@ public class MedecinDAO extends DAOBase {
 
     // Création des constantes du nom des champs de la BDD
     private static final String TABLE_NAME = "Medecin";
-    private static final String KEY = "medecinId";
+    private static final String KEY = "key";
+    private static final String ID = "medecinId";
     private static final String NAME = "medecinNom";
     private static final String LASTNAME = "medecinPrenom";
     private static final String CABINET_KEY = "cabinetId";
@@ -33,7 +34,8 @@ public class MedecinDAO extends DAOBase {
      */
     public void ajouter (Medecin medecin){
         ContentValues value = new ContentValues();
-        value.put(MedecinDAO.KEY, medecin.getIdMedecin());
+        value.put(MedecinDAO.KEY, medecin.getKey());
+        value.put(MedecinDAO.ID, medecin.getIdMedecin());
         value.put(MedecinDAO.NAME, medecin.getNom());
         value.put(MedecinDAO.LASTNAME, medecin.getPrenom());
         value.put(MedecinDAO.CABINET_KEY, medecin.getIdCabinet());
@@ -57,10 +59,9 @@ public class MedecinDAO extends DAOBase {
      * @return Medecin
      */
     public Medecin selectionner(long id) {
-        Cursor c = mDb.rawQuery("select * from " + TABLE_NAME + " where medecinId >= ?", new String[]{""+id+""});
+        Cursor c = mDb.rawQuery("select * from " + TABLE_NAME + " where key >= ?", new String[]{""+id+""});
         return cursorToMedecin(c);
     }
-
 
     /**
      * Créer un objet Medecin et lui donne en paramètre les valeurs du cursor
@@ -74,11 +75,12 @@ public class MedecinDAO extends DAOBase {
         c.moveToFirst();
         // On crée un Medecin
         Medecin unMedecin = new Medecin();
-        unMedecin.setIdMedecin(c.getInt(0));
-        unMedecin.setNom(c.getString(1));
-        unMedecin.setPrenom(c.getString(2));
-        unMedecin.setIdCabinet(c.getString(3));
-        unMedecin.setIdUtilisateur(c.getString(4));
+        unMedecin.setKey(c.getInt(0));
+        unMedecin.setIdMedecin(c.getInt(1));
+        unMedecin.setNom(c.getString(2));
+        unMedecin.setPrenom(c.getString(3));
+        unMedecin.setIdCabinet(c.getString(4));
+        unMedecin.setIdUtilisateur(c.getString(5));
 
         c.close();
         return unMedecin;
