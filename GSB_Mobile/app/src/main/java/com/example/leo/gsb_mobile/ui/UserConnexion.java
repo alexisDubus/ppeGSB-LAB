@@ -323,17 +323,20 @@ public class UserConnexion extends Activity implements LocationListener{
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSION_LOCATION);
+            Log.i("PERMISSION POSITION", "Permission non accordée");
+            return null;
         }
+
         // Sinon on récupère bien un objet Location
         Location l = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         //locationManager.requestLocationUpdates(provider, 2000, 10, locationListener);
         Log.i("LOCATION", "Location = " + l + "");
-        if (l == null) {
-            return null;
-        } else {
-            return l;
-        }
+        if (l == null) {return null;}
+        else {return l;}
     }
+
+
+
 
     @Override
     public void onLocationChanged(Location location) {
