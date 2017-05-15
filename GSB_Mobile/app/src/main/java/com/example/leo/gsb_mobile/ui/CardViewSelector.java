@@ -212,17 +212,18 @@ public class CardViewSelector extends AppCompatActivity{
 
             // On parcourt chaque médecins de l'array
             for(int i = 0 ; i < array.length() ; i++) {
-                int id = i+1;
+                int key = i+1;
                 // On récupère tout les paramètres du médecins
+                int idMedecin= array.getJSONObject(i).getInt("id");
                 String nom= array.getJSONObject(i).getString("nom");
                 String prenom= array.getJSONObject(i).getString("prenom");
                 String idCabinet= array.getJSONObject(i).getString("idcabinet");
                 String idUtilisateur= array.getJSONObject(i).getString("idutilisateur");
                 // On crée un objet médecin avec les valeurs récuperées
-                Medecin unMedecin = new Medecin(id,nom,prenom,idCabinet,idUtilisateur);
+                Medecin unMedecin = new Medecin(key,idMedecin,nom,prenom,idCabinet,idUtilisateur);
                 // On l'ajoute ensuite à la BDD locale
                 medecinDAO.ajouter(unMedecin);
-                Log.i("CREATE", "Medecin "+ unMedecin.getNom() + " " + unMedecin.getPrenom() + " crée");
+                Log.i("CREATE", unMedecin.getKey() +" Medecin "+ unMedecin.getNom() + " " + unMedecin.getPrenom() + "("+unMedecin.getIdMedecin()+ ") crée");
             }
 
         } catch (InterruptedException | ExecutionException | JSONException e) {
