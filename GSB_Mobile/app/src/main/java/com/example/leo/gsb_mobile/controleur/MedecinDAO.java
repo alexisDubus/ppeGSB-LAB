@@ -59,10 +59,9 @@ public class MedecinDAO extends DAOBase {
      * @return Medecin
      */
     public Medecin selectionner(long id) {
-        Cursor c = mDb.rawQuery("select * from " + TABLE_NAME + " where medecinId >= ?", new String[]{""+id+""});
+        Cursor c = mDb.rawQuery("select * from " + TABLE_NAME + " where key >= ?", new String[]{""+id+""});
         return cursorToMedecin(c);
     }
-
 
     /**
      * Créer un objet Medecin et lui donne en paramètre les valeurs du cursor
