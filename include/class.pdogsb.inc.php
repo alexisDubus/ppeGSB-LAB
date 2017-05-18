@@ -293,7 +293,7 @@ class PdoGsb
         }
 
         public function getLesCategories(){
-        	$req = "select * from categories";
+        	$req = "select * from categorie";
             $res = PdoGsb::$monPdo->query($req);
             $lesLignes = $res->fetchAll();
             return $lesLignes;
