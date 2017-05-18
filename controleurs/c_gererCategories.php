@@ -12,3 +12,4 @@ switch($action)
     $lesCategories =$pdo->getLesCategories();
     include("vues/v_listeCategories.php");
     break;
+}
