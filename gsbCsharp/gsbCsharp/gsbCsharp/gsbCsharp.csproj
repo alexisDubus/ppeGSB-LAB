@@ -61,6 +61,12 @@
     <Compile Include="FormAcceuil.Designer.cs">
       <DependentUpon>FormAcceuil.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCreateAvantage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateAvantage.Designer.cs">
+      <DependentUpon>FormCreateAvantage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCreateCabinet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAcceuil.resx">
       <DependentUpon>FormAcceuil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateAvantage.resx">
+      <DependentUpon>FormCreateAvantage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreateCabinet.resx">
       <DependentUpon>FormCreateCabinet.cs</DependentUpon>
