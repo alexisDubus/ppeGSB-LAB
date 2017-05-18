@@ -26,11 +26,12 @@ namespace Passerelle
         public static int typeUtilisateur;
         public static Utilisateur visiteurSession = new Utilisateur();
         private static BindingList<Medecin> listeDesMedecins = new BindingList<Medecin>();
+        private static BindingList<Avantage> listeDesAvantages = new BindingList<Avantage>();
         private static BindingList<Cabinet> listeDesCabinets = new BindingList<Cabinet>();
         private static BindingList<Visite> listeDesVisites = new BindingList<Visite>();
         private static BindingList<Utilisateur> listeDesVisiteurs = new BindingList<Utilisateur>();
         private static BindingList<Utilisateur> listeDesAdmins = new BindingList<Utilisateur>();
-        private static String connectionString = "SERVER=172.16.8.24; DATABASE=gsb_frais; UID=admin; PASSWORD=AzertY!59000";
+        private static String connectionString = "SERVER=192.168.244.146; DATABASE=gsb_frais; UID=admin; PASSWORD=AzertY!59000";
         //private static String connectionString = "SERVER=127.0.0.1; DATABASE=gsb_frais; UID=lamp; PASSWORD=AzertY!59";
         private static MySqlConnection maConnection;
 
@@ -1012,6 +1013,18 @@ namespace Passerelle
 
         #endregion
 
+        public static void addAvantage(Avantage avantage)
+        {
+            connexion();
+            MySqlCommand maCommande = maConnection.CreateCommand();
+            maCommande.CommandText = "INSERT INTO avantages(libelle) VALUES(@libelle);";
+            maCommande.Parameters.AddWithValue("@libelle", avantage.getNom());
 
+
+            maCommande.ExecuteNonQuery();
+            int lastId = (int)maCommande.LastInsertedId;
+            avantage.setId(lastId);
+            listeDesAvantages.Add(avantage);
+        }
     }
 }
