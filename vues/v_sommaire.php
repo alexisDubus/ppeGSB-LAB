@@ -47,6 +47,8 @@
         <li class="active"><a href='GSB_Mobile/app-release.apk' >Télécharger l'application</a></li>
         <?php if ($_SESSION['role'] == 'Administrateur') { ?> 
         <li class="active"><a href="index.php?uc=menuCRUD&action=read">Menu CRUD</a></li> 
+        <li class="active"><a href="index.php?uc=gererCategorie&action=read">Gestion des Categories</a></li>
+
         <?php } ?>
       </ul>
       <ul class="nav navbar-nav navbar-right">

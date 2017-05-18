@@ -291,6 +291,13 @@ class PdoGsb
             $lesLignes = $res->fetchAll();
             return $lesLignes;
         }
+
+        public function getLesCategories(){
+        	$req = "select * from categories";
+            $res = PdoGsb::$monPdo->query($req);
+            $lesLignes = $res->fetchAll();
+            return $lesLignes;
+        }
         
         /**
          * renvoie les id des frais forfaits
@@ -572,7 +579,10 @@ class PdoGsb
 		$req = "update fichefrais set idEtat = '$etat', dateModif = now() 
 		where fichefrais.idutilisateur ='$idUtilisateur' and fichefrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
-	}	
+	}
+
+
+
         
         /**
          * Retourne le statut de l'application en fonction. Peut être modifier par l'administrateur via phpMyAdmin. 

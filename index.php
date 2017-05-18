@@ -27,8 +27,8 @@ if($occupe == 0)
             {
                     include("controleurs/c_gererFrais.php");break;
             }
-        case 'gererFraisHorsForfaits' :
-        {
+            case 'gererFraisHorsForfaits' :
+            {
                     include("controleurs/c_gererFraisHorsForfaits.php");break;
             }
             case 'etatFrais' :
@@ -38,7 +38,11 @@ if($occupe == 0)
             case 'menuCRUD' : 
             {
                     include("controleurs/c_CRUD.php");break;
-    }
+            }
+            case 'gererCategorie':
+            {
+                include("controleurs/c_gererCategories.php");break;
+            }
 
     }
 }
