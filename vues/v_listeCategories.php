@@ -17,8 +17,8 @@
 					foreach( $lesCategories as $uneCategorie) 
 					{
 						$libelle = $uneCategorie['libelle'];
-						$montantMaxU = $unFraisHorsForfait['montantMaxU'];
-						$montantMaxM = $unFraisHorsForfait['montantMaxM'];
+						$montantMaxU = $uneCategorie['montantMaxU'];
+						$montantMaxM = $uneCategorie['montantMaxM'];
 							
 				?>		
 						<tr>
