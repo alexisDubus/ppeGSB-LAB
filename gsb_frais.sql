@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 30 Avril 2017 à 17:08
+-- Généré le :  Jeu 18 Mai 2017 à 14:04
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -19,6 +19,28 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `gsb_frais`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `avantages`
+--
+
+CREATE TABLE `avantages` (
+  `id` int(11) NOT NULL,
+  `libelle` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `avantages`
+--
+
+INSERT INTO `avantages` (`id`, `libelle`) VALUES
+(1, 'stylo'),
+(2, 'carnet'),
+(3, 'souris'),
+(4, 'lunettes'),
+(5, 'bons de reduction');
 
 -- --------------------------------------------------------
 
@@ -100,7 +122,8 @@ INSERT INTO `fichefrais` (`idutilisateur`, `mois`, `nbJustificatifs`, `montantVa
 ('a131', '201611', 0, '0.00', '2016-12-03', 'CL'),
 ('a131', '201612', 0, '0.00', '2017-03-07', 'CL'),
 ('a131', '201703', 0, '0.00', '2017-04-13', 'CL'),
-('a131', '201704', 0, '0.00', '2017-04-13', 'CR'),
+('a131', '201704', 0, '0.00', '2017-05-15', 'CL'),
+('a131', '201705', 0, '0.00', '2017-05-15', 'CR'),
 ('a17', '201611', 0, '0.00', '2016-12-03', 'CL'),
 ('a17', '201701', 0, '0.00', '2017-04-04', 'CL'),
 ('a17', '201702', 0, '0.00', '2017-04-03', 'CL'),
@@ -162,7 +185,11 @@ INSERT INTO `lignefraisforfait` (`id`, `idutilisateur`, `mois`, `idFraisForfait`
 (80, 'a17', '201611', 'ETP', 2, '20.00', '2016-11-03', 'Forfait Etape', 'RDV medecin'),
 (82, 'a17', '201704', 'NUI', 4, '320.00', '2017-04-15', 'Nuitée Hôtel', 'Hotel'),
 (91, 'a17', '201704', 'ETP', 2, '20.00', '2017-04-16', 'Forfait Etape', 'Réunion'),
-(94, 'a17', '201704', 'KM', 4, '2.48', '2017-04-01', 'Frais Kilométrique', 'Trajet');
+(94, 'a17', '201704', 'KM', 4, '2.48', '2017-04-01', 'Frais Kilométrique', 'Trajet'),
+(95, 'a131', '201705', 'ETP', 0, '0.00', NULL, NULL, NULL),
+(96, 'a131', '201705', 'KM', 0, '0.00', NULL, NULL, NULL),
+(97, 'a131', '201705', 'NUI', 0, '0.00', NULL, NULL, NULL),
+(98, 'a131', '201705', 'REP', 0, '0.00', NULL, NULL, NULL);
 
 --
 -- Déclencheurs `lignefraisforfait`
@@ -272,6 +299,29 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `offre`
+--
+
+CREATE TABLE `offre` (
+  `id` int(11) NOT NULL,
+  `idAvantages` int(11) NOT NULL,
+  `idVisite` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `offre`
+--
+
+INSERT INTO `offre` (`id`, `idAvantages`, `idVisite`) VALUES
+(1, 0, 11),
+(2, 1, 11),
+(3, 3, 11),
+(4, 4, 15),
+(5, 5, 15);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `role`
 --
 
@@ -334,12 +384,12 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `ville`, `dateEmbauche`, `idRole`, `email`, `version`, `reponse`, `mdpSHA`) VALUES
-('a131', 'Villechalane', 'Louis', 'lvillachane', 'jux7g', '8 rue des Charmes', '46000', 'Cahors', '2005-12-21', '2', 'villachane.louis@gsb.fr', 29, 'rex', '3abf9eb797afe468902101efe6b4b00f7d50802a'),
-('a17', 'Andre', 'David', 'dandre', 'oppg5', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23', '2', 'andre.david@gsb.fr', 39, 'tigrou', '12e0b9be32932a8028b0ef0432a0a0a99421f745'),
+('a131', 'Villechalane', 'Louis', 'lvillachane', 'jux7g', '8 rue des Charmes', '46000', 'Cahors', '2005-12-21', '2', 'villachane.louis@gsb.fr', 30, 'rex', '3abf9eb797afe468902101efe6b4b00f7d50802a'),
+('a17', 'Andre', 'David', 'dandre', 'oppg5', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23', '2', 'andre.david@gsb.fr', 40, 'tigrou', '12e0b9be32932a8028b0ef0432a0a0a99421f745'),
 ('a55', 'Bedos', 'Christian', 'cbedos', 'gmhxd', '1 rue Peranud', '46250', 'Montcuq', '1995-01-12', '2', 'bedos@christian@gsb.fr', 8, NULL, 'a34b9dfadee33917a63c3cdebdc9526230611f0b'),
 ('a93', 'Tusseau', 'Louis', 'ltusseau', 'ktp3s', '22 rue des Ternes', '46123', 'Gramat', '2000-05-01', '2', 'tusseau.louis@gsb.fr', 6, NULL, 'f1c1d39e9898f3202a2eaa3dc38ae61575cd77ad'),
-('b13', 'Bentot', 'Pascal', 'pbentot', 'doyw1', '11 allée des Cerises', '46512', 'Bessines', '1992-07-09', '2', 'bentot.pascal@gsb.fr', 3, NULL, '178e1efaf000fdf2267edc43fad2a65197a0ab10'),
-('b16', 'Bioret', 'Luc', 'lbioret', 'hrjfs', '1 Avenue gambetta', '46000', 'Cahors', '1998-05-11', '2', 'bioret.luc@gsb.fr', 5, NULL, 'ab7fa51f9bf8fde35d9e5bcc5066d3b71dda00d2'),
+('b13', 'Bentot', 'Pascal', 'pbentot', 'doyw1', '11 allée des Cerises', '46512', 'Bessines', '1992-07-09', '2', 'bentot.pascal@gsb.fr', 4, NULL, '178e1efaf000fdf2267edc43fad2a65197a0ab10'),
+('b16', 'Bioret', 'Luc', 'lbioret', 'hrjfs', '1 Avenue gambetta', '46000', 'Cahors', '1998-05-11', '2', 'bioret.luc@gsb.fr', 6, NULL, 'ab7fa51f9bf8fde35d9e5bcc5066d3b71dda00d2'),
 ('b19', 'Bunisset', 'Francis', 'fbunisset', '4vbnd', '10 rue des Perles', '93100', 'Montreuil', '1987-10-21', '2', 'buisset.francis@gsb.fr', 4, NULL, 'aa710ca3a1f12234bc2872aa0a6f88d6cf896ae4'),
 ('b25', 'Bunisset', 'Denise', 'dbunisset', 's1y1r', '23 rue Manin', '75019', 'paris', '2010-12-05', '2', 'bunisset.denise@gsb.fr', 5, NULL, '40ff56dc0525aa08de29eba96271997a91e7d405'),
 ('b28', 'Cacheux', 'Bernard', 'bcacheux', 'uf7r3', '114 rue Blanche', '75017', 'Paris', '2009-11-12', '2', 'cachez.bernard@gsb.fr', 5, NULL, '51a4fac4890def1ef8605f0b2e6554c86b2eb919'),
@@ -377,25 +427,26 @@ CREATE TABLE `visite` (
   `idmedecin` int(11) NOT NULL,
   `heureArrivee` datetime NOT NULL,
   `heureDepart` datetime NOT NULL,
-  `heureDebut` datetime NOT NULL
+  `heureDebut` datetime NOT NULL,
+  `idOffre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `visite`
 --
 
-INSERT INTO `visite` (`id`, `dateVisite`, `rdv`, `idutilisateur`, `idmedecin`, `heureArrivee`, `heureDepart`, `heureDebut`) VALUES
-(11, '2017-04-05', 1, 'a131', 13, '2017-04-05 14:10:00', '2017-04-05 15:00:00', '2017-04-05 14:30:00'),
-(15, '2017-02-02', 1, 'a17', 19, '2017-02-02 10:30:00', '2017-02-02 12:30:00', '2017-02-02 11:30:00'),
-(22, '2017-03-04', 1, 'a55', 3, '2017-03-04 12:00:00', '2017-03-04 14:00:00', '2017-03-04 12:30:00'),
-(23, '2017-01-04', 13, 'b13', 3, '2017-01-04 10:00:00', '2017-01-04 14:00:00', '2017-01-04 12:30:00'),
-(24, '2017-06-04', 16, 'b16', 3, '2017-06-04 09:00:00', '2017-06-04 14:00:00', '2017-06-04 12:30:00'),
-(26, '0000-00-00', 1, 'b34', 4, '2017-04-20 09:20:00', '2017-04-20 10:00:00', '2017-04-20 09:30:00'),
-(28, '2017-04-29', 1, 'b4', 29, '2017-04-29 13:36:00', '2017-04-29 17:00:00', '2017-04-29 15:00:00'),
-(29, '2017-12-04', 1, 'b34', 30, '2017-12-04 14:20:00', '2017-12-04 15:00:00', '2017-12-04 14:30:00'),
-(30, '2017-04-24', 1, 'b25', 31, '2017-04-24 06:00:00', '2017-04-24 10:00:00', '2017-04-24 08:00:00'),
-(31, '2017-04-14', 1, 'b28', 32, '2017-04-14 10:21:00', '2017-04-14 13:00:00', '2017-04-14 11:00:00'),
-(32, '2017-04-25', 1, 'c54', 36, '2017-04-25 08:38:00', '2017-04-25 18:00:00', '2017-04-25 11:00:00');
+INSERT INTO `visite` (`id`, `dateVisite`, `rdv`, `idutilisateur`, `idmedecin`, `heureArrivee`, `heureDepart`, `heureDebut`, `idOffre`) VALUES
+(11, '2017-04-05', 1, 'a131', 13, '2017-04-05 14:10:00', '2017-04-05 15:00:00', '2017-04-05 14:30:00', 1),
+(15, '2017-02-02', 1, 'a17', 19, '2017-02-02 10:30:00', '2017-02-02 12:30:00', '2017-02-02 11:30:00', 4),
+(22, '2017-03-04', 1, 'a55', 3, '2017-03-04 12:00:00', '2017-03-04 14:00:00', '2017-03-04 12:30:00', 0),
+(23, '2017-01-04', 0, 'b13', 3, '2017-01-04 10:00:00', '2017-01-04 14:00:00', '2017-01-04 12:30:00', 0),
+(24, '2017-06-04', 0, 'b16', 3, '2017-06-04 09:00:00', '2017-06-04 14:00:00', '2017-06-04 12:30:00', 0),
+(26, '0000-00-00', 1, 'b34', 4, '2017-04-20 09:20:00', '2017-04-20 10:00:00', '2017-04-20 09:30:00', 0),
+(28, '2017-04-29', 1, 'b4', 29, '2017-04-29 13:36:00', '2017-04-29 17:00:00', '2017-04-29 15:00:00', 0),
+(29, '2017-12-04', 1, 'b34', 30, '2017-12-04 14:20:00', '2017-12-04 15:00:00', '2017-12-04 14:30:00', 0),
+(30, '2017-04-24', 1, 'b25', 31, '2017-04-24 06:00:00', '2017-04-24 10:00:00', '2017-04-24 08:00:00', 0),
+(31, '2017-04-14', 1, 'b28', 32, '2017-04-14 10:21:00', '2017-04-14 13:00:00', '2017-04-14 11:00:00', 0),
+(32, '2017-04-25', 1, 'c54', 36, '2017-04-25 08:38:00', '2017-04-25 18:00:00', '2017-04-25 11:00:00', 0);
 
 --
 -- Déclencheurs `visite`
@@ -422,6 +473,12 @@ DELIMITER ;
 --
 -- Index pour les tables exportées
 --
+
+--
+-- Index pour la table `avantages`
+--
+ALTER TABLE `avantages`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `cabinet`
@@ -472,6 +529,14 @@ ALTER TABLE `medecin`
   ADD KEY `FK_medecin_id_cabinet` (`idcabinet`);
 
 --
+-- Index pour la table `offre`
+--
+ALTER TABLE `offre`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idAvantage` (`idAvantages`),
+  ADD KEY `idVisite` (`idVisite`);
+
+--
 -- Index pour la table `role`
 --
 ALTER TABLE `role`
@@ -490,12 +555,18 @@ ALTER TABLE `utilisateur`
 ALTER TABLE `visite`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idutilisateur` (`idutilisateur`,`idmedecin`),
-  ADD KEY `FK_visite_id_medecin` (`idmedecin`);
+  ADD KEY `FK_visite_id_medecin` (`idmedecin`),
+  ADD KEY `avantage` (`idOffre`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
 --
 
+--
+-- AUTO_INCREMENT pour la table `avantages`
+--
+ALTER TABLE `avantages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `cabinet`
 --
@@ -505,7 +576,7 @@ ALTER TABLE `cabinet`
 -- AUTO_INCREMENT pour la table `lignefraisforfait`
 --
 ALTER TABLE `lignefraisforfait`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 --
 -- AUTO_INCREMENT pour la table `lignefraishorsforfait`
 --
@@ -516,6 +587,11 @@ ALTER TABLE `lignefraishorsforfait`
 --
 ALTER TABLE `medecin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+--
+-- AUTO_INCREMENT pour la table `offre`
+--
+ALTER TABLE `offre`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `visite`
 --
