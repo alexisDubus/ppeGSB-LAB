@@ -7,7 +7,7 @@ $lesVehicules = $pdo->getVehiculeUtilisateur($idUtilisateur);
 
 $typeCategorie = $pdo->getCatVehicule();
 
-
+$action = $_REQUEST['action'];
 include("vues/v_vehicule.php");
 switch($action){
 	case 'validerCreationVehicule':{
