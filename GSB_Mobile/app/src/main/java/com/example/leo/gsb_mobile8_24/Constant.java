@@ -1,0 +1,11 @@
+package com.example.leo.gsb_mobile8_24;
+
+/**
+ * Created by Leo on 05/05/2017.
+ */
+
+public class Constant {
+
+    public static final String ADRESS_IP_SERVER = "172.16.8.24/GSB";
+
+}

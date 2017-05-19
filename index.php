@@ -35,6 +35,10 @@ if($occupe == 0)
             {
                     include("controleurs/c_etatFrais.php");break; 
             }
+            case 'vehicule' :
+            {
+                    include("controleurs/c_vehicule.php");break; 
+            }
             case 'menuCRUD' : 
             {
                     include("controleurs/c_CRUD.php");break;

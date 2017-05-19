@@ -26,7 +26,7 @@ class PdoGsb
         //private static $leMdp = '';
         private static $bdd='dbname=gsb_frais';   		
       	//private static $user='root';    		
-      	private static $leMdp='AzertY!59';	
+      	private static $leMdp='AzertY!59000';	
 	private static $monPdo;
 	private static $monPdoGsb = null;
 	
@@ -174,7 +174,31 @@ class PdoGsb
 		}
 		return $lesLignes;
 	}
-
+        
+        public function getVehiculeUtilisateur($idUtilisateur){
+	    $req = "select vehicule.id, vehicule.plaque, categorievehicule.puissance,  vehicule.libelle from vehicule, categorievehicule  where vehicule.idvisiteur ='$idUtilisateur' and vehicule.idcategorie = categorievehicule.id";	
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+                return $lesLignes;
+        }
+        
+         public function getCatVehicule(){
+	    $req = "select * from  categorievehicule ";	
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+                return $lesLignes;
+        }
+        
+        public function insertVehiculeUtilisateur($idUtilisateur, $categorie, $plaque, $libelle){
+	    $req = "INSERT INTO `gsb_frais`.`vehicule` (`id`, `idCategorie`, `plaque`, `libelle`, `idvisiteur`) VALUES (NULL, '$categorie', '$plaque', '$libelle', '$idUtilisateur')";	
+		$res = PdoGsb::$monPdo->query($req);
+        }
+        
+        public function deleteVehiculeUtilisateur($idVehicule){
+	    $req = "DELETE FROM `gsb_frais`.`vehicule` WHERE `vehicule`.`id` = '$idVehicule'";	
+		$res = PdoGsb::$monPdo->query($req);
+        }
+        
 	/**
  * Retourne sous forme d'un tableau associatif toutes les lignes de la table 
  * fraisforfait

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.leo.gsb_mobile">
+    package="com.example.leo.gsb_mobile8_24">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -13,15 +13,15 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icon_gsb"
-        android:label="@string/app_name"
+        android:label="GSB_Mobile8_24"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".ui.CardViewSelector"/>
-        <activity android:name=".ui.CreateVisite"/>
+        <activity android:name="com.example.leo.gsb_mobile8_24.ui.CardViewSelector"/>
+        <activity android:name="com.example.leo.gsb_mobile8_24.ui.CreateVisite"/>
 
-        <activity android:name=".ui.UserConnexion">
+        <activity android:name="com.example.leo.gsb_mobile8_24.ui.UserConnexion">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
